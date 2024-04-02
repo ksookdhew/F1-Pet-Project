@@ -9,9 +9,7 @@ View the current standings of Formula 1 drivers, including their positions and p
 #### Constructor Standings: 
 Check out the latest constructor standings to see how your favorite teams are performing in the championship. This section includes positions, points, and detailed information about each constructor.
 #### Race Schedule: 
-Stay informed about the Formula 1 calendar with a comprehensive race schedule. This feature is divided into upcoming races and past events, ensuring you never miss out on the action.
-#### Circuit Information: 
-Dive deep into each race with detailed information about the circuits. From historical data to track layouts, get to know the venues hosting the Formula 1 races.
+Stay informed about the Formula 1 calendar with a comprehensive race schedule and circuit information. This feature is divided into upcoming races and past events, ensuring you never miss out on the action.
 #### Previous Race Results for the Current Season: 
 Access quick and accurate results of races from the current season. This feature allows you to keep track of how drivers and teams are performing throughout the year.
 #### All-time F1 Records: 
