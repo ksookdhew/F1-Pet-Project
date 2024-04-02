@@ -23,4 +23,4 @@ Explore the history of Formula 1 with some of the all-time records. From legenda
 
 ## Design
 
-- [Figma]([https://www.figma.com/file/6X4X3lU6A9CzDCG45yE74o/F1-Pet-project?type=design&node-id=0-1&mode=design&t=0tVYboibKyxslEkc-0](https://www.figma.com/file/6X4X3lU6A9CzDCG45yE74o/F1-Pet-project?type=design&node-id=6-1193&mode=design))
+- [Figma](https://www.figma.com/file/6X4X3lU6A9CzDCG45yE74o/F1-Pet-project?type=design&node-id=6-1193&mode=design)
