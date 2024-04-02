@@ -10,10 +10,12 @@ import Foundation
 
 typealias ConstructorStandingsResults = (Result< ConstructorStandingsModel, APIError>) -> Void
 typealias DriverStandingsResults = (Result< DriverStandingsModel, APIError>) -> Void
+typealias DriverResults = (Result< DriverModel, APIError>) -> Void
 
 protocol F1RepositoryType: AnyObject {
     func fetchConstructorStandingsResults(completion: @escaping(ConstructorStandingsResults))
     func fetchDriverStandingsResults(completion: @escaping(DriverStandingsResults))
+    func fetchDriverResults(driver : String,completion: @escaping(DriverResults))
 }
 
 class F1Repository: F1RepositoryType {
@@ -23,6 +25,11 @@ class F1Repository: F1RepositoryType {
     
     func fetchDriverStandingsResults(completion: @escaping (DriverStandingsResults)) {
         request(endpoint: "https://ergast.com/api/f1/current/driverStandings.JSON", method: .GET, completion: completion)
+    }
+    
+    func fetchDriverResults(driver : String, completion: @escaping (DriverResults)) {
+        let url = "https://ergast.com/api/f1/drivers/\(driver).JSON"
+        request(endpoint: url, method: .GET, completion: completion)
     }
     
     private func request<T: Codable>(endpoint: String, method: Method, completion: @escaping((Result<T, APIError>) -> Void)) {
