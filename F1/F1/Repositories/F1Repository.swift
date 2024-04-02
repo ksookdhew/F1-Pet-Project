@@ -11,11 +11,13 @@ import Foundation
 typealias ConstructorStandingsResults = (Result< ConstructorStandingsModel, APIError>) -> Void
 typealias DriverStandingsResults = (Result< DriverStandingsModel, APIError>) -> Void
 typealias DriverResults = (Result< DriverModel, APIError>) -> Void
+typealias ConstructorResults = (Result< ConstructorModel, APIError>) -> Void
 
 protocol F1RepositoryType: AnyObject {
     func fetchConstructorStandingsResults(completion: @escaping(ConstructorStandingsResults))
     func fetchDriverStandingsResults(completion: @escaping(DriverStandingsResults))
     func fetchDriverResults(driver : String,completion: @escaping(DriverResults))
+    func fetchConstructorResults(constructor : String,completion: @escaping(ConstructorResults))
 }
 
 class F1Repository: F1RepositoryType {
@@ -29,6 +31,11 @@ class F1Repository: F1RepositoryType {
     
     func fetchDriverResults(driver : String, completion: @escaping (DriverResults)) {
         let url = "https://ergast.com/api/f1/drivers/\(driver).JSON"
+        request(endpoint: url, method: .GET, completion: completion)
+    }
+    
+    func fetchConstructorResults(constructor : String, completion: @escaping (ConstructorResults)) {
+        let url = "https://ergast.com/api/f1/constructors/\(constructor).JSON"
         request(endpoint: url, method: .GET, completion: completion)
     }
     

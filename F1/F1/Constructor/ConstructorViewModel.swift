@@ -1,18 +1,17 @@
 //
-//  DriverViewModel.swift
+//  ConstructorViewModel.swift
 //  F1
 //
 //  Created by Kaitlyn Sookdhew on 2024/04/02.
 //
 
-
 import Foundation
 
-class DriverViewModel {
+class ConstructorViewModel {
     
     private var repository: F1RepositoryType?
     private weak var delegate: ViewModelDelegate?
-    private var Driver: Driver?
+    private var constructor: Constructor?
     
     init(repository: F1RepositoryType,
          delegate: ViewModelDelegate) {
@@ -20,14 +19,15 @@ class DriverViewModel {
         self.delegate = delegate
     }
     
-    func fetchDriver(driverName: String) {
-        repository?.fetchDriverResults(driver:driverName,completion: { [weak self] result in
+    func fetchConstructor(constructorName: String) {
+        repository?.fetchConstructorResults(constructor:constructorName,completion: { [weak self] result in
             switch result {
-            case .success(let driver):
-                self?.Driver = driver.mrData.driverTable.drivers[0]
-                print(self?.Driver?.givenName ?? "No result")
+            case .success(let constructor):
+                self?.constructor = constructor.mrData.constructorTable.constructors[0]
+                print(self?.constructor?.name ?? "No result")
                 self?.delegate?.reloadView()
             case .failure(let error):
+                print(error)
                 self?.delegate?.show(error: error.rawValue)
             }
         })

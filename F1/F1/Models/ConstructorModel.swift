@@ -32,11 +32,11 @@ struct ConstructorData: Codable {
 
 // MARK: - ConstructorTable
 struct ConstructorTable: Codable {
-    let season: String
+    let constructorID: String
     let constructors: [Constructor]
 
     enum CodingKeys: String, CodingKey {
-        case season
+        case constructorID = "constructorId"
         case constructors = "Constructors"
     }
 }
