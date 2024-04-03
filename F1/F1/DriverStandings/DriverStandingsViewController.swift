@@ -9,7 +9,7 @@ import UIKit
 
 class DriverStandingsViewController: UIViewController {
 
-    private lazy var viewModel = DriverStandingsViewModel(repository: F1Repository(),
+    private lazy var viewModel = DriverStandingsViewModel(repository: DriverStandingsRepository(),
                                                       delegate: self)
     
     override func viewDidLoad() {

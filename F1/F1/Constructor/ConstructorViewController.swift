@@ -8,7 +8,7 @@
 import UIKit
 
 class ConstructorViewController: UIViewController {
-    private lazy var viewModel = ConstructorViewModel(repository: F1Repository(),
+    private lazy var viewModel = ConstructorViewModel(repository: ConstructorRepository(),
                                                       delegate: self)
     override func viewDidLoad() {
         super.viewDidLoad()

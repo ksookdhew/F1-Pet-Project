@@ -11,7 +11,7 @@ class DriverViewController: UIViewController{
  
     
 
-    private lazy var viewModel = DriverViewModel(repository: F1Repository(),
+    private lazy var viewModel = DriverViewModel(repository: DriverRepository(),
                                                       delegate: self)
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,7 +10,7 @@ import UIKit
 
 class ConstructorStandingsViewController: UIViewController {
 
-    private lazy var viewModel = ConstructorStandingsViewModel(repository: F1Repository(),
+    private lazy var viewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository(),
                                                       delegate: self)
     
     override func viewDidLoad() {

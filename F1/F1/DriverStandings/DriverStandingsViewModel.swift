@@ -14,11 +14,11 @@ protocol ViewModelDelegate: AnyObject {
 
 class DriverStandingsViewModel {
     
-    private var repository: F1RepositoryType?
+    private var repository: DriverStandingsRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var DriverStanding: [DriverStanding]?
     
-    init(repository: F1RepositoryType,
+    init(repository: DriverStandingsRepositoryType,
          delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate

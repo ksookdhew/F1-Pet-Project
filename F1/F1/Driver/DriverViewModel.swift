@@ -10,11 +10,11 @@ import Foundation
 
 class DriverViewModel {
     
-    private var repository: F1RepositoryType?
+    private var repository: DriverRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var Driver: Driver?
     
-    init(repository: F1RepositoryType,
+    init(repository: DriverRepositoryType,
          delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
