@@ -49,6 +49,7 @@
 		2629E07F2BBDE01100EC6139 /* RaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E07E2BBDE01100EC6139 /* RaceRepository.swift */; };
 		2629E0812BBDE01D00EC6139 /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0802BBDE01D00EC6139 /* RaceViewController.swift */; };
 		2629E0832BBDE02A00EC6139 /* Race.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E0822BBDE02A00EC6139 /* Race.storyboard */; };
+		2629E0872BBE846400EC6139 /* Tab Bar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E0862BBE846400EC6139 /* Tab Bar.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		2629E07E2BBDE01100EC6139 /* RaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceRepository.swift; sourceTree = "<group>"; };
 		2629E0802BBDE01D00EC6139 /* RaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
 		2629E0822BBDE02A00EC6139 /* Race.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Race.storyboard; sourceTree = "<group>"; };
+		2629E0862BBE846400EC6139 /* Tab Bar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Tab Bar.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		2629DFA22BBC22D600EC6139 /* F1 */ = {
 			isa = PBXGroup;
 			children = (
+				2629E0852BBE843000EC6139 /* UserInterfaces */,
 				2629E07A2BBDDFCB00EC6139 /* Race */,
 				2629E05D2BBD34FC00EC6139 /* Utilities */,
 				2629E0532BBC43AA00EC6139 /* Constructor */,
@@ -346,6 +349,14 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		2629E0852BBE843000EC6139 /* UserInterfaces */ = {
+			isa = PBXGroup;
+			children = (
+				2629E0862BBE846400EC6139 /* Tab Bar.storyboard */,
+			);
+			name = UserInterfaces;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -455,6 +466,7 @@
 				2629E0332BBC35C200EC6139 /* DriverStandings.storyboard in Resources */,
 				2629DFB02BBC22D900EC6139 /* LaunchScreen.storyboard in Resources */,
 				2629E0722BBD941B00EC6139 /* Results.storyboard in Resources */,
+				2629E0872BBE846400EC6139 /* Tab Bar.storyboard in Resources */,
 				2629DFAD2BBC22D900EC6139 /* Assets.xcassets in Resources */,
 				2629E0592BBC43D700EC6139 /* Constructor.storyboard in Resources */,
 				2629E04E2BBC3A7500EC6139 /* Driver.storyboard in Resources */,
