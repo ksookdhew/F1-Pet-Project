@@ -30,15 +30,16 @@ struct ResultsData: Codable {
     }
 }
 
+
 // MARK: - RaceTable
 struct RaceTable: Codable {
-    let season, round: String
+    let season: String
     let races: [Race]
 
     enum CodingKeys: String, CodingKey {
-            case season, round
-            case races = "Races"
-        }
+        case season
+        case races = "Races"
+    }
 }
 
 // MARK: - Race
@@ -48,7 +49,7 @@ struct Race: Codable {
     let raceName: String
     let circuit: Circuit
     let date, time: String
-    let results: [Results]
+    let results: [RacingResult]
 
     enum CodingKeys: String, CodingKey {
         case season, round, url, raceName
@@ -58,26 +59,25 @@ struct Race: Codable {
     }
 }
 
-// MARK: - Result
-struct Results: Codable {
+// MARK: - RacingResult
+struct RacingResult: Codable {
     let number, position, positionText, points: String
-    let driver: Driver
-    let constructor: Constructor
-    let grid, laps: String
-    let status: String
-    let time: ResultTime?
-    let fastestLap: FastestLap?
+       let driver: Driver
+       let constructor: Constructor
+       let grid, laps: String
+       let status: String
+       let time: ResultTime?
+       let fastestLap: FastestLap?
 
-    enum CodingKeys: String, CodingKey {
-        case number, position, positionText, points
-        case driver = "Driver"
-        case constructor = "Constructor"
-        case grid, laps, status
-        case time = "Time"
-        case fastestLap = "FastestLap"
-    }
+       enum CodingKeys: String, CodingKey {
+           case number, position, positionText, points
+           case driver = "Driver"
+           case constructor = "Constructor"
+           case grid, laps, status
+           case time = "Time"
+           case fastestLap = "FastestLap"
+       }
 }
-
 
 // MARK: - FastestLap
 struct FastestLap: Codable {
@@ -91,6 +91,7 @@ struct FastestLap: Codable {
         case averageSpeed = "AverageSpeed"
     }
 }
+
 // MARK: - AverageSpeed
 struct AverageSpeed: Codable {
     let units: Units
@@ -106,16 +107,7 @@ struct FastestLapTime: Codable {
     let time: String
 }
 
-enum Status: String, Codable {
-    case accident = "Accident"
-    case finished = "Finished"
-    case gearbox = "Gearbox"
-    case the1Lap = "+1 Lap"
-    case the2Laps = "+2 Laps"
-}
-
 // MARK: - ResultTime
 struct ResultTime: Codable {
     let millis, time: String
 }
-

@@ -12,7 +12,7 @@ class ResultsViewController: UIViewController {
                                                       delegate: self)
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchResults(roundNo: "3")
+        viewModel.fetchRoundResults(round:"2")
 
         // Do any additional setup after loading the view.
     }
