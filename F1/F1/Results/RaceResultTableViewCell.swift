@@ -9,12 +9,16 @@ import UIKit
 
 class RaceResultTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var position: UILabel!
     @IBOutlet weak var driver: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var points: UILabel!
 
     static let identifier = "RaceResultTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.time.layer.cornerRadius = 8
+        self.time.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,8 +27,21 @@ class RaceResultTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func populateWith(race: RacingResult) {
-        driver.text = race.driver.familyName
+    func populateWith(result: RacingResult) {
+        position.text = result.position
+        driver.text = result.driver.code
+
+        if let resTime = result.time?.time {
+            time.text = resTime
+        } else {
+            var stat = result.status
+            if !stat.contains("Lap") {
+                stat = "DNF"
+            }
+            time.text = stat
+        }
+
+        points.text = result.points
     }
 
     static func nib() -> UINib {

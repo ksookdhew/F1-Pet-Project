@@ -27,8 +27,9 @@ class ResultsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "showRaceResultsSegue" {
                 if let destinationVC = segue.destination as? RacingResultViewController {
-                    let round: String = sender as? String ?? "1"
-                    destinationVC.round = round
+                    if let race: Race = sender as? Race{
+                        destinationVC.race = race
+                    }
                 }
             }
         }
@@ -44,16 +45,13 @@ class ResultsViewController: UIViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-
-     // Set the spacing between sections
-     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
          return 4
-     }
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          return 104.0
      }
-     // Make the background color show through
-     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
          let headerView = UIView()
          headerView.backgroundColor = UIColor.clear
          return headerView
@@ -65,12 +63,16 @@ class ResultsViewController: UIViewController {
         else { return UITableViewCell() }
         guard let result = viewModel.allResult(atIndex: indexPath.section) else { return UITableViewCell() }
         cell.populateWith(race: result, raceDate: viewModel.allResultDate(atIndex: indexPath.section))
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = bgColorView
         return cell
     }
 
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          let round = "\(indexPath.section+1)"
-         performSegue(withIdentifier: "showRaceResultsSegue", sender: round)
+         guard let result = viewModel.allResult(atIndex: indexPath.section) else { return }
+         performSegue(withIdentifier: "showRaceResultsSegue", sender: result)
      }
  }
 

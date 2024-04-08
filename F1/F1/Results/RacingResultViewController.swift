@@ -9,6 +9,7 @@ import UIKit
 class RacingResultViewController: UIViewController {
 
     var round = ""
+    var race: Race?
     @IBOutlet weak var raceName: UILabel!
     @IBOutlet weak var racingResultTableView: UITableView!
     private lazy var viewModel = RaceResultsViewModel(repository: ResultsRepository(), delegate: self)
@@ -16,8 +17,8 @@ class RacingResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        viewModel.fetchRoundResults(round: round)
-        raceName.text = viewModel.raceName
+        viewModel.fetchRoundResults(round: race?.round ?? "")
+        raceName.text = race?.circuit.location.country
     }
 
     private func setupTableView() {
@@ -25,7 +26,6 @@ class RacingResultViewController: UIViewController {
         racingResultTableView.dataSource = self
         racingResultTableView.register(RaceResultTableViewCell.nib(), forCellReuseIdentifier: RaceResultTableViewCell.identifier)
     }
-    
 }
 // MARK: - TableView Delegate
 
@@ -34,17 +34,18 @@ class RacingResultViewController: UIViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.raceResultsCount
     }
-
+     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+          return 42.0
+      }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = racingResultTableView.dequeueReusableCell(withIdentifier: RaceResultTableViewCell.identifier)
                 as? RaceResultTableViewCell
         else { return UITableViewCell() }
         guard let result = viewModel.raceResult(atIndex: indexPath.item) else { return UITableViewCell() }
-        cell.populateWith(race: result)
+        cell.populateWith(result: result)
         return cell
     }
  }
-
 
 extension  RacingResultViewController: ViewModelDelegate {
 
