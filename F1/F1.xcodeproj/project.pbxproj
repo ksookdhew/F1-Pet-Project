@@ -50,6 +50,8 @@
 		2629E0832BBDE02A00EC6139 /* Race.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E0822BBDE02A00EC6139 /* Race.storyboard */; };
 		2629E0872BBE846400EC6139 /* Tab Bar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E0862BBE846400EC6139 /* Tab Bar.storyboard */; };
 		26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */; };
+		26C993B82BC3E9920041F3B1 /* AllResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993B62BC3E9920041F3B1 /* AllResultsTableViewCell.swift */; };
+		26C993B92BC3E9920041F3B1 /* AllResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993B72BC3E9920041F3B1 /* AllResultsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,8 @@
 		2629E0822BBDE02A00EC6139 /* Race.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Race.storyboard; sourceTree = "<group>"; };
 		2629E0862BBE846400EC6139 /* Tab Bar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Tab Bar.storyboard"; sourceTree = "<group>"; };
 		26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		26C993B62BC3E9920041F3B1 /* AllResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllResultsTableViewCell.swift; path = F1/Results/AllResultsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		26C993B72BC3E9920041F3B1 /* AllResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AllResultsTableViewCell.xib; path = F1/Results/AllResultsTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +315,7 @@
 		2629E0702BBD93EE00EC6139 /* Results */ = {
 			isa = PBXGroup;
 			children = (
+				26C993B52BC3E9000041F3B1 /* Custom Cell */,
 				2629E0732BBD942200EC6139 /* Repository */,
 				2629E0712BBD941B00EC6139 /* Results.storyboard */,
 				2629E0782BBD945500EC6139 /* ResultsViewController.swift */,
@@ -355,6 +360,16 @@
 				2629E0862BBE846400EC6139 /* Tab Bar.storyboard */,
 			);
 			name = UserInterfaces;
+			sourceTree = "<group>";
+		};
+		26C993B52BC3E9000041F3B1 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				26C993B62BC3E9920041F3B1 /* AllResultsTableViewCell.swift */,
+				26C993B72BC3E9920041F3B1 /* AllResultsTableViewCell.xib */,
+			);
+			name = "Custom Cell";
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,6 +484,7 @@
 				2629E0872BBE846400EC6139 /* Tab Bar.storyboard in Resources */,
 				2629DFAD2BBC22D900EC6139 /* Assets.xcassets in Resources */,
 				2629E0592BBC43D700EC6139 /* Constructor.storyboard in Resources */,
+				26C993B92BC3E9920041F3B1 /* AllResultsTableViewCell.xib in Resources */,
 				2629E04E2BBC3A7500EC6139 /* Driver.storyboard in Resources */,
 				26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */,
 				2629DFAB2BBC22D600EC6139 /* Main.storyboard in Resources */,
@@ -527,6 +543,7 @@
 				2629E0342BBC35C200EC6139 /* DriverStandingsViewController.swift in Sources */,
 				2629E0492BBC390400EC6139 /* DriverModel.swift in Sources */,
 				2629E0752BBD943900EC6139 /* ResultsRepository.swift in Sources */,
+				26C993B82BC3E9920041F3B1 /* AllResultsTableViewCell.swift in Sources */,
 				2629E03B2BBC366800EC6139 /* ConstructorStandingsViewModel.swift in Sources */,
 				2629E0482BBC390400EC6139 /* ConstructorModel.swift in Sources */,
 				2629E0472BBC390400EC6139 /* DriverStandingsModel.swift in Sources */,

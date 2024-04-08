@@ -8,31 +8,49 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
+    @IBOutlet weak var allResultsTableView: UITableView!
+
     private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(),
                                                       delegate: self)
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchRoundResults(round: "2")
-
-        // Do any additional setup after loading the view.
+        setupTableView()
+        viewModel.fetchResults()
     }
 
-    /*
+    private func setupTableView() {
+        allResultsTableView.delegate = self
+        allResultsTableView.dataSource = self
+        allResultsTableView.register(AllResultsTableViewCell.nib(), forCellReuseIdentifier: AllResultsTableViewCell.identifier)
+    }
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+// MARK: - TableView Delegate
+
+ extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.allResultsCount
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = allResultsTableView.dequeueReusableCell(withIdentifier: AllResultsTableViewCell.identifier)
+                as? AllResultsTableViewCell
+        else { return UITableViewCell() }
+        guard let result = viewModel.allResult(atIndex: indexPath.item) else { return UITableViewCell() }
+        cell.populateWith(race: result)
+        return cell
+    }
+ }
 
 extension  ResultsViewController: ViewModelDelegate {
 
     func reloadView() {
-        // tableView.reloadData()
+        allResultsTableView.reloadData()
     }
 
     func show(error: String) {

@@ -10,6 +10,7 @@ class ResultsViewModel {
     private var repository: ResultsRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var results: Race?
+    private var allResults: [Race]?
 
     init(repository: ResultsRepositoryType,
          delegate: ViewModelDelegate) {
@@ -17,12 +18,20 @@ class ResultsViewModel {
         self.delegate = delegate
     }
 
+    var allResultsCount: Int {
+        return allResults?.count ?? 0
+    }
+
+    func allResult(atIndex: Int) -> Race? {
+        return allResults?[atIndex] ?? nil
+    }
+
     func fetchResults() {
         repository?.fetchRacingResults(completion: { [weak self] result in
             switch result {
             case .success(let result):
-                self?.results = result.mrData.raceTable.races[1]
-                print(self?.results ?? "No result")
+                self?.allResults = result.mrData.raceTable.races
+               // print(self?.allResults ?? "No result")
                 self?.delegate?.reloadView()
             case .failure(let error):
                 print(error)
@@ -36,7 +45,7 @@ class ResultsViewModel {
             switch result {
             case .success(let result):
                 self?.results = result.mrData.raceTable.races[0]
-                print(self?.results ?? "No result")
+               // print(self?.results ?? "No result")
                 self?.delegate?.reloadView()
             case .failure(let error):
                 print(error)
