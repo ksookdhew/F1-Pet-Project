@@ -9,8 +9,9 @@ import Foundation
 class ResultsViewModel {
     private var repository: ResultsRepositoryType?
     private weak var delegate: ViewModelDelegate?
-    private var results: Race?
+    private var race: Race?
     private var allResults: [Race]?
+    private var raceResult: [RacingResult]?
 
     init(repository: ResultsRepositoryType,
          delegate: ViewModelDelegate) {
@@ -25,13 +26,20 @@ class ResultsViewModel {
     func allResult(atIndex: Int) -> Race? {
         return allResults?[atIndex] ?? nil
     }
-
+    
+    var raceResultsCount: Int {
+        return raceResult?.count ?? 0
+    }
+ 
+    func raceResult(atIndex: Int) -> RacingResult? {
+        return raceResult?[atIndex] ?? nil
+    }
+    
     func fetchResults() {
         repository?.fetchRacingResults(completion: { [weak self] result in
             switch result {
             case .success(let result):
                 self?.allResults = result.mrData.raceTable.races
-               // print(self?.allResults ?? "No result")
                 self?.delegate?.reloadView()
             case .failure(let error):
                 print(error)
@@ -44,8 +52,8 @@ class ResultsViewModel {
         repository?.fetchRoundResults(round: round, completion: { [weak self] result in
             switch result {
             case .success(let result):
-                self?.results = result.mrData.raceTable.races[0]
-               // print(self?.results ?? "No result")
+                self?.race = result.mrData.raceTable.races[0]
+                self?.raceResult = self?.race?.results
                 self?.delegate?.reloadView()
             case .failure(let error):
                 print(error)

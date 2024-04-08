@@ -10,8 +10,7 @@ import UIKit
 class ResultsViewController: UIViewController {
     @IBOutlet weak var allResultsTableView: UITableView!
 
-    private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(),
-                                                      delegate: self)
+    private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(), delegate: self)
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -25,8 +24,14 @@ class ResultsViewController: UIViewController {
     }
 
     // MARK: - Navigation
-
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "showRaceResultsSegue" {
+                if let destinationVC = segue.destination as? RacingResultViewController {
+                    var round: String = sender as? String ?? "1"
+                    destinationVC.round = round
+                }
+            }
+        }
 }
 
 // MARK: - TableView Delegate
@@ -45,6 +50,13 @@ class ResultsViewController: UIViewController {
         cell.populateWith(race: result)
         return cell
     }
+
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         var round = "\(indexPath.item+1)"
+         performSegue(withIdentifier: "showRaceResultsSegue", sender: round)
+
+         
+     }
  }
 
 extension  ResultsViewController: ViewModelDelegate {

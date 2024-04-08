@@ -25,6 +25,10 @@ class AllResultsTableViewCell: UITableViewCell {
     func populateWith(race: Race) {
         raceName.text = race.raceName
     }
+    
+    func populateRaceWith(race: RacingResult) {
+        raceName.text = race.driver.familyName
+    }
 
     static func nib() -> UINib {
         return UINib(nibName: "AllResultsTableViewCell", bundle: nil)

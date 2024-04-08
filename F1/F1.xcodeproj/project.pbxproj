@@ -52,6 +52,9 @@
 		26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */; };
 		26C993B82BC3E9920041F3B1 /* AllResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993B62BC3E9920041F3B1 /* AllResultsTableViewCell.swift */; };
 		26C993B92BC3E9920041F3B1 /* AllResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993B72BC3E9920041F3B1 /* AllResultsTableViewCell.xib */; };
+		26C993BB2BC3FB6A0041F3B1 /* RacingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993BA2BC3FB6A0041F3B1 /* RacingResultViewController.swift */; };
+		26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993BC2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift */; };
+		26C993BF2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993BD2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +124,9 @@
 		26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26C993B62BC3E9920041F3B1 /* AllResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllResultsTableViewCell.swift; path = F1/Results/AllResultsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		26C993B72BC3E9920041F3B1 /* AllResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AllResultsTableViewCell.xib; path = F1/Results/AllResultsTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		26C993BA2BC3FB6A0041F3B1 /* RacingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingResultViewController.swift; sourceTree = "<group>"; };
+		26C993BC2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RaceResultTableViewCell.swift; path = F1/Results/RaceResultTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		26C993BD2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RaceResultTableViewCell.xib; path = F1/Results/RaceResultTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +325,7 @@
 				2629E0732BBD942200EC6139 /* Repository */,
 				2629E0712BBD941B00EC6139 /* Results.storyboard */,
 				2629E0782BBD945500EC6139 /* ResultsViewController.swift */,
+				26C993BA2BC3FB6A0041F3B1 /* RacingResultViewController.swift */,
 				2629E0762BBD944700EC6139 /* ResultsViewModel.swift */,
 			);
 			path = Results;
@@ -367,6 +374,8 @@
 			children = (
 				26C993B62BC3E9920041F3B1 /* AllResultsTableViewCell.swift */,
 				26C993B72BC3E9920041F3B1 /* AllResultsTableViewCell.xib */,
+				26C993BC2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift */,
+				26C993BD2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib */,
 			);
 			name = "Custom Cell";
 			path = Repository;
@@ -486,6 +495,7 @@
 				2629E0592BBC43D700EC6139 /* Constructor.storyboard in Resources */,
 				26C993B92BC3E9920041F3B1 /* AllResultsTableViewCell.xib in Resources */,
 				2629E04E2BBC3A7500EC6139 /* Driver.storyboard in Resources */,
+				26C993BF2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib in Resources */,
 				26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */,
 				2629DFAB2BBC22D600EC6139 /* Main.storyboard in Resources */,
 			);
@@ -554,11 +564,13 @@
 				2629E0812BBDE01D00EC6139 /* RaceViewController.swift in Sources */,
 				2629E0462BBC390400EC6139 /* ConstructorStandingsModel.swift in Sources */,
 				2629E07D2BBDE00400EC6139 /* RaceViewModel.swift in Sources */,
+				26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */,
 				2629E04A2BBC390400EC6139 /* ResultsModel.swift in Sources */,
 				2629E0652BBD37D500EC6139 /* ConstructorStandingsRepository.swift in Sources */,
 				2629E0552BBC43C100EC6139 /* ConstructorViewController.swift in Sources */,
 				2629E0452BBC390400EC6139 /* RaceModel.swift in Sources */,
 				2629E0572BBC43CC00EC6139 /* ConstructorViewModel.swift in Sources */,
+				26C993BB2BC3FB6A0041F3B1 /* RacingResultViewController.swift in Sources */,
 				2629E04B2BBC390400EC6139 /* CircuitModel.swift in Sources */,
 				2629E0792BBD945500EC6139 /* ResultsViewController.swift in Sources */,
 				2629E0772BBD944700EC6139 /* ResultsViewModel.swift in Sources */,
