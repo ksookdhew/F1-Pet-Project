@@ -8,22 +8,24 @@ import UIKit
 
 class RacingResultViewController: UIViewController {
 
-    var round = "2"
+    var round = ""
+    @IBOutlet weak var raceName: UILabel!
     @IBOutlet weak var racingResultTableView: UITableView!
-    private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(), delegate: self)
+    private lazy var viewModel = RaceResultsViewModel(repository: ResultsRepository(), delegate: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         viewModel.fetchRoundResults(round: round)
+        raceName.text = viewModel.raceName
     }
 
     private func setupTableView() {
         racingResultTableView.delegate = self
         racingResultTableView.dataSource = self
-        racingResultTableView.register(AllResultsTableViewCell.nib(), forCellReuseIdentifier: AllResultsTableViewCell.identifier)
+        racingResultTableView.register(RaceResultTableViewCell.nib(), forCellReuseIdentifier: RaceResultTableViewCell.identifier)
     }
-                             
+    
 }
 // MARK: - TableView Delegate
 
@@ -34,23 +36,13 @@ class RacingResultViewController: UIViewController {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = racingResultTableView.dequeueReusableCell(withIdentifier: AllResultsTableViewCell.identifier)
-                as? AllResultsTableViewCell
+        guard let cell = racingResultTableView.dequeueReusableCell(withIdentifier: RaceResultTableViewCell.identifier)
+                as? RaceResultTableViewCell
         else { return UITableViewCell() }
         guard let result = viewModel.raceResult(atIndex: indexPath.item) else { return UITableViewCell() }
-        cell.populateRaceWith(race: result)
+        cell.populateWith(race: result)
         return cell
     }
-
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         let storyboard = UIStoryboard(name: "Results", bundle: nil)
-
-         let resultsVC = storyboard.instantiateViewController(identifier: "raceResultVC")
-
-         resultsVC.navigationItem.title = "Here"
-
-         navigationController?.pushViewController(resultsVC, animated: true)
-     }
  }
 
 

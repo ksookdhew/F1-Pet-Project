@@ -9,6 +9,9 @@ import UIKit
 
 class RaceResultTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var driver: UILabel!
+
+    static let identifier = "RaceResultTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +22,12 @@ class RaceResultTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
+    func populateWith(race: RacingResult) {
+        driver.text = race.driver.familyName
+    }
+
+    static func nib() -> UINib {
+        return UINib(nibName: "RaceResultTableViewCell", bundle: nil)
+    }
 }

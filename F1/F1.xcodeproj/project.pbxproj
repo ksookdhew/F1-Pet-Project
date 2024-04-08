@@ -55,6 +55,7 @@
 		26C993BB2BC3FB6A0041F3B1 /* RacingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993BA2BC3FB6A0041F3B1 /* RacingResultViewController.swift */; };
 		26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993BC2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift */; };
 		26C993BF2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993BD2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib */; };
+		26C993C12BC426910041F3B1 /* RaceResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993C02BC426910041F3B1 /* RaceResultViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		26C993BA2BC3FB6A0041F3B1 /* RacingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingResultViewController.swift; sourceTree = "<group>"; };
 		26C993BC2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RaceResultTableViewCell.swift; path = F1/Results/RaceResultTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		26C993BD2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RaceResultTableViewCell.xib; path = F1/Results/RaceResultTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		26C993C02BC426910041F3B1 /* RaceResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +329,7 @@
 				2629E0782BBD945500EC6139 /* ResultsViewController.swift */,
 				26C993BA2BC3FB6A0041F3B1 /* RacingResultViewController.swift */,
 				2629E0762BBD944700EC6139 /* ResultsViewModel.swift */,
+				26C993C02BC426910041F3B1 /* RaceResultViewModel.swift */,
 			);
 			path = Results;
 			sourceTree = "<group>";
@@ -388,10 +391,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2629DFCA2BBC22D900EC6139 /* Build configuration list for PBXNativeTarget "F1" */;
 			buildPhases = (
+				26C993B42BC3C2630041F3B1 /* SwiftLint */,
 				2629DF9C2BBC22D600EC6139 /* Sources */,
 				2629DF9D2BBC22D600EC6139 /* Frameworks */,
 				2629DF9E2BBC22D600EC6139 /* Resources */,
-				26C993B42BC3C2630041F3B1 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -557,6 +560,7 @@
 				2629E03B2BBC366800EC6139 /* ConstructorStandingsViewModel.swift in Sources */,
 				2629E0482BBC390400EC6139 /* ConstructorModel.swift in Sources */,
 				2629E0472BBC390400EC6139 /* DriverStandingsModel.swift in Sources */,
+				26C993C12BC426910041F3B1 /* RaceResultViewModel.swift in Sources */,
 				2629DFA42BBC22D600EC6139 /* AppDelegate.swift in Sources */,
 				2629E05F2BBD353C00EC6139 /* URLSession+Extension.swift in Sources */,
 				2629E03A2BBC366800EC6139 /* ConstructorStandingsViewController.swift in Sources */,
