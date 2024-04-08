@@ -10,13 +10,13 @@ class ResultsViewModel {
     private var repository: ResultsRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var results: Race?
-    
+
     init(repository: ResultsRepositoryType,
          delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
     }
-     
+
     func fetchResults() {
         repository?.fetchRacingResults(completion: { [weak self] result in
             switch result {
@@ -30,7 +30,8 @@ class ResultsViewModel {
             }
         })
     }
-    func fetchRoundResults(round :String) {
+
+    func fetchRoundResults(round: String) {
         repository?.fetchRoundResults(round: round, completion: { [weak self] result in
             switch result {
             case .success(let result):
@@ -41,7 +42,5 @@ class ResultsViewModel {
                 print(error)
                 self?.delegate?.show(error: error.rawValue)
             }
-        })
-    } 
-   
+        })}
 }

@@ -4,8 +4,6 @@
 //
 //  Created by Kaitlyn Sookdhew on 2024/03/27.
 //
-
-
 import Foundation
 
 // MARK: - ConstructorStandingsModel
@@ -63,6 +61,3 @@ struct ConstructorStanding: Codable {
         case constructor = "Constructor"
     }
 }
-
-
-

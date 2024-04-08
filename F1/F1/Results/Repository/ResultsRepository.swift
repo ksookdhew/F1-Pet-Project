@@ -9,14 +9,12 @@ import Foundation
 typealias ResultsResults = (Result< ResultsModel, APIError>) -> Void
 
 protocol ResultsRepositoryType: AnyObject {
-    func fetchRoundResults(round : String,completion: @escaping(ResultsResults))
+    func fetchRoundResults(round: String, completion: @escaping(ResultsResults))
     func fetchRacingResults(completion: @escaping(ResultsResults))
 }
 
-
 class ResultsRepository: ResultsRepositoryType {
-  
-    func fetchRoundResults(round : String, completion: @escaping (ResultsResults)) {
+    func fetchRoundResults(round: String, completion: @escaping (ResultsResults)) {
         let url = "https://ergast.com/api/f1/current/\(round)/results.JSON"
         URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
     }

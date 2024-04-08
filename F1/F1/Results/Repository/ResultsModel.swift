@@ -30,7 +30,6 @@ struct ResultsData: Codable {
     }
 }
 
-
 // MARK: - RaceTable
 struct RaceTable: Codable {
     let season: String
@@ -94,12 +93,8 @@ struct FastestLap: Codable {
 
 // MARK: - AverageSpeed
 struct AverageSpeed: Codable {
-    let units: Units
+    let units: String
     let speed: String
-}
-
-enum Units: String, Codable {
-    case kph = "kph"
 }
 
 // MARK: - FastestLapTime

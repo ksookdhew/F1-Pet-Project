@@ -12,11 +12,10 @@ class ResultsViewController: UIViewController {
                                                       delegate: self)
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchRoundResults(round:"2")
+        viewModel.fetchRoundResults(round: "2")
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -31,12 +30,12 @@ class ResultsViewController: UIViewController {
 }
 
 extension  ResultsViewController: ViewModelDelegate {
-    
+
     func reloadView() {
-        //tableView.reloadData()
+        // tableView.reloadData()
     }
-    
+
     func show(error: String) {
-        //displayAlert(title: "Error", message: error, buttonTitle: "Ok")
+        // displayAlert(title: "Error", message: error, buttonTitle: "Ok")
     }
 }
