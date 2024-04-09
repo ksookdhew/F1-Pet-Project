@@ -27,7 +27,7 @@ class ResultsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "showRaceResultsSegue" {
                 if let destinationVC = segue.destination as? RacingResultViewController {
-                    if let race: Race = sender as? Race{
+                    if let race: Race = sender as? Race {
                         destinationVC.race = race
                     }
                 }
@@ -39,6 +39,7 @@ class ResultsViewController: UIViewController {
 
  extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
      func numberOfSections(in tableView: UITableView) -> Int {
+         print(viewModel.allResultsCount)
          return viewModel.allResultsCount
      }
 

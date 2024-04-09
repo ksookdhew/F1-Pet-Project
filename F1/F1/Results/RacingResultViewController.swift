@@ -12,12 +12,12 @@ class RacingResultViewController: UIViewController {
     var race: Race?
     @IBOutlet weak var raceName: UILabel!
     @IBOutlet weak var racingResultTableView: UITableView!
-    private lazy var viewModel = RaceResultsViewModel(repository: ResultsRepository(), delegate: self)
+    private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(), delegate: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        viewModel.fetchRoundResults(round: race?.round ?? "")
+        viewModel.setRaceResult(raceRes: race!)
         raceName.text = race?.circuit.location.country
     }
 

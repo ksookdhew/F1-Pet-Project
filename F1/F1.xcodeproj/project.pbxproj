@@ -55,7 +55,8 @@
 		26C993BB2BC3FB6A0041F3B1 /* RacingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993BA2BC3FB6A0041F3B1 /* RacingResultViewController.swift */; };
 		26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993BC2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift */; };
 		26C993BF2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993BD2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib */; };
-		26C993C12BC426910041F3B1 /* RaceResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993C02BC426910041F3B1 /* RaceResultViewModel.swift */; };
+		26C993C52BC52C9B0041F3B1 /* RaceResultHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993C42BC52C9B0041F3B1 /* RaceResultHeader.swift */; };
+		26C993C72BC535B10041F3B1 /* RaceResultHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993C62BC535B10041F3B1 /* RaceResultHeader.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,7 +129,8 @@
 		26C993BA2BC3FB6A0041F3B1 /* RacingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingResultViewController.swift; sourceTree = "<group>"; };
 		26C993BC2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RaceResultTableViewCell.swift; path = F1/Results/RaceResultTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		26C993BD2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RaceResultTableViewCell.xib; path = F1/Results/RaceResultTableViewCell.xib; sourceTree = SOURCE_ROOT; };
-		26C993C02BC426910041F3B1 /* RaceResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultViewModel.swift; sourceTree = "<group>"; };
+		26C993C42BC52C9B0041F3B1 /* RaceResultHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RaceResultHeader.swift; path = F1/Results/RaceResultHeader.swift; sourceTree = SOURCE_ROOT; };
+		26C993C62BC535B10041F3B1 /* RaceResultHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceResultHeader.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,7 +331,6 @@
 				2629E0782BBD945500EC6139 /* ResultsViewController.swift */,
 				26C993BA2BC3FB6A0041F3B1 /* RacingResultViewController.swift */,
 				2629E0762BBD944700EC6139 /* ResultsViewModel.swift */,
-				26C993C02BC426910041F3B1 /* RaceResultViewModel.swift */,
 			);
 			path = Results;
 			sourceTree = "<group>";
@@ -379,6 +380,8 @@
 				26C993B72BC3E9920041F3B1 /* AllResultsTableViewCell.xib */,
 				26C993BC2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift */,
 				26C993BD2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib */,
+				26C993C42BC52C9B0041F3B1 /* RaceResultHeader.swift */,
+				26C993C62BC535B10041F3B1 /* RaceResultHeader.xib */,
 			);
 			name = "Custom Cell";
 			path = Repository;
@@ -501,6 +504,7 @@
 				26C993BF2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib in Resources */,
 				26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */,
 				2629DFAB2BBC22D600EC6139 /* Main.storyboard in Resources */,
+				26C993C72BC535B10041F3B1 /* RaceResultHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,8 +563,8 @@
 				26C993B82BC3E9920041F3B1 /* AllResultsTableViewCell.swift in Sources */,
 				2629E03B2BBC366800EC6139 /* ConstructorStandingsViewModel.swift in Sources */,
 				2629E0482BBC390400EC6139 /* ConstructorModel.swift in Sources */,
+				26C993C52BC52C9B0041F3B1 /* RaceResultHeader.swift in Sources */,
 				2629E0472BBC390400EC6139 /* DriverStandingsModel.swift in Sources */,
-				26C993C12BC426910041F3B1 /* RaceResultViewModel.swift in Sources */,
 				2629DFA42BBC22D600EC6139 /* AppDelegate.swift in Sources */,
 				2629E05F2BBD353C00EC6139 /* URLSession+Extension.swift in Sources */,
 				2629E03A2BBC366800EC6139 /* ConstructorStandingsViewController.swift in Sources */,
