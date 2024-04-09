@@ -39,7 +39,6 @@ class ResultsViewController: UIViewController {
 
  extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
      func numberOfSections(in tableView: UITableView) -> Int {
-         print(viewModel.allResultsCount)
          return viewModel.allResultsCount
      }
 

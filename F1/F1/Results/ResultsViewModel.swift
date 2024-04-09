@@ -61,7 +61,6 @@ class ResultsViewModel {
             case .success(let result):
                 self?.allResults = result.mrData.raceTable.races
                 self?.delegate?.reloadView()
-                print(self?.allResults)
             case .failure(let error):
                 print(error)
                 self?.delegate?.show(error: error.rawValue)
