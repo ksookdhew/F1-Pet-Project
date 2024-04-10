@@ -8,7 +8,7 @@
 import Foundation
 
 class LoginViewModel {
-    private let username="Admin"
+    private let username = "Admin"
     private let password = "Password"
 
     func validDetails(givenUsername: String, givenPassword: String) -> Bool{

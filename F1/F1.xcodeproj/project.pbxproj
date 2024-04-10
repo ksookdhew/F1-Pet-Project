@@ -57,8 +57,6 @@
 		26C993BF2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993BD2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib */; };
 		26C993C52BC52C9B0041F3B1 /* RaceResultHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993C42BC52C9B0041F3B1 /* RaceResultHeader.swift */; };
 		26C993C72BC535B10041F3B1 /* RaceResultHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993C62BC535B10041F3B1 /* RaceResultHeader.xib */; };
-		26C993CC2BC6B3A30041F3B1 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993CB2BC6B3A30041F3B1 /* LoginRepository.swift */; };
-		26C993CE2BC6B3AD0041F3B1 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993CD2BC6B3AD0041F3B1 /* LoginModel.swift */; };
 		26C993D02BC6B3BA0041F3B1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993CF2BC6B3BA0041F3B1 /* LoginViewModel.swift */; };
 		26C993D22BC6B3D40041F3B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993D12BC6B3D40041F3B1 /* LoginViewController.swift */; };
 		26C993D42BC6B3E20041F3B1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993D32BC6B3E20041F3B1 /* Login.storyboard */; };
@@ -136,8 +134,6 @@
 		26C993BD2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RaceResultTableViewCell.xib; path = F1/Results/RaceResultTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		26C993C42BC52C9B0041F3B1 /* RaceResultHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RaceResultHeader.swift; path = F1/Results/RaceResultHeader.swift; sourceTree = SOURCE_ROOT; };
 		26C993C62BC535B10041F3B1 /* RaceResultHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceResultHeader.xib; sourceTree = "<group>"; };
-		26C993CB2BC6B3A30041F3B1 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
-		26C993CD2BC6B3AD0041F3B1 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		26C993CF2BC6B3BA0041F3B1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		26C993D12BC6B3D40041F3B1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26C993D32BC6B3E20041F3B1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -401,21 +397,11 @@
 		26C993C92BC6B3760041F3B1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				26C993CA2BC6B38B0041F3B1 /* Repository */,
 				26C993CF2BC6B3BA0041F3B1 /* LoginViewModel.swift */,
 				26C993D12BC6B3D40041F3B1 /* LoginViewController.swift */,
 				26C993D32BC6B3E20041F3B1 /* Login.storyboard */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		26C993CA2BC6B38B0041F3B1 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				26C993CB2BC6B3A30041F3B1 /* LoginRepository.swift */,
-				26C993CD2BC6B3AD0041F3B1 /* LoginModel.swift */,
-			);
-			name = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -593,10 +579,8 @@
 				2629E0342BBC35C200EC6139 /* DriverStandingsViewController.swift in Sources */,
 				2629E0492BBC390400EC6139 /* DriverModel.swift in Sources */,
 				2629E0752BBD943900EC6139 /* ResultsRepository.swift in Sources */,
-				26C993CC2BC6B3A30041F3B1 /* LoginRepository.swift in Sources */,
 				26C993B82BC3E9920041F3B1 /* AllResultsTableViewCell.swift in Sources */,
 				2629E03B2BBC366800EC6139 /* ConstructorStandingsViewModel.swift in Sources */,
-				26C993CE2BC6B3AD0041F3B1 /* LoginModel.swift in Sources */,
 				2629E0482BBC390400EC6139 /* ConstructorModel.swift in Sources */,
 				26C993C52BC52C9B0041F3B1 /* RaceResultHeader.swift in Sources */,
 				2629E0472BBC390400EC6139 /* DriverStandingsModel.swift in Sources */,
