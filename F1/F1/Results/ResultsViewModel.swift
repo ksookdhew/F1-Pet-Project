@@ -54,6 +54,24 @@ class ResultsViewModel {
         raceResult = race?.results
     }
 
+    func laptime(index: Int) -> String {
+        if let resTime = raceResult?[index].time {
+            return resTime.time
+        } else {
+            let stat = raceResult?[index].status
+            if let statFinal = stat {
+                if !statFinal.contains("Lap") {
+                    return "DNF"
+                } else {
+                    return statFinal
+                }
+            } else {
+                return "No Time"
+            }
+        }
+
+    }
+
     func fetchResults() {
         repository?.fetchRacingResults(completion: { [weak self] result in
             switch result {

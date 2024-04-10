@@ -25,7 +25,6 @@ class RaceResultsViewModel {
     var raceName: String {
         print(race?.raceName ?? "Race Name")
         return race?.raceName ?? "Race Name"
-        
     }
 
     func raceResult(atIndex: Int) -> RacingResult? {
