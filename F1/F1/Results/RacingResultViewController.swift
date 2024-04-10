@@ -45,7 +45,8 @@ class RacingResultViewController: UIViewController {
                 as? RaceResultTableViewCell
         else { return UITableViewCell() }
         guard let result = viewModel.raceResult(atIndex: indexPath.item) else { return UITableViewCell() }
-        cell.populateWith(result: result)
+        let laptime = viewModel.laptime(index: indexPath.item)
+        cell.populateWith(result: result, lapTime: laptime)
         return cell
     }
 

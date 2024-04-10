@@ -21,20 +21,10 @@ class RaceResultTableViewCell: UITableViewCell {
         self.time.layer.masksToBounds = true
     }
 
-    func populateWith(result: RacingResult) {
+    func populateWith(result: RacingResult, lapTime: String) {
         position.text = result.position
         driver.text = result.driver.code
-
-        if let resTime = result.time?.time {
-            time.text = resTime
-        } else {
-            var stat = result.status
-            if !stat.contains("Lap") {
-                stat = "DNF"
-            }
-            time.text = stat
-        }
-
+        time.text = lapTime
         points.text = result.points
     }
 
