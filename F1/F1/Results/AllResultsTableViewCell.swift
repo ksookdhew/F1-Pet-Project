@@ -36,10 +36,6 @@ class AllResultsTableViewCell: UITableViewCell {
 
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
     func populateWith(race: Race, raceDate: DateComponents) {
         raceCountry.text = race.circuit.location.country
         raceName.text = "\(race.raceName) 2024"

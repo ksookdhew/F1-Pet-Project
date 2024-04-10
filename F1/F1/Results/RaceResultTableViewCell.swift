@@ -21,12 +21,6 @@ class RaceResultTableViewCell: UITableViewCell {
         self.time.layer.masksToBounds = true
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
     func populateWith(result: RacingResult) {
         position.text = result.position
         driver.text = result.driver.code

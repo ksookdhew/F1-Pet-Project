@@ -28,7 +28,6 @@ class ResultsViewModel {
     }
 
     func allResultDate(atIndex: Int) -> DateComponents {
-        var race = allResults?[atIndex] ?? nil
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
         let date = dateFormatter.date(from: race?.date ?? "2024-00-00") ?? Date()
@@ -43,18 +42,18 @@ class ResultsViewModel {
     var raceName: String {
         print(race?.raceName ?? "Race Name")
         return race?.raceName ?? "Race Name"
-        
+
     }
 
     func raceResult(atIndex: Int) -> RacingResult? {
         return raceResult?[atIndex] ?? nil
     }
-    
-    func setRaceResult(raceRes: Race){
+
+    func setRaceResult(raceRes: Race) {
         race = raceRes
         raceResult = race?.results
     }
-    
+
     func fetchResults() {
         repository?.fetchRacingResults(completion: { [weak self] result in
             switch result {

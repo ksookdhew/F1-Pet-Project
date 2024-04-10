@@ -22,7 +22,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="slV-VB-v7r">
-                                <rect key="frame" x="20" y="133" width="353" height="685"/>
+                                <rect key="frame" x="20" y="118" width="353" height="700"/>
                                 <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="separatorColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -48,7 +48,7 @@
                             <constraint firstItem="Id0-0l-VCv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Sia-fv-Bmd"/>
                             <constraint firstItem="Id0-0l-VCv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="WeK-UF-saC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="slV-VB-v7r" secondAttribute="trailing" constant="20" id="lgq-wW-zX8"/>
-                            <constraint firstItem="slV-VB-v7r" firstAttribute="top" secondItem="Id0-0l-VCv" secondAttribute="bottom" constant="20" id="ra1-0E-aBc"/>
+                            <constraint firstItem="slV-VB-v7r" firstAttribute="top" secondItem="Id0-0l-VCv" secondAttribute="bottom" constant="5" id="ra1-0E-aBc"/>
                         </constraints>
                     </view>
                     <connections>
@@ -75,7 +75,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="w6p-eo-whT">
-                                <rect key="frame" x="20" y="74" width="353" height="768"/>
+                                <rect key="frame" x="20" y="59" width="353" height="783"/>
                                 <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="0.19607841970000001" green="0.19215688110000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -101,7 +101,7 @@
                             <constraint firstItem="w6p-eo-whT" firstAttribute="leading" secondItem="haE-NW-tMX" secondAttribute="leading" constant="20" id="Wu1-eZ-V81"/>
                             <constraint firstItem="haE-NW-tMX" firstAttribute="trailing" secondItem="w6p-eo-whT" secondAttribute="trailing" constant="20" id="sY3-5d-4lO"/>
                             <constraint firstItem="zIi-73-FUV" firstAttribute="top" secondItem="haE-NW-tMX" secondAttribute="top" constant="20" id="u54-ak-zK6"/>
-                            <constraint firstItem="w6p-eo-whT" firstAttribute="top" secondItem="zIi-73-FUV" secondAttribute="bottom" constant="20" id="vM8-zK-j3n"/>
+                            <constraint firstItem="w6p-eo-whT" firstAttribute="top" secondItem="zIi-73-FUV" secondAttribute="bottom" constant="5" id="vM8-zK-j3n"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zGJ-Hn-FgJ"/>

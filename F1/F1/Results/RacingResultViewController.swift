@@ -24,8 +24,10 @@ class RacingResultViewController: UIViewController {
     private func setupTableView() {
         racingResultTableView.delegate = self
         racingResultTableView.dataSource = self
-        racingResultTableView.register(RaceResultTableViewCell.nib(), forCellReuseIdentifier: RaceResultTableViewCell.identifier)
-        racingResultTableView.register(UINib(nibName: "RaceResultHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "RaceResultHeader")
+        racingResultTableView.register(RaceResultTableViewCell.nib(),
+           forCellReuseIdentifier: RaceResultTableViewCell.identifier)
+        racingResultTableView.register(UINib(nibName: "RaceResultHeader", bundle: nil),
+           forHeaderFooterViewReuseIdentifier: "RaceResultHeader")
     }
 }
 // MARK: - TableView Delegate
@@ -46,9 +48,10 @@ class RacingResultViewController: UIViewController {
         cell.populateWith(result: result)
         return cell
     }
-     
+
      func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-         guard let headerView = racingResultTableView.dequeueReusableHeaderFooterView(withIdentifier: "RaceResultHeader") as? RaceResultHeader
+         guard let headerView = racingResultTableView.dequeueReusableHeaderFooterView(withIdentifier:
+            "RaceResultHeader") as? RaceResultHeader
          else { return UITableViewHeaderFooterView() }
      return headerView
      }

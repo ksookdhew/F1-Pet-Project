@@ -20,7 +20,8 @@ class ResultsViewController: UIViewController {
     private func setupTableView() {
         allResultsTableView.delegate = self
         allResultsTableView.dataSource = self
-        allResultsTableView.register(AllResultsTableViewCell.nib(), forCellReuseIdentifier: AllResultsTableViewCell.identifier)
+        allResultsTableView.register(AllResultsTableViewCell.nib(),
+        forCellReuseIdentifier: AllResultsTableViewCell.identifier)
     }
 
     // MARK: - Navigation
@@ -70,7 +71,6 @@ class ResultsViewController: UIViewController {
     }
 
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         let round = "\(indexPath.section+1)"
          guard let result = viewModel.allResult(atIndex: indexPath.section) else { return }
          performSegue(withIdentifier: "showRaceResultsSegue", sender: result)
      }
