@@ -4,15 +4,13 @@
 //
 //  Created by Kaitlyn Sookdhew.
 //
-
-
 import Foundation
 
 class ConstructorStandingsViewModel {
     
     private var repository: ConstructorStandingsRepositoryType?
     private weak var delegate: ViewModelDelegate?
-    private var ConstructorStanding: [ConstructorStanding]?
+    private var constructorStanding: [ConstructorStanding]?
     
     init(repository: ConstructorStandingsRepositoryType,
          delegate: ViewModelDelegate) {
@@ -20,20 +18,20 @@ class ConstructorStandingsViewModel {
         self.delegate = delegate
     }
     
-    var ConstructorCount: Int {
-        return ConstructorStanding?.count ?? 0
+    var constructorCount: Int {
+        return constructorStanding?.count ?? 0
     }
     
-    func Constructor(atIndex: Int) -> ConstructorStanding? {
-        return ConstructorStanding?[atIndex] ?? nil
+    func constructor(atIndex: Int) -> ConstructorStanding? {
+        return constructorStanding?[atIndex] ?? nil
     }
     
     func fetchConstructorStandings() {
         repository?.fetchConstructorStandingsResults(completion: { [weak self] result in
             switch result {
-            case .success(let ConstructorStandings):
-                self?.ConstructorStanding = ConstructorStandings.mrData.standingsTable.standingsLists[0].constructorStandings
-                print(self?.ConstructorStanding ?? "No Result")
+            case .success(let constructorStandings):
+                self?.constructorStanding = constructorStandings.mrData.standingsTable.standingsLists[0].constructorStandings
+                print(self?.constructorStanding ?? "No Result")
                 self?.delegate?.reloadView()
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)
@@ -41,4 +39,3 @@ class ConstructorStandingsViewModel {
         })
     }
 }
-

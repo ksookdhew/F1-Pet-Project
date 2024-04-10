@@ -9,20 +9,56 @@ import Foundation
 class ResultsViewModel {
     private var repository: ResultsRepositoryType?
     private weak var delegate: ViewModelDelegate?
-    private var results: Results?
-    
+    private var allResults: [Race]?
+    private var race: Race?
+    private var raceResult: [RacingResult]?
+
     init(repository: ResultsRepositoryType,
          delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
     }
-    
-    func fetchResults(roundNo: String) {
-        repository?.fetchResultsResults(round:roundNo,completion: { [weak self] result in
+
+    var allResultsCount: Int {
+        return allResults?.count ?? 0
+    }
+
+    func allResult(atIndex: Int) -> Race? {
+        return allResults?[atIndex] ?? nil
+    }
+
+    func allResultDate(atIndex: Int) -> DateComponents {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
+        let date = dateFormatter.date(from: race?.date ?? "2024-00-00") ?? Date()
+        let dateComps = Calendar.current.dateComponents([.year, .month, .day], from: date)
+        return dateComps
+    }
+
+    var raceResultsCount: Int {
+        return raceResult?.count ?? 0
+    }
+
+    var raceName: String {
+        print(race?.raceName ?? "Race Name")
+        return race?.raceName ?? "Race Name"
+
+    }
+
+    func raceResult(atIndex: Int) -> RacingResult? {
+        return raceResult?[atIndex] ?? nil
+    }
+
+    func setRaceResult(raceRes: Race) {
+        race = raceRes
+        raceResult = race?.results
+    }
+
+    func fetchResults() {
+        repository?.fetchRacingResults(completion: { [weak self] result in
             switch result {
             case .success(let result):
-                self?.results = result.mrData.raceTable.races[0].results[0]
-                print(self?.results?.driver.familyName ?? "No result")
+                self?.allResults = result.mrData.raceTable.races
                 self?.delegate?.reloadView()
             case .failure(let error):
                 print(error)

@@ -22,8 +22,8 @@ class RaceViewModel {
     func fetchRace(roundNo: String) {
         repository?.fetchRaceResults(round:roundNo,completion: { [weak self] result in
             switch result {
-            case .success(let Race):
-                self?.race = Race.mrData.raceTable.races[0]
+            case .success(let race):
+                self?.race = race.mrData.raceTable.races[0]
                 print(self?.race ?? "No result")
                 self?.delegate?.reloadView()
             case .failure(let error):
