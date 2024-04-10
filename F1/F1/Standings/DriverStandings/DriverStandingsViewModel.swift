@@ -17,6 +17,7 @@ class DriverStandingsViewModel {
     private var repository: DriverStandingsRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var driverStanding: [DriverStanding]?
+    
 
     init(repository: DriverStandingsRepositoryType,
          delegate: ViewModelDelegate) {
@@ -37,7 +38,6 @@ class DriverStandingsViewModel {
             switch result {
             case .success(let driverStandings):
                 self?.driverStanding = driverStandings.mrData.standingsTable.standingsLists[0].driverStandings
-                print(self?.driverStanding ?? "No Results")
                 self?.delegate?.reloadView()
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)

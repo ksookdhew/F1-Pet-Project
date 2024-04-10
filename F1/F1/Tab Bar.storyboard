@@ -129,10 +129,10 @@
             </objects>
             <point key="canvasLocation" x="798" y="1330"/>
         </scene>
-        <!--DriverStandings-->
+        <!--Standings-->
         <scene sceneID="hAL-xp-L9r">
             <objects>
-                <viewControllerPlaceholder storyboardName="DriverStandings" id="hC5-uv-wNS" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Standings" id="hC5-uv-wNS" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="r9W-QO-XdN"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hjy-3V-NPG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

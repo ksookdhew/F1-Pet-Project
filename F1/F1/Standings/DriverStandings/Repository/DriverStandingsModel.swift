@@ -12,7 +12,7 @@ struct DriverStandingsModel: Codable {
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
-    } 
+    }
 }
 
 // MARK: - Data
@@ -63,8 +63,3 @@ struct DriverStanding: Codable {
         case constructors = "Constructors"
     }
 }
- 
-
-
-
-
