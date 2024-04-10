@@ -10,7 +10,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="loK-lc-ZPM">
             <objects>
-                <tabBarController id="Z4N-tO-itr" sceneMemberID="viewController">
+                <tabBarController autoresizesArchivedViewToFullSize="NO" wantsFullScreenLayout="YES" modalPresentationStyle="fullScreen" id="Z4N-tO-itr" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ijb-Gx-GyB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
