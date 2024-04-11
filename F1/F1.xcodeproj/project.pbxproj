@@ -60,6 +60,8 @@
 		26C993E72BC729A70041F3B1 /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993E62BC729A70041F3B1 /* StandingsViewController.swift */; };
 		26C993E92BC72A9D0041F3B1 /* DriverStTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */; };
 		26C993EB2BC72ACD0041F3B1 /* DriverStTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993EA2BC72ACD0041F3B1 /* DriverStTableViewCell.swift */; };
+		26C993ED2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */; };
+		26C993EF2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993EE2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,8 @@
 		26C993E62BC729A70041F3B1 /* StandingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsViewController.swift; sourceTree = "<group>"; };
 		26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverStTableViewCell.xib; sourceTree = "<group>"; };
 		26C993EA2BC72ACD0041F3B1 /* DriverStTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStTableViewCell.swift; sourceTree = "<group>"; };
+		26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConstructorStTableViewCell.xib; sourceTree = "<group>"; };
+		26C993EE2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,6 +420,8 @@
 			children = (
 				26C993EA2BC72ACD0041F3B1 /* DriverStTableViewCell.swift */,
 				26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */,
+				26C993EE2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift */,
+				26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -529,6 +535,7 @@
 				26C993D42BC6B3E20041F3B1 /* Login.storyboard in Resources */,
 				2629E0722BBD941B00EC6139 /* Results.storyboard in Resources */,
 				2629E0872BBE846400EC6139 /* Tab Bar.storyboard in Resources */,
+				26C993ED2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib in Resources */,
 				26C993E52BC7289E0041F3B1 /* Standings.storyboard in Resources */,
 				2629DFAD2BBC22D900EC6139 /* Assets.xcassets in Resources */,
 				2629E0592BBC43D700EC6139 /* Constructor.storyboard in Resources */,
@@ -610,6 +617,7 @@
 				26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */,
 				2629E04A2BBC390400EC6139 /* ResultsModel.swift in Sources */,
 				2629E0652BBD37D500EC6139 /* ConstructorStandingsRepository.swift in Sources */,
+				26C993EF2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift in Sources */,
 				2629E0552BBC43C100EC6139 /* ConstructorViewController.swift in Sources */,
 				2629E0452BBC390400EC6139 /* RaceModel.swift in Sources */,
 				26C993D02BC6B3BA0041F3B1 /* LoginViewModel.swift in Sources */,

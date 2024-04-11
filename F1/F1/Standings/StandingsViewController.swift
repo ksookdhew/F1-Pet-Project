@@ -8,22 +8,41 @@
 import UIKit
 
 class StandingsViewController: UIViewController {
-    @IBOutlet weak var driverTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segControl: UISegmentedControl!
+    var selectedSegmentIndex = 1
+
     private lazy var driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository(), delegate: self)
+    private lazy var constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository(), delegate: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         driverViewModel.fetchDriverStandings()
+        constructorViewModel.fetchConstructorStandings()
     }
 
     private func setupTableView() {
-        driverTableView.delegate = self
-        driverTableView.dataSource = self
-        driverTableView.register(DriverStTableViewCell.nib(),
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(DriverStTableViewCell.nib(),
         forCellReuseIdentifier: DriverStTableViewCell.identifier)
+
     }
 
+    @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.selectedSegmentIndex = 1
+            tableView.register(DriverStTableViewCell.nib(),
+            forCellReuseIdentifier: DriverStTableViewCell.identifier)
+        default:
+            self.selectedSegmentIndex = 2
+            tableView.register(ConstructorStTableViewCell.nib(),
+            forCellReuseIdentifier: ConstructorStTableViewCell.identifier)
+        }
+        reloadView()
+    }
     // MARK: - Navigation
 }
 
@@ -31,7 +50,12 @@ class StandingsViewController: UIViewController {
 
  extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
      func numberOfSections(in tableView: UITableView) -> Int {
-         return driverViewModel.driversCount
+         switch selectedSegmentIndex {
+         case 1:
+             return driverViewModel.driversCount
+         default:
+             return constructorViewModel.constructorCount
+         }
      }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,15 +74,30 @@ class StandingsViewController: UIViewController {
 //     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = driverTableView.dequeueReusableCell(withIdentifier: DriverStTableViewCell.identifier)
-                as? DriverStTableViewCell
-        else { return UITableViewCell() }
-        guard let result = driverViewModel.driver(atIndex: indexPath.section) else { return UITableViewCell() }
-        cell.populateWith(driverSt: result)
-        let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor.clear
-        cell.selectedBackgroundView = bgColorView
-        return cell
+        switch selectedSegmentIndex {
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DriverStTableViewCell.identifier)
+                    as? DriverStTableViewCell
+            else { return UITableViewCell() }
+            guard let result = driverViewModel.driver(atIndex: indexPath.section) else { return UITableViewCell() }
+            cell.populateWith(driverSt: result)
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.clear
+            cell.selectedBackgroundView = bgColorView
+            return cell
+
+        default:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ConstructorStTableViewCell.identifier)
+                    as? ConstructorStTableViewCell
+            else { return UITableViewCell() }
+            guard let result = constructorViewModel.constructor(atIndex: indexPath.section)
+            else { return UITableViewCell() }
+            cell.populateWith(constructorSt: result)
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.clear
+            cell.selectedBackgroundView = bgColorView
+            return cell
+        }
     }
 
 //     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -70,7 +109,7 @@ class StandingsViewController: UIViewController {
 extension  StandingsViewController: ViewModelDelegate {
 
     func reloadView() {
-        driverTableView.reloadData()
+        tableView.reloadData()
     }
 
     func show(error: String) {

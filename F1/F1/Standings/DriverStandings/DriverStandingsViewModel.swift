@@ -17,7 +17,6 @@ class DriverStandingsViewModel {
     private var repository: DriverStandingsRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var driverStanding: [DriverStanding]?
-    
 
     init(repository: DriverStandingsRepositoryType,
          delegate: ViewModelDelegate) {
