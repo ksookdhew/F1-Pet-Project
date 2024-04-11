@@ -44,6 +44,17 @@ class StandingsViewController: UIViewController {
         reloadView()
     }
     // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "showRaceResultsSegue" {
+                if let destinationVC = segue.destination as? RacingResultViewController {
+                    if let race: Race = sender as? Race {
+                        destinationVC.race = race
+                    }
+                }
+            }
+        }
+
 }
 
 // MARK: - TableView Delegate
@@ -67,11 +78,11 @@ class StandingsViewController: UIViewController {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          return 148.0
      }
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//         let headerView = UIView()
-//         headerView.backgroundColor = UIColor.clear
-//         return headerView
-//     }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+         let headerView = UIView()
+         headerView.backgroundColor = UIColor.clear
+         return headerView
+     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch selectedSegmentIndex {
@@ -100,10 +111,17 @@ class StandingsViewController: UIViewController {
         }
     }
 
-//     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//         guard let result = viewModel.driver(atIndex: indexPath.section) else { return }
-//         performSegue(withIdentifier: "show??Segue", sender: result)
-//     }
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         switch selectedSegmentIndex {
+         case 1:
+             guard let result = driverViewModel.driver(atIndex: indexPath.section) else { return }
+             performSegue(withIdentifier: "showDriverSegue", sender: result)
+         default:
+             guard let result = constructorViewModel.constructor(atIndex: indexPath.section) else { return }
+             performSegue(withIdentifier: "showConstructorSegue", sender: result)
+         }
+
+     }
  }
 
 extension  StandingsViewController: ViewModelDelegate {

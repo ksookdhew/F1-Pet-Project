@@ -13,6 +13,7 @@ class ConstructorStTableViewCell: UITableViewCell {
     @IBOutlet weak var drivers: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var points: UILabel!
+    @IBOutlet weak var constructorImg: UIImageView!
 
     static let identifier = "ConstructorStTableViewCell"
     override func awakeFromNib() {
@@ -26,6 +27,7 @@ class ConstructorStTableViewCell: UITableViewCell {
         position.text = constructorSt.position
         name.text = constructorSt.constructor.name
         points.text = "\(constructorSt.points) PTS"
+        constructorImg.image = UIImage(named: "\(constructorSt.constructor.constructorID).png")
     }
 
     static func nib() -> UINib {

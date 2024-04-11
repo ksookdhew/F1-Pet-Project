@@ -67,11 +67,33 @@
                     <connections>
                         <outlet property="segControl" destination="Tz8-m2-YJJ" id="dhI-qb-Pgc"/>
                         <outlet property="tableView" destination="slV-VB-v7r" id="n7x-gQ-sv2"/>
+                        <segue destination="s6f-Zk-cDu" kind="show" identifier="showDriverSegue" id="Nyp-oZ-Gx9"/>
+                        <segue destination="yBu-Oy-E42" kind="show" identifier="showConstructorSegue" id="zDd-WW-NCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-747.32824427480909" y="-389.43661971830988"/>
+        </scene>
+        <!--Driver-->
+        <scene sceneID="F2L-CK-FCO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Driver" id="s6f-Zk-cDu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QK1-9d-exh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yMf-0G-D6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120" y="-284"/>
+        </scene>
+        <!--Constructor-->
+        <scene sceneID="r3T-le-LS5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Constructor" id="yBu-Oy-E42" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QDF-gx-Vfy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="beL-e2-Arz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-91" y="-198"/>
         </scene>
     </scenes>
 </document>
