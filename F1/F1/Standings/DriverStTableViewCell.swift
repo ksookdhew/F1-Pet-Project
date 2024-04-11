@@ -14,6 +14,7 @@ class DriverStTableViewCell: UITableViewCell {
     @IBOutlet weak var surname: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var points: UILabel!
+    @IBOutlet weak var driverImg: UIImageView!
 
     static let identifier = "DriverStTableViewCell"
     override func awakeFromNib() {
@@ -29,6 +30,7 @@ class DriverStTableViewCell: UITableViewCell {
         surname.text = driverSt.driver.familyName
         constructor.text = driverSt.constructors[0].name
         points.text = "\(driverSt.points) PTS"
+        driverImg.image = UIImage(named: "\(driverSt.driver.code).png")
     }
 
     static func nib() -> UINib {
