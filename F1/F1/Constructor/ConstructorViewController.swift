@@ -10,13 +10,14 @@ import UIKit
 class ConstructorViewController: UIViewController {
     private lazy var viewModel = ConstructorViewModel(repository: ConstructorRepository(),
                                                       delegate: self)
+
+    var constructor: Constructor?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchConstructor(constructorName: "Williams")
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 

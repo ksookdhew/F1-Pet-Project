@@ -9,13 +9,13 @@ import UIKit
 
 class DriverViewController: UIViewController{
  
-    
+    var driver: Driver?
 
     private lazy var viewModel = DriverViewModel(repository: DriverRepository(),
                                                       delegate: self)
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchDriver(driverName:"Hamilton")
+
         // Do any additional setup after loading the view.
     }
     
