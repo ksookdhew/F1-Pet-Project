@@ -103,6 +103,7 @@ class StandingsViewController: UIViewController {
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
             cell.selectedBackgroundView = bgColorView
+            constructorViewModel.setDriver(constructor: result.constructors[0].constructorID, driver: result.driver)
             return cell
 
         default:
@@ -111,7 +112,11 @@ class StandingsViewController: UIViewController {
             else { return UITableViewCell() }
             guard let result = constructorViewModel.constructor(atIndex: indexPath.section)
             else { return UITableViewCell() }
-            cell.populateWith(constructorSt: result)
+            guard let drivers = constructorViewModel.getDrivers(constructorID: result.constructor.constructorID)
+            else {
+                return UITableViewCell()
+            }
+            cell.populateWith(constructorSt: result, driverArr: drivers)
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
             cell.selectedBackgroundView = bgColorView
