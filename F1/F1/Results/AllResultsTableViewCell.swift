@@ -18,7 +18,7 @@ class AllResultsTableViewCell: UITableViewCell {
     @IBOutlet weak var driver2: UILabel!
     @IBOutlet weak var driver3: UILabel!
 
-    let monthAbbreviations = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sap", "Oct", "Nov", "Dec"]
+    let monthAbbreviations = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     static let identifier = "AllResultsTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()

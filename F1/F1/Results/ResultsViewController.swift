@@ -63,7 +63,7 @@ class ResultsViewController: UIViewController {
                 as? AllResultsTableViewCell
         else { return UITableViewCell() }
         guard let result = viewModel.allResult(atIndex: indexPath.section) else { return UITableViewCell() }
-        cell.populateWith(race: result, raceDate: viewModel.allResultDate(atIndex: indexPath.section))
+        cell.populateWith(race: result, raceDate: viewModel.allResultDate(result: result))
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.clear
         cell.selectedBackgroundView = bgColorView

@@ -27,10 +27,10 @@ class ResultsViewModel {
         return allResults?[atIndex] ?? nil
     }
 
-    func allResultDate(atIndex: Int) -> DateComponents {
+    func allResultDate(result: Race?) -> DateComponents {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
-        let date = dateFormatter.date(from: race?.date ?? "2024-00-00") ?? Date()
+        let date = dateFormatter.date(from: result?.date ?? "2024-00-00") ?? Date()
         let dateComps = Calendar.current.dateComponents([.year, .month, .day], from: date)
         return dateComps
     }
@@ -40,7 +40,6 @@ class ResultsViewModel {
     }
 
     var raceName: String {
-        print(race?.raceName ?? "Race Name")
         return race?.raceName ?? "Race Name"
 
     }
