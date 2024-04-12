@@ -17,11 +17,7 @@
 		2629DFC72BBC22D900EC6139 /* F1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629DFC62BBC22D900EC6139 /* F1UITestsLaunchTests.swift */; };
 		2629E02D2BBC354D00EC6139 /* ServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E02C2BBC354D00EC6139 /* ServiceErrors.swift */; };
 		2629E0322BBC35C200EC6139 /* DriverStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E02F2BBC35C100EC6139 /* DriverStandingsViewModel.swift */; };
-		2629E0332BBC35C200EC6139 /* DriverStandings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E0302BBC35C200EC6139 /* DriverStandings.storyboard */; };
-		2629E0342BBC35C200EC6139 /* DriverStandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0312BBC35C200EC6139 /* DriverStandingsViewController.swift */; };
-		2629E03A2BBC366800EC6139 /* ConstructorStandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0372BBC366800EC6139 /* ConstructorStandingsViewController.swift */; };
 		2629E03B2BBC366800EC6139 /* ConstructorStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0382BBC366800EC6139 /* ConstructorStandingsViewModel.swift */; };
-		2629E03C2BBC366800EC6139 /* ConstructorStandings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E0392BBC366800EC6139 /* ConstructorStandings.storyboard */; };
 		2629E0452BBC390400EC6139 /* RaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E03E2BBC390400EC6139 /* RaceModel.swift */; };
 		2629E0462BBC390400EC6139 /* ConstructorStandingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E03F2BBC390400EC6139 /* ConstructorStandingsModel.swift */; };
 		2629E0472BBC390400EC6139 /* DriverStandingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0402BBC390400EC6139 /* DriverStandingsModel.swift */; };
@@ -60,6 +56,12 @@
 		26C993D02BC6B3BA0041F3B1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993CF2BC6B3BA0041F3B1 /* LoginViewModel.swift */; };
 		26C993D22BC6B3D40041F3B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993D12BC6B3D40041F3B1 /* LoginViewController.swift */; };
 		26C993D42BC6B3E20041F3B1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993D32BC6B3E20041F3B1 /* Login.storyboard */; };
+		26C993E52BC7289E0041F3B1 /* Standings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993E42BC7289E0041F3B1 /* Standings.storyboard */; };
+		26C993E72BC729A70041F3B1 /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993E62BC729A70041F3B1 /* StandingsViewController.swift */; };
+		26C993E92BC72A9D0041F3B1 /* DriverStTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */; };
+		26C993EB2BC72ACD0041F3B1 /* DriverStTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993EA2BC72ACD0041F3B1 /* DriverStTableViewCell.swift */; };
+		26C993ED2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */; };
+		26C993EF2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993EE2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,11 +96,7 @@
 		2629DFC62BBC22D900EC6139 /* F1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2629E02C2BBC354D00EC6139 /* ServiceErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceErrors.swift; sourceTree = "<group>"; };
 		2629E02F2BBC35C100EC6139 /* DriverStandingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStandingsViewModel.swift; sourceTree = "<group>"; };
-		2629E0302BBC35C200EC6139 /* DriverStandings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DriverStandings.storyboard; sourceTree = "<group>"; };
-		2629E0312BBC35C200EC6139 /* DriverStandingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStandingsViewController.swift; sourceTree = "<group>"; };
-		2629E0372BBC366800EC6139 /* ConstructorStandingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewController.swift; sourceTree = "<group>"; };
 		2629E0382BBC366800EC6139 /* ConstructorStandingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModel.swift; sourceTree = "<group>"; };
-		2629E0392BBC366800EC6139 /* ConstructorStandings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConstructorStandings.storyboard; sourceTree = "<group>"; };
 		2629E03E2BBC390400EC6139 /* RaceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceModel.swift; sourceTree = "<group>"; };
 		2629E03F2BBC390400EC6139 /* ConstructorStandingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsModel.swift; sourceTree = "<group>"; };
 		2629E0402BBC390400EC6139 /* DriverStandingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStandingsModel.swift; sourceTree = "<group>"; };
@@ -137,6 +135,12 @@
 		26C993CF2BC6B3BA0041F3B1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		26C993D12BC6B3D40041F3B1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26C993D32BC6B3E20041F3B1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		26C993E42BC7289E0041F3B1 /* Standings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Standings.storyboard; path = F1/Standings/Standings.storyboard; sourceTree = SOURCE_ROOT; };
+		26C993E62BC729A70041F3B1 /* StandingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsViewController.swift; sourceTree = "<group>"; };
+		26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverStTableViewCell.xib; sourceTree = "<group>"; };
+		26C993EA2BC72ACD0041F3B1 /* DriverStTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStTableViewCell.swift; sourceTree = "<group>"; };
+		26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConstructorStTableViewCell.xib; sourceTree = "<group>"; };
+		26C993EE2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,12 +191,11 @@
 		2629DFA22BBC22D600EC6139 /* F1 */ = {
 			isa = PBXGroup;
 			children = (
+				26C993D52BC701FD0041F3B1 /* Standings */,
 				26C993C92BC6B3760041F3B1 /* Login */,
 				2629E0272BBC34E100EC6139 /* Config */,
 				2629E0702BBD93EE00EC6139 /* Results */,
-				2629E0362BBC365400EC6139 /* ConstructorStandings */,
 				2629E0532BBC43AA00EC6139 /* Constructor */,
-				2629E02E2BBC35AC00EC6139 /* DriverStandings */,
 				2629E04C2BBC3A6200EC6139 /* Driver */,
 				2629E07A2BBDDFCB00EC6139 /* Race */,
 				2629E05D2BBD34FC00EC6139 /* Utilities */,
@@ -245,8 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				2629E0672BBD38A100EC6139 /* Repository */,
-				2629E0302BBC35C200EC6139 /* DriverStandings.storyboard */,
-				2629E0312BBC35C200EC6139 /* DriverStandingsViewController.swift */,
 				2629E02F2BBC35C100EC6139 /* DriverStandingsViewModel.swift */,
 			);
 			path = DriverStandings;
@@ -256,8 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				2629E0632BBD37AC00EC6139 /* Repository */,
-				2629E0392BBC366800EC6139 /* ConstructorStandings.storyboard */,
-				2629E0372BBC366800EC6139 /* ConstructorStandingsViewController.swift */,
 				2629E0382BBC366800EC6139 /* ConstructorStandingsViewModel.swift */,
 			);
 			path = ConstructorStandings;
@@ -404,6 +403,29 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		26C993D52BC701FD0041F3B1 /* Standings */ = {
+			isa = PBXGroup;
+			children = (
+				26C993DA2BC705840041F3B1 /* Custom Cell */,
+				2629E02E2BBC35AC00EC6139 /* DriverStandings */,
+				2629E0362BBC365400EC6139 /* ConstructorStandings */,
+				26C993E62BC729A70041F3B1 /* StandingsViewController.swift */,
+				26C993E42BC7289E0041F3B1 /* Standings.storyboard */,
+			);
+			path = Standings;
+			sourceTree = "<group>";
+		};
+		26C993DA2BC705840041F3B1 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				26C993EA2BC72ACD0041F3B1 /* DriverStTableViewCell.swift */,
+				26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */,
+				26C993EE2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift */,
+				26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */,
+			);
+			name = "Custom Cell";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -509,16 +531,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2629E03C2BBC366800EC6139 /* ConstructorStandings.storyboard in Resources */,
 				2629E0832BBDE02A00EC6139 /* Race.storyboard in Resources */,
 				26C993D42BC6B3E20041F3B1 /* Login.storyboard in Resources */,
-				2629E0332BBC35C200EC6139 /* DriverStandings.storyboard in Resources */,
 				2629E0722BBD941B00EC6139 /* Results.storyboard in Resources */,
 				2629E0872BBE846400EC6139 /* Tab Bar.storyboard in Resources */,
+				26C993ED2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib in Resources */,
+				26C993E52BC7289E0041F3B1 /* Standings.storyboard in Resources */,
 				2629DFAD2BBC22D900EC6139 /* Assets.xcassets in Resources */,
 				2629E0592BBC43D700EC6139 /* Constructor.storyboard in Resources */,
 				26C993B92BC3E9920041F3B1 /* AllResultsTableViewCell.xib in Resources */,
 				2629E04E2BBC3A7500EC6139 /* Driver.storyboard in Resources */,
+				26C993E92BC72A9D0041F3B1 /* DriverStTableViewCell.xib in Resources */,
 				26C993BF2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib in Resources */,
 				26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */,
 				2629DFAB2BBC22D600EC6139 /* Main.storyboard in Resources */,
@@ -568,6 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26C993E72BC729A70041F3B1 /* StandingsViewController.swift in Sources */,
 				2629E0622BBD370C00EC6139 /* DriverRepository.swift in Sources */,
 				2629E0692BBD38B700EC6139 /* DriverStandingsRepository.swift in Sources */,
 				2629E07F2BBDE01100EC6139 /* RaceRepository.swift in Sources */,
@@ -576,7 +600,6 @@
 				2629E0502BBC3A8800EC6139 /* DriverViewModel.swift in Sources */,
 				2629DFA82BBC22D600EC6139 /* ViewController.swift in Sources */,
 				2629E0322BBC35C200EC6139 /* DriverStandingsViewModel.swift in Sources */,
-				2629E0342BBC35C200EC6139 /* DriverStandingsViewController.swift in Sources */,
 				2629E0492BBC390400EC6139 /* DriverModel.swift in Sources */,
 				2629E0752BBD943900EC6139 /* ResultsRepository.swift in Sources */,
 				26C993B82BC3E9920041F3B1 /* AllResultsTableViewCell.swift in Sources */,
@@ -586,7 +609,7 @@
 				2629E0472BBC390400EC6139 /* DriverStandingsModel.swift in Sources */,
 				2629DFA42BBC22D600EC6139 /* AppDelegate.swift in Sources */,
 				2629E05F2BBD353C00EC6139 /* URLSession+Extension.swift in Sources */,
-				2629E03A2BBC366800EC6139 /* ConstructorStandingsViewController.swift in Sources */,
+				26C993EB2BC72ACD0041F3B1 /* DriverStTableViewCell.swift in Sources */,
 				2629E05B2BBC5AC600EC6139 /* ConstructorRepository.swift in Sources */,
 				2629E0812BBDE01D00EC6139 /* RaceViewController.swift in Sources */,
 				2629E0462BBC390400EC6139 /* ConstructorStandingsModel.swift in Sources */,
@@ -594,6 +617,7 @@
 				26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */,
 				2629E04A2BBC390400EC6139 /* ResultsModel.swift in Sources */,
 				2629E0652BBD37D500EC6139 /* ConstructorStandingsRepository.swift in Sources */,
+				26C993EF2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift in Sources */,
 				2629E0552BBC43C100EC6139 /* ConstructorViewController.swift in Sources */,
 				2629E0452BBC390400EC6139 /* RaceModel.swift in Sources */,
 				26C993D02BC6B3BA0041F3B1 /* LoginViewModel.swift in Sources */,

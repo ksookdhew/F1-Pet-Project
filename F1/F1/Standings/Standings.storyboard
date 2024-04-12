@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Standings View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="StandingsViewController" customModule="F1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Standings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Id0-0l-VCv">
+                                <rect key="frame" x="40" y="79" width="184" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="a1x-nZ-WcZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="slV-VB-v7r">
+                                <rect key="frame" x="20" y="200" width="353" height="618"/>
+                                <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="separatorColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DriverStTableViewCell" id="5ts-9b-0bj" customClass="DriverStTableViewCell" customModule="F1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="353" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5ts-9b-0bj" id="RYu-iH-tZK">
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tz8-m2-YJJ">
+                                <rect key="frame" x="20" y="149" width="353" height="32"/>
+                                <color key="backgroundColor" red="0.19607841970000001" green="0.19215688110000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <segments>
+                                    <segment title="Drivers"/>
+                                    <segment title="Constructors"/>
+                                </segments>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segmentValueChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="ljZ-7s-O8L"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Tz8-m2-YJJ" secondAttribute="trailing" constant="20" id="0tS-5o-uH3"/>
+                            <constraint firstItem="Tz8-m2-YJJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="35i-N0-HM9"/>
+                            <constraint firstItem="slV-VB-v7r" firstAttribute="top" secondItem="Tz8-m2-YJJ" secondAttribute="bottom" constant="20" id="4P7-zP-xbj"/>
+                            <constraint firstItem="slV-VB-v7r" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="4ZK-K9-IMC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="slV-VB-v7r" secondAttribute="bottom" id="7I7-lM-9ej"/>
+                            <constraint firstItem="Tz8-m2-YJJ" firstAttribute="top" secondItem="Id0-0l-VCv" secondAttribute="bottom" constant="30" id="GzJ-0d-65j"/>
+                            <constraint firstItem="Id0-0l-VCv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Sia-fv-Bmd"/>
+                            <constraint firstItem="Id0-0l-VCv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="WeK-UF-saC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="slV-VB-v7r" secondAttribute="trailing" constant="20" id="lgq-wW-zX8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segControl" destination="Tz8-m2-YJJ" id="dhI-qb-Pgc"/>
+                        <outlet property="tableView" destination="slV-VB-v7r" id="n7x-gQ-sv2"/>
+                        <segue destination="s6f-Zk-cDu" kind="show" identifier="showDriverSegue" id="Nyp-oZ-Gx9"/>
+                        <segue destination="yBu-Oy-E42" kind="show" identifier="showConstructorSegue" id="zDd-WW-NCx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-747.32824427480909" y="-389.43661971830988"/>
+        </scene>
+        <!--Driver-->
+        <scene sceneID="F2L-CK-FCO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Driver" id="s6f-Zk-cDu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QK1-9d-exh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yMf-0G-D6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120" y="-284"/>
+        </scene>
+        <!--Constructor-->
+        <scene sceneID="r3T-le-LS5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Constructor" id="yBu-Oy-E42" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QDF-gx-Vfy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="beL-e2-Arz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-91" y="-198"/>
+        </scene>
+    </scenes>
+</document>
