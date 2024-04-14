@@ -50,13 +50,13 @@ class StandingsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "showDriverSegue" {
                 if let destinationVC = segue.destination as? DriverViewController {
-                    if let driver: Driver = sender as? Driver {
+                    if let driver: DriverStanding = sender as? DriverStanding {
                         destinationVC.driver = driver
                     }
                 }
             } else if segue.identifier == "showConstructorSegue" {
                 if let destinationVC = segue.destination as? ConstructorViewController {
-                    if let constructor: Constructor = sender as? Constructor {
+                    if let constructor: ConstructorStanding = sender as? ConstructorStanding {
                         destinationVC.constructor = constructor
                     }
                 }

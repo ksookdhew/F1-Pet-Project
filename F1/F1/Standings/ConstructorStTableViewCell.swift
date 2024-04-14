@@ -28,7 +28,16 @@ class ConstructorStTableViewCell: UITableViewCell {
         name.text = constructorSt.constructor.name
         points.text = "\(constructorSt.points) PTS"
         constructorImg.image = UIImage(named: "\(constructorSt.constructor.constructorID).png")
-        drivers.text = "\(driverArr?[0]?.code ?? "")/\(driverArr?[1]?.code ?? "")"
+        if driverArr!.count >= 1 {
+            if driverArr?.count == 2 {
+                drivers.text = "\(driverArr?[0]?.code ?? "")/\(driverArr?[1]?.code ?? "")"
+            } else{
+                drivers.text = "\(driverArr?[0]?.code ?? "")"
+            }} else {
+            drivers.text = ""
+        }
+
+//        drivers.text = "\(driverArr?[0]?.code ?? "")/\(driverArr?[1]?.code ?? "")"
     }
 
     static func nib() -> UINib {
