@@ -11,7 +11,6 @@ class ConstructorStandingsViewModel {
     private var repository: ConstructorStandingsRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var constructorStanding: [ConstructorStanding]?
-    private var driverDic: [String: [Driver?]] = [:]
 
     init(repository: ConstructorStandingsRepositoryType,
          delegate: ViewModelDelegate) {
@@ -27,20 +26,6 @@ class ConstructorStandingsViewModel {
         return constructorStanding?[atIndex] ?? nil
     }
 
-    func setDriver(constructor: String, driver: Driver) {
-
-        if var drivers = driverDic[constructor] {
-            drivers.append(driver)
-            driverDic[constructor] = drivers
-        } else {
-            driverDic[constructor] = [driver]
-        }
-    }
-
-    
-    func getDrivers(constructorID: String) -> [Driver?]? {
-        return driverDic[constructorID] ?? []
-    }
 
     func fetchConstructorStandings() {
         repository?.fetchConstructorStandingsResults(completion: { [weak self] result in

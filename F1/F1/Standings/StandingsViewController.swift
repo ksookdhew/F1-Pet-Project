@@ -103,7 +103,6 @@ class StandingsViewController: UIViewController {
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
             cell.selectedBackgroundView = bgColorView
-            constructorViewModel.setDriver(constructor: result.constructors[0].constructorID, driver: result.driver)
             return cell
 
         default:
@@ -112,7 +111,7 @@ class StandingsViewController: UIViewController {
             else { return UITableViewCell() }
             guard let result = constructorViewModel.constructor(atIndex: indexPath.section)
             else { return UITableViewCell() }
-            guard let drivers = constructorViewModel.getDrivers(constructorID: result.constructor.constructorID)
+            guard let drivers = driverViewModel.getConstructorDrivers(constructorID: result.constructor.constructorID)
             else {
                 return UITableViewCell()
             }
@@ -141,6 +140,7 @@ extension  StandingsViewController: ViewModelDelegate {
 
     func reloadView() {
         tableView.reloadData()
+        driverViewModel.setConstructors()
     }
 
     func show(error: String) {
