@@ -23,7 +23,9 @@ class ConstructorViewModel {
     }
 
     func result(atIndex: Int) -> Race? {
-        return constructorResults?[atIndex] ?? nil
+        if constructorResults?.count ?? 0 > atIndex {
+            return constructorResults?[atIndex] ?? nil }
+        return nil
     }
 
     func getDrivers() -> String {

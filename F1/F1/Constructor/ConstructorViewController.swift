@@ -64,7 +64,7 @@ extension ConstructorViewController: UITableViewDelegate, UITableViewDataSource 
         return viewModel.resultsCount
     }
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-          return 42.0
+         return 84.0
       }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ConstructorTableViewCell.identifier)
