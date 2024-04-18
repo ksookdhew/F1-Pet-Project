@@ -23,7 +23,6 @@ class DriverViewController: UIViewController {
     @IBOutlet weak var currentPoints: UILabel!
     @IBOutlet weak var currentPos: UILabel!
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -49,7 +48,6 @@ class DriverViewController: UIViewController {
     }
 
 }
-
 
 extension DriverViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

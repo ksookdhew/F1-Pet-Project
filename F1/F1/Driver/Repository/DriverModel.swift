@@ -5,13 +5,12 @@
 //  Created by Kaitlyn Sookdhew on 2024/03/28.
 //
 
-
 import Foundation
 
 // MARK: - DriverModel
 struct DriverModel: Codable {
     let mrData: DriverData
-    
+
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }

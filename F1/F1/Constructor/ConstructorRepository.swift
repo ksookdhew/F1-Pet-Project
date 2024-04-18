@@ -7,15 +7,15 @@
 
 import Foundation
 
-typealias ConstructorResults = (Result< ResultsModel, APIError>) -> Void
+typealias ConstructorResults = (Result<ResultsModel, APIError>) -> Void
 
 protocol ConstructorRepositoryType: AnyObject {
-    func fetchConstructorResults(constructor : String,completion: @escaping(ConstructorResults))
+    func fetchConstructorResults(constructor: String, completion: @escaping ConstructorResults)
 }
 
 class ConstructorRepository: ConstructorRepositoryType {
 
-    func fetchConstructorResults(constructor: String, completion: @escaping (ConstructorResults)) {
+    func fetchConstructorResults(constructor: String, completion: @escaping ConstructorResults) {
         let url = "https://ergast.com/api/f1/current/constructors/\(constructor)/results.JSON"
         URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
     }

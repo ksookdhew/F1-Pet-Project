@@ -8,7 +8,7 @@
 import Foundation
 
 class ConstructorViewModel {
-    
+
     private var repository: ConstructorRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var constructorResults: [Race]?
@@ -31,9 +31,9 @@ class ConstructorViewModel {
     func getDrivers() -> String {
         return "\(constructorResults?[0].results[0].driver.code ?? "") | \(constructorResults?[0].results[1].driver.code ?? "")"
     }
-    
+
     func fetchConstructor(constructorName: String) {
-        repository?.fetchConstructorResults(constructor:constructorName,completion: { [weak self] result in
+        repository?.fetchConstructorResults(constructor: constructorName, completion: { [weak self] result in
             switch result {
             case .success(let constructor):
                 self?.constructorResults = constructor.mrData.raceTable.races

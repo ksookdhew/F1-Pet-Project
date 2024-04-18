@@ -55,7 +55,7 @@ extension ConstructorViewController: ViewModelDelegate {
     }
 
     func show(error: String) {
-        //displayAlert(title: "Error", message: error, buttonTitle: "Ok")
+
     }
 }
 
