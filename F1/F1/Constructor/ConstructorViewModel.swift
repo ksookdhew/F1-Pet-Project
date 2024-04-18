@@ -28,8 +28,12 @@ class ConstructorViewModel {
         return nil
     }
 
-    func getDrivers() -> String {
-        return "\(constructorResults?[0].results[0].driver.code ?? "") | \(constructorResults?[0].results[1].driver.code ?? "")"
+    var drivers: String {
+        return "\(constructorResults?.first?.results.first?.driver.code ?? "") | \(constructorResults?.first?.results.last?.driver.code ?? "")"
+    }
+
+    func imageName(constructorId: String) -> String {
+        return "\(constructorId).png"
     }
 
     func fetchConstructor(constructorName: String) {

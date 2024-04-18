@@ -178,7 +178,7 @@
                         <outlet property="constructorName" destination="Vr2-k6-o53" id="qoA-Yh-9th"/>
                         <outlet property="constructorNationality" destination="5VC-eP-W4d" id="Jgs-n7-ySh"/>
                         <outlet property="currentPoints" destination="Bfe-rH-d2U" id="D1I-oh-UVK"/>
-                        <outlet property="currentPos" destination="ACZ-1m-zbJ" id="4Yd-Xn-Uvk"/>
+                        <outlet property="currentPosition" destination="ACZ-1m-zbJ" id="4Yd-Xn-Uvk"/>
                         <outlet property="currentWins" destination="dgb-aF-OyM" id="2tt-Of-3ar"/>
                         <outlet property="tableView" destination="Reh-le-J2b" id="aVA-Re-u89"/>
                     </connections>
@@ -200,7 +200,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QnF-8b-kls">
-                                        <rect key="frame" x="20" y="20" width="397" height="378"/>
+                                        <rect key="frame" x="0.0" y="20" width="397" height="378"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mercedes" translatesAutoresizingMaskIntoConstraints="NO" id="Hyb-Dv-ZF6">
                                                 <rect key="frame" x="20" y="0.0" width="148" height="150"/>
@@ -348,7 +348,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="v7j-Bj-gSD">
-                                        <rect key="frame" x="30" y="406" width="377" height="300"/>
+                                        <rect key="frame" x="10" y="406" width="377" height="300"/>
                                         <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="sectionIndexBackgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -387,7 +387,7 @@
                         <outlet property="constructorName" destination="3fN-er-Frn" id="OpD-PH-KOr"/>
                         <outlet property="constructorNationality" destination="bJg-rL-9jn" id="mf8-i6-6UK"/>
                         <outlet property="currentPoints" destination="Q5s-hD-ysi" id="GLV-nq-y3q"/>
-                        <outlet property="currentPos" destination="4U0-uA-KXO" id="mta-xI-GUf"/>
+                        <outlet property="currentPosition" destination="4U0-uA-KXO" id="mta-xI-GUf"/>
                         <outlet property="currentWins" destination="Q99-yc-FMB" id="yBM-Fw-ANO"/>
                         <outlet property="scrollView" destination="dS0-Dy-zNX" id="lqs-ry-27o"/>
                         <outlet property="tableView" destination="v7j-Bj-gSD" id="hae-m5-Y5j"/>
@@ -620,7 +620,7 @@
                         <outlet property="constructorName" destination="UkK-VZ-NHb" id="fhX-Hz-HSL"/>
                         <outlet property="constructorNationality" destination="vsa-ne-TZf" id="hUa-b4-nfM"/>
                         <outlet property="currentPoints" destination="Nf4-jo-T3P" id="USL-BO-Vop"/>
-                        <outlet property="currentPos" destination="Wcv-aI-kbD" id="EHN-4j-Fc5"/>
+                        <outlet property="currentPosition" destination="Wcv-aI-kbD" id="EHN-4j-Fc5"/>
                         <outlet property="currentWins" destination="h9I-Hn-OjB" id="AdB-PD-PJa"/>
                         <outlet property="heightConstant" destination="x7L-6B-ZPR" id="weh-oj-Xa8"/>
                         <outlet property="tableView" destination="uNm-KY-T0z" id="D6U-dE-OG5"/>

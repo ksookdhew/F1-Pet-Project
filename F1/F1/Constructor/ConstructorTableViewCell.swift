@@ -8,45 +8,44 @@
 import UIKit
 
 class ConstructorTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var round: UILabel!
-    @IBOutlet weak var race: UILabel!
-    @IBOutlet weak var driver: UILabel!
-    @IBOutlet weak var points: UILabel!
-    @IBOutlet weak var pos: UILabel!
-    @IBOutlet weak var driver2: UILabel!
-    @IBOutlet weak var points2: UILabel!
-    @IBOutlet weak var pos2: UILabel!
-
+    
+    @IBOutlet weak private var round: UILabel!
+    @IBOutlet weak private var race: UILabel!
+    @IBOutlet weak private var firstDriver: UILabel!
+    @IBOutlet weak private var firstPoints: UILabel!
+    @IBOutlet weak private var firstPosition: UILabel!
+    @IBOutlet weak private var secondDriver: UILabel!
+    @IBOutlet weak private var secondPoints: UILabel!
+    @IBOutlet weak private var secondPosition: UILabel!
+    
     static let identifier = "ConstructorTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.driver.layer.cornerRadius = 8
-        self.driver.layer.masksToBounds = true
-
-        self.driver2.layer.cornerRadius = 8
-        self.driver2.layer.masksToBounds = true
+        firstDriver.layer.cornerRadius = 8
+        firstDriver.layer.masksToBounds = true
+        secondDriver.layer.cornerRadius = 8
+        secondDriver.layer.masksToBounds = true
     }
-
+    
     func populateWith(result: Race) {
         round.text = result.round
         race.text = result.circuit.location.locality
-        driver.text = result.results[0].driver.code
-        points.text = result.results[0].points
-        pos.text = result.results[0].position
-
+        firstDriver.text = result.results.first?.driver.code
+        firstPoints.text = result.results.first?.points
+        firstPosition.text = result.results.first?.position
+        
         if result.results.count > 1 {
-            driver2.text = result.results[1].driver.code
-            points2.text = result.results[1].points
-            pos2.text = result.results[1].position
+            secondDriver.text = result.results.last?.driver.code
+            secondPoints.text = result.results.last?.points
+            secondPosition.text = result.results.last?.position
         } else {
-            driver2.isHidden = true
-            pos2.isHidden = true
-            points2.isHidden = true
+            secondDriver.isHidden = true
+            secondPosition.isHidden = true
+            secondPoints.isHidden = true
         }
     }
-
+    
     static func nib() -> UINib {
-        return UINib(nibName: "ConstructorTableViewCell", bundle: nil)
+        return UINib(nibName: identifier, bundle: nil)
     }
 }

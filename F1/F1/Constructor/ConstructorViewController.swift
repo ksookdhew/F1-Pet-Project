@@ -10,14 +10,14 @@ import UIKit
 class ConstructorViewController: UIViewController {
     private lazy var viewModel = ConstructorViewModel(repository: ConstructorRepository(),
                                                       delegate: self)
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var constructorImg: UIImageView!
-    @IBOutlet weak var constructorName: UILabel!
-    @IBOutlet weak var constructorNationality: UILabel!
-    @IBOutlet weak var constructorDriver: UILabel!
-    @IBOutlet weak var currentWins: UILabel!
-    @IBOutlet weak var currentPoints: UILabel!
-    @IBOutlet weak var currentPos: UILabel!
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var constructorImg: UIImageView!
+    @IBOutlet weak private var constructorName: UILabel!
+    @IBOutlet weak private var constructorNationality: UILabel!
+    @IBOutlet weak private var constructorDriver: UILabel!
+    @IBOutlet weak private var currentWins: UILabel!
+    @IBOutlet weak private var currentPoints: UILabel!
+    @IBOutlet weak private var currentPosition: UILabel!
     var constructor: ConstructorStanding?
     var driver: [Driver]?
 
@@ -25,15 +25,12 @@ class ConstructorViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         viewModel.fetchConstructor(constructorName: constructor?.constructor.constructorID ?? "")
-
-        constructorImg.image = UIImage(named: "\(constructor?.constructor.constructorID ?? "").png")
+        constructorImg.image = UIImage(named: viewModel.imageName(constructorId: constructor?.constructor.constructorID ?? ""))
         constructorName.text = constructor?.constructor.name
-
         constructorNationality.text = constructor?.constructor.nationality
-        currentPos.text = constructor?.position
+        currentPosition.text = constructor?.position
         currentPoints.text = constructor?.points
         currentWins.text = constructor?.wins
-
         constructorDriver.text = ""
     }
 
@@ -41,31 +38,32 @@ class ConstructorViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ConstructorTableViewCell.nib(),
-           forCellReuseIdentifier: ConstructorTableViewCell.identifier)
+                           forCellReuseIdentifier: ConstructorTableViewCell.identifier)
         tableView.register(UINib(nibName: "ConstructorResultHeader", bundle: nil),
-           forHeaderFooterViewReuseIdentifier: "ConstructorResultHeader")
+                           forHeaderFooterViewReuseIdentifier: "ConstructorResultHeader")
     }
-
+    
 }
 extension ConstructorViewController: ViewModelDelegate {
 
     func reloadView() {
         tableView.reloadData()
-        constructorDriver.text = viewModel.getDrivers()
+        constructorDriver.text = viewModel.drivers
     }
 
     func show(error: String) {
-
+        
     }
 }
 
+// MARK: - UITableViewDelegate and UITableViewDataSource
 extension ConstructorViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.resultsCount
     }
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 84.0
-      }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 84.0
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ConstructorTableViewCell.identifier)
                 as? ConstructorTableViewCell
@@ -75,14 +73,14 @@ extension ConstructorViewController: UITableViewDelegate, UITableViewDataSource 
         return cell
     }
 
-     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-            "ConstructorResultHeader") as? ConstructorResultHeader
-         else { return UITableViewHeaderFooterView() }
-     return headerView
-     }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+                                                                            "ConstructorResultHeader") as? ConstructorResultHeader
+        else { return UITableViewHeaderFooterView() }
+        return headerView
+    }
 
-     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-     return 45
-     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 45
+    }
 }

@@ -23,16 +23,16 @@ class ConstructorStTableViewCell: UITableViewCell {
         self.backgroundColor = UIColor.clear
     }
 
-    func populateWith(constructorSt: ConstructorStanding, driverArr: [Driver?]) {
+    func populateWith(constructorSt: ConstructorStanding, driversList: [Driver?]) {
         position.text = constructorSt.position
         name.text = constructorSt.constructor.name
         points.text = "\(constructorSt.points) PTS"
         constructorImg.image = UIImage(named: "\(constructorSt.constructor.constructorID).png")
-        if driverArr.count >= 1 {
-            if driverArr.count >= 2 {
-                drivers.text = "\(driverArr[0]?.code ?? "")/\(driverArr[1]?.code ?? "")"
+        if driversList.count >= 1 {
+            if driversList.count >= 2 {
+                drivers.text = "\(driversList.first??.code ?? "")/\(driversList[1]?.code ?? "")"
             } else {
-                drivers.text = "\(driverArr[0]?.code ?? "")"
+                drivers.text = "\(driversList.first??.code ?? "")"
             }} else {
             drivers.text = ""
         }

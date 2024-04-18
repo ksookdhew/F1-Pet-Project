@@ -121,14 +121,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="driver" destination="xtc-rs-29b" id="JcG-oA-Jmk"/>
-                <outlet property="driver2" destination="bUX-3H-t9W" id="3Jj-6k-JlU"/>
-                <outlet property="points" destination="gDJ-8j-a0J" id="fjR-gR-dxl"/>
-                <outlet property="points2" destination="4DL-Bw-Kax" id="6wB-E1-dQS"/>
-                <outlet property="pos" destination="MPy-LQ-LVP" id="ZLD-Ea-Xzv"/>
-                <outlet property="pos2" destination="pEe-85-t3m" id="kwj-n2-Mw9"/>
+                <outlet property="firstDriver" destination="xtc-rs-29b" id="JcG-oA-Jmk"/>
+                <outlet property="firstPoints" destination="gDJ-8j-a0J" id="fjR-gR-dxl"/>
+                <outlet property="firstPosition" destination="MPy-LQ-LVP" id="ZLD-Ea-Xzv"/>
                 <outlet property="race" destination="aWe-MP-elJ" id="pvc-8P-7VY"/>
                 <outlet property="round" destination="9zb-em-vbH" id="hZJ-kz-40a"/>
+                <outlet property="secondDriver" destination="bUX-3H-t9W" id="3Jj-6k-JlU"/>
+                <outlet property="secondPoints" destination="4DL-Bw-Kax" id="6wB-E1-dQS"/>
+                <outlet property="secondPosition" destination="pEe-85-t3m" id="kwj-n2-Mw9"/>
             </connections>
             <point key="canvasLocation" x="-5.343511450381679" y="34.154929577464792"/>
         </tableViewCell>

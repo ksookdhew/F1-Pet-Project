@@ -8,9 +8,9 @@
 import UIKit
 
 class DriverResultHeader: UITableViewHeaderFooterView {
-    static let identifier = "DriverResultHeader"
+    static let identifier = "DriverResultsIdentifier"
 
     static func nib() -> UINib {
-        return UINib(nibName: "DriverResultHeader", bundle: nil)
+        return UINib(nibName: identifier, bundle: nil)
     }
 }

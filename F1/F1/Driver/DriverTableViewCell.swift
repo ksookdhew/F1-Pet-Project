@@ -8,29 +8,29 @@
 import UIKit
 
 class DriverTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var round: UILabel!
-    @IBOutlet weak var race: UILabel!
-    @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var points: UILabel!
-    @IBOutlet weak var pos: UILabel!
-
+    
+    @IBOutlet weak private var round: UILabel!
+    @IBOutlet weak private var race: UILabel!
+    @IBOutlet weak private var time: UILabel!
+    @IBOutlet weak private var points: UILabel!
+    @IBOutlet weak private var position: UILabel!
+    
     static let identifier = "DriverTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.time.layer.cornerRadius = 8
-        self.time.layer.masksToBounds = true
+        time.layer.cornerRadius = 8
+        time.layer.masksToBounds = true
     }
-
+    
     func populateWith(result: Race, lapTime: String) {
         round.text = result.round
         race.text = result.circuit.location.locality
         time.text = lapTime
         points.text = result.results[0].points
-        pos.text = result.results[0].position
+        position.text = result.results[0].position
     }
-
+    
     static func nib() -> UINib {
-        return UINib(nibName: "DriverTableViewCell", bundle: nil)
+        return UINib(nibName: identifier, bundle: nil)
     }
 }

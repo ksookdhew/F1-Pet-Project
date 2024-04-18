@@ -83,7 +83,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="points" destination="gDJ-8j-a0J" id="qWq-FB-sTf"/>
-                <outlet property="pos" destination="MPy-LQ-LVP" id="2Og-kn-UYt"/>
+                <outlet property="position" destination="MPy-LQ-LVP" id="2Og-kn-UYt"/>
                 <outlet property="race" destination="aWe-MP-elJ" id="LMD-Oh-Ef3"/>
                 <outlet property="round" destination="9zb-em-vbH" id="OXt-Kb-BPh"/>
                 <outlet property="time" destination="xtc-rs-29b" id="XHq-Nk-brh"/>

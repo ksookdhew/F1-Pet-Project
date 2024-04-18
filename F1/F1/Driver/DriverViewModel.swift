@@ -27,21 +27,24 @@ class DriverViewModel {
     }
 
     func laptime(index: Int) -> String {
-        if let resTime = driverResults?[index].results[0].time {
-            return resTime.time
+        if let resultTime = driverResults?[index].results.first?.time {
+            return resultTime.time
         } else {
-            let stat = driverResults?[index].results[0].status
-            if let statFinal = stat {
-                if !statFinal.contains("Lap") {
+            let finishingStatus = driverResults?[index].results.first?.status
+            if let status = finishingStatus {
+                if !status.contains("Lap") {
                     return "DNF"
                 } else {
-                    return statFinal
+                    return status
                 }
             } else {
                 return "No Time"
             }
         }
+    }
 
+    func imageName(driverCode: String) -> String {
+        return "\(driverCode).png"
     }
 
     func fetchDriver(driverName: String) {
@@ -51,7 +54,6 @@ class DriverViewModel {
                 self?.driverResults = driver.mrData.raceTable.races
                 self?.delegate?.reloadView()
             case .failure(let error):
-                print(error)
                 self?.delegate?.show(error: error.rawValue)
             }
         })

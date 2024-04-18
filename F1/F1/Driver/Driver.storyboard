@@ -183,7 +183,7 @@
                     </view>
                     <connections>
                         <outlet property="currentPoints" destination="Bfe-rH-d2U" id="iBc-1v-4x2"/>
-                        <outlet property="currentPos" destination="ACZ-1m-zbJ" id="dCq-1k-1Yi"/>
+                        <outlet property="currentPosition" destination="ACZ-1m-zbJ" id="dCq-1k-1Yi"/>
                         <outlet property="currentWins" destination="dgb-aF-OyM" id="t8X-IW-61H"/>
                         <outlet property="driverConstructor" destination="j6H-SY-FW8" id="VDL-QZ-cU6"/>
                         <outlet property="driverImg" destination="c37-4h-ibh" id="O6P-gQ-Rtz"/>
