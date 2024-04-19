@@ -18,7 +18,7 @@ class ConstructorTableViewCell: UITableViewCell {
     @IBOutlet weak private var secondPoints: UILabel!
     @IBOutlet weak private var secondPosition: UILabel!
     
-    static let identifier = "ConstructorTableViewCell"
+    static let identifier = Identifiers.ConstructorTableViewCell
     override func awakeFromNib() {
         super.awakeFromNib()
         firstDriver.layer.cornerRadius = 8

@@ -16,7 +16,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rnd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYn-gb-cmc">
                     <rect key="frame" x="15" y="11.666666666666664" width="30" height="13"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="l8Z-hX-iec"/>
+                        <constraint firstAttribute="width" constant="30" identifier="DriverResultsHeader" id="l8Z-hX-iec"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="13"/>
                     <color key="textColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -56,6 +56,9 @@
             <viewLayoutGuide key="safeArea" id="ipI-0u-eIo"/>
             <color key="backgroundColor" red="0.91764706370000004" green="0.23921570180000001" blue="0.14509806040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <color key="tintColor" red="0.91764706370000004" green="0.23921570180000001" blue="0.14509806040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <accessibility key="accessibilityConfiguration" identifier="DriverResultsHeader">
+                <accessibilityTraits key="traits" none="YES"/>
+            </accessibility>
             <constraints>
                 <constraint firstItem="iYn-gb-cmc" firstAttribute="leading" secondItem="ipI-0u-eIo" secondAttribute="leading" constant="15" id="2tO-we-GhF"/>
                 <constraint firstItem="suq-cm-86P" firstAttribute="centerY" secondItem="zQk-Up-Ueo" secondAttribute="centerY" id="5vb-yj-NcZ"/>

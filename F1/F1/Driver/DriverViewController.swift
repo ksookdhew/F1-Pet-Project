@@ -25,11 +25,11 @@ class DriverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        viewModel.fetchDriver(driverName: driver?.driver.driverID ?? "")
-        driverImg.image = UIImage(named: viewModel.imageName(driverCode: driver?.driver.code ?? ""))
+        viewModel.fetchDriver(driverName: driver?.driver.driverID)
+        driverImg.image = UIImage(named: viewModel.imageName(driverCode: driver?.driver.code))
         driverName.text = driver?.driver.givenName
         driverSurname.text = driver?.driver.familyName
-        driverConstructor.text = "\(driver?.driver.permanentNumber ?? "") | \(driver?.constructors[0].name ?? "") "
+        driverConstructor.text = "\(driver?.driver.permanentNumber ?? "") | \(driver?.constructors[0].name ?? "")"
         driverNationality.text = driver?.driver.nationality
         currentPosition.text = driver?.position
         currentPoints.text = driver?.points
@@ -41,8 +41,8 @@ class DriverViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(DriverTableViewCell.nib(),
                            forCellReuseIdentifier: DriverTableViewCell.identifier)
-        tableView.register(UINib(nibName: "DriverResultHeader", bundle: nil),
-                           forHeaderFooterViewReuseIdentifier: "DriverResultHeader")
+        tableView.register(DriverResultHeader.nib(),
+                           forHeaderFooterViewReuseIdentifier: DriverResultHeader.identifier)
     }
 }
 
@@ -66,7 +66,7 @@ extension DriverViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                                                                            "DriverResultHeader") as? DriverResultHeader
+                                                                            DriverResultHeader.identifier) as? DriverResultHeader
         else { return UITableViewHeaderFooterView() }
         return headerView
     }

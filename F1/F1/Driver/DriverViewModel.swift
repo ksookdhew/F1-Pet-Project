@@ -18,6 +18,7 @@ class DriverViewModel {
         self.repository = repository
         self.delegate = delegate
     }
+    
     var resultsCount: Int {
         return driverResults?.count ?? 0
     }
@@ -43,12 +44,12 @@ class DriverViewModel {
         }
     }
 
-    func imageName(driverCode: String) -> String {
-        return "\(driverCode).png"
+    func imageName(driverCode: String?) -> String {
+        return "\(driverCode ?? "").png"
     }
 
-    func fetchDriver(driverName: String) {
-        repository?.fetchDriverResults(driver: driverName) { [weak self] result in
+    func fetchDriver(driverName: String?) {
+        repository?.fetchDriverResults(driver: driverName ?? "") { [weak self] result in
             switch result {
             case .success(let driver):
                 self?.driverResults = driver.mrData.raceTable.races

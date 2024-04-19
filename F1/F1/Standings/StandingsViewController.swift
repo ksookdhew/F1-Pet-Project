@@ -14,6 +14,7 @@ class StandingsViewController: UIViewController {
 
     private lazy var driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository(), delegate: self)
     private lazy var constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository(), delegate: self)
+    private lazy var standingsViewModel = StandingsViewModel(driverViewModel: driverViewModel, constructorViewModel: constructorViewModel, navigationDelegate: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,15 +120,13 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch selectedSegmentIndex {
-        case 1:
-            guard let result = driverViewModel.driver(atIndex: indexPath.section) else { return }
-            performSegue(withIdentifier: "showDriverSegue", sender: result)
-        default:
-            guard let result = constructorViewModel.constructor(atIndex: indexPath.section) else { return }
-            performSegue(withIdentifier: "showConstructorSegue", sender: result)
-        }
+        standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
     }
+}
+
+protocol StandingsNavigationDelegate: AnyObject {
+    func navigateToDriver(_ driver: DriverStanding)
+    func navigateToConstructor(_ constructor: ConstructorStanding)
 }
 
 extension  StandingsViewController: ViewModelDelegate {
@@ -138,5 +137,16 @@ extension  StandingsViewController: ViewModelDelegate {
     }
 
     func show(error: String) {
+    }
+
+}
+
+extension StandingsViewController: StandingsNavigationDelegate {
+    func navigateToDriver(_ driver: DriverStanding) {
+        performSegue(withIdentifier: "showDriverSegue", sender: driver)
+    }
+
+    func navigateToConstructor(_ constructor: ConstructorStanding) {
+        performSegue(withIdentifier: "showConstructorSegue", sender: constructor)
     }
 }

@@ -32,12 +32,12 @@ class ConstructorViewModel {
         return "\(constructorResults?.first?.results.first?.driver.code ?? "") | \(constructorResults?.first?.results.last?.driver.code ?? "")"
     }
 
-    func imageName(constructorId: String) -> String {
-        return "\(constructorId).png"
+    func imageName(constructorId: String?) -> String {
+        return "\(constructorId ?? "").png"
     }
 
-    func fetchConstructor(constructorName: String) {
-        repository?.fetchConstructorResults(constructor: constructorName) { [weak self] result in
+    func fetchConstructor(constructorName: String?) {
+        repository?.fetchConstructorResults(constructor: constructorName ?? "") { [weak self] result in
             switch result {
             case .success(let constructor):
                 self?.constructorResults = constructor.mrData.raceTable.races

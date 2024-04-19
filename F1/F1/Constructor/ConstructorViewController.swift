@@ -24,8 +24,8 @@ class ConstructorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        viewModel.fetchConstructor(constructorName: constructor?.constructor.constructorID ?? "")
-        constructorImage.image = UIImage(named: viewModel.imageName(constructorId: constructor?.constructor.constructorID ?? ""))
+        viewModel.fetchConstructor(constructorName: constructor?.constructor.constructorID)
+        constructorImage.image = UIImage(named: viewModel.imageName(constructorId: constructor?.constructor.constructorID))
         constructorName.text = constructor?.constructor.name
         constructorNationality.text = constructor?.constructor.nationality
         currentPosition.text = constructor?.position
@@ -39,8 +39,8 @@ class ConstructorViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(ConstructorTableViewCell.nib(),
                            forCellReuseIdentifier: ConstructorTableViewCell.identifier)
-        tableView.register(UINib(nibName: "ConstructorResultHeader", bundle: nil),
-                           forHeaderFooterViewReuseIdentifier: "ConstructorResultHeader")
+        tableView.register(UINib(nibName: ConstructorResultHeader.identifier, bundle: nil),
+                           forHeaderFooterViewReuseIdentifier: ConstructorResultHeader.identifier)
     }
 
 }
@@ -75,7 +75,7 @@ extension ConstructorViewController: UITableViewDelegate, UITableViewDataSource 
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                                                                            "ConstructorResultHeader") as? ConstructorResultHeader
+                                                                            ConstructorResultHeader.identifier) as? ConstructorResultHeader
         else { return UITableViewHeaderFooterView() }
         return headerView
     }

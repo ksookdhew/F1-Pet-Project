@@ -15,7 +15,7 @@ class DriverTableViewCell: UITableViewCell {
     @IBOutlet weak private var points: UILabel!
     @IBOutlet weak private var position: UILabel!
     
-    static let identifier = "DriverTableViewCell"
+    static let identifier = Identifiers.DriverTableViewCell
     override func awakeFromNib() {
         super.awakeFromNib()
         time.layer.cornerRadius = 8

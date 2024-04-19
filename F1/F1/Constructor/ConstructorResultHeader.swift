@@ -8,8 +8,8 @@
 import UIKit
 
 class ConstructorResultHeader: UITableViewHeaderFooterView {
-    static let identifier = "ConstructorResultsIdentifier"
-    
+    static let identifier = Identifiers.ConstructorResultsIdentifier
+
     static func nib() -> UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
