@@ -11,7 +11,7 @@ class ConstructorViewController: UIViewController {
     private lazy var viewModel = ConstructorViewModel(repository: ConstructorRepository(),
                                                       delegate: self)
     @IBOutlet weak private var tableView: UITableView!
-    @IBOutlet weak private var constructorImg: UIImageView!
+    @IBOutlet weak private var constructorImage: UIImageView!
     @IBOutlet weak private var constructorName: UILabel!
     @IBOutlet weak private var constructorNationality: UILabel!
     @IBOutlet weak private var constructorDriver: UILabel!
@@ -25,7 +25,7 @@ class ConstructorViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         viewModel.fetchConstructor(constructorName: constructor?.constructor.constructorID ?? "")
-        constructorImg.image = UIImage(named: viewModel.imageName(constructorId: constructor?.constructor.constructorID ?? ""))
+        constructorImage.image = UIImage(named: viewModel.imageName(constructorId: constructor?.constructor.constructorID ?? ""))
         constructorName.text = constructor?.constructor.name
         constructorNationality.text = constructor?.constructor.nationality
         currentPosition.text = constructor?.position
@@ -42,7 +42,7 @@ class ConstructorViewController: UIViewController {
         tableView.register(UINib(nibName: "ConstructorResultHeader", bundle: nil),
                            forHeaderFooterViewReuseIdentifier: "ConstructorResultHeader")
     }
-    
+
 }
 extension ConstructorViewController: ViewModelDelegate {
 
@@ -52,7 +52,7 @@ extension ConstructorViewController: ViewModelDelegate {
     }
 
     func show(error: String) {
-        
+
     }
 }
 

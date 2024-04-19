@@ -53,7 +53,7 @@ class DriverStandingsViewModel {
         }
 
         func fetchDriverStandings() {
-            repository?.fetchDriverStandingsResults(completion: { [weak self] result in
+            repository?.fetchDriverStandingsResults { [weak self] result in
                 switch result {
                 case .success(let driverStandings):
                     self?.driverStanding = driverStandings.mrData.standingsTable.standingsLists[0].driverStandings
@@ -61,6 +61,6 @@ class DriverStandingsViewModel {
                 case .failure(let error):
                     self?.delegate?.show(error: error.rawValue)
                 }
-            })
+            }
         }
     }

@@ -174,7 +174,7 @@
                     </view>
                     <connections>
                         <outlet property="constructorDriver" destination="j6H-SY-FW8" id="bSV-og-YOa"/>
-                        <outlet property="constructorImg" destination="c37-4h-ibh" id="3Vn-Wn-jhS"/>
+                        <outlet property="constructorImage" destination="c37-4h-ibh" id="3Vn-Wn-jhS"/>
                         <outlet property="constructorName" destination="Vr2-k6-o53" id="qoA-Yh-9th"/>
                         <outlet property="constructorNationality" destination="5VC-eP-W4d" id="Jgs-n7-ySh"/>
                         <outlet property="currentPoints" destination="Bfe-rH-d2U" id="D1I-oh-UVK"/>
@@ -383,7 +383,7 @@
                     </view>
                     <connections>
                         <outlet property="constructorDriver" destination="cqO-XB-4NY" id="zUA-dK-9gf"/>
-                        <outlet property="constructorImg" destination="Hyb-Dv-ZF6" id="Cww-R5-xmh"/>
+                        <outlet property="constructorImage" destination="Hyb-Dv-ZF6" id="Cww-R5-xmh"/>
                         <outlet property="constructorName" destination="3fN-er-Frn" id="OpD-PH-KOr"/>
                         <outlet property="constructorNationality" destination="bJg-rL-9jn" id="mf8-i6-6UK"/>
                         <outlet property="currentPoints" destination="Q5s-hD-ysi" id="GLV-nq-y3q"/>
@@ -616,7 +616,7 @@
                     </view>
                     <connections>
                         <outlet property="constructorDriver" destination="3E0-Bi-KRB" id="MeM-HL-Xgv"/>
-                        <outlet property="constructorImg" destination="3Up-Nh-Xa6" id="L80-en-8Ez"/>
+                        <outlet property="constructorImage" destination="3Up-Nh-Xa6" id="L80-en-8Ez"/>
                         <outlet property="constructorName" destination="UkK-VZ-NHb" id="fhX-Hz-HSL"/>
                         <outlet property="constructorNationality" destination="vsa-ne-TZf" id="hUa-b4-nfM"/>
                         <outlet property="currentPoints" destination="Nf4-jo-T3P" id="USL-BO-Vop"/>

@@ -26,9 +26,8 @@ class ConstructorStandingsViewModel {
         return constructorStanding?[atIndex] ?? nil
     }
 
-
     func fetchConstructorStandings() {
-        repository?.fetchConstructorStandingsResults(completion: { [weak self] result in
+        repository?.fetchConstructorStandingsResults{ [weak self] result in
             switch result {
             case .success(let constructorStandings):
                 self?.constructorStanding = constructorStandings.mrData.standingsTable.standingsLists[0].constructorStandings
@@ -36,6 +35,6 @@ class ConstructorStandingsViewModel {
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)
             }
-        })
+        }
     }
 }

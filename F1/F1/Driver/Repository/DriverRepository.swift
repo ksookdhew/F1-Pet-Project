@@ -11,7 +11,7 @@ typealias DriverResults = (Result< ResultsModel, APIError>) -> Void
 
 protocol DriverRepositoryType: AnyObject {
 
-    func fetchDriverResults(driver: String, completion: @escaping DriverResults )
+    func fetchDriverResults(driver: String, completion: @escaping DriverResults)
 }
 
 class DriverRepository: DriverRepositoryType {

@@ -48,7 +48,7 @@ class DriverViewModel {
     }
 
     func fetchDriver(driverName: String) {
-        repository?.fetchDriverResults(driver: driverName, completion: { [weak self] result in
+        repository?.fetchDriverResults(driver: driverName) { [weak self] result in
             switch result {
             case .success(let driver):
                 self?.driverResults = driver.mrData.raceTable.races
@@ -56,6 +56,6 @@ class DriverViewModel {
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)
             }
-        })
+        }
     }
 }

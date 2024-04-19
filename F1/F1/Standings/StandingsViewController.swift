@@ -69,12 +69,7 @@ class StandingsViewController: UIViewController {
 
 extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        switch selectedSegmentIndex {
-        case 1:
-            return driverViewModel.driversCount
-        default:
-            return constructorViewModel.constructorCount
-        }
+        return selectedSegmentIndex == 1 ? driverViewModel.driversCount : constructorViewModel.constructorCount
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

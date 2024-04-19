@@ -37,7 +37,7 @@ class ConstructorViewModel {
     }
 
     func fetchConstructor(constructorName: String) {
-        repository?.fetchConstructorResults(constructor: constructorName, completion: { [weak self] result in
+        repository?.fetchConstructorResults(constructor: constructorName) { [weak self] result in
             switch result {
             case .success(let constructor):
                 self?.constructorResults = constructor.mrData.raceTable.races
@@ -46,6 +46,6 @@ class ConstructorViewModel {
                 print(error)
                 self?.delegate?.show(error: error.rawValue)
             }
-        })
+        }
     }
 }
