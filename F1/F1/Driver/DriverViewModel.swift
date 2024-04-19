@@ -18,7 +18,7 @@ class DriverViewModel {
         self.repository = repository
         self.delegate = delegate
     }
-    
+
     var resultsCount: Int {
         return driverResults?.count ?? 0
     }

@@ -66,7 +66,7 @@ extension DriverViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                                                                            DriverResultHeader.identifier) as? DriverResultHeader
+             DriverResultHeader.identifier) as? DriverResultHeader
         else { return UITableViewHeaderFooterView() }
         return headerView
     }

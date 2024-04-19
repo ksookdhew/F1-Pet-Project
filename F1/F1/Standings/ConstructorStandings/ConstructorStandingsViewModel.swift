@@ -27,7 +27,7 @@ class ConstructorStandingsViewModel {
     }
 
     func fetchConstructorStandings() {
-        repository?.fetchConstructorStandingsResults{ [weak self] result in
+        repository?.fetchConstructorStandingsResults { [weak self] result in
             switch result {
             case .success(let constructorStandings):
                 self?.constructorStanding = constructorStandings.mrData.standingsTable.standingsLists[0].constructorStandings

@@ -25,7 +25,8 @@ class ConstructorViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         viewModel.fetchConstructor(constructorName: constructor?.constructor.constructorID)
-        constructorImage.image = UIImage(named: viewModel.imageName(constructorId: constructor?.constructor.constructorID))
+        constructorImage.image = UIImage(named: viewModel.imageName(constructorId:
+            constructor?.constructor.constructorID))
         constructorName.text = constructor?.constructor.name
         constructorNationality.text = constructor?.constructor.nationality
         currentPosition.text = constructor?.position
@@ -75,7 +76,7 @@ extension ConstructorViewController: UITableViewDelegate, UITableViewDataSource 
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                                                                            ConstructorResultHeader.identifier) as? ConstructorResultHeader
+            ConstructorResultHeader.identifier) as? ConstructorResultHeader
         else { return UITableViewHeaderFooterView() }
         return headerView
     }
