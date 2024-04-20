@@ -8,12 +8,13 @@
 import UIKit
 
 class StandingsViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var segControl: UISegmentedControl!
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var segControl: UISegmentedControl!
     var selectedSegmentIndex = 1
 
     private lazy var driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository(), delegate: self)
     private lazy var constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository(), delegate: self)
+    private lazy var standingsViewModel = StandingsViewModel(driverViewModel: driverViewModel, constructorViewModel: constructorViewModel, navigationDelegate: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class StandingsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(DriverStTableViewCell.nib(),
-        forCellReuseIdentifier: DriverStTableViewCell.identifier)
+                           forCellReuseIdentifier: DriverStTableViewCell.identifier)
 
     }
 
@@ -35,11 +36,11 @@ class StandingsViewController: UIViewController {
         case 0:
             self.selectedSegmentIndex = 1
             tableView.register(DriverStTableViewCell.nib(),
-            forCellReuseIdentifier: DriverStTableViewCell.identifier)
+                               forCellReuseIdentifier: DriverStTableViewCell.identifier)
         default:
             self.selectedSegmentIndex = 2
             tableView.register(ConstructorStTableViewCell.nib(),
-            forCellReuseIdentifier: ConstructorStTableViewCell.identifier)
+                               forCellReuseIdentifier: ConstructorStTableViewCell.identifier)
         }
         reloadView()
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
@@ -48,49 +49,44 @@ class StandingsViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "showDriverSegue" {
-                if let destinationVC = segue.destination as? DriverViewController {
-                    if let driver: Driver = sender as? Driver {
-                        destinationVC.driver = driver
-                    }
+        if segue.identifier == Identifiers.showDriverSegue {
+            if let destinationVC = segue.destination as? DriverViewController {
+                if let driver: DriverStanding = sender as? DriverStanding {
+                    destinationVC.driver = driver
                 }
-            } else if segue.identifier == "showConstructorSegue" {
-                if let destinationVC = segue.destination as? ConstructorViewController {
-                    if let constructor: Constructor = sender as? Constructor {
-                        destinationVC.constructor = constructor
-                    }
+            }
+        } else if segue.identifier == Identifiers.showConstructorSegue {
+            if let destinationVC = segue.destination as? ConstructorViewController {
+                if let constructor: ConstructorStanding = sender as? ConstructorStanding {
+                    destinationVC.constructor = constructor
                 }
             }
         }
+    }
 
 }
 
 // MARK: - TableView Delegate
 
- extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
-     func numberOfSections(in tableView: UITableView) -> Int {
-         switch selectedSegmentIndex {
-         case 1:
-             return driverViewModel.driversCount
-         default:
-             return constructorViewModel.constructorCount
-         }
-     }
+extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return selectedSegmentIndex == 1 ? driverViewModel.driversCount : constructorViewModel.constructorCount
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-         return 4
+        return 4
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 148.0
-     }
+        return 148.0
+    }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-         let headerView = UIView()
-         headerView.backgroundColor = UIColor.clear
-         return headerView
-     }
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch selectedSegmentIndex {
@@ -103,7 +99,6 @@ class StandingsViewController: UIViewController {
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
             cell.selectedBackgroundView = bgColorView
-            constructorViewModel.setDriver(constructor: result.constructors[0].constructorID, driver: result.driver)
             return cell
 
         default:
@@ -112,11 +107,11 @@ class StandingsViewController: UIViewController {
             else { return UITableViewCell() }
             guard let result = constructorViewModel.constructor(atIndex: indexPath.section)
             else { return UITableViewCell() }
-            guard let drivers = constructorViewModel.getDrivers(constructorID: result.constructor.constructorID)
+            guard let drivers = driverViewModel.getConstructorDrivers(constructorID: result.constructor.constructorID)
             else {
                 return UITableViewCell()
             }
-            cell.populateWith(constructorSt: result, driverArr: drivers)
+            cell.populateWith(constructorSt: result, driversList: drivers)
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
             cell.selectedBackgroundView = bgColorView
@@ -124,26 +119,34 @@ class StandingsViewController: UIViewController {
         }
     }
 
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         switch selectedSegmentIndex {
-         case 1:
-             guard let result = driverViewModel.driver(atIndex: indexPath.section) else { return }
-             performSegue(withIdentifier: "showDriverSegue", sender: result)
-         default:
-             guard let result = constructorViewModel.constructor(atIndex: indexPath.section) else { return }
-             performSegue(withIdentifier: "showConstructorSegue", sender: result)
-         }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
+    }
+}
 
-     }
- }
+protocol StandingsNavigationDelegate: AnyObject {
+    func navigateToDriver(_ driver: DriverStanding)
+    func navigateToConstructor(_ constructor: ConstructorStanding)
+}
 
 extension  StandingsViewController: ViewModelDelegate {
 
     func reloadView() {
         tableView.reloadData()
+        driverViewModel.setConstructors()
     }
 
     func show(error: String) {
-        // displayAlert(title: "Error", message: error, buttonTitle: "Ok")
+    }
+
+}
+
+extension StandingsViewController: StandingsNavigationDelegate {
+    func navigateToDriver(_ driver: DriverStanding) {
+        performSegue(withIdentifier: Identifiers.showDriverSegue, sender: driver)
+    }
+
+    func navigateToConstructor(_ constructor: ConstructorStanding) {
+        performSegue(withIdentifier: Identifiers.showConstructorSegue, sender: constructor)
     }
 }
