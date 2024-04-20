@@ -24,15 +24,8 @@ class ConstructorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        viewModel.fetchConstructor(constructorName: constructor?.constructor.constructorID)
-        constructorImage.image = UIImage(named: viewModel.imageName(constructorId:
-            constructor?.constructor.constructorID))
-        constructorName.text = constructor?.constructor.name
-        constructorNationality.text = constructor?.constructor.nationality
-        currentPosition.text = constructor?.position
-        currentPoints.text = constructor?.points
-        currentWins.text = constructor?.wins
-        constructorDriver.text = ""
+        viewModel.fetchConstructor(constructorName: constructor?.constructor.constructorID ?? "")
+        setupView()
     }
 
     private func setupTableView() {
@@ -44,7 +37,17 @@ class ConstructorViewController: UIViewController {
                            forHeaderFooterViewReuseIdentifier: ConstructorResultHeader.identifier)
     }
 
+    private func setupView() {
+        constructorImage.image = UIImage(named: viewModel.imageName(constructorId:constructor?.constructor.constructorID))
+        constructorName.text = constructor?.constructor.name
+        constructorNationality.text = constructor?.constructor.nationality
+        currentPosition.text = constructor?.position
+        currentPoints.text = constructor?.points
+        currentWins.text = constructor?.wins
+        constructorDriver.text = ""
+    }
 }
+
 extension ConstructorViewController: ViewModelDelegate {
 
     func reloadView() {

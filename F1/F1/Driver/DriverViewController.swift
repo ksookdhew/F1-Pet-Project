@@ -9,7 +9,7 @@ import UIKit
 
 class DriverViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
     var driver: DriverStanding?
     private lazy var viewModel = DriverViewModel(repository: DriverRepository(), delegate: self)
 
@@ -26,14 +26,7 @@ class DriverViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         viewModel.fetchDriver(driverName: driver?.driver.driverID)
-        driverImg.image = UIImage(named: viewModel.imageName(driverCode: driver?.driver.code))
-        driverName.text = driver?.driver.givenName
-        driverSurname.text = driver?.driver.familyName
-        driverConstructor.text = "\(driver?.driver.permanentNumber ?? "") | \(driver?.constructors[0].name ?? "")"
-        driverNationality.text = driver?.driver.nationality
-        currentPosition.text = driver?.position
-        currentPoints.text = driver?.points
-        currentWins.text = driver?.wins
+        setupView()
     }
 
     private func setupTableView() {
@@ -43,6 +36,17 @@ class DriverViewController: UIViewController {
                            forCellReuseIdentifier: DriverTableViewCell.identifier)
         tableView.register(DriverResultHeader.nib(),
                            forHeaderFooterViewReuseIdentifier: DriverResultHeader.identifier)
+    }
+
+    private func setupView() {
+        driverImg.image = UIImage(named: viewModel.imageName(driverCode: driver?.driver.code))
+        driverName.text = driver?.driver.givenName
+        driverSurname.text = driver?.driver.familyName
+        driverConstructor.text = "\(driver?.driver.permanentNumber ?? "") | \(driver?.constructors[0].name ?? "")"
+        driverNationality.text = driver?.driver.nationality
+        currentPosition.text = driver?.position
+        currentPoints.text = driver?.points
+        currentWins.text = driver?.wins
     }
 }
 

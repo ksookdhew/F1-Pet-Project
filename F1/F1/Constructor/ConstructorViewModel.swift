@@ -29,7 +29,7 @@ class ConstructorViewModel {
     }
 
     var drivers: String {
-        return "\(constructorResults?.first?.results.first?.driver.code ?? "") |\(constructorResults?.first?.results.last?.driver.code ?? "")"
+        return "\(constructorResults?.first?.results.first?.driver.code ?? "") | \(constructorResults?.first?.results.last?.driver.code ?? "")"
     }
 
     func imageName(constructorId: String?) -> String {

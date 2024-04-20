@@ -49,13 +49,13 @@ class StandingsViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDriverSegue" {
+        if segue.identifier == Identifiers.showDriverSegue {
             if let destinationVC = segue.destination as? DriverViewController {
                 if let driver: DriverStanding = sender as? DriverStanding {
                     destinationVC.driver = driver
                 }
             }
-        } else if segue.identifier == "showConstructorSegue" {
+        } else if segue.identifier == Identifiers.showConstructorSegue {
             if let destinationVC = segue.destination as? ConstructorViewController {
                 if let constructor: ConstructorStanding = sender as? ConstructorStanding {
                     destinationVC.constructor = constructor
@@ -143,10 +143,10 @@ extension  StandingsViewController: ViewModelDelegate {
 
 extension StandingsViewController: StandingsNavigationDelegate {
     func navigateToDriver(_ driver: DriverStanding) {
-        performSegue(withIdentifier: "showDriverSegue", sender: driver)
+        performSegue(withIdentifier: Identifiers.showDriverSegue, sender: driver)
     }
 
     func navigateToConstructor(_ constructor: ConstructorStanding) {
-        performSegue(withIdentifier: "showConstructorSegue", sender: constructor)
+        performSegue(withIdentifier: Identifiers.showConstructorSegue, sender: constructor)
     }
 }

@@ -33,8 +33,7 @@ class DriverStandingsViewModel {
     }
 
     func setConstructors() {
-
-        if let driverStanding = driverStanding {
+        if let driverStanding {
             for driver in driverStanding {
                 if let constructor = driver.constructors.first?.constructorID {
                     if var drivers = driversForConstructor[constructor] {
@@ -56,7 +55,7 @@ class DriverStandingsViewModel {
             repository?.fetchDriverStandingsResults { [weak self] result in
                 switch result {
                 case .success(let driverStandings):
-                    self?.driverStanding = driverStandings.mrData.standingsTable.standingsLists[0].driverStandings
+                    self?.driverStanding = driverStandings.mrData.standingsTable.standingsLists.first?.driverStandings
                     self?.delegate?.reloadView()
                 case .failure(let error):
                     self?.delegate?.show(error: error.rawValue)

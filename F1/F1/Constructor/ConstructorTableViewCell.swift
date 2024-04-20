@@ -26,14 +26,14 @@ class ConstructorTableViewCell: UITableViewCell {
         secondDriver.layer.cornerRadius = 8
         secondDriver.layer.masksToBounds = true
     }
-    
+
     func populateWith(result: Race) {
         round.text = result.round
         race.text = result.circuit.location.locality
         firstDriver.text = result.results.first?.driver.code
         firstPoints.text = result.results.first?.points
         firstPosition.text = result.results.first?.position
-        
+
         if result.results.count > 1 {
             secondDriver.text = result.results.last?.driver.code
             secondPoints.text = result.results.last?.points
@@ -44,7 +44,7 @@ class ConstructorTableViewCell: UITableViewCell {
             secondPoints.isHidden = true
         }
     }
-    
+
     static func nib() -> UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
