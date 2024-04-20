@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverTableViewCell" rowHeight="42" id="KGk-i7-Jjw" customClass="DriverTableViewCell" customModule="F1" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="356" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="356" height="42"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Race Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWe-MP-elJ">
+                        <rect key="frame" x="55" y="12.666666666666664" width="105" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="105" id="ZEr-GU-ARe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zb-em-vbH">
+                        <rect key="frame" x="15" y="12.666666666666664" width="30" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="V0I-V9-hNg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:20:26.843" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtc-rs-29b">
+                        <rect key="frame" x="190" y="11" width="82" height="20"/>
+                        <color key="backgroundColor" red="0.19607841970000001" green="0.19215688110000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="82" id="pC2-4L-a60"/>
+                            <constraint firstAttribute="height" constant="20" id="s1h-9b-acf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="11"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDJ-8j-a0J">
+                        <rect key="frame" x="322" y="11" width="25" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="lbI-6T-9aE"/>
+                            <constraint firstAttribute="width" constant="25" id="mh8-6n-CCq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPy-LQ-LVP">
+                        <rect key="frame" x="287" y="11" width="25" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="UbE-SV-GcE"/>
+                            <constraint firstAttribute="width" constant="25" id="cXZ-7f-Jtl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.1058823466" green="0.1019607931" blue="0.098039209840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="xtc-rs-29b" firstAttribute="leading" secondItem="aWe-MP-elJ" secondAttribute="trailing" constant="30" id="2Rc-2e-HdM"/>
+                    <constraint firstItem="gDJ-8j-a0J" firstAttribute="leading" secondItem="MPy-LQ-LVP" secondAttribute="trailing" constant="10" id="4kr-XH-99i"/>
+                    <constraint firstItem="MPy-LQ-LVP" firstAttribute="leading" secondItem="xtc-rs-29b" secondAttribute="trailing" constant="15" id="7CT-0b-DO6"/>
+                    <constraint firstItem="9zb-em-vbH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GWP-br-V8z"/>
+                    <constraint firstItem="gDJ-8j-a0J" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Gtg-Li-eIQ"/>
+                    <constraint firstItem="aWe-MP-elJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Gu4-Vf-cVa"/>
+                    <constraint firstItem="MPy-LQ-LVP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IVD-uK-2Eu"/>
+                    <constraint firstItem="9zb-em-vbH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="JWU-sK-wWN"/>
+                    <constraint firstItem="xtc-rs-29b" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="j3c-8k-Hgb"/>
+                    <constraint firstItem="aWe-MP-elJ" firstAttribute="leading" secondItem="9zb-em-vbH" secondAttribute="trailing" constant="10" id="oSa-fT-18b"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="points" destination="gDJ-8j-a0J" id="qWq-FB-sTf"/>
+                <outlet property="position" destination="MPy-LQ-LVP" id="2Og-kn-UYt"/>
+                <outlet property="race" destination="aWe-MP-elJ" id="LMD-Oh-Ef3"/>
+                <outlet property="round" destination="9zb-em-vbH" id="OXt-Kb-BPh"/>
+                <outlet property="time" destination="xtc-rs-29b" id="XHq-Nk-brh"/>
+            </connections>
+            <point key="canvasLocation" x="-4.5801526717557248" y="19.718309859154932"/>
+        </tableViewCell>
+    </objects>
+</document>

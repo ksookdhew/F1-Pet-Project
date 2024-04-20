@@ -7,19 +7,18 @@
 
 import Foundation
 
-typealias DriverResults = (Result< DriverModel, APIError>) -> Void
+typealias DriverResults = (Result< ResultsModel, APIError>) -> Void
 
 protocol DriverRepositoryType: AnyObject {
-    
-    func fetchDriverResults(driver : String,completion: @escaping(DriverResults))
+
+    func fetchDriverResults(driver: String, completion: @escaping DriverResults)
 }
 
-
 class DriverRepository: DriverRepositoryType {
-    
-    func fetchDriverResults(driver : String, completion: @escaping (DriverResults)) {
-        let url = "https://ergast.com/api/f1/drivers/\(driver).JSON"
+
+    func fetchDriverResults(driver: String, completion: @escaping DriverResults) {
+        let url = "https://ergast.com/api/f1/current/drivers/\(driver)/results.JSON"
         URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
     }
-    
+
 }
