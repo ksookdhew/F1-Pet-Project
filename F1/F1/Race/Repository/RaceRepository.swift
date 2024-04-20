@@ -9,15 +9,15 @@ import Foundation
 typealias RaceResults = (Result< RaceModel, APIError>) -> Void
 
 protocol RaceRepositoryType: AnyObject {
-    func fetchRaceResults(round : String,completion: @escaping(RaceResults))
+    func fetchRaceResults(completion: @escaping(RaceResults))
 }
 
 
 
 class RaceRepository: RaceRepositoryType {
   
-    func fetchRaceResults(round : String, completion: @escaping (RaceResults)) {
-        let url = "https://ergast.com/api/f1/current/\(round).JSON"
+    func fetchRaceResults(completion: @escaping (RaceResults)) {
+        let url = "https://ergast.com/api/f1/current.JSON"
         URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
     }
     

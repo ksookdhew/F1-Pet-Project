@@ -8,33 +8,33 @@
 import UIKit
 
 class RaceViewController: UIViewController {
-    private lazy var viewModel = RaceViewModel(repository: RaceRepository(),
-                                                      delegate: self)
+    private lazy var viewModel = RaceViewModel(repository: RaceRepository(), delegate: self)
+
+    @IBOutlet weak private var raceTitle: UILabel!
+    @IBOutlet weak private var raceName: UILabel!
+    @IBOutlet weak private var raceLocation: UILabel!
+    private var raceInfo: RaceInfo?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchRace(roundNo: "3")
-        // Do any additional setup after loading the view.
+        viewModel.fetchRace()
+        raceInfo = viewModel.race
+        raceTitle.text = raceInfo?.circuit.location.country
+        raceName.text = raceInfo?.raceName
+        raceLocation.text = "\(raceInfo?.circuit.location.locality ?? "") | \(raceInfo?.circuit.location.country ?? "")"
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
 extension  RaceViewController: ViewModelDelegate {
-    
     func reloadView() {
-        //tableView.reloadData()
+        raceInfo = viewModel.race
+        raceTitle.text = raceInfo?.circuit.location.country
+        raceName.text = raceInfo?.raceName
+        raceLocation.text = "\(raceInfo?.circuit.location.locality ?? "") | \(raceInfo?.circuit.location.country ?? "")"
+        viewModel.raceSessionsCalculator()
     }
-    
+
     func show(error: String) {
-        //displayAlert(title: "Error", message: error, buttonTitle: "Ok")
     }
 }

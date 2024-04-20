@@ -10,7 +10,6 @@ import Foundation
 // MARK: - CircuitModel
 struct CircuitModel: Codable {
     let mrData: CircuitData
- 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }
@@ -57,4 +56,3 @@ struct Circuit: Codable {
 struct Location: Codable {
     let lat, long, locality, country: String
 }
-
