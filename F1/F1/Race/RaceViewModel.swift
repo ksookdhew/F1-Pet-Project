@@ -12,7 +12,7 @@ class RaceViewModel {
     private var repository: RaceRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private(set) var race: RaceInfo?
-    private(set) var sortedRaceSessions: Array<(key: String, value: RaceSessions)> = []
+    private(set) var sortedRaceSessions: [(key: String, value: RaceSessions)] = []
 
     init(repository: RaceRepositoryType,
          delegate: ViewModelDelegate) {
@@ -21,7 +21,7 @@ class RaceViewModel {
     }
 
     func raceSessionsCalculator() {
-        var raceSessions: [String:RaceSessions] = [:]
+        var raceSessions: [String: RaceSessions] = [:]
         raceSessions["Race"] = RaceSessions(date: race?.date ?? "", time: race?.time ?? "")
         raceSessions["Practice 1"] = race?.firstPractice
         raceSessions["Qaulifying"] = race?.qualifying
@@ -42,8 +42,25 @@ class RaceViewModel {
         self.sortedRaceSessions = sortedRaceSessions
     }
 
+    var scheduleCount: Int {
+        return sortedRaceSessions.count
+    }
+
     func raceSession(atIndex: Int) -> (key: String, value: RaceSessions) {
         return sortedRaceSessions[atIndex]
+    }
+
+    func sessionDate(date: String) -> DateComponents {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
+        let date = dateFormatter.date(from: date) ?? Date()
+        let dateComps = Calendar.current.dateComponents([.year, .month, .day], from: date)
+        return dateComps
+    }
+
+    func sessionTime(time: String) -> String {
+        let formattedTime = time.prefix(5)
+        return String(formattedTime)
     }
 
     func fetchRace() {
