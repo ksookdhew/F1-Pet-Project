@@ -10,10 +10,13 @@ import UIKit
 class RaceViewController: UIViewController {
     private lazy var viewModel = RaceViewModel(repository: RaceRepository(), delegate: self)
 
+    // MARK: IBOutlets
     @IBOutlet weak private var raceTitle: UILabel!
     @IBOutlet weak private var raceName: UILabel!
     @IBOutlet weak private var raceLocation: UILabel!
     @IBOutlet weak private var tableView: UITableView!
+
+    // MARK: Variables
     private var raceInfo: RaceInfo?
 
     override func viewDidLoad() {
@@ -26,21 +29,20 @@ class RaceViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(RaceScheduleTableViewCell.nib(),
-        forCellReuseIdentifier: RaceScheduleTableViewCell.identifier)
+        tableView.register(RaceScheduleTableViewCell.nib(), forCellReuseIdentifier: Identifiers.RaceScheduleIndentifier)
         tableView.sectionHeaderTopPadding = 0.0
     }
 
     private func setupView() {
         raceInfo = viewModel.race
-        raceTitle.text = raceInfo?.circuit.location.country
-        raceName.text = raceInfo?.raceName
-        raceLocation.text = "\(raceInfo?.circuit.location.locality ?? "") | \(raceInfo?.circuit.location.country ?? "")"
-        viewModel.raceSessionsCalculator()
+        raceTitle.text = viewModel.raceTitle
+        raceName.text = viewModel.raceName
+        raceLocation.text = viewModel.raceLocation
+        viewModel.processRaceSessions()
     }
 }
 
-// MARK: - ViewModelDelegate 
+// MARK: - ViewModelDelegate
 extension  RaceViewController: ViewModelDelegate {
     func reloadView() {
         tableView.reloadData()
@@ -52,8 +54,9 @@ extension  RaceViewController: ViewModelDelegate {
 
 // MARK: - UITableViewDelegate and UITableViewDataSource
 extension RaceViewController: UITableViewDelegate, UITableViewDataSource {
+
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.scheduleCount
+        viewModel.scheduleCount
     }
 
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,16 +76,13 @@ extension RaceViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: RaceScheduleTableViewCell.identifier)
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.RaceScheduleIndentifier)
                as? RaceScheduleTableViewCell
        else { return UITableViewCell() }
        let result = viewModel.raceSession(atIndex: indexPath.section)
-       let sessionDate = viewModel.sessionDate(date: result.value.date)
-       let sessionTime = viewModel.sessionTime(time: result.value.time)
-       cell.populateWith(sessionName: result.key, sessionDate: sessionDate, sessionTime: sessionTime)
-       let bgColorView = UIView()
-       bgColorView.backgroundColor = UIColor.clear
-       cell.selectedBackgroundView = bgColorView
+       let sessionDate = viewModel.sessionDate(date: result.date)
+       let sessionTime = viewModel.sessionTime(time: result.time)
+       cell.populateWith(sessionName: result.type.rawValue, sessionDate: sessionDate, sessionTime: sessionTime)
        return cell
    }
 }

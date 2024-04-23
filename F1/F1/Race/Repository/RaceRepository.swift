@@ -6,7 +6,7 @@
 //
 
 import Foundation
-typealias RaceResults = (Result< RaceModel, APIError>) -> Void
+typealias RaceResults = (Result< Racing, APIError>) -> Void
 
 protocol RaceRepositoryType: AnyObject {
     func fetchRaceResults(completion: @escaping(RaceResults))
@@ -15,7 +15,7 @@ protocol RaceRepositoryType: AnyObject {
 class RaceRepository: RaceRepositoryType {
 
     func fetchRaceResults(completion: @escaping (RaceResults)) {
-        let url = "https://ergast.com/api/f1/current.JSON"
+        let url = Endpoints.racing
         URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
     }
 }

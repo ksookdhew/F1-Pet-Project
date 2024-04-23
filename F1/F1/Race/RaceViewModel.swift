@@ -9,10 +9,11 @@ import Foundation
 
 class RaceViewModel {
 
+    // MARK: Variables
     private var repository: RaceRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private(set) var race: RaceInfo?
-    private(set) var sortedRaceSessions: [(key: String, value: RaceSessions)] = []
+    private(set) var sortedRaceSession: [RaceSessionDetail] = []
 
     init(repository: RaceRepositoryType,
          delegate: ViewModelDelegate) {
@@ -20,34 +21,53 @@ class RaceViewModel {
         self.delegate = delegate
     }
 
-    func raceSessionsCalculator() {
-        var raceSessions: [String: RaceSessions] = [:]
-        raceSessions["Race"] = RaceSessions(date: race?.date ?? "", time: race?.time ?? "")
-        raceSessions["Practice 1"] = race?.firstPractice
-        raceSessions["Qaulifying"] = race?.qualifying
-        if let thirdPractice = race?.thirdPractice {
-            raceSessions["Practice 2"] = race?.secondPractice
-            raceSessions["Practice 3"] = thirdPractice
-        } else if let sprint = race?.sprint {
-            raceSessions["Sprint Qualifying"] = race?.secondPractice
-            raceSessions["Sprint"] = sprint
-        }
-        let sortedRaceSessions = raceSessions.sorted { first, second in
-            if first.value.date == second.value.date {
-                return first.value.time < second.value.time
-            } else {
-                return first.value.date < second.value.date
-            }
-        }
-        self.sortedRaceSessions = sortedRaceSessions
-    }
-
+    // MARK: Computed
     var scheduleCount: Int {
-        return sortedRaceSessions.count
+        sortedRaceSession.count
     }
 
-    func raceSession(atIndex: Int) -> (key: String, value: RaceSessions) {
-        return sortedRaceSessions[atIndex]
+    var raceTitle: String {
+        race?.circuit.location.country ?? ""
+    }
+
+    var raceName: String {
+        race?.raceName ?? ""
+    }
+
+    var raceLocation: String {
+        "\(race?.circuit.location.locality ?? "") | \(race?.circuit.location.country ?? "")"
+    }
+
+    // MARK: Functions
+    func processRaceSessions() {
+
+        if let raceDate = race?.date, let raceTime = race?.time {
+            sortedRaceSession.append(RaceSessionDetail(date: raceDate, time: raceTime, type: .race))
+        }
+
+        if let qualifying = race?.qualifying {
+            sortedRaceSession.append(RaceSessionDetail(date: qualifying.date, time: qualifying.time, type: .qualifying))
+        }
+
+        if let thirdPractice = race?.thirdPractice {
+            sortedRaceSession.append(RaceSessionDetail(date: thirdPractice.date, time: thirdPractice.time, type: .practice3))
+        }
+
+        if let sprint = race?.sprint {
+            sortedRaceSession.append(RaceSessionDetail(date: sprint.date, time: sprint.time, type: .sprint))
+            sortedRaceSession.append(RaceSessionDetail(date: race?.secondPractice.date ?? "", time: race?.secondPractice.time ?? "", type: .sprintQualifying))
+        } else if let secondPractice = race?.secondPractice {
+            sortedRaceSession.append(RaceSessionDetail(date: secondPractice.date, time: secondPractice.time, type: .practice2))
+        }
+
+        if let firstPractice = race?.firstPractice {
+            sortedRaceSession.append(RaceSessionDetail(date: firstPractice.date, time: firstPractice.time, type: .practice1))
+        }
+
+    }
+
+    func raceSession(atIndex: Int) -> RaceSessionDetail {
+        sortedRaceSession[atIndex]
     }
 
     func sessionDate(date: String) -> DateComponents {
@@ -67,7 +87,7 @@ class RaceViewModel {
         repository?.fetchRaceResults { [weak self] result in
             switch result {
             case .success(let race):
-                self?.race = race.mrData.raceTable.races[4]
+                self?.race = race.race.raceTable.races.first
                 self?.delegate?.reloadView()
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)

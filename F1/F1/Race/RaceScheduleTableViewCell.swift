@@ -9,13 +9,16 @@ import UIKit
 
 class RaceScheduleTableViewCell: UITableViewCell {
 
+    // MARK: IBOutlet
     @IBOutlet weak private var raceDay: UILabel!
     @IBOutlet weak private var raceMonth: UILabel!
     @IBOutlet weak private var session: UILabel!
     @IBOutlet weak private var time: UILabel!
-    let monthAbbreviations = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-    static let identifier = Identifiers.RaceScheduleIndentifier
+    // MARK: Variable
+    private let monthAbbreviations = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+    // MARK: Functions
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.layer.cornerRadius = 16
@@ -33,6 +36,6 @@ class RaceScheduleTableViewCell: UITableViewCell {
     }
 
     static func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
+        return UINib(nibName: Identifiers.RaceScheduleIndentifier, bundle: nil)
     }
 }

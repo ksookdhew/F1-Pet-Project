@@ -16,3 +16,7 @@ struct Identifiers {
     static let showDriverSegue = "showDriverSegue"
     static let showConstructorSegue = "showConstructorSegue"
 }
+
+struct Endpoints {
+    static let racing = "https://ergast.com/api/f1/current.JSON"
+}
