@@ -29,7 +29,7 @@ class RaceViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(RaceScheduleTableViewCell.nib(), forCellReuseIdentifier: Identifiers.RaceScheduleIndentifier)
+        tableView.register(RaceScheduleTableViewCell.nib(), forCellReuseIdentifier: Identifiers.raceScheduleIndentifier)
         tableView.sectionHeaderTopPadding = 0.0
     }
 
@@ -45,6 +45,11 @@ class RaceViewController: UIViewController {
 // MARK: - ViewModelDelegate
 extension  RaceViewController: ViewModelDelegate {
     func reloadView() {
+        raceInfo = viewModel.race
+        raceTitle.text = viewModel.raceTitle
+        raceName.text = viewModel.raceName
+        raceLocation.text = viewModel.raceLocation
+        viewModel.processRaceSessions()
         tableView.reloadData()
     }
 
@@ -76,7 +81,7 @@ extension RaceViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.RaceScheduleIndentifier)
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.raceScheduleIndentifier)
                as? RaceScheduleTableViewCell
        else { return UITableViewCell() }
        let result = viewModel.raceSession(atIndex: indexPath.section)

@@ -36,6 +36,6 @@ class RaceScheduleTableViewCell: UITableViewCell {
     }
 
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.RaceScheduleIndentifier, bundle: nil)
+        return UINib(nibName: Identifiers.raceScheduleIndentifier, bundle: nil)
     }
 }
