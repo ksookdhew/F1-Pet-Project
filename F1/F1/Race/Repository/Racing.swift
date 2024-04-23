@@ -64,7 +64,7 @@ struct RaceInfo: Codable {
     }
 }
 
-// MARK: - RaceSessions
+// MARK: - RaceSession
 struct RaceSession: Codable {
     let date, time: String
 }

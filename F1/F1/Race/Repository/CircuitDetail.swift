@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - CircuitDetails
-struct CircuitDetails: Codable {
+struct CircuitDetail: Codable {
     let circuit: CircuitInfo
     enum CodingKeys: String, CodingKey {
         case circuit = "MRData"

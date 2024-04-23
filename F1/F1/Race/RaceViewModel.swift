@@ -15,8 +15,7 @@ class RaceViewModel {
     private(set) var race: RaceInfo?
     private(set) var sortedRaceSession: [RaceSessionDetail] = []
 
-    init(repository: RaceRepositoryType,
-         delegate: ViewModelDelegate) {
+    init(repository: RaceRepositoryType, delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
     }
@@ -40,7 +39,6 @@ class RaceViewModel {
 
     // MARK: Functions
     func processRaceSessions() {
-
         if let raceDate = race?.date, let raceTime = race?.time {
             sortedRaceSession.append(RaceSessionDetail(date: raceDate, time: raceTime, type: .race))
         }
