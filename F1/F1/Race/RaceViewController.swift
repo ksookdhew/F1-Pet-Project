@@ -45,11 +45,6 @@ class RaceViewController: UIViewController {
 // MARK: - ViewModelDelegate
 extension  RaceViewController: ViewModelDelegate {
     func reloadView() {
-        raceInfo = viewModel.race
-        raceTitle.text = viewModel.raceTitle
-        raceName.text = viewModel.raceName
-        raceLocation.text = viewModel.raceLocation
-        viewModel.processRaceSessions()
         tableView.reloadData()
     }
 
