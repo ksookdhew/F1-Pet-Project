@@ -73,8 +73,8 @@
                     <connections>
                         <outlet property="segControl" destination="Tz8-m2-YJJ" id="dhI-qb-Pgc"/>
                         <outlet property="tableView" destination="slV-VB-v7r" id="n7x-gQ-sv2"/>
-                        <segue destination="s6f-Zk-cDu" kind="show" identifier="showDriverSegue" id="Nyp-oZ-Gx9"/>
-                        <segue destination="yBu-Oy-E42" kind="show" identifier="showConstructorSegue" id="zDd-WW-NCx"/>
+                        <segue destination="s6f-Zk-cDu" kind="show" identifier="ShowDriverSegue" id="Nyp-oZ-Gx9"/>
+                        <segue destination="yBu-Oy-E42" kind="show" identifier="ShowConstructorSegue" id="zDd-WW-NCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

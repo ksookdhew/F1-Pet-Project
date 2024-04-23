@@ -13,8 +13,8 @@ struct Identifiers {
     static let constructorTableViewCell = "ConstructorTableViewCell"
     static let constructorResultsIdentifier = "ConstructorResultHeader"
     static let raceScheduleIndentifier = "RaceScheduleTableViewCell"
-    static let showDriverSegue = "showDriverSegue"
-    static let showConstructorSegue = "showConstructorSegue"
+    static let showDriverSegue = "ShowDriverSegue"
+    static let showConstructorSegue = "ShowConstructorSegue"
 }
 
 struct Endpoints {

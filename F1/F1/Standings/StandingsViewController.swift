@@ -8,14 +8,18 @@
 import UIKit
 
 class StandingsViewController: UIViewController {
+
+    // MARK: IBOutlets
     @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak private var segControl: UISegmentedControl!
-    var selectedSegmentIndex = 1
 
+    // MARK: Variables
+    var selectedSegmentIndex = 1
     private lazy var driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository(), delegate: self)
     private lazy var constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository(), delegate: self)
     private lazy var standingsViewModel = StandingsViewModel(driverViewModel: driverViewModel, constructorViewModel: constructorViewModel, navigationDelegate: self)
 
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -31,6 +35,7 @@ class StandingsViewController: UIViewController {
 
     }
 
+    // MARK: IBAction
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -47,7 +52,6 @@ class StandingsViewController: UIViewController {
 
     }
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Identifiers.showDriverSegue {
             if let destinationVC = segue.destination as? DriverViewController {
@@ -67,7 +71,6 @@ class StandingsViewController: UIViewController {
 }
 
 // MARK: - TableView Delegate
-
 extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return selectedSegmentIndex == 1 ? driverViewModel.driversCount : constructorViewModel.constructorCount
@@ -124,13 +127,8 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-protocol StandingsNavigationDelegate: AnyObject {
-    func navigateToDriver(_ driver: DriverStanding)
-    func navigateToConstructor(_ constructor: ConstructorStanding)
-}
 
 extension  StandingsViewController: ViewModelDelegate {
-
     func reloadView() {
         tableView.reloadData()
         driverViewModel.setConstructors()
@@ -141,7 +139,15 @@ extension  StandingsViewController: ViewModelDelegate {
 
 }
 
+// MARK: Navigation Delegate
+protocol StandingsNavigationDelegate: AnyObject {
+    func navigateToDriver(_ driver: DriverStanding)
+    func navigateToConstructor(_ constructor: ConstructorStanding)
+}
+
+
 extension StandingsViewController: StandingsNavigationDelegate {
+    
     func navigateToDriver(_ driver: DriverStanding) {
         performSegue(withIdentifier: Identifiers.showDriverSegue, sender: driver)
     }
