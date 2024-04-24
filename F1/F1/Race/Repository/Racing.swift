@@ -7,25 +7,24 @@
 
 import Foundation
 
-// MARK: - RaceModel
-struct RaceModel: Codable {
-    let mrData: RaceData
+// MARK: - Racing
+struct Racing: Codable {
+    let race: RaceDescriptor
 
     enum CodingKeys: String, CodingKey {
-        case mrData = "MRData"
+        case race = "MRData"
     }
 }
 
-// MARK: - RaceData
-struct RaceData: Codable {
-    let xmlns: String 
+// MARK: - RaceDescriptor
+struct RaceDescriptor: Codable {
     let series: String
     let url: String
     let limit, offset, total: String
     let raceTable: RaceSheduleTable
 
     enum CodingKeys: String, CodingKey {
-        case xmlns, series, url, limit, offset, total
+        case series, url, limit, offset, total
         case raceTable = "RaceTable"
     }
 }
@@ -33,7 +32,7 @@ struct RaceData: Codable {
 // MARK: - RaceTable
 struct RaceSheduleTable: Codable {
     let season: String
-    let races: [RaceShedule]
+    let races: [RaceInfo]
 
     enum CodingKeys: String, CodingKey {
         case season
@@ -42,16 +41,16 @@ struct RaceSheduleTable: Codable {
 }
 
 // MARK: - Race
-struct RaceShedule: Codable {
+struct RaceInfo: Codable {
     let season, round: String
     let url: String
     let raceName: String
     let circuit: Circuit
     let date, time: String
-    let firstPractice, secondPractice: RaceSessons
-    let thirdPractice: RaceSessons?
-    let qualifying: RaceSessons
-    let sprint: RaceSessons?
+    let firstPractice, secondPractice: RaceSession
+    let thirdPractice: RaceSession?
+    let qualifying: RaceSession
+    let sprint: RaceSession?
 
     enum CodingKeys: String, CodingKey {
         case season, round, url, raceName
@@ -65,8 +64,26 @@ struct RaceShedule: Codable {
     }
 }
 
-
-// MARK: - FirstPractice
-struct RaceSessons: Codable {
+// MARK: - RaceSession
+struct RaceSession: Codable {
     let date, time: String
+}
+
+// MARK: - SessionType
+enum SessionType: String {
+    case race = "Race"
+    case practice1 = "Practice 1"
+    case qualifying = "Qualifying"
+    case practice2 = "Practice 2"
+    case practice3 = "Practice 3"
+    case sprintQualifying = "Sprint Qualifying"
+    case sprint = "Sprint"
+}
+
+// MARK: - RaceSessionDetail
+struct RaceSessionDetail {
+    let date: String
+    let time: String
+    let type: SessionType
+
 }

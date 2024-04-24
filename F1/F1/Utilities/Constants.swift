@@ -8,10 +8,15 @@
 import Foundation
 
 struct Identifiers {
-    static let DriverResultsIdentifier = "DriverResultHeader"
-    static let DriverTableViewCell = "DriverTableViewCell"
-    static let ConstructorTableViewCell = "ConstructorTableViewCell"
-    static let ConstructorResultsIdentifier = "ConstructorResultHeader"
-    static let showDriverSegue = "showDriverSegue"
-    static let showConstructorSegue = "showConstructorSegue"
+    static let driverResultsIdentifier = "DriverResultHeader"
+    static let driverTableViewCell = "DriverTableViewCell"
+    static let constructorTableViewCell = "ConstructorTableViewCell"
+    static let constructorResultsIdentifier = "ConstructorResultHeader"
+    static let raceScheduleIndentifier = "RaceScheduleTableViewCell"
+    static let showDriverSegue = "ShowDriverSegue"
+    static let showConstructorSegue = "ShowConstructorSegue"
+}
+
+struct Endpoints {
+    static let racing = "https://ergast.com/api/f1/current.JSON"
 }

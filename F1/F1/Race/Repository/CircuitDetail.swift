@@ -7,25 +7,23 @@
 
 import Foundation
 
-// MARK: - CircuitModel
-struct CircuitModel: Codable {
-    let mrData: CircuitData
- 
+// MARK: - CircuitDetails
+struct CircuitDetail: Codable {
+    let circuit: CircuitInfo
     enum CodingKeys: String, CodingKey {
-        case mrData = "MRData"
+        case circuit = "MRData"
     }
 }
 
-// MARK: - CircuitData
-struct CircuitData: Codable {
-    let xmlns: String
+// MARK: - CircuitInfo
+struct CircuitInfo: Codable {
     let series: String
     let url: String
     let limit, offset, total: String
     let circuitTable: CircuitTable
 
     enum CodingKeys: String, CodingKey {
-        case xmlns, series, url, limit, offset, total
+        case series, url, limit, offset, total
         case circuitTable = "CircuitTable"
     }
 }
@@ -55,6 +53,11 @@ struct Circuit: Codable {
 
 // MARK: - Location
 struct Location: Codable {
-    let lat, long, locality, country: String
-}
+    let latitude, longitude, locality, country: String
 
+    enum CodingKeys: String, CodingKey {
+        case latitude = "lat"
+        case longitude = "long"
+        case locality, country
+    }
+}
