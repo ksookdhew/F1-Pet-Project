@@ -12,7 +12,8 @@ class RaceViewModel {
     // MARK: Variables
     private var repository: RaceRepositoryType?
     private weak var delegate: ViewModelDelegate?
-    private(set) var race: RaceInfo?
+    private(set) var allRaces: [RaceInfo] = []
+    var race: RaceInfo?
     private(set) var sortedRaceSession: [RaceSessionDetail] = []
 
     init(repository: RaceRepositoryType, delegate: ViewModelDelegate) {
@@ -21,16 +22,20 @@ class RaceViewModel {
     }
 
     // MARK: Computed
+    var racesCount: Int {
+        allRaces.count
+    }
+
     var scheduleCount: Int {
         sortedRaceSession.count
     }
 
     var raceTitle: String {
-        race?.circuit.location.country ?? ""
+        race?.raceName ?? ""
     }
 
-    var raceName: String {
-        race?.raceName ?? ""
+    var circuitName: String {
+        race?.circuit.circuitName ?? ""
     }
 
     var raceLocation: String {
@@ -53,7 +58,9 @@ class RaceViewModel {
 
         if let sprint = race?.sprint {
             sortedRaceSession.append(RaceSessionDetail(date: sprint.date, time: sprint.time, type: .sprint))
-            sortedRaceSession.append(RaceSessionDetail(date: race?.secondPractice.date ?? "", time: race?.secondPractice.time ?? "", type: .sprintQualifying))
+            if let secondPractice = race?.secondPractice {
+                sortedRaceSession.append(RaceSessionDetail(date: secondPractice.date, time: secondPractice.time, type: .sprintQualifying))
+            }
         } else if let secondPractice = race?.secondPractice {
             sortedRaceSession.append(RaceSessionDetail(date: secondPractice.date, time: secondPractice.time, type: .practice2))
         }
@@ -62,6 +69,14 @@ class RaceViewModel {
             sortedRaceSession.append(RaceSessionDetail(date: firstPractice.date, time: firstPractice.time, type: .practice1))
         }
 
+    }
+
+    func race(atIndex: Int) -> RaceInfo {
+        allRaces[atIndex]
+    }
+
+    func imageName(circuitCode: String?) -> String {
+        return "\(circuitCode ?? "").png"
     }
 
     func raceSession(atIndex: Int) -> RaceSessionDetail {
@@ -84,8 +99,8 @@ class RaceViewModel {
     func fetchRace() {
         repository?.fetchRaceResults { [weak self] result in
             switch result {
-            case .success(let race):
-                self?.race = race.race.raceTable.races.first
+            case .success(let races):
+                self?.allRaces = races.race.raceTable.races
                 self?.delegate?.reloadView()
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)
