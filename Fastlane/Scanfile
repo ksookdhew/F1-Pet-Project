@@ -4,7 +4,7 @@
 workspace "F1/F1.xcodeproj/project.xcworkspace"
 scheme "F1"
 sdk "iphonesimulator"
-device "iPhone 15"
+device "iPhone 14"
 code_coverage true
 xcargs '-parallelizeTargets'
 prelaunch_simulator true
