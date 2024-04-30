@@ -9,7 +9,6 @@ import UIKit
 
 class RacingViewController: UIViewController {
     private lazy var viewModel = RaceViewModel(repository: RaceRepository(), delegate: self)
-    private let spacing:CGFloat = 16.0
 
     // MARK: IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!

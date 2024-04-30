@@ -64,8 +64,8 @@ final class RaceViewModelTests: XCTestCase {
         mockRepository.mockRaces = Racing(race: RaceDescriptor(series: "F1", url: "http://example.com", limit: "10", offset: "0", total: "1", raceTable: RaceSheduleTable(season: "2024", races: [
             RaceInfo(season: "2024", round: "1", url: "http://example.com/race1", raceName: "Grand Prix 2024",
                      circuit: Circuit(circuitID: "001", url: "http://example.com/circuit",
-                    circuitName: "Silverstone", location: Location(latitude: "52.0786",
-                    longitude: "-1.01694", locality: "Silverstone", country: "UK")),
+                     circuitName: "Silverstone", location: Location(latitude: "52.0786",
+                     longitude: "-1.01694", locality: "Silverstone", country: "UK")),
                      date: "2024-07-12", time: "14:00:00",
                      firstPractice: RaceSession(date: "2024-07-10", time: "12:00:00"),
                      secondPractice: RaceSession(date: "2024-07-11", time: "12:00:00"),
@@ -224,8 +224,8 @@ final class RaceViewModelTests: XCTestCase {
         mockRepository.mockRaces = Racing(race: RaceDescriptor(series: "F1", url: "http://example.com", limit: "10", offset: "0", total: "1", raceTable: RaceSheduleTable(season: "2024", races: [
             RaceInfo(season: "2024", round: "1", url: "http://example.com/race1", raceName: "Grand Prix 2024",
                      circuit: Circuit(circuitID: "001", url: "http://example.com/circuit",
-                    circuitName: "Silverstone", location: Location(latitude: "52.0786",
-                    longitude: "-1.01694", locality: "Silverstone", country: "UK")),
+                     circuitName: "Silverstone", location: Location(latitude: "52.0786",
+                     longitude: "-1.01694", locality: "Silverstone", country: "UK")),
                      date: "2024-07-12", time: "14:00:00",
                      firstPractice: RaceSession(date: "2024-07-10", time: "12:00:00"),
                     secondPractice: RaceSession(date: "2024-07-11", time: "12:00:00"),

@@ -9,13 +9,12 @@ import UIKit
 
 class RacingCollectionViewCell: UICollectionViewCell {
 
+    // MARK: IBOutlets
     @IBOutlet weak var raceName: UILabel!
     @IBOutlet weak var raceDate: UILabel!
     @IBOutlet weak var circuitImage: UIImageView!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 
+    // MARK: Functions
     func populateWith(raceName: String, track: String, raceDate: DateComponents) {
         self.raceName.text = raceName
         self.raceDate.text = "\(raceDate.day ?? 0) \(Constants.monthAbbreviations[(raceDate.month ?? 1)-1])"
