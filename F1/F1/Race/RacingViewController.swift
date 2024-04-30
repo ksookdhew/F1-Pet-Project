@@ -11,7 +11,7 @@ class RacingViewController: UIViewController {
     private lazy var viewModel = RaceViewModel(repository: RaceRepository(), delegate: self)
 
     // MARK: IBOutlets
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak private var collectionView: UICollectionView!
 
     // MARK: Functions
     override func viewDidLoad() {

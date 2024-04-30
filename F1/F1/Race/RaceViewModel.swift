@@ -76,7 +76,7 @@ class RaceViewModel {
     }
 
     func imageName(circuitCode: String?) -> String {
-        return "\(circuitCode ?? "").png"
+        "\(circuitCode ?? "").png"
     }
 
     func raceSession(atIndex: Int) -> RaceSessionDetail {
