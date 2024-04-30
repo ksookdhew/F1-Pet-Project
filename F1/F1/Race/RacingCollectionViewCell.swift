@@ -10,9 +10,9 @@ import UIKit
 class RacingCollectionViewCell: UICollectionViewCell {
 
     // MARK: IBOutlets
-    @IBOutlet weak var raceName: UILabel!
-    @IBOutlet weak var raceDate: UILabel!
-    @IBOutlet weak var circuitImage: UIImageView!
+    @IBOutlet weak private var raceName: UILabel!
+    @IBOutlet weak private var raceDate: UILabel!
+    @IBOutlet weak private var circuitImage: UIImageView!
 
     // MARK: Functions
     func populateWith(raceName: String, track: String, raceDate: DateComponents) {
