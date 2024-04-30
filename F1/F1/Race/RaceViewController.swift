@@ -12,16 +12,16 @@ class RaceViewController: UIViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak private var raceTitle: UILabel!
-    @IBOutlet weak private var raceName: UILabel!
+    @IBOutlet weak private var circuit: UILabel!
     @IBOutlet weak private var raceLocation: UILabel!
     @IBOutlet weak private var tableView: UITableView!
 
     // MARK: Variables
-    private var raceInfo: RaceInfo?
+    var raceInfo: RaceInfo?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchRace()
+        viewModel.race = raceInfo
         setupView()
         setupTableView()
     }
@@ -34,9 +34,8 @@ class RaceViewController: UIViewController {
     }
 
     private func setupView() {
-        raceInfo = viewModel.race
         raceTitle.text = viewModel.raceTitle
-        raceName.text = viewModel.raceName
+        circuit.text = viewModel.circuitName
         raceLocation.text = viewModel.raceLocation
         viewModel.processRaceSessions()
     }
