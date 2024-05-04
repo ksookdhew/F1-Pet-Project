@@ -78,6 +78,7 @@ class ResultsViewModel {
         repository?.fetchRacingResults { [weak self] result in
             switch result {
             case .success(let result):
+                // TODO: Change mrData
                 self?.allResults = result.mrData.raceTable.races
                 self?.delegate?.reloadView()
             case .failure(let error):
