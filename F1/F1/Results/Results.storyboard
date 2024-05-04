@@ -26,6 +26,7 @@
                                 <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="separatorColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AllResultsTableViewCell" id="5ts-9b-0bj">
                                         <rect key="frame" x="0.0" y="50" width="353" height="43.666667938232422"/>
@@ -35,7 +36,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -53,7 +54,7 @@
                     </view>
                     <connections>
                         <outlet property="allResultsTableView" destination="slV-VB-v7r" id="n7x-gQ-sv2"/>
-                        <segue destination="Hhg-v3-tdd" kind="show" identifier="showRaceResultsSegue" id="jcp-aG-gzk"/>
+                        <segue destination="Hhg-v3-tdd" kind="show" identifier="ShowRaceResultsSegue" id="jcp-aG-gzk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,12 +9,11 @@ import UIKit
 
 class RaceResultTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var position: UILabel!
-    @IBOutlet weak var driver: UILabel!
-    @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var points: UILabel!
+    @IBOutlet weak private var position: UILabel!
+    @IBOutlet weak private var driver: UILabel!
+    @IBOutlet weak private var time: UILabel!
+    @IBOutlet weak private var points: UILabel!
 
-    static let identifier = "RaceResultTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         self.time.layer.cornerRadius = 8
@@ -29,6 +28,6 @@ class RaceResultTableViewCell: UITableViewCell {
     }
 
     static func nib() -> UINib {
-        return UINib(nibName: "RaceResultTableViewCell", bundle: nil)
+        return UINib(nibName: Identifiers.raceResultTableViewCell, bundle: nil)
     }
 }

@@ -7,6 +7,8 @@
 
 import Foundation
 class ResultsViewModel {
+
+    // MARK: Variables
     private var repository: ResultsRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var allResults: [Race]?
@@ -19,12 +21,23 @@ class ResultsViewModel {
         self.delegate = delegate
     }
 
+    // MARK: Computed
     var allResultsCount: Int {
         return allResults?.count ?? 0
     }
 
+    var raceResultsCount: Int {
+        raceResult?.count ?? 0
+    }
+
+    var raceName: String {
+        race?.raceName ?? "Race Name"
+
+    }
+
+    // MARK: Functions
     func allResult(atIndex: Int) -> Race? {
-        return allResults?[atIndex] ?? nil
+        allResults?[atIndex] ?? nil
     }
 
     func allResultDate(result: Race?) -> DateComponents {
@@ -35,22 +48,13 @@ class ResultsViewModel {
         return dateComps
     }
 
-    var raceResultsCount: Int {
-        return raceResult?.count ?? 0
-    }
-
-    var raceName: String {
-        return race?.raceName ?? "Race Name"
-
+    func setRaceResult(raceRes: Race?) {
+        race = raceRes
+        raceResult = race?.results
     }
 
     func raceResult(atIndex: Int) -> RacingResult? {
-        return raceResult?[atIndex] ?? nil
-    }
-
-    func setRaceResult(raceRes: Race) {
-        race = raceRes
-        raceResult = race?.results
+        raceResult?[atIndex] ?? nil
     }
 
     func laptime(index: Int) -> String {
@@ -68,11 +72,10 @@ class ResultsViewModel {
                 return "No Time"
             }
         }
-
     }
 
     func fetchResults() {
-        repository?.fetchRacingResults(completion: { [weak self] result in
+        repository?.fetchRacingResults { [weak self] result in
             switch result {
             case .success(let result):
                 self?.allResults = result.mrData.raceTable.races
@@ -81,6 +84,6 @@ class ResultsViewModel {
                 print(error)
                 self?.delegate?.show(error: error.rawValue)
             }
-        })
+        }
     }
 }
