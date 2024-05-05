@@ -8,9 +8,8 @@
 import UIKit
 
 class RaceResultHeader: UITableViewHeaderFooterView {
-    static let identifier = "RaceResultHeader"
 
     static func nib() -> UINib {
-        return UINib(nibName: "RaceResultHeader", bundle: nil)
+        return UINib(nibName: Identifiers.raceResultHeader, bundle: nil)
     }
 }

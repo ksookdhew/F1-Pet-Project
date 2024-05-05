@@ -8,8 +8,11 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
-    @IBOutlet weak var allResultsTableView: UITableView!
+
     private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(), delegate: self)
+
+    // MARK: IBOutlets
+    @IBOutlet weak private var allResultsTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,45 +24,48 @@ class ResultsViewController: UIViewController {
         allResultsTableView.delegate = self
         allResultsTableView.dataSource = self
         allResultsTableView.register(AllResultsTableViewCell.nib(),
-        forCellReuseIdentifier: AllResultsTableViewCell.identifier)
+                                     forCellReuseIdentifier: Identifiers.allResultsTableViewCell)
     }
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "showRaceResultsSegue" {
-                if let destinationVC = segue.destination as? RacingResultViewController {
-                    if let race: Race = sender as? Race {
-                        destinationVC.race = race
-                    }
+        if segue.identifier == Identifiers.showRaceResultsSegue {
+            if let destinationVC = segue.destination as? RacingResultViewController {
+                if let race: Race = sender as? Race {
+                    destinationVC.race = race
                 }
             }
         }
+    }
 }
 
-// MARK: - TableView Delegate
+// MARK: - UITableViewDelegate and UITableViewDataSource
+extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
 
- extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
-     func numberOfSections(in tableView: UITableView) -> Int {
-         return viewModel.allResultsCount
-     }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.allResultsCount
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-         return 4
+        return 4
     }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 104.0
-     }
+        return 104.0
+    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-         let headerView = UIView()
-         headerView.backgroundColor = UIColor.clear
-         return headerView
-     }
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = allResultsTableView.dequeueReusableCell(withIdentifier: AllResultsTableViewCell.identifier)
+        guard let cell = allResultsTableView.dequeueReusableCell(withIdentifier: Identifiers.allResultsTableViewCell)
                 as? AllResultsTableViewCell
         else { return UITableViewCell() }
         guard let result = viewModel.allResult(atIndex: indexPath.section) else { return UITableViewCell() }
@@ -70,12 +76,13 @@ class ResultsViewController: UIViewController {
         return cell
     }
 
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         guard let result = viewModel.allResult(atIndex: indexPath.section) else { return }
-         performSegue(withIdentifier: "showRaceResultsSegue", sender: result)
-     }
- }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let result = viewModel.allResult(atIndex: indexPath.section) else { return }
+        performSegue(withIdentifier: Identifiers.showRaceResultsSegue, sender: result)
+    }
+}
 
+// MARK: - ViewModelDelegate
 extension  ResultsViewController: ViewModelDelegate {
 
     func reloadView() {
@@ -83,6 +90,5 @@ extension  ResultsViewController: ViewModelDelegate {
     }
 
     func show(error: String) {
-        // displayAlert(title: "Error", message: error, buttonTitle: "Ok")
     }
 }

@@ -8,15 +8,19 @@
 import Foundation
 
 struct Identifiers {
+    static let allResultsTableViewCell = "AllResultsTableViewCell"
     static let driverResultsIdentifier = "DriverResultHeader"
     static let driverTableViewCell = "DriverTableViewCell"
     static let constructorTableViewCell = "ConstructorTableViewCell"
     static let constructorResultsIdentifier = "ConstructorResultHeader"
     static let raceScheduleIndentifier = "RaceScheduleTableViewCell"
     static let racingIdentifier = "RacingCollectionViewCell"
+    static let raceResultTableViewCell = "RaceResultTableViewCell"
+    static let raceResultHeader = "RaceResultHeader"
     static let showDriverSegue = "ShowDriverSegue"
     static let showConstructorSegue = "ShowConstructorSegue"
     static let showRaceSegue = "ShowRaceInfoSegue"
+    static let showRaceResultsSegue = "ShowRaceResultsSegue"
 }
 
 struct Endpoints {

@@ -119,13 +119,13 @@
             <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="day" destination="0yb-BG-Vlp" id="cy5-ju-S3s"/>
-                <outlet property="driver1" destination="e9H-Ri-BN7" id="iJ4-vV-Mc2"/>
-                <outlet property="driver2" destination="crU-Hb-K0v" id="IDB-3C-wTm"/>
-                <outlet property="driver3" destination="t5A-HL-3lQ" id="vEq-ec-SUu"/>
+                <outlet property="firstDriver" destination="e9H-Ri-BN7" id="iJ4-vV-Mc2"/>
                 <outlet property="month" destination="nal-z3-g3d" id="DyC-1x-WgF"/>
                 <outlet property="raceCountry" destination="uLc-A5-dFd" id="0bP-nX-dTk"/>
                 <outlet property="raceName" destination="CEh-JV-ggy" id="wQT-RK-UQF"/>
                 <outlet property="round" destination="qc8-0Y-xdK" id="KoY-Mt-QXa"/>
+                <outlet property="secondDriver" destination="crU-Hb-K0v" id="IDB-3C-wTm"/>
+                <outlet property="thirdDriver" destination="t5A-HL-3lQ" id="vEq-ec-SUu"/>
             </connections>
             <point key="canvasLocation" x="175.57251908396947" y="40.140845070422536"/>
         </tableViewCell>
