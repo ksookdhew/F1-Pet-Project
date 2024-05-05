@@ -11,8 +11,8 @@ class RacingResultViewController: UIViewController {
     private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(), delegate: self)
 
     // MARK: IBOutlets
-    @IBOutlet weak var raceName: UILabel!
-    @IBOutlet weak var racingResultTableView: UITableView!
+    @IBOutlet weak private var raceName: UILabel!
+    @IBOutlet weak private var racingResultTableView: UITableView!
 
     // MARK: Variables
     var race: Race?
@@ -21,7 +21,7 @@ class RacingResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        viewModel.setRaceResult(raceRes: race)
+        viewModel.setRaceResult(raceResult: race)
         raceName.text = race?.circuit.location.country
     }
 
@@ -39,11 +39,11 @@ class RacingResultViewController: UIViewController {
 extension RacingResultViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.raceResultsCount
+        viewModel.raceResultsCount
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 42.0
+        42.0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,7 +63,7 @@ extension RacingResultViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
+        45
     }
 }
 

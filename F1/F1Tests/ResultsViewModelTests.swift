@@ -67,7 +67,7 @@ class ResultsViewModelTests: XCTestCase {
 
     func testRaceResult_AtIndex() {
         let race = setupRace()
-        viewModel.setRaceResult(raceRes: race)
+        viewModel.setRaceResult(raceResult: race)
 
         XCTAssertEqual(viewModel.raceResultsCount, 1)
         XCTAssertEqual(viewModel.raceResult(atIndex: 0)?.position, "1")
@@ -82,7 +82,7 @@ class ResultsViewModelTests: XCTestCase {
 
     func testLaptime_WithTime() {
         let race = setupRace()
-        viewModel.setRaceResult(raceRes: race)
+        viewModel.setRaceResult(raceResult: race)
 
         let lapTime = viewModel.laptime(index: 0)
         XCTAssertEqual(lapTime, "1:30:45")
@@ -90,7 +90,7 @@ class ResultsViewModelTests: XCTestCase {
 
     func testLaptime_WithStatusButNoLap() {
         let race = setupRace(status: "Retired", time: nil)
-        viewModel.setRaceResult(raceRes: race)
+        viewModel.setRaceResult(raceResult: race)
 
         let lapTime = viewModel.laptime(index: 0)
         XCTAssertEqual(lapTime, "DNF")
@@ -98,21 +98,21 @@ class ResultsViewModelTests: XCTestCase {
 
     func testLaptime_WithStatusContainingLap() {
         let race = setupRace(status: "+1 Lap", time: nil)
-        viewModel.setRaceResult(raceRes: race)
+        viewModel.setRaceResult(raceResult: race)
 
         let lapTime = viewModel.laptime(index: 0)
         XCTAssertEqual(lapTime, "+1 Lap")
     }
 
     func testLaptime_NoTimeNoStatus() {
-        viewModel.setRaceResult(raceRes: nil)
+        viewModel.setRaceResult(raceResult: nil)
 
         let lapTime = viewModel.laptime(index: 0)
         XCTAssertEqual(lapTime, "No Time")
     }
 
     func testEmptyRaceResult() {
-        viewModel.setRaceResult(raceRes: nil)
+        viewModel.setRaceResult(raceResult: nil)
         XCTAssertEqual(viewModel.raceResultsCount, 0)
         XCTAssertEqual(viewModel.raceName, "Race Name")
         XCTAssertNil(viewModel.raceResult(atIndex: 0))

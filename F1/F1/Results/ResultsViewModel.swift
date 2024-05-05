@@ -23,7 +23,7 @@ class ResultsViewModel {
 
     // MARK: Computed
     var allResultsCount: Int {
-        return allResults?.count ?? 0
+        allResults?.count ?? 0
     }
 
     var raceResultsCount: Int {
@@ -32,7 +32,6 @@ class ResultsViewModel {
 
     var raceName: String {
         race?.raceName ?? "Race Name"
-
     }
 
     // MARK: Functions
@@ -48,9 +47,9 @@ class ResultsViewModel {
         return dateComps
     }
 
-    func setRaceResult(raceRes: Race?) {
-        race = raceRes
-        raceResult = race?.results
+    func setRaceResult(raceResult: Race?) {
+        race = raceResult
+        self.raceResult = race?.results
     }
 
     func raceResult(atIndex: Int) -> RacingResult? {
@@ -58,8 +57,8 @@ class ResultsViewModel {
     }
 
     func laptime(index: Int) -> String {
-        if let resTime = raceResult?[index].time {
-            return resTime.time
+        if let resultTime = raceResult?[index].time {
+            return resultTime.time
         } else {
             let stat = raceResult?[index].status
             if let statFinal = stat {
