@@ -12,7 +12,7 @@ class MockResultsRepository: ResultsRepositoryType {
         if fetchResultsShouldFail {
             completion(.failure(.serverError))
         } else {
-            completion(.success(mockResultsModel ?? RacingResults(mrData: ResultsResponse(xmlns: "", series: "F1", url: "", limit: "10",
+            completion(.success(mockResultsModel ?? RacingResults(results: ResultsResponse(series: "F1", url: "", limit: "10",
                                                                                      offset: "0", total: "1", raceTable: RaceTable(season: "2024", races: [])))))
         }
     }
@@ -21,7 +21,7 @@ class MockResultsRepository: ResultsRepositoryType {
         if fetchResultsShouldFail {
             completion(.failure(.serverError))
         } else {
-            completion(.success(mockResultsModel ?? RacingResults(mrData: ResultsResponse(xmlns: "", series: "F1", url: "", limit: "10",
+            completion(.success(mockResultsModel ?? RacingResults(results: ResultsResponse(series: "F1", url: "", limit: "10",
                                                                                      offset: "0", total: "1", raceTable: RaceTable(season: "2024", races: [])))))
         }
     }
@@ -125,8 +125,8 @@ class ResultsViewModelTests: XCTestCase {
     // MARK: - Helper Functions
     private func setupMockResults() {
         mockRepository.mockResultsModel = RacingResults(
-            mrData: ResultsResponse(
-                xmlns: "", series: "F1", url: "http://example.com", limit: "10",
+            results: ResultsResponse(
+                series: "F1", url: "http://example.com", limit: "10",
                 offset: "0", total: "1",
                 raceTable: RaceTable(season: "2024", races: [setupRace()])
             )
