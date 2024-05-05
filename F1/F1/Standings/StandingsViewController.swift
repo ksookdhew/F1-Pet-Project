@@ -30,8 +30,8 @@ class StandingsViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(DriverStTableViewCell.nib(),
-                           forCellReuseIdentifier: DriverStTableViewCell.identifier)
+        tableView.register(DriverStandingTableViewCell.nib(),
+                           forCellReuseIdentifier: Identifiers.driverStandingTableViewCell)
 
     }
 
@@ -40,12 +40,12 @@ class StandingsViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             self.selectedSegmentIndex = 1
-            tableView.register(DriverStTableViewCell.nib(),
-                               forCellReuseIdentifier: DriverStTableViewCell.identifier)
+            tableView.register(DriverStandingTableViewCell.nib(),
+                               forCellReuseIdentifier: Identifiers.driverStandingTableViewCell)
         default:
             self.selectedSegmentIndex = 2
-            tableView.register(ConstructorStTableViewCell.nib(),
-                               forCellReuseIdentifier: ConstructorStTableViewCell.identifier)
+            tableView.register(ConstructorStandingTableViewCell.nib(),
+                               forCellReuseIdentifier: Identifiers.constructorStandingTableViewCell)
         }
         reloadView()
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
@@ -67,7 +67,6 @@ class StandingsViewController: UIViewController {
             }
         }
     }
-
 }
 
 // MARK: - TableView Delegate
@@ -94,19 +93,19 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch selectedSegmentIndex {
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: DriverStTableViewCell.identifier)
-                    as? DriverStTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.driverStandingTableViewCell)
+                    as? DriverStandingTableViewCell
             else { return UITableViewCell() }
             guard let result = driverViewModel.driver(atIndex: indexPath.section) else { return UITableViewCell() }
-            cell.populateWith(driverSt: result)
+            cell.populateWith(driverStanding: result)
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
             cell.selectedBackgroundView = bgColorView
             return cell
 
         default:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ConstructorStTableViewCell.identifier)
-                    as? ConstructorStTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.constructorStandingTableViewCell)
+                    as? ConstructorStandingTableViewCell
             else { return UITableViewCell() }
             guard let result = constructorViewModel.constructor(atIndex: indexPath.section)
             else { return UITableViewCell() }
@@ -114,7 +113,8 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
             else {
                 return UITableViewCell()
             }
-            cell.populateWith(constructorSt: result, driversList: drivers)
+            let driverText = constructorViewModel.drivers(driversList: drivers)
+            cell.populateWith(constructorStanding: result, driverText: driverText)
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
             cell.selectedBackgroundView = bgColorView
@@ -126,7 +126,6 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
         standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
     }
 }
-
 
 extension  StandingsViewController: ViewModelDelegate {
     func reloadView() {
@@ -145,9 +144,8 @@ protocol StandingsNavigationDelegate: AnyObject {
     func navigateToConstructor(_ constructor: ConstructorStanding)
 }
 
-
 extension StandingsViewController: StandingsNavigationDelegate {
-    
+
     func navigateToDriver(_ driver: DriverStanding) {
         performSegue(withIdentifier: Identifiers.showDriverSegue, sender: driver)
     }
