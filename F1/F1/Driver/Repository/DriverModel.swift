@@ -9,23 +9,22 @@ import Foundation
 
 // MARK: - DriverModel
 struct DriverModel: Codable {
-    let mrData: DriverData
+    let driver: DriverResponse
 
     enum CodingKeys: String, CodingKey {
-        case mrData = "MRData"
+        case driver = "MRData"
     }
 }
 
 // MARK: - DriverData
-struct DriverData: Codable {
-    let xmlns: String
+struct DriverResponse: Codable {
     let series: String
     let url: String
     let limit, offset, total: String
     let driverTable: DriverTable
 
     enum CodingKeys: String, CodingKey {
-        case xmlns, series, url, limit, offset, total
+        case series, url, limit, offset, total
         case driverTable = "DriverTable"
     }
 }

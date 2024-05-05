@@ -28,7 +28,7 @@
 		2629E0452BBC390400EC6139 /* Racing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E03E2BBC390400EC6139 /* Racing.swift */; };
 		2629E0462BBC390400EC6139 /* ConstructorStandingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E03F2BBC390400EC6139 /* ConstructorStandingsModel.swift */; };
 		2629E0472BBC390400EC6139 /* DriverStandingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0402BBC390400EC6139 /* DriverStandingsModel.swift */; };
-		2629E0482BBC390400EC6139 /* ConstructorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0412BBC390400EC6139 /* ConstructorModel.swift */; };
+		2629E0482BBC390400EC6139 /* Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0412BBC390400EC6139 /* Constructor.swift */; };
 		2629E0492BBC390400EC6139 /* DriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0422BBC390400EC6139 /* DriverModel.swift */; };
 		2629E04B2BBC390400EC6139 /* CircuitDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0442BBC390400EC6139 /* CircuitDetail.swift */; };
 		2629E04E2BBC3A7500EC6139 /* Driver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E04D2BBC3A7500EC6139 /* Driver.storyboard */; };
@@ -124,7 +124,7 @@
 		2629E03E2BBC390400EC6139 /* Racing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Racing.swift; sourceTree = "<group>"; };
 		2629E03F2BBC390400EC6139 /* ConstructorStandingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsModel.swift; sourceTree = "<group>"; };
 		2629E0402BBC390400EC6139 /* DriverStandingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStandingsModel.swift; sourceTree = "<group>"; };
-		2629E0412BBC390400EC6139 /* ConstructorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorModel.swift; sourceTree = "<group>"; };
+		2629E0412BBC390400EC6139 /* Constructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constructor.swift; sourceTree = "<group>"; };
 		2629E0422BBC390400EC6139 /* DriverModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverModel.swift; sourceTree = "<group>"; };
 		2629E0442BBC390400EC6139 /* CircuitDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitDetail.swift; sourceTree = "<group>"; };
 		2629E04D2BBC3A7500EC6139 /* Driver.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Driver.storyboard; sourceTree = "<group>"; };
@@ -336,7 +336,7 @@
 		2629E05C2BBC5CCD00EC6139 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				2629E0412BBC390400EC6139 /* ConstructorModel.swift */,
+				2629E0412BBC390400EC6139 /* Constructor.swift */,
 				2629E05A2BBC5AC600EC6139 /* ConstructorRepository.swift */,
 			);
 			name = Repository;
@@ -689,7 +689,7 @@
 				26326BC52BDEAB9A0042FA27 /* RacingViewController.swift in Sources */,
 				2629E03B2BBC366800EC6139 /* ConstructorStandingsViewModel.swift in Sources */,
 				26326BCB2BE6110E0042FA27 /* RacingResults.swift in Sources */,
-				2629E0482BBC390400EC6139 /* ConstructorModel.swift in Sources */,
+				2629E0482BBC390400EC6139 /* Constructor.swift in Sources */,
 				26C993C52BC52C9B0041F3B1 /* RaceResultHeader.swift in Sources */,
 				2629E0472BBC390400EC6139 /* DriverStandingsModel.swift in Sources */,
 				260FFE3D2BCBDAB000B0102D /* constructorTableViewCell.swift in Sources */,
