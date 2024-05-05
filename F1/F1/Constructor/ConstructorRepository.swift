@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias ConstructorResults = (Result<ResultsModel, APIError>) -> Void
+typealias ConstructorResults = (Result<RacingResults, APIError>) -> Void
 
 protocol ConstructorRepositoryType: AnyObject {
     func fetchConstructorResults(constructor: String, completion: @escaping ConstructorResults)

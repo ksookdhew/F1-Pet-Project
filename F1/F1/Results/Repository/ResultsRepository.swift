@@ -6,7 +6,7 @@
 //
 
 import Foundation
-typealias ResultsResults = (Result< ResultsModel, APIError>) -> Void
+typealias ResultsResults = (Result< RacingResults, APIError>) -> Void
 
 protocol ResultsRepositoryType: AnyObject {
     func fetchRoundResults(round: String, completion: @escaping(ResultsResults))

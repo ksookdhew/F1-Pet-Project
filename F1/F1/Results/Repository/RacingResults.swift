@@ -8,24 +8,23 @@
 import Foundation
 
 // MARK: - ResultsModel
-struct ResultsModel: Codable {
-    let mrData: ResultsData
+struct RacingResults: Codable {
+    let results: ResultsResponse
 
     enum CodingKeys: String, CodingKey {
-        case mrData = "MRData"
+        case results = "MRData"
     }
 }
 
 // MARK: - ResultsData
-struct ResultsData: Codable {
-    let xmlns: String
+struct ResultsResponse: Codable {
     let series: String
     let url: String
     let limit, offset, total: String
     let raceTable: RaceTable
 
     enum CodingKeys: String, CodingKey {
-        case xmlns, series, url, limit, offset, total
+        case series, url, limit, offset, total
         case raceTable = "RaceTable"
     }
 }
@@ -48,7 +47,7 @@ struct Race: Codable {
     let raceName: String
     let circuit: Circuit
     let date, time: String
-    let results: [RacingResult]
+    let results: [RaceResult]
 
     enum CodingKeys: String, CodingKey {
         case season, round, url, raceName
@@ -59,7 +58,7 @@ struct Race: Codable {
 }
 
 // MARK: - RacingResult
-struct RacingResult: Codable {
+struct RaceResult: Codable {
     let number, position, positionText, points: String
        let driver: Driver
        let constructor: Constructor

@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias DriverResults = (Result< ResultsModel, APIError>) -> Void
+typealias DriverResults = (Result< RacingResults, APIError>) -> Void
 
 protocol DriverRepositoryType: AnyObject {
 
