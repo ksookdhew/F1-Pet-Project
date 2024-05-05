@@ -15,7 +15,7 @@ struct DriverStandingsModel: Codable {
     }
 }
 
-// MARK: - Data
+// MARK: - DriverStandingsResponse
 struct DriverStandingsResponse: Codable {
     let series: String
     let url: String

@@ -15,7 +15,7 @@ struct ConstructorStandingsModel: Codable {
     }
 }
 
-// MARK: - ConstructorStandingsData
+// MARK: - ConstructorStandingsResponse
 struct ConstructorStandingsResponse: Codable {
     let series: String
     let url: String

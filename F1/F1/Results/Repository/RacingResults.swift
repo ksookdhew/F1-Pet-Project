@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - ResultsModel
+// MARK: - RacingResults
 struct RacingResults: Codable {
     let results: ResultsResponse
 
@@ -16,7 +16,7 @@ struct RacingResults: Codable {
     }
 }
 
-// MARK: - ResultsData
+// MARK: - ResultsResponse
 struct ResultsResponse: Codable {
     let series: String
     let url: String
@@ -57,7 +57,7 @@ struct Race: Codable {
     }
 }
 
-// MARK: - RacingResult
+// MARK: - RaceResult
 struct RaceResult: Codable {
     let number, position, positionText, points: String
        let driver: Driver

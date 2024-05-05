@@ -16,7 +16,7 @@ struct ConstructorModel: Codable {
     }
 }
 
-// MARK: - ConstructorData
+// MARK: - ConstructorResponse
 struct ConstructorResponse: Codable {
     let series: String
     let url: String
