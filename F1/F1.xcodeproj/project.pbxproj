@@ -26,10 +26,10 @@
 		2629E0322BBC35C200EC6139 /* DriverStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E02F2BBC35C100EC6139 /* DriverStandingsViewModel.swift */; };
 		2629E03B2BBC366800EC6139 /* ConstructorStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0382BBC366800EC6139 /* ConstructorStandingsViewModel.swift */; };
 		2629E0452BBC390400EC6139 /* Racing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E03E2BBC390400EC6139 /* Racing.swift */; };
-		2629E0462BBC390400EC6139 /* ConstructorStandingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E03F2BBC390400EC6139 /* ConstructorStandingsModel.swift */; };
-		2629E0472BBC390400EC6139 /* DriverStandingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0402BBC390400EC6139 /* DriverStandingsModel.swift */; };
+		2629E0462BBC390400EC6139 /* ConstructorStandings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E03F2BBC390400EC6139 /* ConstructorStandings.swift */; };
+		2629E0472BBC390400EC6139 /* DriverStandings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0402BBC390400EC6139 /* DriverStandings.swift */; };
 		2629E0482BBC390400EC6139 /* Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0412BBC390400EC6139 /* Constructor.swift */; };
-		2629E0492BBC390400EC6139 /* DriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0422BBC390400EC6139 /* DriverModel.swift */; };
+		2629E0492BBC390400EC6139 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0422BBC390400EC6139 /* Driver.swift */; };
 		2629E04B2BBC390400EC6139 /* CircuitDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0442BBC390400EC6139 /* CircuitDetail.swift */; };
 		2629E04E2BBC3A7500EC6139 /* Driver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E04D2BBC3A7500EC6139 /* Driver.storyboard */; };
 		2629E0502BBC3A8800EC6139 /* DriverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E04F2BBC3A8800EC6139 /* DriverViewModel.swift */; };
@@ -122,10 +122,10 @@
 		2629E02F2BBC35C100EC6139 /* DriverStandingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStandingsViewModel.swift; sourceTree = "<group>"; };
 		2629E0382BBC366800EC6139 /* ConstructorStandingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModel.swift; sourceTree = "<group>"; };
 		2629E03E2BBC390400EC6139 /* Racing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Racing.swift; sourceTree = "<group>"; };
-		2629E03F2BBC390400EC6139 /* ConstructorStandingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsModel.swift; sourceTree = "<group>"; };
-		2629E0402BBC390400EC6139 /* DriverStandingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStandingsModel.swift; sourceTree = "<group>"; };
+		2629E03F2BBC390400EC6139 /* ConstructorStandings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStandings.swift; sourceTree = "<group>"; };
+		2629E0402BBC390400EC6139 /* DriverStandings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStandings.swift; sourceTree = "<group>"; };
 		2629E0412BBC390400EC6139 /* Constructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constructor.swift; sourceTree = "<group>"; };
-		2629E0422BBC390400EC6139 /* DriverModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverModel.swift; sourceTree = "<group>"; };
+		2629E0422BBC390400EC6139 /* Driver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		2629E0442BBC390400EC6139 /* CircuitDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitDetail.swift; sourceTree = "<group>"; };
 		2629E04D2BBC3A7500EC6139 /* Driver.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Driver.storyboard; sourceTree = "<group>"; };
 		2629E04F2BBC3A8800EC6139 /* DriverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewModel.swift; sourceTree = "<group>"; };
@@ -355,7 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				2629E0612BBD370C00EC6139 /* DriverRepository.swift */,
-				2629E0422BBC390400EC6139 /* DriverModel.swift */,
+				2629E0422BBC390400EC6139 /* Driver.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 		2629E0632BBD37AC00EC6139 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				2629E03F2BBC390400EC6139 /* ConstructorStandingsModel.swift */,
+				2629E03F2BBC390400EC6139 /* ConstructorStandings.swift */,
 				2629E0642BBD37D500EC6139 /* ConstructorStandingsRepository.swift */,
 			);
 			path = Repository;
@@ -372,7 +372,7 @@
 		2629E0672BBD38A100EC6139 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				2629E0402BBC390400EC6139 /* DriverStandingsModel.swift */,
+				2629E0402BBC390400EC6139 /* DriverStandings.swift */,
 				2629E0682BBD38B700EC6139 /* DriverStandingsRepository.swift */,
 			);
 			path = Repository;
@@ -683,7 +683,7 @@
 				26FAA2FB2BD2B359002B12EA /* Constants.swift in Sources */,
 				2629DFA82BBC22D600EC6139 /* ViewController.swift in Sources */,
 				2629E0322BBC35C200EC6139 /* DriverStandingsViewModel.swift in Sources */,
-				2629E0492BBC390400EC6139 /* DriverModel.swift in Sources */,
+				2629E0492BBC390400EC6139 /* Driver.swift in Sources */,
 				2629E0752BBD943900EC6139 /* ResultsRepository.swift in Sources */,
 				26C993B82BC3E9920041F3B1 /* AllResultsTableViewCell.swift in Sources */,
 				26326BC52BDEAB9A0042FA27 /* RacingViewController.swift in Sources */,
@@ -691,7 +691,7 @@
 				26326BCB2BE6110E0042FA27 /* RacingResults.swift in Sources */,
 				2629E0482BBC390400EC6139 /* Constructor.swift in Sources */,
 				26C993C52BC52C9B0041F3B1 /* RaceResultHeader.swift in Sources */,
-				2629E0472BBC390400EC6139 /* DriverStandingsModel.swift in Sources */,
+				2629E0472BBC390400EC6139 /* DriverStandings.swift in Sources */,
 				260FFE3D2BCBDAB000B0102D /* constructorTableViewCell.swift in Sources */,
 				2629DFA42BBC22D600EC6139 /* AppDelegate.swift in Sources */,
 				2629E05F2BBD353C00EC6139 /* URLSession+Extension.swift in Sources */,
@@ -700,7 +700,7 @@
 				2629E05B2BBC5AC600EC6139 /* ConstructorRepository.swift in Sources */,
 				2629E0812BBDE01D00EC6139 /* RaceViewController.swift in Sources */,
 				26B97EBE2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift in Sources */,
-				2629E0462BBC390400EC6139 /* ConstructorStandingsModel.swift in Sources */,
+				2629E0462BBC390400EC6139 /* ConstructorStandings.swift in Sources */,
 				2629E07D2BBDE00400EC6139 /* RaceViewModel.swift in Sources */,
 				26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */,
 				2629E0652BBD37D500EC6139 /* ConstructorStandingsRepository.swift in Sources */,
