@@ -149,4 +149,75 @@ class DriverStandingsViewModelTests: XCTestCase {
         let drivers = viewModel.getConstructorDrivers(constructorID: "ferrari")
         XCTAssertTrue(drivers?.isEmpty ?? false)
     }
+
+    func testEmptyDriverStandings() {
+        XCTAssertNil(viewModel.driver(atIndex: 0))
+    }
+
+    func testSetConstructors_AppendingNewDriver() {
+            let initialDriver = Driver(driverID: "driver1", permanentNumber: "44", code: "HAM", url: "", givenName: "Lewis", familyName: "Hamilton", dateOfBirth: "1985-01-07", nationality: "British")
+            viewModel.driversForConstructor = ["mercedes": [initialDriver]]
+
+            let newDriver = Driver(driverID: "driver2", permanentNumber: "77", code: "BOT", url: "", givenName: "Valtteri", familyName: "Bottas", dateOfBirth: "1989-08-28", nationality: "Finnish")
+            let driverStanding = DriverStanding(position: "2", positionText: "2", points: "250", wins: "1",
+                                                driver: newDriver, constructors: [Constructor(constructorID: "mercedes", url: "", name: "Mercedes", nationality: "German")])
+
+        mockRepository.mockDriverStandings = DriverStandingsModel(
+            driverStandings: DriverStandingsResponse(
+                series: "F1",
+                url: "",
+                limit: "10",
+                offset: "0",
+                total: "1",
+                standingsTable: DriverStandingsTable(
+                    season: "2024",
+                    standingsLists: [
+                        DriverStandingsList(
+                            season: "2024",
+                            round: "1",
+                            driverStandings: [driverStanding]
+                        )
+                    ]
+                )
+            )
+        )
+        viewModel.fetchDriverStandings()
+            viewModel.setConstructors()
+
+            XCTAssertEqual(viewModel.driversForConstructor["mercedes"]?.count, 2)
+        XCTAssertEqual(viewModel.driversForConstructor["mercedes"]?.last??.givenName, "Valtteri")
+        }
+
+        func testSetConstructors_CreatingNewConstructorEntry() {
+            // New driver to be the first entry for the constructor
+            let driver = Driver(driverID: "driver3", permanentNumber: "25", code: "VET", url: "", givenName: "Sebastian", familyName: "Vettel", dateOfBirth: "1987-07-03", nationality: "German")
+            let driverStanding = DriverStanding(position: "3", positionText: "3", points: "200", wins:
+                                                    "0", driver: driver, constructors: [Constructor(constructorID: "ferrari", url: "", name: "Ferrari", nationality: "Italian")])
+
+            // Setting driver standings to simulate fetching from the repository
+            mockRepository.mockDriverStandings = DriverStandingsModel(
+                driverStandings: DriverStandingsResponse(
+                    series: "F1",
+                    url: "",
+                    limit: "10",
+                    offset: "0",
+                    total: "1",
+                    standingsTable: DriverStandingsTable(
+                        season: "2024",
+                        standingsLists: [
+                            DriverStandingsList(
+                                season: "2024",
+                                round: "1",
+                                driverStandings: [driverStanding]
+                            )
+                        ]
+                    )
+                )
+            )
+            viewModel.fetchDriverStandings()
+            viewModel.setConstructors()
+            XCTAssertEqual(viewModel.driversForConstructor["ferrari"]?.count, 1)
+            XCTAssertEqual(viewModel.driversForConstructor["ferrari"]?.first??.givenName, "Sebastian")
+        }
+
 }

@@ -20,9 +20,9 @@ class DriverStandingTableViewCell: UITableViewCell {
     // MARK: Functions
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.layer.cornerRadius = 10
-        self.contentView.layer.masksToBounds = true
-        self.backgroundColor = UIColor.clear
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
+        backgroundColor = UIColor.clear
     }
 
     func populateWith(driverStanding: DriverStanding) {
