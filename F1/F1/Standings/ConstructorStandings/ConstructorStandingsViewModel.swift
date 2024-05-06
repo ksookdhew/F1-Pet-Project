@@ -21,12 +21,12 @@ class ConstructorStandingsViewModel {
 
     // MARK: Computed Variables
     var constructorCount: Int {
-        return constructorStanding?.count ?? 0
+        constructorStanding?.count ?? 0
     }
 
     // MARK: Functions
     func constructor(atIndex: Int) -> ConstructorStanding? {
-        return constructorStanding?[atIndex] ?? nil
+        constructorStanding?[atIndex] ?? nil
     }
 
     func drivers(driversList: [Driver?]) -> String {

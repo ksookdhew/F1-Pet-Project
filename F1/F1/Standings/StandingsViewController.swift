@@ -135,7 +135,6 @@ extension  StandingsViewController: ViewModelDelegate {
 
     func show(error: String) {
     }
-
 }
 
 // MARK: Navigation Delegate

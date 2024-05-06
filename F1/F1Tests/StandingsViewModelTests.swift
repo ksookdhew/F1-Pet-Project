@@ -44,7 +44,7 @@ class StandingsViewModelTests: XCTestCase {
     func testNavigateToDriver() {
         let driver = DriverStanding(position: "1", positionText: "1", points: "100", wins: "3",
                                     driver: Driver(driverID: "1", permanentNumber: "33", code: "VER",
-                                    url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"), constructors: [])
+                                                   url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"), constructors: [])
 
         mockDriverStandingsRepository.mockDriverStandings = DriverStandingsModel(
             driverStandings: DriverStandingsResponse(
@@ -73,8 +73,8 @@ class StandingsViewModelTests: XCTestCase {
     }
 
     func testNavigateToConstructor() {
-        let constructor = ConstructorStanding(position: "1", positionText: "1", points: "200", 
-wins: "5", constructor: Constructor(constructorID: "1", url: "", name: "Red Bull Racing", nationality: "Austrian"))
+        let constructor = ConstructorStanding(position: "1", positionText: "1", points: "200",
+                                              wins: "5", constructor: Constructor(constructorID: "1", url: "", name: "Red Bull Racing", nationality: "Austrian"))
         mockConstructorStandingsRepository.mockConstructorStandings = ConstructorStandingsModel(
             constructorStandings: ConstructorStandingsResponse(
                 series: "F1",
@@ -107,4 +107,3 @@ wins: "5", constructor: Constructor(constructorID: "1", url: "", name: "Red Bull
         XCTAssertNil(mockNavigationDelegate.lastNavigatedConstructor)
     }
 }
-
