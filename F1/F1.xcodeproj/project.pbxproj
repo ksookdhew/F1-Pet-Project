@@ -74,9 +74,9 @@
 		26C993D42BC6B3E20041F3B1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993D32BC6B3E20041F3B1 /* Login.storyboard */; };
 		26C993E52BC7289E0041F3B1 /* Standings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993E42BC7289E0041F3B1 /* Standings.storyboard */; };
 		26C993E72BC729A70041F3B1 /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993E62BC729A70041F3B1 /* StandingsViewController.swift */; };
-		26C993E92BC72A9D0041F3B1 /* DriverStTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */; };
+		26C993E92BC72A9D0041F3B1 /* DriverStandingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993E82BC72A9D0041F3B1 /* DriverStandingTableViewCell.xib */; };
 		26C993EB2BC72ACD0041F3B1 /* DriverStandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993EA2BC72ACD0041F3B1 /* DriverStandingTableViewCell.swift */; };
-		26C993ED2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */; };
+		26C993ED2BC7BC970041F3B1 /* ConstructorStandingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993EC2BC7BC970041F3B1 /* ConstructorStandingTableViewCell.xib */; };
 		26C993EF2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993EE2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift */; };
 		26C993F62BCA73830041F3B1 /* driverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993F52BCA73830041F3B1 /* driverTableViewCell.swift */; };
 		26C993F82BCA73BD0041F3B1 /* DriverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993F72BCA73BD0041F3B1 /* DriverTableViewCell.xib */; };
@@ -173,9 +173,9 @@
 		26C993D32BC6B3E20041F3B1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		26C993E42BC7289E0041F3B1 /* Standings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Standings.storyboard; path = F1/Standings/Standings.storyboard; sourceTree = SOURCE_ROOT; };
 		26C993E62BC729A70041F3B1 /* StandingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsViewController.swift; sourceTree = "<group>"; };
-		26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverStTableViewCell.xib; sourceTree = "<group>"; };
+		26C993E82BC72A9D0041F3B1 /* DriverStandingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverStandingTableViewCell.xib; sourceTree = "<group>"; };
 		26C993EA2BC72ACD0041F3B1 /* DriverStandingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStandingTableViewCell.swift; sourceTree = "<group>"; };
-		26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConstructorStTableViewCell.xib; sourceTree = "<group>"; };
+		26C993EC2BC7BC970041F3B1 /* ConstructorStandingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConstructorStandingTableViewCell.xib; sourceTree = "<group>"; };
 		26C993EE2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStandingTableViewCell.swift; sourceTree = "<group>"; };
 		26C993F52BCA73830041F3B1 /* driverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = driverTableViewCell.swift; sourceTree = "<group>"; };
 		26C993F72BCA73BD0041F3B1 /* DriverTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverTableViewCell.xib; sourceTree = "<group>"; };
@@ -492,9 +492,9 @@
 			isa = PBXGroup;
 			children = (
 				26C993EA2BC72ACD0041F3B1 /* DriverStandingTableViewCell.swift */,
-				26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */,
+				26C993E82BC72A9D0041F3B1 /* DriverStandingTableViewCell.xib */,
 				26C993EE2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift */,
-				26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */,
+				26C993EC2BC7BC970041F3B1 /* ConstructorStandingTableViewCell.xib */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -622,7 +622,7 @@
 				26326BC32BDEA9B90042FA27 /* RacingCollectionViewCell.xib in Resources */,
 				2629E0872BBE846400EC6139 /* Tab Bar.storyboard in Resources */,
 				260FFE342BCBB1B800B0102D /* Constructor.storyboard in Resources */,
-				26C993ED2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib in Resources */,
+				26C993ED2BC7BC970041F3B1 /* ConstructorStandingTableViewCell.xib in Resources */,
 				26C993E52BC7289E0041F3B1 /* Standings.storyboard in Resources */,
 				2629DFAD2BBC22D900EC6139 /* Assets.xcassets in Resources */,
 				26B97EBF2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib in Resources */,
@@ -630,7 +630,7 @@
 				26C993F82BCA73BD0041F3B1 /* DriverTableViewCell.xib in Resources */,
 				26C993B92BC3E9920041F3B1 /* AllResultsTableViewCell.xib in Resources */,
 				2629E04E2BBC3A7500EC6139 /* Driver.storyboard in Resources */,
-				26C993E92BC72A9D0041F3B1 /* DriverStTableViewCell.xib in Resources */,
+				26C993E92BC72A9D0041F3B1 /* DriverStandingTableViewCell.xib in Resources */,
 				260FFE2E2BCAEEB800B0102D /* DriverResultHeader.xib in Resources */,
 				26C993BF2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib in Resources */,
 				26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */,
