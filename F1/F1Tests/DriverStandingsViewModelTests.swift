@@ -189,12 +189,10 @@ class DriverStandingsViewModelTests: XCTestCase {
         }
 
         func testSetConstructors_CreatingNewConstructorEntry() {
-            // New driver to be the first entry for the constructor
             let driver = Driver(driverID: "driver3", permanentNumber: "25", code: "VET", url: "", givenName: "Sebastian", familyName: "Vettel", dateOfBirth: "1987-07-03", nationality: "German")
             let driverStanding = DriverStanding(position: "3", positionText: "3", points: "200", wins:
                                                     "0", driver: driver, constructors: [Constructor(constructorID: "ferrari", url: "", name: "Ferrari", nationality: "Italian")])
 
-            // Setting driver standings to simulate fetching from the repository
             mockRepository.mockDriverStandings = DriverStandingsModel(
                 driverStandings: DriverStandingsResponse(
                     series: "F1",

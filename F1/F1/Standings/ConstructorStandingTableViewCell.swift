@@ -24,7 +24,7 @@ class ConstructorStandingTableViewCell: UITableViewCell {
         backgroundColor = UIColor.clear
     }
 
-    func populateWith(constructorStanding: ConstructorStanding,driverText: String) {
+    func populateWith(constructorStanding: ConstructorStanding, driverText: String) {
         position.text = constructorStanding.position
         name.text = constructorStanding.constructor.name
         points.text = "\(constructorStanding.points) PTS"
