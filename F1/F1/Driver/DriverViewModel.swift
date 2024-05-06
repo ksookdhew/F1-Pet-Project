@@ -48,7 +48,7 @@ class DriverViewModel {
     }
 
     func imageName(driverCode: String?) -> String {
-        return "\(driverCode ?? "").png"
+        "\(driverCode ?? "").png"
     }
 
     func fetchDriver(driverName: String?) {
