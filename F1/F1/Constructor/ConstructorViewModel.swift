@@ -31,11 +31,12 @@ class ConstructorViewModel {
 
     // MARK: Functions
     func result(atIndex: Int) -> Race? {
-        if constructorResults?.count ?? 0 > atIndex {
-            return constructorResults?[atIndex] ?? nil }
+        if constructorResults?.count ?? 0 > atIndex, let result = constructorResults {
+                return result[atIndex]
+        }
         return nil
     }
-
+    
     func imageName(constructorId: String?) -> String {
         return "\(constructorId ?? "").png"
     }
