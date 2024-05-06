@@ -9,6 +9,7 @@ import Foundation
 
 class DriverViewModel {
 
+    // MARK: Variables
     private var repository: DriverRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var driverResults: [Race]?
@@ -19,10 +20,12 @@ class DriverViewModel {
         self.delegate = delegate
     }
 
+    // MARK: Computed Variables
     var resultsCount: Int {
         return driverResults?.count ?? 0
     }
 
+    // MARK: Functions
     func result(atIndex: Int) -> Race? {
         return driverResults?[atIndex] ?? nil
     }
