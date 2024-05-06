@@ -52,7 +52,7 @@ class DriverViewModel {
         repository?.fetchDriverResults(driver: driverName ?? "") { [weak self] result in
             switch result {
             case .success(let driver):
-                self?.driverResults = driver.mrData.raceTable.races
+                self?.driverResults = driver.results.raceTable.races
                 self?.delegate?.reloadView()
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)

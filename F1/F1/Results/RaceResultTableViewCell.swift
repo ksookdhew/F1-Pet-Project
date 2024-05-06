@@ -20,7 +20,7 @@ class RaceResultTableViewCell: UITableViewCell {
         self.time.layer.masksToBounds = true
     }
 
-    func populateWith(result: RacingResult, lapTime: String) {
+    func populateWith(result: RaceResult, lapTime: String) {
         position.text = result.position
         driver.text = result.driver.code
         time.text = lapTime

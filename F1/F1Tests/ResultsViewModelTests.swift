@@ -6,13 +6,13 @@
 //
 class MockResultsRepository: ResultsRepositoryType {
     var fetchResultsShouldFail: Bool = false
-    var mockResultsModel: ResultsModel?
+    var mockResultsModel: RacingResults?
 
     func fetchRoundResults(round: String, completion: @escaping (ResultsResults)) {
         if fetchResultsShouldFail {
             completion(.failure(.serverError))
         } else {
-            completion(.success(mockResultsModel ?? ResultsModel(mrData: ResultsData(xmlns: "", series: "F1", url: "", limit: "10",
+            completion(.success(mockResultsModel ?? RacingResults(results: ResultsResponse(series: "F1", url: "", limit: "10",
                                                                                      offset: "0", total: "1", raceTable: RaceTable(season: "2024", races: [])))))
         }
     }
@@ -21,7 +21,7 @@ class MockResultsRepository: ResultsRepositoryType {
         if fetchResultsShouldFail {
             completion(.failure(.serverError))
         } else {
-            completion(.success(mockResultsModel ?? ResultsModel(mrData: ResultsData(xmlns: "", series: "F1", url: "", limit: "10",
+            completion(.success(mockResultsModel ?? RacingResults(results: ResultsResponse(series: "F1", url: "", limit: "10",
                                                                                      offset: "0", total: "1", raceTable: RaceTable(season: "2024", races: [])))))
         }
     }
@@ -124,9 +124,9 @@ class ResultsViewModelTests: XCTestCase {
 
     // MARK: - Helper Functions
     private func setupMockResults() {
-        mockRepository.mockResultsModel = ResultsModel(
-            mrData: ResultsData(
-                xmlns: "", series: "F1", url: "http://example.com", limit: "10",
+        mockRepository.mockResultsModel = RacingResults(
+            results: ResultsResponse(
+                series: "F1", url: "http://example.com", limit: "10",
                 offset: "0", total: "1",
                 raceTable: RaceTable(season: "2024", races: [setupRace()])
             )
@@ -139,7 +139,7 @@ class ResultsViewModelTests: XCTestCase {
             circuit: Circuit(circuitID: "", url: "", circuitName: "", location: Location(latitude: "", longitude: "", locality: "", country: "")),
             date: "2024-05-01", time: "14:00",
             results: [
-                RacingResult(number: "1", position: "1", positionText: "P1", points: "25",
+                RaceResult(number: "1", position: "1", positionText: "P1", points: "25",
                              driver: Driver(driverID: "driver1", permanentNumber: "33", code: "VER", url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", 
                                             nationality: "Dutch"),
                              constructor: Constructor(constructorID: "redbull", url: "", name: "Red Bull", nationality: "Austrian"),

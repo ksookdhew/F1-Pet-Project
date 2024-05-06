@@ -6,15 +6,15 @@
 //
 
 import Foundation
-typealias RaceResult = (Result< Racing, APIError>) -> Void
+typealias RaceResults = (Result< Racing, APIError>) -> Void
 
 protocol RaceRepositoryType: AnyObject {
-    func fetchRaceResults(completion: @escaping(RaceResult))
+    func fetchRaceResults(completion: @escaping(RaceResults))
 }
 
 class RaceRepository: RaceRepositoryType {
 
-    func fetchRaceResults(completion: @escaping (RaceResult)) {
+    func fetchRaceResults(completion: @escaping (RaceResults)) {
         let url = Endpoints.racing
         URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
     }

@@ -30,7 +30,7 @@ class ConstructorStandingsViewModel {
         repository?.fetchConstructorStandingsResults { [weak self] result in
             switch result {
             case .success(let constructorStandings):
-                self?.constructorStanding = constructorStandings.mrData.standingsTable.standingsLists[0].constructorStandings
+                self?.constructorStanding = constructorStandings.constructorStandings.standingsTable.standingsLists[0].constructorStandings
                 self?.delegate?.reloadView()
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)

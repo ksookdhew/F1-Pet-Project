@@ -9,23 +9,22 @@ import Foundation
 
 // MARK: - ConstructorModel
 struct ConstructorModel: Codable {
-    let mrData: ConstructorData
+    let constructor: ConstructorResponse
 
     enum CodingKeys: String, CodingKey {
-        case mrData = "MRData"
+        case constructor = "MRData"
     }
 }
 
-// MARK: - ConstructorData
-struct ConstructorData: Codable {
-    let xmlns: String
+// MARK: - ConstructorResponse
+struct ConstructorResponse: Codable {
     let series: String
     let url: String
     let limit, offset, total: String
     let constructorTable: ConstructorTable
 
     enum CodingKeys: String, CodingKey {
-        case xmlns, series, url, limit, offset, total
+        case series, url, limit, offset, total
         case constructorTable = "ConstructorTable"
     }
 }

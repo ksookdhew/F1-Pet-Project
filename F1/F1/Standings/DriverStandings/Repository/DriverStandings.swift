@@ -8,23 +8,22 @@ import Foundation
 
 // MARK: - DriverStandingsModel
 struct DriverStandingsModel: Codable {
-    let mrData: DriverStandingsData
+    let driverStandings: DriverStandingsResponse
 
     enum CodingKeys: String, CodingKey {
-        case mrData = "MRData"
+        case driverStandings = "MRData"
     }
 }
 
-// MARK: - Data
-struct DriverStandingsData: Codable {
-    let xmlns: String
+// MARK: - DriverStandingsResponse
+struct DriverStandingsResponse: Codable {
     let series: String
     let url: String
     let limit, offset, total: String
     let standingsTable: DriverStandingsTable
 
     enum CodingKeys: String, CodingKey {
-        case xmlns, series, url, limit, offset, total
+        case series, url, limit, offset, total
         case standingsTable = "StandingsTable"
     }
 }

@@ -13,7 +13,7 @@ class ResultsViewModel {
     private weak var delegate: ViewModelDelegate?
     private var allResults: [Race]?
     private var race: Race?
-    private var raceResult: [RacingResult]?
+    private var raceResult: [RaceResult]?
 
     init(repository: ResultsRepositoryType,
          delegate: ViewModelDelegate) {
@@ -52,7 +52,7 @@ class ResultsViewModel {
         self.raceResult = race?.results
     }
 
-    func raceResult(atIndex: Int) -> RacingResult? {
+    func raceResult(atIndex: Int) -> RaceResult? {
         raceResult?[atIndex] ?? nil
     }
 
@@ -77,8 +77,7 @@ class ResultsViewModel {
         repository?.fetchRacingResults { [weak self] result in
             switch result {
             case .success(let result):
-                // TODO: Change mrData
-                self?.allResults = result.mrData.raceTable.races
+                self?.allResults = result.results.raceTable.races
                 self?.delegate?.reloadView()
             case .failure(let error):
                 print(error)
