@@ -30,15 +30,9 @@ class ConstructorStandingsViewModel {
     }
 
     func drivers(driversList: [Driver?]) -> String {
-        if driversList.count >= 1 {
-            if driversList.count >= 2 {
-                return "\(driversList.first??.code ?? "")/\(driversList[1]?.code ?? "")"
-            } else {
-                return"\(driversList.first??.code ?? "")"
-            }
-        } else {
-            return ""
-        }
+        let driverCodes = driversList.compactMap { $0?.code }
+        let firstTwoCodes = Array(driverCodes.prefix(2))
+        return firstTwoCodes.joined(separator: "/")
     }
 
     func fetchConstructorStandings() {
