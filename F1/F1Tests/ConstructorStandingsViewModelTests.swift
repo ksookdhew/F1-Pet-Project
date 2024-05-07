@@ -92,7 +92,7 @@ class ConstructorStandingsViewModelTests: XCTestCase {
 
     func testEmptyDriver() {
         let firstResult = viewModel.drivers(driversList: [nil, nil, nil])
-        XCTAssertEqual(firstResult, "/")
+        XCTAssertEqual(firstResult, "")
 
         let secondResult = viewModel.drivers(driversList: [nil])
         XCTAssertEqual(secondResult, "")
