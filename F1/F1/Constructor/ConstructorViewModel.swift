@@ -38,7 +38,7 @@ class ConstructorViewModel {
     }
     
     func imageName(constructorId: String?) -> String {
-        return "\(constructorId ?? "").png"
+        "\(constructorId ?? "").png"
     }
 
     func fetchConstructor(constructorName: String?) {
