@@ -15,10 +15,6 @@ class LoginViewModel {
 
     // MARK: Functions
     func validDetails(givenUsername: String, givenPassword: String) -> Bool {
-        if givenUsername==username && givenPassword==password {
-            return true
-        } else {
-            return false
-        }
+        givenUsername == username && givenPassword == password
     }
 }

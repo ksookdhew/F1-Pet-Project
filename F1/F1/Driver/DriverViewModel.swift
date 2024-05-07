@@ -22,12 +22,12 @@ class DriverViewModel {
 
     // MARK: Computed Variables
     var resultsCount: Int {
-        return driverResults?.count ?? 0
+        driverResults?.count ?? 0
     }
 
     // MARK: Functions
     func result(atIndex: Int) -> Race? {
-        return driverResults?[atIndex] ?? nil
+        driverResults?[atIndex] ?? nil
     }
 
     func laptime(index: Int) -> String {
