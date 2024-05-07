@@ -56,6 +56,9 @@
 		26326BC72BDF7E050042FA27 /* RaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326BC62BDF7E050042FA27 /* RaceViewModelTests.swift */; };
 		26326BCB2BE6110E0042FA27 /* RacingResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326BCA2BE6110E0042FA27 /* RacingResults.swift */; };
 		26326BCD2BE61D4B0042FA27 /* ResultsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326BCC2BE61D4B0042FA27 /* ResultsViewModelTests.swift */; };
+		26326C0D2BE816750042FA27 /* StandingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C0C2BE816750042FA27 /* StandingsViewModelTests.swift */; };
+		26326C0F2BE816980042FA27 /* DriverStandingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C0E2BE816980042FA27 /* DriverStandingsViewModelTests.swift */; };
+		26326C112BE8A3950042FA27 /* ConstructorStandingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C102BE8A3950042FA27 /* ConstructorStandingsViewModelTests.swift */; };
 		26B97EBE2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */; };
 		26B97EBF2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */; };
 		26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */; };
@@ -71,10 +74,10 @@
 		26C993D42BC6B3E20041F3B1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993D32BC6B3E20041F3B1 /* Login.storyboard */; };
 		26C993E52BC7289E0041F3B1 /* Standings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993E42BC7289E0041F3B1 /* Standings.storyboard */; };
 		26C993E72BC729A70041F3B1 /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993E62BC729A70041F3B1 /* StandingsViewController.swift */; };
-		26C993E92BC72A9D0041F3B1 /* DriverStTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */; };
-		26C993EB2BC72ACD0041F3B1 /* DriverStTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993EA2BC72ACD0041F3B1 /* DriverStTableViewCell.swift */; };
-		26C993ED2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */; };
-		26C993EF2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993EE2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift */; };
+		26C993E92BC72A9D0041F3B1 /* DriverStandingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993E82BC72A9D0041F3B1 /* DriverStandingTableViewCell.xib */; };
+		26C993EB2BC72ACD0041F3B1 /* DriverStandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993EA2BC72ACD0041F3B1 /* DriverStandingTableViewCell.swift */; };
+		26C993ED2BC7BC970041F3B1 /* ConstructorStandingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993EC2BC7BC970041F3B1 /* ConstructorStandingTableViewCell.xib */; };
+		26C993EF2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993EE2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift */; };
 		26C993F62BCA73830041F3B1 /* driverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C993F52BCA73830041F3B1 /* driverTableViewCell.swift */; };
 		26C993F82BCA73BD0041F3B1 /* DriverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C993F72BCA73BD0041F3B1 /* DriverTableViewCell.xib */; };
 		26FAA2F92BD2A874002B12EA /* StandigsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FAA2F82BD2A874002B12EA /* StandigsViewModel.swift */; };
@@ -152,6 +155,9 @@
 		26326BC62BDF7E050042FA27 /* RaceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewModelTests.swift; sourceTree = "<group>"; };
 		26326BCA2BE6110E0042FA27 /* RacingResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingResults.swift; sourceTree = "<group>"; };
 		26326BCC2BE61D4B0042FA27 /* ResultsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelTests.swift; sourceTree = "<group>"; };
+		26326C0C2BE816750042FA27 /* StandingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewModelTests.swift; sourceTree = "<group>"; };
+		26326C0E2BE816980042FA27 /* DriverStandingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsViewModelTests.swift; sourceTree = "<group>"; };
+		26326C102BE8A3950042FA27 /* ConstructorStandingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModelTests.swift; sourceTree = "<group>"; };
 		26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -167,10 +173,10 @@
 		26C993D32BC6B3E20041F3B1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		26C993E42BC7289E0041F3B1 /* Standings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Standings.storyboard; path = F1/Standings/Standings.storyboard; sourceTree = SOURCE_ROOT; };
 		26C993E62BC729A70041F3B1 /* StandingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsViewController.swift; sourceTree = "<group>"; };
-		26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverStTableViewCell.xib; sourceTree = "<group>"; };
-		26C993EA2BC72ACD0041F3B1 /* DriverStTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStTableViewCell.swift; sourceTree = "<group>"; };
-		26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConstructorStTableViewCell.xib; sourceTree = "<group>"; };
-		26C993EE2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStTableViewCell.swift; sourceTree = "<group>"; };
+		26C993E82BC72A9D0041F3B1 /* DriverStandingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverStandingTableViewCell.xib; sourceTree = "<group>"; };
+		26C993EA2BC72ACD0041F3B1 /* DriverStandingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStandingTableViewCell.swift; sourceTree = "<group>"; };
+		26C993EC2BC7BC970041F3B1 /* ConstructorStandingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConstructorStandingTableViewCell.xib; sourceTree = "<group>"; };
+		26C993EE2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStandingTableViewCell.swift; sourceTree = "<group>"; };
 		26C993F52BCA73830041F3B1 /* driverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = driverTableViewCell.swift; sourceTree = "<group>"; };
 		26C993F72BCA73BD0041F3B1 /* DriverTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverTableViewCell.xib; sourceTree = "<group>"; };
 		26FAA2F82BD2A874002B12EA /* StandigsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandigsViewModel.swift; sourceTree = "<group>"; };
@@ -257,6 +263,9 @@
 				2629DFBA2BBC22D900EC6139 /* F1Tests.swift */,
 				26326BC62BDF7E050042FA27 /* RaceViewModelTests.swift */,
 				26326BCC2BE61D4B0042FA27 /* ResultsViewModelTests.swift */,
+				26326C0C2BE816750042FA27 /* StandingsViewModelTests.swift */,
+				26326C0E2BE816980042FA27 /* DriverStandingsViewModelTests.swift */,
+				26326C102BE8A3950042FA27 /* ConstructorStandingsViewModelTests.swift */,
 			);
 			path = F1Tests;
 			sourceTree = "<group>";
@@ -482,10 +491,10 @@
 		26C993DA2BC705840041F3B1 /* Custom Cell */ = {
 			isa = PBXGroup;
 			children = (
-				26C993EA2BC72ACD0041F3B1 /* DriverStTableViewCell.swift */,
-				26C993E82BC72A9D0041F3B1 /* DriverStTableViewCell.xib */,
-				26C993EE2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift */,
-				26C993EC2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib */,
+				26C993EA2BC72ACD0041F3B1 /* DriverStandingTableViewCell.swift */,
+				26C993E82BC72A9D0041F3B1 /* DriverStandingTableViewCell.xib */,
+				26C993EE2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift */,
+				26C993EC2BC7BC970041F3B1 /* ConstructorStandingTableViewCell.xib */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -613,7 +622,7 @@
 				26326BC32BDEA9B90042FA27 /* RacingCollectionViewCell.xib in Resources */,
 				2629E0872BBE846400EC6139 /* Tab Bar.storyboard in Resources */,
 				260FFE342BCBB1B800B0102D /* Constructor.storyboard in Resources */,
-				26C993ED2BC7BC970041F3B1 /* ConstructorStTableViewCell.xib in Resources */,
+				26C993ED2BC7BC970041F3B1 /* ConstructorStandingTableViewCell.xib in Resources */,
 				26C993E52BC7289E0041F3B1 /* Standings.storyboard in Resources */,
 				2629DFAD2BBC22D900EC6139 /* Assets.xcassets in Resources */,
 				26B97EBF2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib in Resources */,
@@ -621,7 +630,7 @@
 				26C993F82BCA73BD0041F3B1 /* DriverTableViewCell.xib in Resources */,
 				26C993B92BC3E9920041F3B1 /* AllResultsTableViewCell.xib in Resources */,
 				2629E04E2BBC3A7500EC6139 /* Driver.storyboard in Resources */,
-				26C993E92BC72A9D0041F3B1 /* DriverStTableViewCell.xib in Resources */,
+				26C993E92BC72A9D0041F3B1 /* DriverStandingTableViewCell.xib in Resources */,
 				260FFE2E2BCAEEB800B0102D /* DriverResultHeader.xib in Resources */,
 				26C993BF2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib in Resources */,
 				26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */,
@@ -695,7 +704,7 @@
 				260FFE3D2BCBDAB000B0102D /* constructorTableViewCell.swift in Sources */,
 				2629DFA42BBC22D600EC6139 /* AppDelegate.swift in Sources */,
 				2629E05F2BBD353C00EC6139 /* URLSession+Extension.swift in Sources */,
-				26C993EB2BC72ACD0041F3B1 /* DriverStTableViewCell.swift in Sources */,
+				26C993EB2BC72ACD0041F3B1 /* DriverStandingTableViewCell.swift in Sources */,
 				26C993F62BCA73830041F3B1 /* driverTableViewCell.swift in Sources */,
 				2629E05B2BBC5AC600EC6139 /* ConstructorRepository.swift in Sources */,
 				2629E0812BBDE01D00EC6139 /* RaceViewController.swift in Sources */,
@@ -704,7 +713,7 @@
 				2629E07D2BBDE00400EC6139 /* RaceViewModel.swift in Sources */,
 				26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */,
 				2629E0652BBD37D500EC6139 /* ConstructorStandingsRepository.swift in Sources */,
-				26C993EF2BC7BCA50041F3B1 /* ConstructorStTableViewCell.swift in Sources */,
+				26C993EF2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift in Sources */,
 				260FFE302BCAEFE900B0102D /* DriverResultHeader.swift in Sources */,
 				2629E0552BBC43C100EC6139 /* ConstructorViewController.swift in Sources */,
 				2629E0452BBC390400EC6139 /* Racing.swift in Sources */,
@@ -727,6 +736,9 @@
 			files = (
 				26326BCD2BE61D4B0042FA27 /* ResultsViewModelTests.swift in Sources */,
 				2629DFBB2BBC22D900EC6139 /* F1Tests.swift in Sources */,
+				26326C0D2BE816750042FA27 /* StandingsViewModelTests.swift in Sources */,
+				26326C112BE8A3950042FA27 /* ConstructorStandingsViewModelTests.swift in Sources */,
+				26326C0F2BE816980042FA27 /* DriverStandingsViewModelTests.swift in Sources */,
 				26326BC72BDF7E050042FA27 /* RaceViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,12 +7,15 @@
 
 import Foundation
 
+// MARK: ViewModelDelegate protocol
 protocol ViewModelDelegate: AnyObject {
     func reloadView()
     func show(error: String)
 }
 
 class DriverStandingsViewModel {
+
+    // MARK: Variables
     private var repository: DriverStandingsRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var driverStanding: [DriverStanding]?
@@ -24,12 +27,14 @@ class DriverStandingsViewModel {
         self.delegate = delegate
     }
 
+    // MARK: Computed Variables
     var driversCount: Int {
-        return driverStanding?.count ?? 0
+        driverStanding?.count ?? 0
     }
 
+    // MARK: Functions
     func driver(atIndex: Int) -> DriverStanding? {
-        return driverStanding?[atIndex] ?? nil
+        driverStanding?[atIndex] ?? nil
     }
 
     func setConstructors() {
@@ -47,19 +52,19 @@ class DriverStandingsViewModel {
         }
     }
 
-        func getConstructorDrivers(constructorID: String) -> [Driver?]? {
-            return driversForConstructor[constructorID] ?? []
-        }
+    func getConstructorDrivers(constructorID: String) -> [Driver?]? {
+        driversForConstructor[constructorID] ?? []
+    }
 
-        func fetchDriverStandings() {
-            repository?.fetchDriverStandingsResults { [weak self] result in
-                switch result {
-                case .success(let driverStandings):
-                    self?.driverStanding = driverStandings.driverStandings.standingsTable.standingsLists.first?.driverStandings
-                    self?.delegate?.reloadView()
-                case .failure(let error):
-                    self?.delegate?.show(error: error.rawValue)
-                }
+    func fetchDriverStandings() {
+        repository?.fetchDriverStandingsResults { [weak self] result in
+            switch result {
+            case .success(let driverStandings):
+                self?.driverStanding = driverStandings.driverStandings.standingsTable.standingsLists.first?.driverStandings
+                self?.delegate?.reloadView()
+            case .failure(let error):
+                self?.delegate?.show(error: error.rawValue)
             }
         }
     }
+}
