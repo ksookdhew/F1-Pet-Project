@@ -8,16 +8,13 @@
 import Foundation
 
 class LoginViewModel {
+
+    // MARK: Variables
     private let username = "Admin"
     private let password = "Password"
 
-    func validDetails(givenUsername: String, givenPassword: String) -> Bool{
-        if givenUsername==username && givenPassword==password {
-            return true
-        } else {
-            return false
-        }
+    // MARK: Functions
+    func validDetails(givenUsername: String, givenPassword: String) -> Bool {
+        givenUsername == username && givenPassword == password
     }
-
 }
-

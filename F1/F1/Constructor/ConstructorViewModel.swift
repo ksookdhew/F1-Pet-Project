@@ -9,6 +9,7 @@ import Foundation
 
 class ConstructorViewModel {
 
+    // MARK: Variables
     private var repository: ConstructorRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private var constructorResults: [Race]?
@@ -18,22 +19,23 @@ class ConstructorViewModel {
         self.repository = repository
         self.delegate = delegate
     }
-    var resultsCount: Int {
-        return constructorResults?.count ?? 0
-    }
 
-    func result(atIndex: Int) -> Race? {
-        if constructorResults?.count ?? 0 > atIndex {
-            return constructorResults?[atIndex] ?? nil }
-        return nil
+    // MARK: Computed Variables
+    var resultsCount: Int {
+        constructorResults?.count ?? 0
     }
 
     var drivers: String {
-        return "\(constructorResults?.first?.results.first?.driver.code ?? "") | \(constructorResults?.first?.results.last?.driver.code ?? "")"
+        "\(constructorResults?.first?.results.first?.driver.code ?? "") | \(constructorResults?.first?.results.last?.driver.code ?? "")"
+    }
+
+    // MARK: Functions
+    func result(atIndex: Int) -> Race? {
+        constructorResults?.count ?? 0 > atIndex ? constructorResults?[atIndex] : nil
     }
 
     func imageName(constructorId: String?) -> String {
-        return "\(constructorId ?? "").png"
+        "\(constructorId ?? "").png"
     }
 
     func fetchConstructor(constructorName: String?) {
