@@ -14,7 +14,7 @@ class LoginViewModel {
     private let password = "Password"
 
     // MARK: Functions
-    func validDetails(givenUsername: String, givenPassword: String) -> Bool {
+    func validDetails(givenUsername: String?, givenPassword: String?) -> Bool {
         givenUsername == username && givenPassword == password
     }
 }
