@@ -53,10 +53,6 @@ class ConstructorViewModel {
         constructor?.wins
     }
 
-    var constructorDrivers: String {
-        drivers
-    }
-
     // MARK: Functions
     func setConstructor(constructor: ConstructorStanding?) {
         self.constructor = constructor

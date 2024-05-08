@@ -141,4 +141,46 @@ final class ConstructorViewModelTests: XCTestCase {
         let fetchedRace = viewModel.result(atIndex: 0)
         XCTAssertNil(fetchedRace)
     }
+
+    func testConstructorImageName() {
+        viewModel.setConstructor(constructor:
+                ConstructorStanding(position: "1", positionText: "1", points: "100", wins: "5", constructor: Constructor(constructorID: "mercedes", url: "", name: "Mercedes", nationality: "German")))
+
+        XCTAssertEqual(viewModel.constructorImageName, "mercedes.png")
+    }
+
+    func testConstructorName() {
+        viewModel.setConstructor(constructor:
+                ConstructorStanding(position: "1", positionText: "1", points: "100", wins: "5", constructor: Constructor(constructorID: "mercedes", url: "", name: "Mercedes", nationality: "German")))
+
+        XCTAssertEqual(viewModel.constructorName, "Mercedes")
+    }
+
+    func testConstructorNationality() {
+        viewModel.setConstructor(constructor:
+                ConstructorStanding(position: "1", positionText: "1", points: "100", wins: "5", constructor: Constructor(constructorID: "mercedes", url: "", name: "Mercedes", nationality: "German")))
+
+        XCTAssertEqual(viewModel.constructorNationality, "German")
+    }
+
+    func testCurrentPosition() {
+        viewModel.setConstructor(constructor:
+                ConstructorStanding(position: "1", positionText: "1", points: "100", wins: "5", constructor: Constructor(constructorID: "mercedes", url: "", name: "Mercedes", nationality: "German")))
+
+        XCTAssertEqual(viewModel.currentPosition, "1")
+    }
+
+    func testCurrentPoints() {
+        viewModel.setConstructor(constructor:
+                ConstructorStanding(position: "1", positionText: "1", points: "100", wins: "5", constructor: Constructor(constructorID: "mercedes", url: "", name: "Mercedes", nationality: "German")))
+
+        XCTAssertEqual(viewModel.currentPoints, "100")
+    }
+
+    func testCurrentWins() {
+        viewModel.setConstructor(constructor:
+                ConstructorStanding(position: "1", positionText: "1", points: "100", wins: "5", constructor: Constructor(constructorID: "mercedes", url: "", name: "Mercedes", nationality: "German")))
+
+        XCTAssertEqual(viewModel.currentWins, "5")
+    }
 }

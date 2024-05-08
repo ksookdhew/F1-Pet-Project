@@ -49,7 +49,7 @@ class ConstructorViewController: UIViewController {
         currentPosition.text = viewModel.currentPosition
         currentPoints.text = viewModel.currentPoints
         currentWins.text = viewModel.currentWins
-        constructorDriver.text = viewModel.constructorDrivers
+        constructorDriver.text = viewModel.drivers
     }
 }
 
