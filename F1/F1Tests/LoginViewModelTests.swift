@@ -8,16 +8,27 @@
 import XCTest
 @testable import F1
 
+class MockLoginNavigationDelegate: LoginNavigationDelegate {
+    var navigateCalled = false
+
+    func navigate() {
+        navigateCalled = true
+    }
+}
+
 final class LoginViewModelTests: XCTestCase {
     var viewModel: LoginViewModel!
+    var mockNavigationDelegate: MockLoginNavigationDelegate!
 
     override func setUp() {
         super.setUp()
-        viewModel = LoginViewModel()
+        mockNavigationDelegate = MockLoginNavigationDelegate()
+        viewModel = LoginViewModel(navigationDelegate: mockNavigationDelegate)
     }
 
     override func tearDown() {
         viewModel = nil
+        mockNavigationDelegate = nil
         super.tearDown()
     }
 
@@ -56,4 +67,13 @@ final class LoginViewModelTests: XCTestCase {
 
         XCTAssertFalse(isValid, "validDetails should return false for incorrect username and password")
     }
+
+    func testPerformSegue_NavigateCalledOnValidDetails() {
+            let username = "Admin"
+            let password = "Password"
+            _ = viewModel.validDetails(givenUsername: username, givenPassword: password)
+            viewModel.performSegue()
+
+            XCTAssertTrue(mockNavigationDelegate.navigateCalled)
+        }
 }
