@@ -18,9 +18,7 @@ struct RacingResults: Codable {
 
 // MARK: - ResultsResponse
 struct ResultsResponse: Codable {
-    let series: String
-    let url: String
-    let limit, offset, total: String
+    let series, url, limit, offset, total: String
     let raceTable: RaceTable
 
     enum CodingKeys: String, CodingKey {
@@ -42,9 +40,7 @@ struct RaceTable: Codable {
 
 // MARK: - Race
 struct Race: Codable {
-    let season, round: String
-    let url: String
-    let raceName: String
+    let season, round, url, raceName: String
     let circuit: Circuit
     let date, time: String
     let results: [RaceResult]
@@ -92,8 +88,7 @@ struct FastestLap: Codable {
 
 // MARK: - AverageSpeed
 struct AverageSpeed: Codable {
-    let units: String
-    let speed: String
+    let units, speed: String
 }
 
 // MARK: - FastestLapTime

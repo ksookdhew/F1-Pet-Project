@@ -9,17 +9,13 @@ import UIKit
 
 class RaceResultTableViewCell: UITableViewCell {
 
+    // MARK: IBOutlets
     @IBOutlet weak private var position: UILabel!
     @IBOutlet weak private var driver: UILabel!
     @IBOutlet weak private var time: UILabel!
     @IBOutlet weak private var points: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.time.layer.cornerRadius = 8
-        self.time.layer.masksToBounds = true
-    }
-
+    // MARK: Functions
     func populateWith(result: RaceResult, lapTime: String) {
         position.text = result.position
         driver.text = result.driver.code

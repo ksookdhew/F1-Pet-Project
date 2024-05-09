@@ -47,9 +47,11 @@ extension RacingResultViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = racingResultTableView.dequeueReusableCell(withIdentifier: Identifiers.raceResultTableViewCell)
-                as? RaceResultTableViewCell
-        else { return UITableViewCell() }
+        guard let cell = racingResultTableView
+            .dequeueReusableCell(withIdentifier: Identifiers.raceResultTableViewCell)
+                as? RaceResultTableViewCell else {
+            return UITableViewCell()
+        }
         guard let result = viewModel.raceResult(atIndex: indexPath.item) else { return UITableViewCell() }
         let laptime = viewModel.laptime(index: indexPath.item)
         cell.populateWith(result: result, lapTime: laptime)
@@ -57,8 +59,10 @@ extension RacingResultViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = racingResultTableView.dequeueReusableHeaderFooterView(withIdentifier: Identifiers.raceResultHeader) as? RaceResultHeader
-        else { return UITableViewHeaderFooterView() }
+        guard let headerView = racingResultTableView
+            .dequeueReusableHeaderFooterView(withIdentifier: Identifiers.raceResultHeader) as? RaceResultHeader else {
+            return UITableViewHeaderFooterView()
+        }
         return headerView
     }
 
@@ -75,5 +79,6 @@ extension  RacingResultViewController: ViewModelDelegate {
     }
 
     func show(error: String) {
+        showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
     }
 }
