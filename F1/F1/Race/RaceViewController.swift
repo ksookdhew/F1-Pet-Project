@@ -8,7 +8,7 @@
 import UIKit
 
 class RaceViewController: UIViewController {
-    private lazy var viewModel = RaceViewModel(repository: RaceRepository(), delegate: self)
+    lazy var viewModel = RaceViewModel(repository: RaceRepository(), delegate: self)
 
     // MARK: IBOutlets
     @IBOutlet weak private var raceTitle: UILabel!
@@ -21,7 +21,7 @@ class RaceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.race = raceInfo
+        viewModel.setRace(race: raceInfo)
         setupView()
         setupTableView()
     }
@@ -30,7 +30,6 @@ class RaceViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(RaceScheduleTableViewCell.nib(), forCellReuseIdentifier: Identifiers.raceScheduleIndentifier)
-        tableView.sectionHeaderTopPadding = 0.0
     }
 
     private func setupView() {
@@ -48,6 +47,7 @@ extension  RaceViewController: ViewModelDelegate {
     }
 
     func show(error: String) {
+        showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
     }
 }
 
@@ -59,15 +59,16 @@ extension RaceViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 1
+       1
    }
    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       return 10
+       10
    }
 
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 69.0
+       69.0
     }
+
    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
@@ -75,9 +76,11 @@ extension RaceViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.raceScheduleIndentifier)
-               as? RaceScheduleTableViewCell
-       else { return UITableViewCell() }
+       guard let cell = tableView
+        .dequeueReusableCell(withIdentifier: Identifiers.raceScheduleIndentifier)
+                as? RaceScheduleTableViewCell else {
+           return UITableViewCell()
+       }
        let result = viewModel.raceSession(atIndex: indexPath.section)
        let sessionDate = viewModel.sessionDate(date: result.date)
        let sessionTime = viewModel.sessionTime(time: result.time)

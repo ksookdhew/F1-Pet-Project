@@ -62,6 +62,7 @@
 		26326C152BE9307A0042FA27 /* DriverViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C142BE9307A0042FA27 /* DriverViewModelTests.swift */; };
 		26326C172BE93E7C0042FA27 /* ConstructorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C162BE93E7C0042FA27 /* ConstructorViewModelTests.swift */; };
 		26326C192BECBD950042FA27 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C182BECBD950042FA27 /* ViewController+Extension.swift */; };
+		26326C1B2BECC5610042FA27 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C1A2BECC5610042FA27 /* DateFormatter.swift */; };
 		26B97EBE2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */; };
 		26B97EBF2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */; };
 		26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */; };
@@ -164,6 +165,7 @@
 		26326C142BE9307A0042FA27 /* DriverViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewModelTests.swift; sourceTree = "<group>"; };
 		26326C162BE93E7C0042FA27 /* ConstructorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorViewModelTests.swift; sourceTree = "<group>"; };
 		26326C182BECBD950042FA27 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		26326C1A2BECC5610042FA27 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				2629E05E2BBD353C00EC6139 /* URLSession+Extension.swift */,
 				26FAA2FA2BD2B359002B12EA /* Constants.swift */,
 				26326C182BECBD950042FA27 /* ViewController+Extension.swift */,
+				26326C1A2BECC5610042FA27 /* DateFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				2629E05B2BBC5AC600EC6139 /* ConstructorRepository.swift in Sources */,
 				2629E0812BBDE01D00EC6139 /* RaceViewController.swift in Sources */,
 				26B97EBE2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift in Sources */,
+				26326C1B2BECC5610042FA27 /* DateFormatter.swift in Sources */,
 				2629E0462BBC390400EC6139 /* ConstructorStandings.swift in Sources */,
 				2629E07D2BBDE00400EC6139 /* RaceViewModel.swift in Sources */,
 				26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */,

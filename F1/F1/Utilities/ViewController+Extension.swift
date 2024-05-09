@@ -15,4 +15,8 @@ extension UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
+
+    func navigate(identifier: String, sender: Any) {
+        performSegue(withIdentifier: identifier, sender: sender)
+    }
 }
