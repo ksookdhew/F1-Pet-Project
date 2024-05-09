@@ -8,9 +8,9 @@
 import UIKit
 
 class ConstructorResultHeader: UITableViewHeaderFooterView {
-    static let identifier = Identifiers.constructorResultsIdentifier
 
+    // MARK: Functions
     static func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
+        return UINib(nibName: Identifiers.constructorResultsIdentifier, bundle: nil)
     }
 }

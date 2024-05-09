@@ -8,7 +8,8 @@
 import UIKit
 
 class ConstructorTableViewCell: UITableViewCell {
-    
+
+    // MARK: IBOutlets
     @IBOutlet weak private var round: UILabel!
     @IBOutlet weak private var race: UILabel!
     @IBOutlet weak private var firstDriver: UILabel!
@@ -17,16 +18,8 @@ class ConstructorTableViewCell: UITableViewCell {
     @IBOutlet weak private var secondDriver: UILabel!
     @IBOutlet weak private var secondPoints: UILabel!
     @IBOutlet weak private var secondPosition: UILabel!
-    
-    static let identifier = Identifiers.constructorTableViewCell
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        firstDriver.layer.cornerRadius = 8
-        firstDriver.layer.masksToBounds = true
-        secondDriver.layer.cornerRadius = 8
-        secondDriver.layer.masksToBounds = true
-    }
 
+    // MARK: Functions
     func populateWith(result: Race) {
         round.text = result.round
         race.text = result.circuit.location.locality
@@ -46,6 +39,6 @@ class ConstructorTableViewCell: UITableViewCell {
     }
 
     static func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
+        return UINib(nibName: Identifiers.constructorTableViewCell, bundle: nil)
     }
 }
