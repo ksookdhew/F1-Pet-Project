@@ -7,16 +7,19 @@
 
 import Foundation
 
+// MARK: Typealias
 typealias ConstructorResults = (Result<RacingResults, APIError>) -> Void
 
+// MARK: Protocol
 protocol ConstructorRepositoryType: AnyObject {
     func fetchConstructorResults(constructor: String, completion: @escaping ConstructorResults)
 }
 
+// MARK: Repository
 class ConstructorRepository: ConstructorRepositoryType {
 
     func fetchConstructorResults(constructor: String, completion: @escaping ConstructorResults) {
-        let url = "https://ergast.com/api/f1/current/constructors/\(constructor)/results.JSON"
+        let url = Endpoints.constructor + "\(constructor)/results.JSON"
         URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
     }
 }

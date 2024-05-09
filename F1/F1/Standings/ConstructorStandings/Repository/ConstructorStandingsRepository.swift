@@ -7,17 +7,20 @@
 
 import Foundation
 
+// MARK: Typealias
 typealias ConstructorStandingsResults = (Result< ConstructorStandingsModel, APIError>) -> Void
 
+// MARK: Protocol
 protocol ConstructorStandingsRepositoryType: AnyObject {
     func fetchConstructorStandingsResults(completion: @escaping(ConstructorStandingsResults))
 }
 
+// MARK: Repository
 class ConstructorStandingsRepository: ConstructorStandingsRepositoryType {
 
     func fetchConstructorStandingsResults(completion: @escaping (ConstructorStandingsResults)) {
         URLSession.shared.request(endpoint:
-        "https:ergast.com/api/f1/current/constructorStandings.JSON", method: .GET, completion: completion)
+                                    Endpoints.constructorStanding, method: .GET, completion: completion)
     }
 
 }

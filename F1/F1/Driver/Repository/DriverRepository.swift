@@ -7,17 +7,20 @@
 
 import Foundation
 
+// MARK: Typealias
 typealias DriverResults = (Result< RacingResults, APIError>) -> Void
 
+// MARK: Protocol
 protocol DriverRepositoryType: AnyObject {
 
     func fetchDriverResults(driver: String, completion: @escaping DriverResults)
 }
 
+// MARK: Repository
 class DriverRepository: DriverRepositoryType {
 
     func fetchDriverResults(driver: String, completion: @escaping DriverResults) {
-        let url = "https://ergast.com/api/f1/current/drivers/\(driver)/results.JSON"
+        let url = Endpoints.driver + "\(driver)/results.JSON"
         URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
     }
 
