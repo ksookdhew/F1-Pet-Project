@@ -9,32 +9,39 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var errorMsg: UILabel!
-    private lazy var viewModel = LoginViewModel()
+    // MARK: IBOutlets
+    @IBOutlet weak private var username: UITextField!
+    @IBOutlet weak private var password: UITextField!
+    @IBOutlet weak private var errorMessage: UILabel!
 
+    // MARK: Variables
+    private lazy var viewModel = LoginViewModel(navigationDelegate: self)
+
+    // MARK: Function
     override func viewDidLoad() {
-        errorMsg.isHidden = true
+        errorMessage.isHidden = true
         super.viewDidLoad()
     }
 
+    // MARK: IBAction
     @IBAction func loginAction(_ sender: Any) {
-        if viewModel.validDetails(givenUsername: username.text ?? "", givenPassword: password.text ?? "") {
-            errorMsg.isHidden = true
-            performSegue(withIdentifier: "showTabSegue", sender: self)
+        if viewModel.validDetails(givenUsername: username.text, givenPassword: password.text) {
+            errorMessage.isHidden = true
+            viewModel.performSegue()
         } else {
-            errorMsg.isHidden = false
+            errorMessage.isHidden = false
         }
     }
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// MARK: Navigation Delegate
+protocol LoginNavigationDelegate: AnyObject {
+    func navigate()
+}
+
+extension LoginViewController: LoginNavigationDelegate {
+
+    func navigate() {
+        performSegue(withIdentifier: Identifiers.showTabSegue, sender: self)
     }
-    */
-
 }

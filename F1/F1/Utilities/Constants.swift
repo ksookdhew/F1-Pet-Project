@@ -23,6 +23,7 @@ struct Identifiers {
     static let showConstructorSegue = "ShowConstructorSegue"
     static let showRaceSegue = "ShowRaceInfoSegue"
     static let showRaceResultsSegue = "ShowRaceResultsSegue"
+    static let showTabSegue = "ShowTabSegue"
 }
 
 struct Endpoints {
