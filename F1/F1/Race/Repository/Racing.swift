@@ -18,9 +18,7 @@ struct Racing: Codable {
 
 // MARK: - RaceDescriptor
 struct RaceDescriptor: Codable {
-    let series: String
-    let url: String
-    let limit, offset, total: String
+    let series, url, limit, offset, total: String
     let raceTable: RaceSheduleTable
 
     enum CodingKeys: String, CodingKey {
@@ -42,9 +40,7 @@ struct RaceSheduleTable: Codable {
 
 // MARK: - Race
 struct RaceInfo: Codable {
-    let season, round: String
-    let url: String
-    let raceName: String
+    let season, round, url, raceName: String
     let circuit: Circuit
     let date, time: String
     let firstPractice, secondPractice: RaceSession
@@ -82,8 +78,6 @@ enum SessionType: String {
 
 // MARK: - RaceSessionDetail
 struct RaceSessionDetail {
-    let date: String
-    let time: String
+    let date, time: String
     let type: SessionType
-
 }

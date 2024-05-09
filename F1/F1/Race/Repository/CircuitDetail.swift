@@ -10,6 +10,7 @@ import Foundation
 // MARK: - CircuitDetails
 struct CircuitDetail: Codable {
     let circuit: CircuitInfo
+
     enum CodingKeys: String, CodingKey {
         case circuit = "MRData"
     }
@@ -17,9 +18,7 @@ struct CircuitDetail: Codable {
 
 // MARK: - CircuitInfo
 struct CircuitInfo: Codable {
-    let series: String
-    let url: String
-    let limit, offset, total: String
+    let series, url, limit, offset, total: String
     let circuitTable: CircuitTable
 
     enum CodingKeys: String, CodingKey {
@@ -39,9 +38,7 @@ struct CircuitTable: Codable {
 
 // MARK: - Circuit
 struct Circuit: Codable {
-    let circuitID: String
-    let url: String
-    let circuitName: String
+    let circuitID, url, circuitName: String
     let location: Location
 
     enum CodingKeys: String, CodingKey {
