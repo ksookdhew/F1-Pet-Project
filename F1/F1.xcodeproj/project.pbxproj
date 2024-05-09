@@ -61,6 +61,7 @@
 		26326C132BE92A1F0042FA27 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C122BE92A1F0042FA27 /* LoginViewModelTests.swift */; };
 		26326C152BE9307A0042FA27 /* DriverViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C142BE9307A0042FA27 /* DriverViewModelTests.swift */; };
 		26326C172BE93E7C0042FA27 /* ConstructorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C162BE93E7C0042FA27 /* ConstructorViewModelTests.swift */; };
+		26326C192BECBD950042FA27 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C182BECBD950042FA27 /* ViewController+Extension.swift */; };
 		26B97EBE2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */; };
 		26B97EBF2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */; };
 		26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */; };
@@ -162,6 +163,7 @@
 		26326C122BE92A1F0042FA27 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		26326C142BE9307A0042FA27 /* DriverViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewModelTests.swift; sourceTree = "<group>"; };
 		26326C162BE93E7C0042FA27 /* ConstructorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorViewModelTests.swift; sourceTree = "<group>"; };
+		26326C182BECBD950042FA27 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 			children = (
 				2629E05E2BBD353C00EC6139 /* URLSession+Extension.swift */,
 				26FAA2FA2BD2B359002B12EA /* Constants.swift */,
+				26326C182BECBD950042FA27 /* ViewController+Extension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				26C993EF2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift in Sources */,
 				260FFE302BCAEFE900B0102D /* DriverResultHeader.swift in Sources */,
 				2629E0552BBC43C100EC6139 /* ConstructorViewController.swift in Sources */,
+				26326C192BECBD950042FA27 /* ViewController+Extension.swift in Sources */,
 				2629E0452BBC390400EC6139 /* Racing.swift in Sources */,
 				26C993D02BC6B3BA0041F3B1 /* LoginViewModel.swift in Sources */,
 				2629E0572BBC43CC00EC6139 /* ConstructorViewModel.swift in Sources */,

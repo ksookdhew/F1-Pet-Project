@@ -63,13 +63,6 @@ extension ConstructorViewController: ViewModelDelegate {
     func show(error: String) {
         showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
     }
-
-    func showAlert(alertTitle: String, alertMessage: String) {
-        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-    }
 }
 
 // MARK: - UITableViewDelegate and UITableViewDataSource
