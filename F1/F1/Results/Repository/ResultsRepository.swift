@@ -6,20 +6,24 @@
 //
 
 import Foundation
+
+// MARK: Typealias
 typealias ResultsResults = (Result< RacingResults, APIError>) -> Void
 
+// MARK: Protocol
 protocol ResultsRepositoryType: AnyObject {
     func fetchRoundResults(round: String, completion: @escaping(ResultsResults))
     func fetchRacingResults(completion: @escaping(ResultsResults))
 }
 
+// MARK: Repository
 class ResultsRepository: ResultsRepositoryType {
     func fetchRoundResults(round: String, completion: @escaping (ResultsResults)) {
-        let url = "https://ergast.com/api/f1/current/\(round)/results.JSON"
+        let url = Endpoints.roundResult + "\(round)/results.JSON"
         URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
     }
     func fetchRacingResults(completion: @escaping (ResultsResults)) {
-        let url = "https://ergast.com/api/f1/current/results.JSON?limit=200"
+        let url = Endpoints.racingResults
         URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
     }
 }
