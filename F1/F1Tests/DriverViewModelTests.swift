@@ -168,4 +168,72 @@ final class DriverViewModelTests: XCTestCase {
         let invalidImage = viewModel.imageName(driverCode: nil)
         XCTAssertEqual(invalidImage, ".png")
     }
+
+    func testDriverImageName() {
+        viewModel.setDriver(driver: DriverStanding( position: "1", positionText: "1", points: "100", wins: "5",
+            driver: Driver(driverID: "1", permanentNumber: "33", code: "VER", url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"),
+            constructors: [Constructor(constructorID: "red_bull", url: "", name: "Red Bull Racing", nationality: "Austrian")]))
+
+        XCTAssertEqual(viewModel.driverImageName, "VER.png")
+    }
+
+    func testDriverGivenName() {
+        viewModel.setDriver(driver: DriverStanding( position: "1", positionText: "1", points: "100", wins: "5",
+            driver: Driver(driverID: "1", permanentNumber: "33", code: "VER", url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"),
+            constructors: [Constructor(constructorID: "red_bull", url: "", name: "Red Bull Racing", nationality: "Austrian")]))
+
+        XCTAssertEqual(viewModel.driverGivenName, "Max")
+    }
+
+    func testDriverFamilyName() {
+        viewModel.setDriver(driver: DriverStanding( position: "1", positionText: "1", points: "100", wins: "5",
+            driver: Driver(driverID: "1", permanentNumber: "33", code: "VER", url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"),
+            constructors: [Constructor(constructorID: "red_bull", url: "", name: "Red Bull Racing", nationality: "Austrian")]))
+
+        XCTAssertEqual(viewModel.driverFamilyName, "Verstappen")
+    }
+
+    func testDriverConstructorInfo() {
+        viewModel.setDriver(driver: DriverStanding( position: "1", positionText: "1", points: "100", wins: "5",
+            driver: Driver(driverID: "1", permanentNumber: "33", code: "VER", url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"),
+            constructors: [Constructor(constructorID: "red_bull", url: "", name: "Red Bull Racing", nationality: "Austrian")]))
+
+        XCTAssertEqual(viewModel.driverConstructorInfo, "33 | Red Bull Racing")
+    }
+
+    func testDriverNationality() {
+        viewModel.setDriver(driver: DriverStanding( position: "1", positionText: "1", points: "100", wins: "5",
+            driver: Driver(driverID: "1", permanentNumber: "33", code: "VER", url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"),
+            constructors: [Constructor(constructorID: "red_bull", url: "", name: "Red Bull Racing", nationality: "Austrian")]))
+
+        XCTAssertEqual(viewModel.driverNationality, "Dutch")
+    }
+
+    func testDriverCurrentPosition() {
+        viewModel.setDriver(driver: DriverStanding( position: "1", positionText: "1", points: "100", wins: "5",
+            driver: Driver(driverID: "1", permanentNumber: "33", code: "VER", url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"),
+            constructors: [Constructor(constructorID: "red_bull", url: "", name: "Red Bull Racing", nationality: "Austrian")]))
+
+        XCTAssertEqual(viewModel.currentPosition, "1")
+    }
+
+    func testDriverCurrentPoints() {
+        viewModel.setDriver(driver: DriverStanding( position: "1", positionText: "1", points: "100", wins: "5",
+            driver: Driver(driverID: "1", permanentNumber: "33", code: "VER", url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"),
+            constructors: [Constructor(constructorID: "red_bull", url: "", name: "Red Bull Racing", nationality: "Austrian")]))
+
+        XCTAssertEqual(viewModel.currentPoints, "100")
+    }
+
+    func testDriverCurrentWins() {
+        viewModel.setDriver(driver: DriverStanding( position: "1", positionText: "1", points: "100", wins: "5",
+            driver: Driver(driverID: "1", permanentNumber: "33", code: "VER", url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"),
+            constructors: [Constructor(constructorID: "red_bull", url: "", name: "Red Bull Racing", nationality: "Austrian")]))
+
+        XCTAssertEqual(viewModel.currentWins, "5")
+    }
+
+    func testEmptydriverConstructorInfo() {
+        XCTAssertEqual(viewModel.driverConstructorInfo, " | ")
+    }
 }

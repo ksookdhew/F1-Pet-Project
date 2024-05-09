@@ -4,7 +4,6 @@
 //
 //  Created by Kaitlyn Sookdhew on 2024/03/28.
 //
-
 import Foundation
 
 // MARK: - DriverModel
@@ -18,9 +17,7 @@ struct DriverModel: Codable {
 
 // MARK: - DriverResponse
 struct DriverResponse: Codable {
-    let series: String
-    let url: String
-    let limit, offset, total: String
+    let series, url, limit, offset, total: String
     let driverTable: DriverTable
 
     enum CodingKeys: String, CodingKey {
@@ -42,9 +39,7 @@ struct DriverTable: Codable {
 
 // MARK: - Driver
 struct Driver: Codable {
-    let driverID, permanentNumber, code: String
-    let url: String
-    let givenName, familyName, dateOfBirth, nationality: String
+    let driverID, permanentNumber, code, url, givenName, familyName, dateOfBirth, nationality: String
 
     enum CodingKeys: String, CodingKey {
         case driverID = "driverId"
