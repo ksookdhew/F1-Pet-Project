@@ -5,10 +5,10 @@
 //  Created by Kaitlyn Sookdhew on 2024/05/09.
 //
 
-import Foundation
 import UIKit
 
-extension UIViewController{
+extension UIViewController {
+    
     func showAlert(alertTitle: String, alertMessage: String) {
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
