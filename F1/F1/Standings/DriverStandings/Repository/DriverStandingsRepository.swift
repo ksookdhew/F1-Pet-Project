@@ -7,16 +7,19 @@
 
 import Foundation
 
+// MARK: Typealias
 typealias DriverStandingsResults = (Result< DriverStandingsModel, APIError>) -> Void
 
+// MARK: Protocol
 protocol DriverStandingsRepositoryType: AnyObject {
     func fetchDriverStandingsResults(completion: @escaping(DriverStandingsResults))
 }
 
+// MARK: Repository
 class DriverStandingsRepository: DriverStandingsRepositoryType {
 
     func fetchDriverStandingsResults(completion: @escaping (DriverStandingsResults)) {
         URLSession.shared.request(endpoint:
-        "https://ergast.com/api/f1/current/driverStandings.JSON", method: .GET, completion: completion)
+                                    Endpoints.driverStanding, method: .GET, completion: completion)
     }
 }
