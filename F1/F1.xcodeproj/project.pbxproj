@@ -16,7 +16,6 @@
 		260FFE3D2BCBDAB000B0102D /* constructorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260FFE3C2BCBDAB000B0102D /* constructorTableViewCell.swift */; };
 		2629DFA42BBC22D600EC6139 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629DFA32BBC22D600EC6139 /* AppDelegate.swift */; };
 		2629DFA62BBC22D600EC6139 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629DFA52BBC22D600EC6139 /* SceneDelegate.swift */; };
-		2629DFA82BBC22D600EC6139 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629DFA72BBC22D600EC6139 /* ViewController.swift */; };
 		2629DFAB2BBC22D600EC6139 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629DFA92BBC22D600EC6139 /* Main.storyboard */; };
 		2629DFAD2BBC22D900EC6139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2629DFAC2BBC22D900EC6139 /* Assets.xcassets */; };
 		2629DFBB2BBC22D900EC6139 /* F1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629DFBA2BBC22D900EC6139 /* F1Tests.swift */; };
@@ -115,7 +114,6 @@
 		2629DFA02BBC22D600EC6139 /* F1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2629DFA32BBC22D600EC6139 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2629DFA52BBC22D600EC6139 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2629DFA72BBC22D600EC6139 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2629DFAA2BBC22D600EC6139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2629DFAC2BBC22D900EC6139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2629DFB12BBC22D900EC6139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 			children = (
 				2629DFA32BBC22D600EC6139 /* AppDelegate.swift */,
 				2629DFA52BBC22D600EC6139 /* SceneDelegate.swift */,
-				2629DFA72BBC22D600EC6139 /* ViewController.swift */,
 				2629DFA92BBC22D600EC6139 /* Main.storyboard */,
 				2629DFAC2BBC22D900EC6139 /* Assets.xcassets */,
 				26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */,
@@ -699,7 +696,6 @@
 				260FFE3B2BCBDA9500B0102D /* ConstructorResultHeader.swift in Sources */,
 				2629E0502BBC3A8800EC6139 /* DriverViewModel.swift in Sources */,
 				26FAA2FB2BD2B359002B12EA /* Constants.swift in Sources */,
-				2629DFA82BBC22D600EC6139 /* ViewController.swift in Sources */,
 				2629E0322BBC35C200EC6139 /* DriverStandingsViewModel.swift in Sources */,
 				2629E0492BBC390400EC6139 /* Driver.swift in Sources */,
 				2629E0752BBD943900EC6139 /* ResultsRepository.swift in Sources */,

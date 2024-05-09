@@ -4,7 +4,6 @@
 //
 //  Created by Kaitlyn Sookdhew on 2024/04/02.
 //
-
 import Foundation
 
 // MARK: - ConstructorModel
@@ -18,9 +17,7 @@ struct ConstructorModel: Codable {
 
 // MARK: - ConstructorResponse
 struct ConstructorResponse: Codable {
-    let series: String
-    let url: String
-    let limit, offset, total: String
+    let series, url, limit, offset, total: String
     let constructorTable: ConstructorTable
 
     enum CodingKeys: String, CodingKey {
@@ -42,9 +39,7 @@ struct ConstructorTable: Codable {
 
 // MARK: - Constructor
 struct Constructor: Codable {
-    let constructorID: String
-    let url: String
-    let name, nationality: String
+    let constructorID, url, name, nationality: String
 
     enum CodingKeys: String, CodingKey {
         case constructorID = "constructorId"
