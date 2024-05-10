@@ -7,22 +7,15 @@
 
 import Foundation
 
-// MARK: ViewModelDelegate protocol
-protocol ViewModelDelegate: AnyObject {
-    func reloadView()
-    func show(error: String)
-}
-
 class DriverStandingsViewModel {
 
     // MARK: Variables
-    private var repository: DriverStandingsRepositoryType?
     private weak var delegate: ViewModelDelegate?
+    private var repository: DriverStandingsRepositoryType?
     private var driverStanding: [DriverStanding]?
     var driversForConstructor: [String: [Driver?]] = [:]
 
-    init(repository: DriverStandingsRepositoryType,
-         delegate: ViewModelDelegate) {
+    init(repository: DriverStandingsRepositoryType, delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
     }
@@ -38,17 +31,14 @@ class DriverStandingsViewModel {
     }
 
     func setConstructors() {
-        if let driverStanding {
-            for driver in driverStanding {
-                if let constructor = driver.constructors.first?.constructorID {
-                    if var drivers = driversForConstructor[constructor] {
-                        drivers.append(driver.driver)
-                        driversForConstructor[constructor] = drivers
-                    } else {
-                        driversForConstructor[constructor] = [driver.driver]
-                    }
-                }
-            }
+        guard let driverStanding = driverStanding else { return }
+
+        for driver in driverStanding {
+            guard let constructorID = driver.constructors.first?.constructorID else { continue }
+
+            var drivers = driversForConstructor[constructorID] ?? []
+            drivers.append(driver.driver)
+            driversForConstructor[constructorID] = drivers
         }
     }
 

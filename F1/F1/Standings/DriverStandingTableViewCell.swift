@@ -18,13 +18,6 @@ class DriverStandingTableViewCell: UITableViewCell {
     @IBOutlet weak private var driverImage: UIImageView!
 
     // MARK: Functions
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
-        backgroundColor = UIColor.clear
-    }
-
     func populateWith(driverStanding: DriverStanding) {
         position.text = driverStanding.position
         name.text = driverStanding.driver.givenName
