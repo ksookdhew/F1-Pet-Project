@@ -17,13 +17,6 @@ class ConstructorStandingTableViewCell: UITableViewCell {
     @IBOutlet weak private var constructorImage: UIImageView!
 
     // MARK: Functions
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
-        backgroundColor = UIColor.clear
-    }
-
     func populateWith(constructorStanding: ConstructorStanding, driverText: String) {
         position.text = constructorStanding.position
         name.text = constructorStanding.constructor.name

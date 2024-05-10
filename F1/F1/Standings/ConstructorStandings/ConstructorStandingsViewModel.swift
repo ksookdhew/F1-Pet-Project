@@ -9,12 +9,11 @@ import Foundation
 class ConstructorStandingsViewModel {
 
     // MARK: Variables
-    private var repository: ConstructorStandingsRepositoryType?
     private weak var delegate: ViewModelDelegate?
+    private var repository: ConstructorStandingsRepositoryType?
     private var constructorStanding: [ConstructorStanding]?
 
-    init(repository: ConstructorStandingsRepositoryType,
-         delegate: ViewModelDelegate) {
+    init(repository: ConstructorStandingsRepositoryType, delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
     }

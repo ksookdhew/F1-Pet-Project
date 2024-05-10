@@ -71,9 +71,14 @@
                     <constraint firstAttribute="trailing" secondItem="D9z-sZ-ihv" secondAttribute="trailing" constant="8" id="pCf-mK-oru"/>
                     <constraint firstItem="sCc-H2-fWu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="rCa-Y7-P1A"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                        <integer key="value" value="10"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="constructorImage" destination="sCc-H2-fWu" id="jif-Mc-XoB"/>
