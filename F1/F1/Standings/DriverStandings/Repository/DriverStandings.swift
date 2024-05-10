@@ -17,9 +17,7 @@ struct DriverStandingsModel: Codable {
 
 // MARK: - DriverStandingsResponse
 struct DriverStandingsResponse: Codable {
-    let series: String
-    let url: String
-    let limit, offset, total: String
+    let series, url, limit, offset, total: String
     let standingsTable: DriverStandingsTable
 
     enum CodingKeys: String, CodingKey {
