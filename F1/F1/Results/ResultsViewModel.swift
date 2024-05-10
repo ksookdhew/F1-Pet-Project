@@ -9,14 +9,13 @@ import Foundation
 class ResultsViewModel {
 
     // MARK: Variables
-    private var repository: ResultsRepositoryType?
     private weak var delegate: ViewModelDelegate?
+    private var repository: ResultsRepositoryType?
     private var allResults: [Race]?
-    private var race: Race?
     private var raceResult: [RaceResult]?
+    private var race: Race?
 
-    init(repository: ResultsRepositoryType,
-         delegate: ViewModelDelegate) {
+    init(repository: ResultsRepositoryType, delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
     }
@@ -40,11 +39,7 @@ class ResultsViewModel {
     }
 
     func allResultDate(result: Race?) -> DateComponents {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
-        let date = dateFormatter.date(from: result?.date ?? "2024-00-00") ?? Date()
-        let dateComps = Calendar.current.dateComponents([.year, .month, .day], from: date)
-        return dateComps
+        DateFormatter().customDateFormatter(date: result?.date ?? "2024-00-00")
     }
 
     func setRaceResult(raceResult: Race?) {
@@ -57,27 +52,25 @@ class ResultsViewModel {
     }
 
     func laptime(index: Int) -> String {
-        if let resultTime = raceResult?[index].time {
-            return resultTime.time
-        } else {
-            let stat = raceResult?[index].status
-            if let statFinal = stat {
-                if !statFinal.contains("Lap") {
+        guard let resultTime = raceResult?[index].time else {
+            if let status = raceResult?[index].status {
+                if !status.contains("Lap") {
                     return "DNF"
                 } else {
-                    return statFinal
+                    return status
                 }
             } else {
                 return "No Time"
             }
         }
+        return resultTime.time
     }
 
     func fetchResults() {
         repository?.fetchRacingResults { [weak self] result in
             switch result {
             case .success(let result):
-                self?.allResults = result.results.raceTable.races
+                self?.allResults = result.results.raceTable.races.reversed()
                 self?.delegate?.reloadView()
             case .failure(let error):
                 print(error)

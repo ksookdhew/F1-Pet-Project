@@ -43,19 +43,19 @@ class ResultsViewController: UIViewController {
 extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.allResultsCount
+        viewModel.allResultsCount
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        1
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 4
+        4
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 104.0
+        104.0
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -65,9 +65,10 @@ extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = allResultsTableView.dequeueReusableCell(withIdentifier: Identifiers.allResultsTableViewCell)
-                as? AllResultsTableViewCell
-        else { return UITableViewCell() }
+        guard let cell = allResultsTableView
+            .dequeueReusableCell(withIdentifier: Identifiers.allResultsTableViewCell) as? AllResultsTableViewCell else {
+            return UITableViewCell()
+        }
         guard let result = viewModel.allResult(atIndex: indexPath.section) else { return UITableViewCell() }
         cell.populateWith(race: result, raceDate: viewModel.allResultDate(result: result))
         let bgColorView = UIView()
@@ -78,7 +79,7 @@ extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let result = viewModel.allResult(atIndex: indexPath.section) else { return }
-        performSegue(withIdentifier: Identifiers.showRaceResultsSegue, sender: result)
+        navigate(identifier: Identifiers.showRaceResultsSegue, sender: result)
     }
 }
 
@@ -90,5 +91,6 @@ extension  ResultsViewController: ViewModelDelegate {
     }
 
     func show(error: String) {
+        showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
     }
 }

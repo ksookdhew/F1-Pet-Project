@@ -20,25 +20,6 @@ class AllResultsTableViewCell: UITableViewCell {
     @IBOutlet weak private var thirdDriver: UILabel!
 
     // MARK: Functions
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setUpCell()
-    }
-
-    func setUpCell() {
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
-        backgroundColor = UIColor.clear
-        month.layer.cornerRadius = 8
-        month.layer.masksToBounds = true
-        firstDriver.layer.cornerRadius = 8
-        firstDriver.layer.masksToBounds = true
-        secondDriver.layer.cornerRadius = 8
-        secondDriver.layer.masksToBounds = true
-        thirdDriver.layer.cornerRadius = 8
-        thirdDriver.layer.masksToBounds = true
-    }
-
     func populateWith(race: Race, raceDate: DateComponents) {
         raceCountry.text = race.circuit.location.country
         raceName.text = "\(race.raceName) 2024"
