@@ -17,9 +17,7 @@ struct ConstructorStandingsModel: Codable {
 
 // MARK: - ConstructorStandingsResponse
 struct ConstructorStandingsResponse: Codable {
-    let series: String
-    let url: String
-    let limit, offset, total: String
+    let series, url, limit, offset, total: String
     let standingsTable: ConstructorStandingsTable
 
     enum CodingKeys: String, CodingKey {
