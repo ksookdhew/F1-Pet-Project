@@ -8,6 +8,7 @@
 import UIKit
 
 class RacingViewController: UIViewController {
+
     private lazy var viewModel = RaceViewModel(repository: RaceRepository(), delegate: self)
 
     // MARK: IBOutlets
@@ -29,28 +30,30 @@ class RacingViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Identifiers.showRaceSegue {
-                if let destinationVC = segue.destination as? RaceViewController {
-                    if let race: RaceInfo = sender as? RaceInfo {
-                        destinationVC.raceInfo = race
-                    }
-                }
+            if let destinationVC = segue.destination as? RaceViewController,
+               let race: RaceInfo = sender as? RaceInfo {
+                destinationVC.raceInfo = race
             }
         }
+    }
 }
 
 // MARK: - UICollectionViewDelegate and UICollectionViewDataSource
 extension RacingViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.racesCount
+        viewModel.racesCount
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 86, height: 98)
+        CGSize(width: 86, height: 98)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.racingIdentifier, for: indexPath as IndexPath) as? RacingCollectionViewCell
-        else { return UICollectionViewCell() }
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: Identifiers.racingIdentifier, for: indexPath as IndexPath) as? RacingCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         let race = viewModel.race(atIndex: indexPath.item)
         cell.populateWith(raceName: race.circuit.location.locality, track: viewModel.imageName(circuitCode: race.circuit.circuitID), raceDate: viewModel.sessionDate(date: race.date))
         return cell
@@ -58,7 +61,7 @@ extension RacingViewController: UICollectionViewDataSource, UICollectionViewDele
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let result = viewModel.race(atIndex: indexPath.item)
-        performSegue(withIdentifier: Identifiers.showRaceSegue, sender: result)
+        navigate(identifier: Identifiers.showRaceSegue, sender: result)
     }
 }
 
@@ -69,5 +72,6 @@ extension  RacingViewController: ViewModelDelegate {
     }
 
     func show(error: String) {
+        showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
     }
 }

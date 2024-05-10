@@ -116,7 +116,7 @@ final class RaceViewModelTests: XCTestCase {
             sprint: RaceSession(date: "2024-05-25", time: "11:00")
         )
 
-        viewModel.race = raceInfo
+        viewModel.setRace(race: raceInfo)
         viewModel.processRaceSessions()
 
         XCTAssertEqual(viewModel.scheduleCount, 5)
@@ -158,7 +158,7 @@ final class RaceViewModelTests: XCTestCase {
             sprint: nil
         )
 
-        viewModel.race = raceInfo
+        viewModel.setRace(race: raceInfo)
         viewModel.processRaceSessions()
 
         XCTAssertEqual(viewModel.scheduleCount, 5)
@@ -203,7 +203,7 @@ final class RaceViewModelTests: XCTestCase {
             sprint: nil
         )
 
-        viewModel.race = raceInfo
+        viewModel.setRace(race: raceInfo)
 
         XCTAssertEqual(viewModel.raceTitle, "British Grand Prix", "raceTitle should return the race name.")
         XCTAssertEqual(viewModel.circuitName, "Silverstone Circuit", "circuitName should return the circuit name.")
@@ -213,7 +213,7 @@ final class RaceViewModelTests: XCTestCase {
     func testEmptyComputedProperties() {
         let raceInfo: RaceInfo? = nil
 
-        viewModel.race = raceInfo
+        viewModel.setRace(race: raceInfo)
 
         XCTAssertEqual(viewModel.raceTitle, "")
         XCTAssertEqual(viewModel.circuitName, "")

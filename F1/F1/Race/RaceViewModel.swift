@@ -10,11 +10,11 @@ import Foundation
 class RaceViewModel {
 
     // MARK: Variables
-    private var repository: RaceRepositoryType?
     private weak var delegate: ViewModelDelegate?
     private(set) var allRaces: [RaceInfo] = []
-    var race: RaceInfo?
     private(set) var sortedRaceSession: [RaceSessionDetail] = []
+    private var repository: RaceRepositoryType?
+    private var race: RaceInfo?
 
     init(repository: RaceRepositoryType, delegate: ViewModelDelegate) {
         self.repository = repository
@@ -44,31 +44,18 @@ class RaceViewModel {
 
     // MARK: Functions
     func processRaceSessions() {
-        if let raceDate = race?.date, let raceTime = race?.time {
-            sortedRaceSession.append(RaceSessionDetail(date: raceDate, time: raceTime, type: .race))
-        }
-
-        if let qualifying = race?.qualifying {
-            sortedRaceSession.append(RaceSessionDetail(date: qualifying.date, time: qualifying.time, type: .qualifying))
-        }
-
-        if let thirdPractice = race?.thirdPractice {
-            sortedRaceSession.append(RaceSessionDetail(date: thirdPractice.date, time: thirdPractice.time, type: .practice3))
-        }
+        addSession(date: race?.date, time: race?.time, type: .race)
+        addSession(date: race?.qualifying.date, time: race?.qualifying.time, type: .qualifying)
+        addSession(date: race?.thirdPractice?.date, time: race?.thirdPractice?.time, type: .practice3)
 
         if let sprint = race?.sprint {
-            sortedRaceSession.append(RaceSessionDetail(date: sprint.date, time: sprint.time, type: .sprint))
-            if let secondPractice = race?.secondPractice {
-                sortedRaceSession.append(RaceSessionDetail(date: secondPractice.date, time: secondPractice.time, type: .sprintQualifying))
-            }
-        } else if let secondPractice = race?.secondPractice {
-            sortedRaceSession.append(RaceSessionDetail(date: secondPractice.date, time: secondPractice.time, type: .practice2))
+            addSession(date: sprint.date, time: sprint.time, type: .sprint)
+            addSession(date: race?.secondPractice.date, time: race?.secondPractice.time, type: .sprintQualifying)
+        } else {
+            addSession(date: race?.secondPractice.date, time: race?.secondPractice.time, type: .practice2)
         }
 
-        if let firstPractice = race?.firstPractice {
-            sortedRaceSession.append(RaceSessionDetail(date: firstPractice.date, time: firstPractice.time, type: .practice1))
-        }
-
+        addSession(date: race?.firstPractice.date, time: race?.firstPractice.time, type: .practice1)
     }
 
     func race(atIndex: Int) -> RaceInfo {
@@ -84,16 +71,16 @@ class RaceViewModel {
     }
 
     func sessionDate(date: String) -> DateComponents {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
-        let date = dateFormatter.date(from: date) ?? Date()
-        let dateComps = Calendar.current.dateComponents([.year, .month, .day], from: date)
-        return dateComps
+        DateFormatter().customDateFormatter(date: date)
     }
 
     func sessionTime(time: String) -> String {
         let formattedTime = time.prefix(5)
         return String(formattedTime)
+    }
+
+    func setRace(race: RaceInfo?) {
+        self.race = race
     }
 
     func fetchRace() {
@@ -107,4 +94,12 @@ class RaceViewModel {
             }
         }
     }
+
+    // MARK: Helper Functions
+    private func addSession(date: String?, time: String?, type: SessionType) {
+        if let date = date, let time = time {
+            sortedRaceSession.append(RaceSessionDetail(date: date, time: time, type: type))
+        }
+    }
+
 }
