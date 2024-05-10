@@ -70,7 +70,7 @@ class ResultsViewModel {
         repository?.fetchRacingResults { [weak self] result in
             switch result {
             case .success(let result):
-                self?.allResults = result.results.raceTable.races
+                self?.allResults = result.results.raceTable.races.reversed()
                 self?.delegate?.reloadView()
             case .failure(let error):
                 print(error)
