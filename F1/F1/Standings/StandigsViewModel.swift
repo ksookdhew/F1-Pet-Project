@@ -8,9 +8,10 @@
 import Foundation
 class StandingsViewModel {
 
+    // MARK: Variables
+    private weak var navigationDelegate: StandingsNavigationDelegate?
     private let driverViewModel: DriverStandingsViewModel
     private let constructorViewModel: ConstructorStandingsViewModel
-    private weak var navigationDelegate: StandingsNavigationDelegate?
 
     init(driverViewModel: DriverStandingsViewModel, constructorViewModel: ConstructorStandingsViewModel, navigationDelegate: StandingsNavigationDelegate?) {
         self.driverViewModel = driverViewModel
@@ -18,6 +19,7 @@ class StandingsViewModel {
         self.navigationDelegate = navigationDelegate
     }
 
+    // MARK: Functions
     func navigateTo(indexPath: IndexPath, selectedSegmentIndex: Int) {
         switch selectedSegmentIndex {
         case 1:

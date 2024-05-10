@@ -72,17 +72,17 @@ class StandingsViewController: UIViewController {
 // MARK: - TableView Delegate
 extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return selectedSegmentIndex == 1 ? driverViewModel.driversCount : constructorViewModel.constructorCount
+        selectedSegmentIndex == 1 ? driverViewModel.driversCount : constructorViewModel.constructorCount
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        1
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 4
+        4
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 148.0
+        148.0
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
@@ -93,9 +93,10 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch selectedSegmentIndex {
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.driverStandingTableViewCell)
-                    as? DriverStandingTableViewCell
-            else { return UITableViewCell() }
+            guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: Identifiers.driverStandingTableViewCell) as? DriverStandingTableViewCell else {
+                return UITableViewCell()
+            }
             guard let result = driverViewModel.driver(atIndex: indexPath.section) else { return UITableViewCell() }
             cell.populateWith(driverStanding: result)
             let bgColorView = UIView()
@@ -104,13 +105,13 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
 
         default:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.constructorStandingTableViewCell)
-                    as? ConstructorStandingTableViewCell
-            else { return UITableViewCell() }
+            guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: Identifiers.constructorStandingTableViewCell) as? ConstructorStandingTableViewCell else {
+                return UITableViewCell()
+            }
             guard let result = constructorViewModel.constructor(atIndex: indexPath.section)
             else { return UITableViewCell() }
-            guard let drivers = driverViewModel.getConstructorDrivers(constructorID: result.constructor.constructorID)
-            else {
+            guard let drivers = driverViewModel.getConstructorDrivers(constructorID: result.constructor.constructorID) else {
                 return UITableViewCell()
             }
             let driverText = constructorViewModel.drivers(driversList: drivers)
@@ -134,6 +135,7 @@ extension  StandingsViewController: ViewModelDelegate {
     }
 
     func show(error: String) {
+        showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
     }
 }
 
@@ -146,10 +148,10 @@ protocol StandingsNavigationDelegate: AnyObject {
 extension StandingsViewController: StandingsNavigationDelegate {
 
     func navigateToDriver(_ driver: DriverStanding) {
-        performSegue(withIdentifier: Identifiers.showDriverSegue, sender: driver)
+        navigate(identifier: Identifiers.showDriverSegue, sender: driver)
     }
 
     func navigateToConstructor(_ constructor: ConstructorStanding) {
-        performSegue(withIdentifier: Identifiers.showConstructorSegue, sender: constructor)
+        navigate(identifier: Identifiers.showConstructorSegue, sender: constructor)
     }
 }
