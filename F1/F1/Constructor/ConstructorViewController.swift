@@ -88,7 +88,7 @@ extension ConstructorViewController: UITableViewDelegate, UITableViewDataSource 
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView
-            .dequeueReusableHeaderFooterView(withIdentifier:Identifiers.constructorResultsIdentifier) as? ConstructorResultHeader else { return UITableViewHeaderFooterView()
+            .dequeueReusableHeaderFooterView(withIdentifier: Identifiers.constructorResultsIdentifier) as? ConstructorResultHeader else { return UITableViewHeaderFooterView()
         }
         return headerView
     }
