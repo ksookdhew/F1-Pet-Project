@@ -71,6 +71,9 @@ Dependencies/
 .accio/
 
 # fastlane
+Fastlane/report.xml
+Fastlane/test_output
+
 #
 # It is recommended to not store the screenshots in the git repo.
 # Instead, use fastlane to re-generate the screenshots whenever they are needed.
@@ -88,3 +91,6 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+
+.DS_Store
