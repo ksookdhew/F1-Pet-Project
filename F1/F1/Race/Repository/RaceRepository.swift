@@ -23,3 +23,19 @@ class RaceRepository: RaceRepositoryType {
         URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
     }
 }
+
+//class RaceRepository: RaceRepositoryType {
+//
+//    func fetchRaceResults(completion: @escaping RaceResults) {
+//        let url = Endpoints.racing
+//        URLSession.shared.request(endpoint: url, method: .GET) { result in
+//            switch result {
+//            case .success(let racing):
+//                CoreDataManager.shared.saveRaces(racing)
+//                completion(.success(racing))
+//            case .failure(let error):
+//                completion(.failure(error))
+//            }
+//        }
+//    }
+//}

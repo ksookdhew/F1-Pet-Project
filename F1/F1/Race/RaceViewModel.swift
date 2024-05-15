@@ -84,16 +84,22 @@ class RaceViewModel {
     }
 
     func fetchRace() {
-        repository?.fetchRaceResults { [weak self] result in
-            switch result {
-            case .success(let races):
-                self?.allRaces = races.race.raceTable.races
-                self?.delegate?.reloadView()
-            case .failure(let error):
-                self?.delegate?.show(error: error.rawValue)
+            if let savedRaces = CoreDataManager.shared.fetchRaces() {
+                self.allRaces = savedRaces
+                self.delegate?.reloadView()
+            } else {
+                repository?.fetchRaceResults { [weak self] result in
+                    switch result {
+                    case .success(let races):
+                        self?.allRaces = races.race.raceTable.races
+                        CoreDataManager.shared.saveRaceInfo(races)
+                        self?.delegate?.reloadView()
+                    case .failure(let error):
+                        self?.delegate?.show(error: error.rawValue)
+                    }
+                }
             }
         }
-    }
 
     // MARK: Helper Functions
     private func addSession(date: String?, time: String?, type: SessionType) {

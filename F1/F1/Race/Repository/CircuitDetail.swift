@@ -46,6 +46,13 @@ struct Circuit: Codable {
         case url, circuitName
         case location = "Location"
     }
+
+    init(from coreDataCircuit: CoreDataCircuit) {
+        self.circuitName = coreDataCircuit.circuitName ?? ""
+        self.circuitID = coreDataCircuit.circuitID ?? ""
+        self.url = coreDataCircuit.url ?? ""
+        self.location = Location(from: coreDataCircuit.location!)
+    }
 }
 
 // MARK: - Location
@@ -56,5 +63,12 @@ struct Location: Codable {
         case latitude = "lat"
         case longitude = "long"
         case locality, country
+    }
+
+    init(from coreDataLocation: CoreDataLocation) {
+        self.latitude = coreDataLocation.latitude ?? ""
+        self.longitude = coreDataLocation.longitude ?? ""
+        self.locality = coreDataLocation.locality ?? ""
+        self.country = coreDataLocation.country ?? ""
     }
 }
