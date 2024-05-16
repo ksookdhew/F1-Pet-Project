@@ -283,9 +283,7 @@ final class RaceViewModelTests: XCTestCase {
 
         viewModel.fetchRace()
 
-            // Verify the valid race is sorted correctly
             XCTAssertEqual(viewModel.allRaces.first?.round, "invalid")
-            // The invalid round should be sorted to the end or not considered in sorting
             XCTAssertEqual(viewModel.allRaces.last?.round, "2")
         }
 }
