@@ -9,7 +9,10 @@
 import Foundation
 import CoreData
 
-
 public class CoreDataLocation: NSManagedObject {
 
+    @NSManaged public var latitude: String?
+    @NSManaged public var longitude: String?
+    @NSManaged public var locality: String?
+    @NSManaged public var country: String?
 }

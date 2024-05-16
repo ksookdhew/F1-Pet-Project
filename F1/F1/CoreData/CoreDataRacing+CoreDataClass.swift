@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-
 public class CoreDataRacing: NSManagedObject {
 
+    @NSManaged public var race: CoreDataRaceDescriptor?
 }

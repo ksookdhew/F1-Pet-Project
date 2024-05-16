@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-
 public class CoreDataRaceSession: NSManagedObject {
 
+    @NSManaged public var date: String?
+    @NSManaged public var time: String?
 }

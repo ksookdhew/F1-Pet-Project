@@ -9,18 +9,9 @@
 import Foundation
 import CoreData
 
-
-extension CoreDataRaceSession {
+extension CoreDataRaceSession: Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CoreDataRaceSession> {
         return NSFetchRequest<CoreDataRaceSession>(entityName: "CoreDataRaceSession")
     }
-
-    @NSManaged public var date: String?
-    @NSManaged public var time: String?
-
-}
-
-extension CoreDataRaceSession : Identifiable {
-
 }

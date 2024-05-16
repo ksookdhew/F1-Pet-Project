@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-
 public class CoreDataRaceTable: NSManagedObject {
 
+    @NSManaged public var season: String?
+    @NSManaged public var races: NSSet?
 }

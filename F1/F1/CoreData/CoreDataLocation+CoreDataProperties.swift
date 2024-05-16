@@ -9,20 +9,9 @@
 import Foundation
 import CoreData
 
-
-extension CoreDataLocation {
+extension CoreDataLocation: Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CoreDataLocation> {
         return NSFetchRequest<CoreDataLocation>(entityName: "CoreDataLocation")
     }
-
-    @NSManaged public var latitude: String?
-    @NSManaged public var longitude: String?
-    @NSManaged public var locality: String?
-    @NSManaged public var country: String?
-
-}
-
-extension CoreDataLocation : Identifiable {
-
 }

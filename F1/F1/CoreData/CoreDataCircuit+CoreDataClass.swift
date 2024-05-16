@@ -9,7 +9,10 @@
 import Foundation
 import CoreData
 
-
 public class CoreDataCircuit: NSManagedObject {
 
+    @NSManaged public var circuitName: String?
+    @NSManaged public var circuitID: String?
+    @NSManaged public var url: String?
+    @NSManaged public var location: CoreDataLocation?
 }

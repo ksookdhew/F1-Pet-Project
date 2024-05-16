@@ -9,22 +9,9 @@
 import Foundation
 import CoreData
 
-
-extension CoreDataRaceDescriptor {
+extension CoreDataRaceDescriptor: Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CoreDataRaceDescriptor> {
         return NSFetchRequest<CoreDataRaceDescriptor>(entityName: "CoreDataRaceDescriptor")
     }
-
-    @NSManaged public var series: String?
-    @NSManaged public var url: String?
-    @NSManaged public var limit: String?
-    @NSManaged public var offset: String?
-    @NSManaged public var total: String?
-    @NSManaged public var raceTable: CoreDataRaceTable?
-
-}
-
-extension CoreDataRaceDescriptor : Identifiable {
-
 }

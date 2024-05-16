@@ -9,19 +9,14 @@
 import Foundation
 import CoreData
 
-
-extension CoreDataRaceTable {
+extension CoreDataRaceTable: Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CoreDataRaceTable> {
         return NSFetchRequest<CoreDataRaceTable>(entityName: "CoreDataRaceTable")
     }
-
-    @NSManaged public var season: String?
-    @NSManaged public var races: NSSet?
-
 }
 
-// MARK: Generated accessors for races
+// MARK: accessors for races
 extension CoreDataRaceTable {
 
     @objc(addRacesObject:)
@@ -35,9 +30,5 @@ extension CoreDataRaceTable {
 
     @objc(removeRaces:)
     @NSManaged public func removeFromRaces(_ values: NSSet)
-
-}
-
-extension CoreDataRaceTable : Identifiable {
 
 }

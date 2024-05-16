@@ -9,17 +9,9 @@
 import Foundation
 import CoreData
 
-
-extension CoreDataRacing {
+extension CoreDataRacing: Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CoreDataRacing> {
         return NSFetchRequest<CoreDataRacing>(entityName: "CoreDataRacing")
     }
-
-    @NSManaged public var race: CoreDataRaceDescriptor?
-
-}
-
-extension CoreDataRacing : Identifiable {
-
 }

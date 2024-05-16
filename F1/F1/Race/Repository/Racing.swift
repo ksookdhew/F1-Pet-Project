@@ -58,6 +58,21 @@ struct RaceInfo: Codable {
         case qualifying = "Qualifying"
         case sprint = "Sprint"
     }
+    init(season: String, round: String, url: String, raceName: String, circuit: Circuit, 
+         date: String, time: String, firstPractice: RaceSession, secondPractice: RaceSession, thirdPractice: RaceSession?, qualifying: RaceSession, sprint: RaceSession?) {
+        self.season = season
+        self.round = round
+        self.url = url
+        self.raceName = raceName
+        self.circuit = circuit
+        self.date = date
+        self.time = time
+        self.firstPractice = firstPractice
+        self.secondPractice = secondPractice
+        self.thirdPractice = thirdPractice
+        self.qualifying = qualifying
+        self.sprint = sprint
+    }
 
     init(from coreDataRaceInfo: CoreDataRaceInfo) {
             self.season = coreDataRaceInfo.season ?? ""
@@ -78,6 +93,11 @@ struct RaceInfo: Codable {
 // MARK: - RaceSession
 struct RaceSession: Codable {
     let date, time: String
+
+    init(date: String, time: String) {
+          self.date = date
+          self.time = time
+      }
 
     init(from coreDataRaceSession: CoreDataRaceSession) {
             self.date = coreDataRaceSession.date ?? ""

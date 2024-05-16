@@ -9,20 +9,9 @@
 import Foundation
 import CoreData
 
-
-extension CoreDataCircuit {
+extension CoreDataCircuit: Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CoreDataCircuit> {
         return NSFetchRequest<CoreDataCircuit>(entityName: "CoreDataCircuit")
     }
-
-    @NSManaged public var circuitName: String?
-    @NSManaged public var circuitID: String?
-    @NSManaged public var url: String?
-    @NSManaged public var location: CoreDataLocation?
-
-}
-
-extension CoreDataCircuit : Identifiable {
-
 }
