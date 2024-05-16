@@ -55,18 +55,18 @@
 		262C3B862BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B782BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataClass.swift */; };
 		262C3B872BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B792BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataProperties.swift */; };
 		262C3B882BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B7A2BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataClass.swift */; };
-		262C3B892BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B7B2BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift */; };
 		262C3B8A2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B7C2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataClass.swift */; };
 		262C3B8B2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B7D2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataProperties.swift */; };
 		262C3B8C2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B7E2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataClass.swift */; };
 		262C3B8D2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B7F2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataProperties.swift */; };
-		262C3B8E2BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B802BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift */; };
 		262C3B8F2BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B812BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataProperties.swift */; };
 		262C3B942BF48BB2006A8C14 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B932BF48BB2006A8C14 /* CoreDataManager.swift */; };
 		262C3B9D2BF490EE006A8C14 /* CoreDataLocation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B992BF490EE006A8C14 /* CoreDataLocation+CoreDataClass.swift */; };
 		262C3B9E2BF490EE006A8C14 /* CoreDataLocation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B9A2BF490EE006A8C14 /* CoreDataLocation+CoreDataProperties.swift */; };
 		262C3B9F2BF490EE006A8C14 /* CoreDataCircuit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B9B2BF490EE006A8C14 /* CoreDataCircuit+CoreDataClass.swift */; };
 		262C3BA02BF490EE006A8C14 /* CoreDataCircuit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B9C2BF490EE006A8C14 /* CoreDataCircuit+CoreDataProperties.swift */; };
+		262C3BA52BF5DFD4006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3BA32BF5DFD4006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift */; };
+		262C3BA62BF5DFD4006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3BA42BF5DFD4006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift */; };
 		26326BC22BDEA9B90042FA27 /* RacingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326BC02BDEA9B90042FA27 /* RacingCollectionViewCell.swift */; };
 		26326BC32BDEA9B90042FA27 /* RacingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26326BC12BDEA9B90042FA27 /* RacingCollectionViewCell.xib */; };
 		26326BC52BDEAB9A0042FA27 /* RacingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326BC42BDEAB9A0042FA27 /* RacingViewController.swift */; };
@@ -177,18 +177,18 @@
 		262C3B782BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceTable+CoreDataClass.swift"; sourceTree = "<group>"; };
 		262C3B792BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		262C3B7A2BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceSession+CoreDataClass.swift"; sourceTree = "<group>"; };
-		262C3B7B2BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CoreDataRaceSession+CoreDataProperties.swift"; path = "../../CoreDataRaceSession+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		262C3B7C2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceSessionDetail+CoreDataClass.swift"; sourceTree = "<group>"; };
 		262C3B7D2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceSessionDetail+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		262C3B7E2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRacing+CoreDataClass.swift"; sourceTree = "<group>"; };
 		262C3B7F2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRacing+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		262C3B802BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CoreDataRaceDescriptor+CoreDataClass.swift"; path = "../../CoreDataRaceDescriptor+CoreDataClass.swift"; sourceTree = "<group>"; };
 		262C3B812BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceDescriptor+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		262C3B932BF48BB2006A8C14 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		262C3B992BF490EE006A8C14 /* CoreDataLocation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataLocation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		262C3B9A2BF490EE006A8C14 /* CoreDataLocation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataLocation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		262C3B9B2BF490EE006A8C14 /* CoreDataCircuit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataCircuit+CoreDataClass.swift"; sourceTree = "<group>"; };
 		262C3B9C2BF490EE006A8C14 /* CoreDataCircuit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataCircuit+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		262C3BA32BF5DFD4006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceDescriptor+CoreDataClass.swift"; sourceTree = "<group>"; };
+		262C3BA42BF5DFD4006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceSession+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		26326BC02BDEA9B90042FA27 /* RacingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingCollectionViewCell.swift; sourceTree = "<group>"; };
 		26326BC12BDEA9B90042FA27 /* RacingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RacingCollectionViewCell.xib; sourceTree = "<group>"; };
 		26326BC42BDEAB9A0042FA27 /* RacingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingViewController.swift; sourceTree = "<group>"; };
@@ -500,12 +500,12 @@
 				262C3B782BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataClass.swift */,
 				262C3B792BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataProperties.swift */,
 				262C3B7A2BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataClass.swift */,
-				262C3B7B2BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift */,
+				262C3BA42BF5DFD4006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift */,
 				262C3B7C2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataClass.swift */,
 				262C3B7D2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataProperties.swift */,
 				262C3B7E2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataClass.swift */,
 				262C3B7F2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataProperties.swift */,
-				262C3B802BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift */,
+				262C3BA32BF5DFD4006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift */,
 				262C3B812BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataProperties.swift */,
 				262C3B992BF490EE006A8C14 /* CoreDataLocation+CoreDataClass.swift */,
 				262C3B9A2BF490EE006A8C14 /* CoreDataLocation+CoreDataProperties.swift */,
@@ -761,7 +761,6 @@
 				26C993E72BC729A70041F3B1 /* StandingsViewController.swift in Sources */,
 				2629E0622BBD370C00EC6139 /* DriverRepository.swift in Sources */,
 				2629E0692BBD38B700EC6139 /* DriverStandingsRepository.swift in Sources */,
-				262C3B892BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift in Sources */,
 				2629E07F2BBDE01100EC6139 /* RaceRepository.swift in Sources */,
 				2629E0522BBC3A9800EC6139 /* DriverViewController.swift in Sources */,
 				26C993D22BC6B3D40041F3B1 /* LoginViewController.swift in Sources */,
@@ -780,7 +779,6 @@
 				26326BCB2BE6110E0042FA27 /* RacingResults.swift in Sources */,
 				2629E0482BBC390400EC6139 /* Constructor.swift in Sources */,
 				26C993C52BC52C9B0041F3B1 /* RaceResultHeader.swift in Sources */,
-				262C3B8E2BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift in Sources */,
 				2629E0472BBC390400EC6139 /* DriverStandings.swift in Sources */,
 				260FFE3D2BCBDAB000B0102D /* constructorTableViewCell.swift in Sources */,
 				2629DFA42BBC22D600EC6139 /* AppDelegate.swift in Sources */,
@@ -802,11 +800,13 @@
 				26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */,
 				2629E0652BBD37D500EC6139 /* ConstructorStandingsRepository.swift in Sources */,
 				26C993EF2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift in Sources */,
+				262C3BA62BF5DFD4006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift in Sources */,
 				260FFE302BCAEFE900B0102D /* DriverResultHeader.swift in Sources */,
 				2629E0552BBC43C100EC6139 /* ConstructorViewController.swift in Sources */,
 				262C3B8B2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataProperties.swift in Sources */,
 				262C3B942BF48BB2006A8C14 /* CoreDataManager.swift in Sources */,
 				26326C192BECBD950042FA27 /* ViewController+Extension.swift in Sources */,
+				262C3BA52BF5DFD4006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift in Sources */,
 				2629E0452BBC390400EC6139 /* Racing.swift in Sources */,
 				26C993D02BC6B3BA0041F3B1 /* LoginViewModel.swift in Sources */,
 				2629E0572BBC43CC00EC6139 /* ConstructorViewModel.swift in Sources */,
