@@ -59,7 +59,8 @@ struct RaceInfo: Codable {
         case sprint = "Sprint"
     }
     init(season: String, round: String, url: String, raceName: String, circuit: Circuit, 
-         date: String, time: String, firstPractice: RaceSession, secondPractice: RaceSession, thirdPractice: RaceSession?, qualifying: RaceSession, sprint: RaceSession?) {
+         date: String, time: String, firstPractice: RaceSession, 
+         secondPractice: RaceSession, thirdPractice: RaceSession?, qualifying: RaceSession, sprint: RaceSession?) {
         self.season = season
         self.round = round
         self.url = url
