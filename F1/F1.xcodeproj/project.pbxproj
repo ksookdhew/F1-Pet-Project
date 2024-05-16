@@ -50,23 +50,7 @@
 		2629E0832BBDE02A00EC6139 /* Race.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E0822BBDE02A00EC6139 /* Race.storyboard */; };
 		2629E0872BBE846400EC6139 /* Tab Bar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E0862BBE846400EC6139 /* Tab Bar.storyboard */; };
 		262C3B3D2BF3D38D006A8C14 /* F1Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B3B2BF3D38D006A8C14 /* F1Model.xcdatamodeld */; };
-		262C3B842BF3DBA0006A8C14 /* CoreDataRaceInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B762BF3DBA0006A8C14 /* CoreDataRaceInfo+CoreDataClass.swift */; };
-		262C3B852BF3DBA0006A8C14 /* CoreDataRaceInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B772BF3DBA0006A8C14 /* CoreDataRaceInfo+CoreDataProperties.swift */; };
-		262C3B862BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B782BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataClass.swift */; };
-		262C3B872BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B792BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataProperties.swift */; };
-		262C3B882BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B7A2BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataClass.swift */; };
-		262C3B8A2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B7C2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataClass.swift */; };
-		262C3B8B2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B7D2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataProperties.swift */; };
-		262C3B8C2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B7E2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataClass.swift */; };
-		262C3B8D2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B7F2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataProperties.swift */; };
-		262C3B8F2BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B812BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataProperties.swift */; };
 		262C3B942BF48BB2006A8C14 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B932BF48BB2006A8C14 /* CoreDataManager.swift */; };
-		262C3B9D2BF490EE006A8C14 /* CoreDataLocation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B992BF490EE006A8C14 /* CoreDataLocation+CoreDataClass.swift */; };
-		262C3B9E2BF490EE006A8C14 /* CoreDataLocation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B9A2BF490EE006A8C14 /* CoreDataLocation+CoreDataProperties.swift */; };
-		262C3B9F2BF490EE006A8C14 /* CoreDataCircuit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B9B2BF490EE006A8C14 /* CoreDataCircuit+CoreDataClass.swift */; };
-		262C3BA02BF490EE006A8C14 /* CoreDataCircuit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B9C2BF490EE006A8C14 /* CoreDataCircuit+CoreDataProperties.swift */; };
-		262C3BA52BF5DFD4006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3BA32BF5DFD4006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift */; };
-		262C3BA62BF5DFD4006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3BA42BF5DFD4006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift */; };
 		26326BC22BDEA9B90042FA27 /* RacingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326BC02BDEA9B90042FA27 /* RacingCollectionViewCell.swift */; };
 		26326BC32BDEA9B90042FA27 /* RacingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26326BC12BDEA9B90042FA27 /* RacingCollectionViewCell.xib */; };
 		26326BC52BDEAB9A0042FA27 /* RacingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326BC42BDEAB9A0042FA27 /* RacingViewController.swift */; };
@@ -172,23 +156,7 @@
 		2629E0822BBDE02A00EC6139 /* Race.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Race.storyboard; sourceTree = "<group>"; };
 		2629E0862BBE846400EC6139 /* Tab Bar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Tab Bar.storyboard"; sourceTree = "<group>"; };
 		262C3B3C2BF3D38D006A8C14 /* F1Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = F1Model.xcdatamodel; sourceTree = "<group>"; };
-		262C3B762BF3DBA0006A8C14 /* CoreDataRaceInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		262C3B772BF3DBA0006A8C14 /* CoreDataRaceInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		262C3B782BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceTable+CoreDataClass.swift"; sourceTree = "<group>"; };
-		262C3B792BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		262C3B7A2BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceSession+CoreDataClass.swift"; sourceTree = "<group>"; };
-		262C3B7C2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceSessionDetail+CoreDataClass.swift"; sourceTree = "<group>"; };
-		262C3B7D2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceSessionDetail+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		262C3B7E2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRacing+CoreDataClass.swift"; sourceTree = "<group>"; };
-		262C3B7F2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRacing+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		262C3B812BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceDescriptor+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		262C3B932BF48BB2006A8C14 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		262C3B992BF490EE006A8C14 /* CoreDataLocation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataLocation+CoreDataClass.swift"; sourceTree = "<group>"; };
-		262C3B9A2BF490EE006A8C14 /* CoreDataLocation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataLocation+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		262C3B9B2BF490EE006A8C14 /* CoreDataCircuit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataCircuit+CoreDataClass.swift"; sourceTree = "<group>"; };
-		262C3B9C2BF490EE006A8C14 /* CoreDataCircuit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataCircuit+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		262C3BA32BF5DFD4006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceDescriptor+CoreDataClass.swift"; sourceTree = "<group>"; };
-		262C3BA42BF5DFD4006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreDataRaceSession+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		26326BC02BDEA9B90042FA27 /* RacingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingCollectionViewCell.swift; sourceTree = "<group>"; };
 		26326BC12BDEA9B90042FA27 /* RacingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RacingCollectionViewCell.xib; sourceTree = "<group>"; };
 		26326BC42BDEAB9A0042FA27 /* RacingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingViewController.swift; sourceTree = "<group>"; };
@@ -495,22 +463,6 @@
 		262C3B922BF3DCEF006A8C14 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				262C3B762BF3DBA0006A8C14 /* CoreDataRaceInfo+CoreDataClass.swift */,
-				262C3B772BF3DBA0006A8C14 /* CoreDataRaceInfo+CoreDataProperties.swift */,
-				262C3B782BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataClass.swift */,
-				262C3B792BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataProperties.swift */,
-				262C3B7A2BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataClass.swift */,
-				262C3BA42BF5DFD4006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift */,
-				262C3B7C2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataClass.swift */,
-				262C3B7D2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataProperties.swift */,
-				262C3B7E2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataClass.swift */,
-				262C3B7F2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataProperties.swift */,
-				262C3BA32BF5DFD4006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift */,
-				262C3B812BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataProperties.swift */,
-				262C3B992BF490EE006A8C14 /* CoreDataLocation+CoreDataClass.swift */,
-				262C3B9A2BF490EE006A8C14 /* CoreDataLocation+CoreDataProperties.swift */,
-				262C3B9B2BF490EE006A8C14 /* CoreDataCircuit+CoreDataClass.swift */,
-				262C3B9C2BF490EE006A8C14 /* CoreDataCircuit+CoreDataProperties.swift */,
 				262C3B3B2BF3D38D006A8C14 /* F1Model.xcdatamodeld */,
 				262C3B932BF48BB2006A8C14 /* CoreDataManager.swift */,
 			);
@@ -766,8 +718,6 @@
 				26C993D22BC6B3D40041F3B1 /* LoginViewController.swift in Sources */,
 				260FFE3B2BCBDA9500B0102D /* ConstructorResultHeader.swift in Sources */,
 				2629E0502BBC3A8800EC6139 /* DriverViewModel.swift in Sources */,
-				262C3B882BF3DBA0006A8C14 /* CoreDataRaceSession+CoreDataClass.swift in Sources */,
-				262C3B8C2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataClass.swift in Sources */,
 				26FAA2FB2BD2B359002B12EA /* Constants.swift in Sources */,
 				2629E0322BBC35C200EC6139 /* DriverStandingsViewModel.swift in Sources */,
 				2629E0492BBC390400EC6139 /* Driver.swift in Sources */,
@@ -775,7 +725,6 @@
 				26C993B82BC3E9920041F3B1 /* AllResultsTableViewCell.swift in Sources */,
 				26326BC52BDEAB9A0042FA27 /* RacingViewController.swift in Sources */,
 				2629E03B2BBC366800EC6139 /* ConstructorStandingsViewModel.swift in Sources */,
-				262C3B842BF3DBA0006A8C14 /* CoreDataRaceInfo+CoreDataClass.swift in Sources */,
 				26326BCB2BE6110E0042FA27 /* RacingResults.swift in Sources */,
 				2629E0482BBC390400EC6139 /* Constructor.swift in Sources */,
 				26C993C52BC52C9B0041F3B1 /* RaceResultHeader.swift in Sources */,
@@ -783,9 +732,6 @@
 				260FFE3D2BCBDAB000B0102D /* constructorTableViewCell.swift in Sources */,
 				2629DFA42BBC22D600EC6139 /* AppDelegate.swift in Sources */,
 				2629E05F2BBD353C00EC6139 /* URLSession+Extension.swift in Sources */,
-				262C3B9F2BF490EE006A8C14 /* CoreDataCircuit+CoreDataClass.swift in Sources */,
-				262C3B9E2BF490EE006A8C14 /* CoreDataLocation+CoreDataProperties.swift in Sources */,
-				262C3B9D2BF490EE006A8C14 /* CoreDataLocation+CoreDataClass.swift in Sources */,
 				26C993EB2BC72ACD0041F3B1 /* DriverStandingTableViewCell.swift in Sources */,
 				26C993F62BCA73830041F3B1 /* driverTableViewCell.swift in Sources */,
 				2629E05B2BBC5AC600EC6139 /* ConstructorRepository.swift in Sources */,
@@ -794,36 +740,26 @@
 				26B97EBE2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift in Sources */,
 				26326C1B2BECC5610042FA27 /* DateFormatter.swift in Sources */,
 				2629E0462BBC390400EC6139 /* ConstructorStandings.swift in Sources */,
-				262C3B8A2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataClass.swift in Sources */,
 				262C3B3D2BF3D38D006A8C14 /* F1Model.xcdatamodeld in Sources */,
 				2629E07D2BBDE00400EC6139 /* RaceViewModel.swift in Sources */,
 				26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */,
 				2629E0652BBD37D500EC6139 /* ConstructorStandingsRepository.swift in Sources */,
 				26C993EF2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift in Sources */,
-				262C3BA62BF5DFD4006A8C14 /* CoreDataRaceSession+CoreDataProperties.swift in Sources */,
 				260FFE302BCAEFE900B0102D /* DriverResultHeader.swift in Sources */,
 				2629E0552BBC43C100EC6139 /* ConstructorViewController.swift in Sources */,
-				262C3B8B2BF3DBA0006A8C14 /* CoreDataRaceSessionDetail+CoreDataProperties.swift in Sources */,
 				262C3B942BF48BB2006A8C14 /* CoreDataManager.swift in Sources */,
 				26326C192BECBD950042FA27 /* ViewController+Extension.swift in Sources */,
-				262C3BA52BF5DFD4006A8C14 /* CoreDataRaceDescriptor+CoreDataClass.swift in Sources */,
 				2629E0452BBC390400EC6139 /* Racing.swift in Sources */,
 				26C993D02BC6B3BA0041F3B1 /* LoginViewModel.swift in Sources */,
 				2629E0572BBC43CC00EC6139 /* ConstructorViewModel.swift in Sources */,
-				262C3B8F2BF3DBA0006A8C14 /* CoreDataRaceDescriptor+CoreDataProperties.swift in Sources */,
-				262C3B862BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataClass.swift in Sources */,
 				26C993BB2BC3FB6A0041F3B1 /* RacingResultViewController.swift in Sources */,
 				2629E04B2BBC390400EC6139 /* CircuitDetail.swift in Sources */,
 				2629E0792BBD945500EC6139 /* ResultsViewController.swift in Sources */,
 				2629E0772BBD944700EC6139 /* ResultsViewModel.swift in Sources */,
 				26FAA2F92BD2A874002B12EA /* StandigsViewModel.swift in Sources */,
-				262C3B872BF3DBA0006A8C14 /* CoreDataRaceTable+CoreDataProperties.swift in Sources */,
-				262C3BA02BF490EE006A8C14 /* CoreDataCircuit+CoreDataProperties.swift in Sources */,
 				2629E02D2BBC354D00EC6139 /* ServiceErrors.swift in Sources */,
-				262C3B8D2BF3DBA0006A8C14 /* CoreDataRacing+CoreDataProperties.swift in Sources */,
 				2629DFA62BBC22D600EC6139 /* SceneDelegate.swift in Sources */,
 				26326BC22BDEA9B90042FA27 /* RacingCollectionViewCell.swift in Sources */,
-				262C3B852BF3DBA0006A8C14 /* CoreDataRaceInfo+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

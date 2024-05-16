@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
-    <entity name="CoreDataCircuit" representedClassName=".CoreDataCircuit" syncable="YES">
+    <entity name="CoreDataCircuit" representedClassName=".CoreDataCircuit" syncable="YES" codeGenerationType="class">
         <attribute name="circuitID" optional="YES" attributeType="String"/>
         <attribute name="circuitName" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataLocation"/>
     </entity>
-    <entity name="CoreDataLocation" representedClassName=".CoreDataLocation" syncable="YES">
+    <entity name="CoreDataLocation" representedClassName=".CoreDataLocation" syncable="YES" codeGenerationType="class">
         <attribute name="country" optional="YES" attributeType="String"/>
         <attribute name="latitude" optional="YES" attributeType="String"/>
         <attribute name="locality" optional="YES" attributeType="String"/>
         <attribute name="longitude" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="CoreDataRaceDescriptor" representedClassName=".CoreDataRaceDescriptor" syncable="YES">
+    <entity name="CoreDataRaceDescriptor" representedClassName=".CoreDataRaceDescriptor" syncable="YES" codeGenerationType="class">
         <attribute name="limit" optional="YES" attributeType="String"/>
         <attribute name="offset" optional="YES" attributeType="String"/>
         <attribute name="series" optional="YES" attributeType="String"/>
@@ -20,7 +20,7 @@
         <attribute name="url" optional="YES" attributeType="String"/>
         <relationship name="raceTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceTable"/>
     </entity>
-    <entity name="CoreDataRaceInfo" representedClassName=".CoreDataRaceInfo" syncable="YES">
+    <entity name="CoreDataRaceInfo" representedClassName=".CoreDataRaceInfo" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="raceName" optional="YES" attributeType="String"/>
         <attribute name="round" optional="YES" attributeType="String"/>
@@ -34,20 +34,20 @@
         <relationship name="sprint" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceSession"/>
         <relationship name="thirdPractice" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceSession"/>
     </entity>
-    <entity name="CoreDataRaceSession" representedClassName=".CoreDataRaceSession" syncable="YES">
+    <entity name="CoreDataRaceSession" representedClassName=".CoreDataRaceSession" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="CoreDataRaceSessionDetail" representedClassName=".CoreDataRaceSessionDetail" syncable="YES">
+    <entity name="CoreDataRaceSessionDetail" representedClassName=".CoreDataRaceSessionDetail" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="CoreDataRaceTable" representedClassName=".CoreDataRaceTable" syncable="YES">
+    <entity name="CoreDataRaceTable" representedClassName=".CoreDataRaceTable" syncable="YES" codeGenerationType="class">
         <attribute name="season" optional="YES" attributeType="String"/>
         <relationship name="races" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataRaceInfo"/>
     </entity>
-    <entity name="CoreDataRacing" representedClassName=".CoreDataRacing" syncable="YES">
+    <entity name="CoreDataRacing" representedClassName=".CoreDataRacing" syncable="YES" codeGenerationType="class">
         <relationship name="race" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceDescriptor"/>
     </entity>
 </model>
