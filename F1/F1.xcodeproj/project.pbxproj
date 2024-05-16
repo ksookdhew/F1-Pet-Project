@@ -49,6 +49,8 @@
 		2629E0812BBDE01D00EC6139 /* RaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0802BBDE01D00EC6139 /* RaceViewController.swift */; };
 		2629E0832BBDE02A00EC6139 /* Race.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E0822BBDE02A00EC6139 /* Race.storyboard */; };
 		2629E0872BBE846400EC6139 /* Tab Bar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E0862BBE846400EC6139 /* Tab Bar.storyboard */; };
+		262C3B3D2BF3D38D006A8C14 /* F1Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B3B2BF3D38D006A8C14 /* F1Model.xcdatamodeld */; };
+		262C3B942BF48BB2006A8C14 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B932BF48BB2006A8C14 /* CoreDataManager.swift */; };
 		26326BC22BDEA9B90042FA27 /* RacingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326BC02BDEA9B90042FA27 /* RacingCollectionViewCell.swift */; };
 		26326BC32BDEA9B90042FA27 /* RacingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26326BC12BDEA9B90042FA27 /* RacingCollectionViewCell.xib */; };
 		26326BC52BDEAB9A0042FA27 /* RacingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326BC42BDEAB9A0042FA27 /* RacingViewController.swift */; };
@@ -153,6 +155,8 @@
 		2629E0802BBDE01D00EC6139 /* RaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceViewController.swift; sourceTree = "<group>"; };
 		2629E0822BBDE02A00EC6139 /* Race.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Race.storyboard; sourceTree = "<group>"; };
 		2629E0862BBE846400EC6139 /* Tab Bar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Tab Bar.storyboard"; sourceTree = "<group>"; };
+		262C3B3C2BF3D38D006A8C14 /* F1Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = F1Model.xcdatamodel; sourceTree = "<group>"; };
+		262C3B932BF48BB2006A8C14 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		26326BC02BDEA9B90042FA27 /* RacingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingCollectionViewCell.swift; sourceTree = "<group>"; };
 		26326BC12BDEA9B90042FA27 /* RacingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RacingCollectionViewCell.xib; sourceTree = "<group>"; };
 		26326BC42BDEAB9A0042FA27 /* RacingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 		2629DFA22BBC22D600EC6139 /* F1 */ = {
 			isa = PBXGroup;
 			children = (
+				262C3B922BF3DCEF006A8C14 /* CoreData */,
 				2629E0272BBC34E100EC6139 /* Config */,
 				26C993D52BC701FD0041F3B1 /* Standings */,
 				26C993C92BC6B3760041F3B1 /* Login */,
@@ -453,6 +458,15 @@
 				2629E0862BBE846400EC6139 /* Tab Bar.storyboard */,
 			);
 			name = UserInterfaces;
+			sourceTree = "<group>";
+		};
+		262C3B922BF3DCEF006A8C14 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				262C3B3B2BF3D38D006A8C14 /* F1Model.xcdatamodeld */,
+				262C3B932BF48BB2006A8C14 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		26B97EBB2BD3E54E00EA34A3 /* Custom Cell */ = {
@@ -726,12 +740,14 @@
 				26B97EBE2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift in Sources */,
 				26326C1B2BECC5610042FA27 /* DateFormatter.swift in Sources */,
 				2629E0462BBC390400EC6139 /* ConstructorStandings.swift in Sources */,
+				262C3B3D2BF3D38D006A8C14 /* F1Model.xcdatamodeld in Sources */,
 				2629E07D2BBDE00400EC6139 /* RaceViewModel.swift in Sources */,
 				26C993BE2BC3FB7D0041F3B1 /* RaceResultTableViewCell.swift in Sources */,
 				2629E0652BBD37D500EC6139 /* ConstructorStandingsRepository.swift in Sources */,
 				26C993EF2BC7BCA50041F3B1 /* ConstructorStandingTableViewCell.swift in Sources */,
 				260FFE302BCAEFE900B0102D /* DriverResultHeader.swift in Sources */,
 				2629E0552BBC43C100EC6139 /* ConstructorViewController.swift in Sources */,
+				262C3B942BF48BB2006A8C14 /* CoreDataManager.swift in Sources */,
 				26326C192BECBD950042FA27 /* ViewController+Extension.swift in Sources */,
 				2629E0452BBC390400EC6139 /* Racing.swift in Sources */,
 				26C993D02BC6B3BA0041F3B1 /* LoginViewModel.swift in Sources */,
@@ -1090,6 +1106,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		262C3B3B2BF3D38D006A8C14 /* F1Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				262C3B3C2BF3D38D006A8C14 /* F1Model.xcdatamodel */,
+			);
+			currentVersion = 262C3B3C2BF3D38D006A8C14 /* F1Model.xcdatamodel */;
+			path = F1Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2629DF982BBC22D600EC6139 /* Project object */;
 }
