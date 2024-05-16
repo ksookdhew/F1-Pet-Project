@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
-    <entity name="CoreDataAverageSpeed" representedClassName="CoreDataAverageSpeed" syncable="YES" codeGenerationType="class">
+    <entity name="CoreDataAverageSpeed" representedClassName=".CoreDataAverageSpeed" syncable="YES" codeGenerationType="class">
         <attribute name="speed" optional="YES" attributeType="String"/>
         <attribute name="units" optional="YES" attributeType="String"/>
     </entity>
@@ -10,8 +10,22 @@
         <attribute name="url" optional="YES" attributeType="String"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataLocation"/>
     </entity>
-    <entity name="CoreDataConstructor" representedClassName="CoreDataConstructor" syncable="YES" codeGenerationType="class"/>
-    <entity name="CoreDataDriver" representedClassName="CoreDataDriver" syncable="YES" codeGenerationType="class"/>
+    <entity name="CoreDataConstructor" representedClassName="CoreDataConstructor" syncable="YES" codeGenerationType="class">
+        <attribute name="constructorID" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="nationality" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CoreDataDriver" representedClassName="CoreDataDriver" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="dateOfBirth" optional="YES" attributeType="String"/>
+        <attribute name="driverID" optional="YES" attributeType="String"/>
+        <attribute name="familyName" optional="YES" attributeType="String"/>
+        <attribute name="givenName" optional="YES" attributeType="String"/>
+        <attribute name="nationality" optional="YES" attributeType="String"/>
+        <attribute name="permanentNumber" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="CoreDataFastestLap" representedClassName="CoreDataFastestLap" syncable="YES" codeGenerationType="class">
         <attribute name="lap" optional="YES" attributeType="String"/>
         <attribute name="rank" optional="YES" attributeType="String"/>
@@ -35,7 +49,7 @@
         <attribute name="time" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
         <relationship name="circuit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataCircuit"/>
-        <relationship name="results" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceResult"/>
+        <relationship name="results" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataRaceResult"/>
     </entity>
     <entity name="CoreDataRaceDescriptor" representedClassName=".CoreDataRaceDescriptor" syncable="YES" codeGenerationType="class">
         <attribute name="limit" optional="YES" attributeType="String"/>
@@ -59,7 +73,7 @@
         <relationship name="sprint" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceSession"/>
         <relationship name="thirdPractice" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceSession"/>
     </entity>
-    <entity name="CoreDataRaceResult" representedClassName="CoreDataRaceResult" syncable="YES" codeGenerationType="class">
+    <entity name="CoreDataRaceResult" representedClassName=".CoreDataRaceResult" syncable="YES" codeGenerationType="class">
         <attribute name="grid" optional="YES" attributeType="String"/>
         <attribute name="laps" optional="YES" attributeType="String"/>
         <attribute name="number" optional="YES" attributeType="String"/>

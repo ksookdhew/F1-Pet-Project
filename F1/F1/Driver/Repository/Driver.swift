@@ -45,4 +45,15 @@ struct Driver: Codable {
         case driverID = "driverId"
         case permanentNumber, code, url, givenName, familyName, dateOfBirth, nationality
     }
+
+    init(from coreDataDriver: CoreDataDriver) {
+        self.driverID = coreDataDriver.driverID ?? ""
+        self.permanentNumber = coreDataDriver.permanentNumber ?? ""
+        self.code = coreDataDriver.code ?? ""
+        self.url = coreDataDriver.url ?? ""
+        self.givenName = coreDataDriver.givenName ?? ""
+        self.familyName = coreDataDriver.familyName ?? ""
+        self.dateOfBirth = coreDataDriver.dateOfBirth ?? ""
+        self.nationality = coreDataDriver.nationality ?? ""
+    }
 }
