@@ -26,6 +26,31 @@
         <attribute name="permanentNumber" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="CoreDataDriverStanding" representedClassName=".CoreDataDriverStanding" syncable="YES" codeGenerationType="class">
+        <attribute name="points" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+        <attribute name="positionText" optional="YES" attributeType="String"/>
+        <attribute name="wins" optional="YES" attributeType="String"/>
+        <relationship name="constructor" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataConstructor"/>
+        <relationship name="driver" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataDriver"/>
+    </entity>
+    <entity name="CoreDataDriverStandingsList" representedClassName="CoreDataDriverStandingsList" syncable="YES" codeGenerationType="class">
+        <attribute name="round" optional="YES" attributeType="String"/>
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="driverStandings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataDriverStanding"/>
+    </entity>
+    <entity name="CoreDataDriverStandingsResponse" representedClassName="CoreDataDriverStandingsResponse" syncable="YES" codeGenerationType="class">
+        <attribute name="limit" optional="YES" attributeType="String"/>
+        <attribute name="offset" optional="YES" attributeType="String"/>
+        <attribute name="series" optional="YES" attributeType="String"/>
+        <attribute name="total" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="standingsTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataDriverStandingsTable"/>
+    </entity>
+    <entity name="CoreDataDriverStandingsTable" representedClassName=".CoreDataDriverStandingsTable" syncable="YES" codeGenerationType="class">
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="standingsList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataDriverStandingsList"/>
+    </entity>
     <entity name="CoreDataFastestLap" representedClassName="CoreDataFastestLap" syncable="YES" codeGenerationType="class">
         <attribute name="lap" optional="YES" attributeType="String"/>
         <attribute name="rank" optional="YES" attributeType="String"/>
