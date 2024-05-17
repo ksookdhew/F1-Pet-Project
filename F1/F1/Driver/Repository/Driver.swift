@@ -57,7 +57,8 @@ struct Driver: Codable {
         self.nationality = coreDataDriver.nationality ?? ""
     }
     
-    init(driverID: String, permanentNumber: String, code: String, url: String, givenName: String, familyName: String, dateOfBirth: String, nationality: String) {
+    init(driverID: String, permanentNumber: String, code: String, url: String,
+         givenName: String, familyName: String, dateOfBirth: String, nationality: String) {
         self.driverID = driverID
         self.permanentNumber = permanentNumber
         self.code = code
