@@ -12,18 +12,27 @@ typealias ResultsResults = (Result< RacingResults, APIError>) -> Void
 
 // MARK: Protocol
 protocol ResultsRepositoryType: AnyObject {
-    func fetchRoundResults(round: String, completion: @escaping(ResultsResults))
     func fetchRacingResults(completion: @escaping(ResultsResults))
 }
 
 // MARK: Repository
 class ResultsRepository: ResultsRepositoryType {
-    func fetchRoundResults(round: String, completion: @escaping (ResultsResults)) {
-        let url = Endpoints.roundResult + "\(round)/results.JSON"
-        URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
-    }
+
     func fetchRacingResults(completion: @escaping (ResultsResults)) {
         let url = Endpoints.racingResults
-        URLSession.shared.request(endpoint: url, method: .GET, completion: completion)
+        URLSession.shared.request(endpoint: url, method: .GET) { (result: Result<RacingResults, APIError>) in
+            switch result {
+            case .success(let results):
+                CoreDataManager.shared.saveRacingResults(results)
+                completion(.success(results))
+            case .failure(let error):
+                if let savedResults = CoreDataManager.shared.fetchResults(), !savedResults.isEmpty {
+                    completion(.success(RacingResults(results: ResultsResponse(
+                        series: "F1", url: "", limit: "", offset: "", total: "", raceTable: RaceTable(season: "", races: savedResults)))))
+                } else {
+                    completion(.failure(error))
+                }
+            }
+        }
     }
 }

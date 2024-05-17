@@ -38,12 +38,36 @@ class CoreDataManager {
 
     }
 
+    func saveRacingResults(_ racingResults: RacingResults) {
+        deleteOldResultsData()
+
+        let resultsDescriptor = racingResults.results
+        let raceTable = resultsDescriptor.raceTable
+
+        for race in raceTable.races {
+            saveRaceWithResults(race)
+        }
+        saveData()
+    }
+
     func fetchRaces() -> [RaceInfo]? {
         let fetchRequest: NSFetchRequest<CoreDataRaceInfo> = CoreDataRaceInfo.fetchRequest()
 
         do {
             let coreDataRaces = try context.fetch(fetchRequest)
             return coreDataRaces.map { RaceInfo(from: $0) }
+        } catch {
+            print("Failed to fetch races: \(error)")
+            return nil
+        }
+    }
+
+    func fetchResults() -> [Race]? {
+        let fetchRequest: NSFetchRequest<CoreDataRace> = CoreDataRace.fetchRequest()
+
+        do {
+            let coreDataResults = try context.fetch(fetchRequest)
+            return coreDataResults.map { Race(from: $0) }
         } catch {
             print("Failed to fetch races: \(error)")
             return nil
@@ -131,5 +155,101 @@ class CoreDataManager {
         sessionEntity.time = session.time
 
         return sessionEntity
+    }
+
+    private func saveRaceWithResults(_ race: Race) {
+        let raceEntity = CoreDataRace(context: context)
+        raceEntity.raceName = race.raceName
+        raceEntity.date = race.date
+        raceEntity.time = race.time
+        raceEntity.season = race.season
+        raceEntity.url = race.url
+        raceEntity.round = race.round
+
+        let circuitEntity = saveCircuit(race.circuit)
+        raceEntity.circuit = circuitEntity
+
+        for result in race.results {
+            raceEntity.addToResults(saveRaceResult(result, to: raceEntity))
+        }
+    }
+
+    private func deleteOldResultsData() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreDataRaceResult.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print("Failed to delete old results data: \(error)")
+        }
+    }
+    private func saveRaceResult(_ result: RaceResult, to raceEntity: CoreDataRace) -> CoreDataRaceResult {
+        let resultEntity = CoreDataRaceResult(context: context)
+        resultEntity.number = result.number
+        resultEntity.position = result.position
+        resultEntity.positionText = result.positionText
+        resultEntity.points = result.points
+        resultEntity.grid = result.grid
+        resultEntity.laps = result.laps
+        resultEntity.status = result.status
+
+        if let time = result.time {
+            let timeEntity = CoreDataResultTime(context: context)
+            timeEntity.millis = time.millis
+            timeEntity.time = time.time
+            resultEntity.time = timeEntity
+        }
+
+        if let fastestLap = result.fastestLap {
+            let fastestLapEntity = CoreDataFastestLap(context: context)
+            fastestLapEntity.rank = fastestLap.rank
+            fastestLapEntity.lap = fastestLap.lap
+            fastestLapEntity.time = saveFastestLapTime(fastestLap.time)
+            fastestLapEntity.averageSpeed = saveAverageSpeed(fastestLap.averageSpeed)
+            resultEntity.fastestLap = fastestLapEntity
+        }
+
+        resultEntity.driver = saveDriver(result.driver)
+        resultEntity.constructor = saveConstructor(result.constructor)
+
+        return resultEntity
+
+    }
+
+    private func saveDriver(_ driver: Driver) -> CoreDataDriver {
+        let driverEntity = CoreDataDriver(context: context)
+        driverEntity.driverID = driver.driverID
+        driverEntity.permanentNumber = driver.permanentNumber
+        driverEntity.code = driver.code
+        driverEntity.url = driver.url
+        driverEntity.givenName = driver.givenName
+        driverEntity.familyName = driver.familyName
+        driverEntity.dateOfBirth = driver.dateOfBirth
+        driverEntity.nationality = driver.nationality
+        return driverEntity
+    }
+
+    private func saveConstructor(_ constructor: Constructor) -> CoreDataConstructor {
+        let constructorEntity = CoreDataConstructor(context: context)
+        constructorEntity.constructorID = constructor.constructorID
+        constructorEntity.url = constructor.url
+        constructorEntity.name = constructor.name
+        constructorEntity.nationality = constructor.nationality
+        return constructorEntity
+    }
+
+    private func saveFastestLapTime(_ fastestLapTime: FastestLapTime) -> CoreDataFastestLapTime {
+        let fastestLapTimeEntity = CoreDataFastestLapTime(context: context)
+        fastestLapTimeEntity.time = fastestLapTime.time
+        return fastestLapTimeEntity
+    }
+
+    private func saveAverageSpeed(_ averageSpeed: AverageSpeed) -> CoreDataAverageSpeed {
+        let averageSpeedEntity = CoreDataAverageSpeed(context: context)
+        averageSpeedEntity.units = averageSpeed.units
+        averageSpeedEntity.speed = averageSpeed.speed
+        return averageSpeedEntity
     }
 }
