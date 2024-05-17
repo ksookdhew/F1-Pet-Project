@@ -16,6 +16,30 @@
         <attribute name="nationality" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="CoreDataConstructorStanding" representedClassName="CoreDataConstructorStanding" syncable="YES" codeGenerationType="class">
+        <attribute name="points" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+        <attribute name="positionText" optional="YES" attributeType="String"/>
+        <attribute name="wins" optional="YES" attributeType="String"/>
+        <relationship name="constructor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataConstructor"/>
+    </entity>
+    <entity name="CoreDataConstructorStandingsList" representedClassName="CoreDataConstructorStandingsList" syncable="YES" codeGenerationType="class">
+        <attribute name="round" optional="YES" attributeType="String"/>
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="constructorStandings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataConstructorStanding"/>
+    </entity>
+    <entity name="CoreDataConstructorStandingsResponse" representedClassName="CoreDataConstructorStandingsResponse" syncable="YES" codeGenerationType="class">
+        <attribute name="limit" optional="YES" attributeType="String"/>
+        <attribute name="offset" optional="YES" attributeType="String"/>
+        <attribute name="series" optional="YES" attributeType="String"/>
+        <attribute name="total" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="standingsTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataConstructorStandingsTable"/>
+    </entity>
+    <entity name="CoreDataConstructorStandingsTable" representedClassName="CoreDataConstructorStandingsTable" syncable="YES" codeGenerationType="class">
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="standingsLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataConstructorStandingsList"/>
+    </entity>
     <entity name="CoreDataDriver" representedClassName="CoreDataDriver" syncable="YES" codeGenerationType="class">
         <attribute name="code" optional="YES" attributeType="String"/>
         <attribute name="dateOfBirth" optional="YES" attributeType="String"/>

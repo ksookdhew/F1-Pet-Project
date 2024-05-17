@@ -66,6 +66,22 @@ class CoreDataManager {
         saveData()
     }
 
+    func saveConstructorStandings(_ constructorStandingsModel: ConstructorStandingsModel) {
+            deleteOldConstructorStandingsData()
+
+            let standingsResponse = constructorStandingsModel.constructorStandings
+            let standingsTable = standingsResponse.standingsTable
+
+            let standingsTableEntity = CoreDataConstructorStandingsTable(context: context)
+            standingsTableEntity.season = standingsTable.season
+
+            for standingsList in standingsTable.standingsLists {
+                saveConstructorStandingsList(standingsList)
+            }
+
+            saveData()
+        }
+
     func fetchRaces() -> [RaceInfo]? {
         let fetchRequest: NSFetchRequest<CoreDataRaceInfo> = CoreDataRaceInfo.fetchRequest()
 
@@ -101,6 +117,21 @@ class CoreDataManager {
             return DriverStandingsModel(from: coreDataStandingsTable)
         } catch {
             print("Failed to fetch driver standings: \(error)")
+            return nil
+        }
+    }
+
+    func fetchConstructorStandings() -> ConstructorStandingsModel? {
+        let fetchRequest: NSFetchRequest<CoreDataConstructorStandingsTable> = CoreDataConstructorStandingsTable.fetchRequest()
+
+        do {
+            let coreDataStandingsTables = try context.fetch(fetchRequest)
+            guard let coreDataStandingsTable = coreDataStandingsTables.first else {
+                return nil
+            }
+            return ConstructorStandingsModel(from: coreDataStandingsTable)
+        } catch {
+            print("Failed to fetch constructor standings: \(error)")
             return nil
         }
     }
@@ -319,5 +350,38 @@ class CoreDataManager {
         }
 
         return driverStandingEntity
+    }
+
+    private func deleteOldConstructorStandingsData() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreDataConstructorStandingsTable.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print("Failed to delete old constructor standings data: \(error)")
+        }
+    }
+
+    private func saveConstructorStandingsList(_ standingsList: ConstructorStandingsList) {
+        let standingsListEntity = CoreDataConstructorStandingsList(context: context)
+        standingsListEntity.season = standingsList.season
+        standingsListEntity.round = standingsList.round
+
+        for constructorStanding in standingsList.constructorStandings {
+            standingsListEntity.addToConstructorStandings(saveConstructorStanding(constructorStanding))
+        }
+    }
+
+    private func saveConstructorStanding(_ constructorStanding: ConstructorStanding) ->CoreDataConstructorStanding {
+        let constructorStandingEntity = CoreDataConstructorStanding(context: context)
+        constructorStandingEntity.position = constructorStanding.position
+        constructorStandingEntity.positionText = constructorStanding.positionText
+        constructorStandingEntity.points = constructorStanding.points
+        constructorStandingEntity.wins = constructorStanding.wins
+        constructorStandingEntity.constructor = saveConstructor(constructorStanding.constructor)
+
+        return constructorStandingEntity
     }
 }
