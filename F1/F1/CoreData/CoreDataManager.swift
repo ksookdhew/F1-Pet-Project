@@ -37,7 +37,7 @@ class CoreDataManager {
         saveData()
 
     }
-    
+
     func saveRacingResults(_ racingResults: RacingResults) {
         deleteOldResultsData()
 
@@ -170,7 +170,7 @@ class CoreDataManager {
             raceEntity.circuit = circuitEntity
 
             for result in race.results {
-                raceEntity.addToResults (saveRaceResult(result, to: raceEntity))
+                raceEntity.addToResults(saveRaceResult(result, to: raceEntity))
             }
         }
 
@@ -185,7 +185,7 @@ class CoreDataManager {
             print("Failed to delete old results data: \(error)")
         }
     }
-        private func saveRaceResult(_ result: RaceResult, to raceEntity: CoreDataRace) -> CoreDataRaceResult{
+        private func saveRaceResult(_ result: RaceResult, to raceEntity: CoreDataRace) -> CoreDataRaceResult {
             let resultEntity = CoreDataRaceResult(context: context)
             resultEntity.number = result.number
             resultEntity.position = result.position
