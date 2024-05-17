@@ -9,7 +9,7 @@ import Foundation
 // MARK: - DriverModel
 struct DriverModel: Codable {
     let driver: DriverResponse
-
+    
     enum CodingKeys: String, CodingKey {
         case driver = "MRData"
     }
@@ -19,7 +19,7 @@ struct DriverModel: Codable {
 struct DriverResponse: Codable {
     let series, url, limit, offset, total: String
     let driverTable: DriverTable
-
+    
     enum CodingKeys: String, CodingKey {
         case series, url, limit, offset, total
         case driverTable = "DriverTable"
@@ -30,7 +30,7 @@ struct DriverResponse: Codable {
 struct DriverTable: Codable {
     let driverID: String
     let drivers: [Driver]
-
+    
     enum CodingKeys: String, CodingKey {
         case driverID = "driverId"
         case drivers = "Drivers"
@@ -40,12 +40,12 @@ struct DriverTable: Codable {
 // MARK: - Driver
 struct Driver: Codable {
     let driverID, permanentNumber, code, url, givenName, familyName, dateOfBirth, nationality: String
-
+    
     enum CodingKeys: String, CodingKey {
         case driverID = "driverId"
         case permanentNumber, code, url, givenName, familyName, dateOfBirth, nationality
     }
-
+    
     init(from coreDataDriver: CoreDataDriver) {
         self.driverID = coreDataDriver.driverID ?? ""
         self.permanentNumber = coreDataDriver.permanentNumber ?? ""
@@ -55,5 +55,16 @@ struct Driver: Codable {
         self.familyName = coreDataDriver.familyName ?? ""
         self.dateOfBirth = coreDataDriver.dateOfBirth ?? ""
         self.nationality = coreDataDriver.nationality ?? ""
+    }
+    
+    init(driverID: String, permanentNumber: String, code: String, url: String, givenName: String, familyName: String, dateOfBirth: String, nationality: String) {
+        self.driverID = driverID
+        self.permanentNumber = permanentNumber
+        self.code = code
+        self.url = url
+        self.givenName = givenName
+        self.familyName = familyName
+        self.dateOfBirth = dateOfBirth
+        self.nationality = nationality
     }
 }
