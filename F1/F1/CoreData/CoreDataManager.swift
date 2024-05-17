@@ -50,6 +50,22 @@ class CoreDataManager {
         saveData()
     }
 
+    func saveDriverStandings(_ driverStandingsModel: DriverStandingsModel) {
+        deleteOldDriverStandingsData()
+
+        let standingsResponse = driverStandingsModel.driverStandings
+        let standingsTable = standingsResponse.standingsTable
+
+        let standingsTableEntity = CoreDataDriverStandingsTable(context: context)
+        standingsTableEntity.season = standingsTable.season
+
+        for standingsList in standingsTable.standingsLists {
+            saveDriverStandingsList(standingsList)
+        }
+
+        saveData()
+    }
+
     func fetchRaces() -> [RaceInfo]? {
         let fetchRequest: NSFetchRequest<CoreDataRaceInfo> = CoreDataRaceInfo.fetchRequest()
 
@@ -70,6 +86,21 @@ class CoreDataManager {
             return coreDataResults.map { Race(from: $0) }
         } catch {
             print("Failed to fetch races: \(error)")
+            return nil
+        }
+    }
+
+    func fetchDriverStandings() -> DriverStandingsModel? {
+        let fetchRequest: NSFetchRequest<CoreDataDriverStandingsTable> = CoreDataDriverStandingsTable.fetchRequest()
+
+        do {
+            let coreDataStandingsTables = try context.fetch(fetchRequest)
+            guard let coreDataStandingsTable = coreDataStandingsTables.first else {
+                return nil
+            }
+            return DriverStandingsModel(from: coreDataStandingsTable)
+        } catch {
+            print("Failed to fetch driver standings: \(error)")
             return nil
         }
     }
@@ -251,5 +282,42 @@ class CoreDataManager {
         averageSpeedEntity.units = averageSpeed.units
         averageSpeedEntity.speed = averageSpeed.speed
         return averageSpeedEntity
+    }
+
+    private func deleteOldDriverStandingsData() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreDataDriverStandingsTable.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print("Failed to delete old driver standings data: \(error)")
+        }
+    }
+
+    private func saveDriverStandingsList(_ standingsList: DriverStandingsList) {
+        let standingsListEntity = CoreDataDriverStandingsList(context: context)
+        standingsListEntity.season = standingsList.season
+        standingsListEntity.round = standingsList.round
+
+        for driverStanding in standingsList.driverStandings {
+            standingsListEntity.addToDriverStandings(saveDriverStanding(driverStanding))
+        }
+    }
+
+    private func saveDriverStanding(_ driverStanding: DriverStanding) -> CoreDataDriverStanding {
+        let driverStandingEntity = CoreDataDriverStanding(context: context)
+        driverStandingEntity.position = driverStanding.position
+        driverStandingEntity.positionText = driverStanding.positionText
+        driverStandingEntity.points = driverStanding.points
+        driverStandingEntity.wins = driverStanding.wins
+        driverStandingEntity.driver = saveDriver(driverStanding.driver)
+
+        for constructor in driverStanding.constructors {
+            driverStandingEntity.addToConstructor(saveConstructor(constructor))
+        }
+
+        return driverStandingEntity
     }
 }

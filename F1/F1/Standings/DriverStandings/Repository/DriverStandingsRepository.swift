@@ -18,8 +18,20 @@ protocol DriverStandingsRepositoryType: AnyObject {
 // MARK: Repository
 class DriverStandingsRepository: DriverStandingsRepositoryType {
 
-    func fetchDriverStandingsResults(completion: @escaping (DriverStandingsResults)) {
-        URLSession.shared.request(endpoint:
-                                    Endpoints.driverStanding, method: .GET, completion: completion)
+    func fetchDriverStandingsResults(completion: @escaping(DriverStandingsResults)) {
+        let url = Endpoints.driverStanding
+        URLSession.shared.request(endpoint: url, method: .GET) { (result: Result<DriverStandingsModel, APIError>) in
+            switch result {
+            case .success(let driverStandingsModel):
+                CoreDataManager.shared.saveDriverStandings(driverStandingsModel)
+                completion(.success(driverStandingsModel))
+            case .failure(let error):
+                if let savedStandings = CoreDataManager.shared.fetchDriverStandings() {
+                    completion(.success(savedStandings))
+                } else {
+                    completion(.failure(error))
+                }
+            }
+        }
     }
 }
