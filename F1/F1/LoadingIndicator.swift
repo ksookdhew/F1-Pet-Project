@@ -6,7 +6,7 @@
 //
 import UIKit
 
-//MARK: Viewcontroller
+// MARK: Viewcontroller
 class LoadingIndicatorViewController: UIViewController {
 
     private let loadingIndicator = LoadingIndicatorView()
@@ -38,7 +38,7 @@ class LoadingIndicatorViewController: UIViewController {
     }
 }
 
-//MARK: View
+// MARK: View
 class LoadingIndicatorView: UIView {
 
     private let activityIndicator: UIActivityIndicatorView = {
