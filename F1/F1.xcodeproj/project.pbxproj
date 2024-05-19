@@ -51,6 +51,7 @@
 		2629E0872BBE846400EC6139 /* Tab Bar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629E0862BBE846400EC6139 /* Tab Bar.storyboard */; };
 		262C3B3D2BF3D38D006A8C14 /* F1Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B3B2BF3D38D006A8C14 /* F1Model.xcdatamodeld */; };
 		262C3B942BF48BB2006A8C14 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3B932BF48BB2006A8C14 /* CoreDataManager.swift */; };
+		262C3CCF2BF927C4006A8C14 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C3CCE2BF927C4006A8C14 /* LoadingIndicator.swift */; };
 		26326BC22BDEA9B90042FA27 /* RacingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326BC02BDEA9B90042FA27 /* RacingCollectionViewCell.swift */; };
 		26326BC32BDEA9B90042FA27 /* RacingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26326BC12BDEA9B90042FA27 /* RacingCollectionViewCell.xib */; };
 		26326BC52BDEAB9A0042FA27 /* RacingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326BC42BDEAB9A0042FA27 /* RacingViewController.swift */; };
@@ -157,6 +158,7 @@
 		2629E0862BBE846400EC6139 /* Tab Bar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Tab Bar.storyboard"; sourceTree = "<group>"; };
 		262C3B3C2BF3D38D006A8C14 /* F1Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = F1Model.xcdatamodel; sourceTree = "<group>"; };
 		262C3B932BF48BB2006A8C14 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		262C3CCE2BF927C4006A8C14 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		26326BC02BDEA9B90042FA27 /* RacingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingCollectionViewCell.swift; sourceTree = "<group>"; };
 		26326BC12BDEA9B90042FA27 /* RacingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RacingCollectionViewCell.xib; sourceTree = "<group>"; };
 		26326BC42BDEAB9A0042FA27 /* RacingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingViewController.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				2629E0862BBE846400EC6139 /* Tab Bar.storyboard */,
+				262C3CCE2BF927C4006A8C14 /* LoadingIndicator.swift */,
 			);
 			name = UserInterfaces;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				2629E0552BBC43C100EC6139 /* ConstructorViewController.swift in Sources */,
 				262C3B942BF48BB2006A8C14 /* CoreDataManager.swift in Sources */,
 				26326C192BECBD950042FA27 /* ViewController+Extension.swift in Sources */,
+				262C3CCF2BF927C4006A8C14 /* LoadingIndicator.swift in Sources */,
 				2629E0452BBC390400EC6139 /* Racing.swift in Sources */,
 				26C993D02BC6B3BA0041F3B1 /* LoginViewModel.swift in Sources */,
 				2629E0572BBC43CC00EC6139 /* ConstructorViewModel.swift in Sources */,

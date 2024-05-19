@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RacingViewController: UIViewController {
+class RacingViewController: LoadingIndicatorViewController {
 
     private lazy var viewModel = RaceViewModel(repository: RaceRepository(), delegate: self)
 
@@ -69,6 +69,7 @@ extension RacingViewController: UICollectionViewDataSource, UICollectionViewDele
 extension  RacingViewController: ViewModelDelegate {
     func reloadView() {
         collectionView.reloadData()
+        hideLoadingIndicator()
     }
 
     func show(error: String) {

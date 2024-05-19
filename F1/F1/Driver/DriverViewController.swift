@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DriverViewController: UIViewController {
+class DriverViewController: LoadingIndicatorViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak private var tableView: UITableView!
@@ -95,6 +95,7 @@ extension  DriverViewController: ViewModelDelegate {
 
     func reloadView() {
         tableView.reloadData()
+        hideLoadingIndicator()
     }
 
     func show(error: String) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StandingsViewController: UIViewController {
+class StandingsViewController: LoadingIndicatorViewController  {
 
     // MARK: IBOutlets
     @IBOutlet weak private var tableView: UITableView!
@@ -130,8 +130,11 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension  StandingsViewController: ViewModelDelegate {
     func reloadView() {
-        tableView.reloadData()
-        driverViewModel.setConstructors()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.driverViewModel.setConstructors()
+            self.hideLoadingIndicator()
+        }
     }
 
     func show(error: String) {

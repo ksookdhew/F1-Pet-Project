@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConstructorViewController: UIViewController {
+class ConstructorViewController: LoadingIndicatorViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak private var tableView: UITableView!
@@ -58,6 +58,7 @@ extension ConstructorViewController: ViewModelDelegate {
     func reloadView() {
         tableView.reloadData()
         constructorDriver.text = viewModel.drivers
+        hideLoadingIndicator()
     }
 
     func show(error: String) {
