@@ -18,6 +18,7 @@ class StandingsViewController: LoadingIndicatorViewController {
     private lazy var driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository(), delegate: self)
     private lazy var constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository(), delegate: self)
     private lazy var standingsViewModel = StandingsViewModel(driverViewModel: driverViewModel, constructorViewModel: constructorViewModel, navigationDelegate: self)
+    private let dispatchGroup = DispatchGroup()
 
     // MARK: Functions
     override func viewDidLoad() {
@@ -132,6 +133,9 @@ extension  StandingsViewController: ViewModelDelegate {
     func reloadView() {
         self.tableView.reloadData()
         self.driverViewModel.setConstructors()
+        if standingsViewModel.isLoaded() {
+            hideLoadingIndicator()
+        }
     }
 
     func show(error: String) {

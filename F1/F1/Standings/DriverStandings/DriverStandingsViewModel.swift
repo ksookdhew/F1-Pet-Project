@@ -13,6 +13,7 @@ class DriverStandingsViewModel {
     private weak var delegate: ViewModelDelegate?
     private var repository: DriverStandingsRepositoryType?
     private var driverStanding: [DriverStanding]?
+    var isLoaded = false
     var driversForConstructor: [String: [Driver?]] = [:]
 
     init(repository: DriverStandingsRepositoryType, delegate: ViewModelDelegate) {
@@ -51,6 +52,7 @@ class DriverStandingsViewModel {
             switch result {
             case .success(let driverStandings):
                 self?.driverStanding = driverStandings.driverStandings.standingsTable.standingsLists.first?.driverStandings
+                self?.isLoaded = true
                 self?.delegate?.reloadView()
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)

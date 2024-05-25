@@ -12,6 +12,7 @@ class ConstructorStandingsViewModel {
     private weak var delegate: ViewModelDelegate?
     private var repository: ConstructorStandingsRepositoryType?
     private var constructorStanding: [ConstructorStanding]?
+    var isLoaded = false
 
     init(repository: ConstructorStandingsRepositoryType, delegate: ViewModelDelegate) {
         self.repository = repository
@@ -40,6 +41,7 @@ class ConstructorStandingsViewModel {
             case .success(let constructorStandings):
                 self?.constructorStanding = constructorStandings.constructorStandings.standingsTable.standingsLists.first?.constructorStandings
                 self?.delegate?.reloadView()
+                self?.isLoaded = true
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)
             }

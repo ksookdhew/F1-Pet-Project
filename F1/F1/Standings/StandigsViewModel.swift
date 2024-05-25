@@ -18,6 +18,9 @@ class StandingsViewModel {
         self.constructorViewModel = constructorViewModel
         self.navigationDelegate = navigationDelegate
     }
+    func isLoaded() -> Bool {
+        driverViewModel.isLoaded && constructorViewModel.isLoaded
+    }
 
     // MARK: Functions
     func navigateTo(indexPath: IndexPath, selectedSegmentIndex: Int) {
