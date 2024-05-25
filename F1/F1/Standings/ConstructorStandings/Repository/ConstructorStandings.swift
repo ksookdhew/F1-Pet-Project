@@ -64,7 +64,8 @@ struct ConstructorStandingsTable: Codable {
 
     init(from coreDataConstructorStandingsTable: CoreDataConstructorStandingsTable) {
         self.season = coreDataConstructorStandingsTable.season ?? ""
-        self.standingsLists = (coreDataConstructorStandingsTable.standingsLists?.allObjects as? [CoreDataConstructorStandingsList])?.map { ConstructorStandingsList(from: $0) } ?? []
+        self.standingsLists = (coreDataConstructorStandingsTable.standingsLists?.allObjects as? 
+            [CoreDataConstructorStandingsList])?.map { ConstructorStandingsList(from: $0) } ?? []
     }
 
     init(season: String, standingsLists: [ConstructorStandingsList]) {
@@ -86,7 +87,8 @@ struct ConstructorStandingsList: Codable {
     init(from coreDataConstructorStandingsList: CoreDataConstructorStandingsList) {
         self.season = coreDataConstructorStandingsList.season ?? ""
         self.round = coreDataConstructorStandingsList.round ?? ""
-        self.constructorStandings = (coreDataConstructorStandingsList.constructorStandings?.allObjects as? [CoreDataConstructorStanding])?.map { ConstructorStanding(from: $0) } ?? []
+        self.constructorStandings = (coreDataConstructorStandingsList.constructorStandings?.allObjects as? 
+            [CoreDataConstructorStanding])?.map { ConstructorStanding(from: $0) } ?? []
     }
 
     init(season: String, round: String, constructorStandings: [ConstructorStanding]) {
