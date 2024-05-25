@@ -29,6 +29,7 @@ class StandingsViewController: LoadingIndicatorViewController {
     }
 
     private func setupTableView() {
+        segmentedControl.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(DriverStandingTableViewCell.nib(),
@@ -135,6 +136,7 @@ extension  StandingsViewController: ViewModelDelegate {
         self.driverViewModel.setConstructors()
         if standingsViewModel.isLoaded() {
             hideLoadingIndicator()
+            segmentedControl.isHidden = false
         }
     }
 

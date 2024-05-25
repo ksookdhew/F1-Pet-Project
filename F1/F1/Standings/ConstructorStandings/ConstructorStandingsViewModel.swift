@@ -36,12 +36,12 @@ class ConstructorStandingsViewModel {
     }
 
     func fetchConstructorStandings() {
+        isLoaded = true
         repository?.fetchConstructorStandingsResults { [weak self] result in
             switch result {
             case .success(let constructorStandings):
                 self?.constructorStanding = constructorStandings.constructorStandings.standingsTable.standingsLists.first?.constructorStandings
                 self?.delegate?.reloadView()
-                self?.isLoaded = true
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)
             }

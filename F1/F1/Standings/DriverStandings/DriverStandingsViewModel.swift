@@ -48,11 +48,11 @@ class DriverStandingsViewModel {
     }
 
     func fetchDriverStandings() {
+        isLoaded = true
         repository?.fetchDriverStandingsResults { [weak self] result in
             switch result {
             case .success(let driverStandings):
                 self?.driverStanding = driverStandings.driverStandings.standingsTable.standingsLists.first?.driverStandings
-                self?.isLoaded = true
                 self?.delegate?.reloadView()
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)
