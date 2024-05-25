@@ -18,6 +18,11 @@ class ConstructorViewController: LoadingIndicatorViewController {
     @IBOutlet weak private var currentWins: UILabel!
     @IBOutlet weak private var currentPoints: UILabel!
     @IBOutlet weak private var currentPosition: UILabel!
+    @IBOutlet weak private var tableHeading: UILabel!
+    @IBOutlet weak private var winsHeading: UILabel!
+    @IBOutlet weak private var pointsHeading: UILabel!
+    @IBOutlet weak private var posHeading: UILabel!
+    @IBOutlet weak private var statsHeading: UILabel!
 
     // MARK: Variables
     var constructor: ConstructorStanding?
@@ -50,6 +55,23 @@ class ConstructorViewController: LoadingIndicatorViewController {
         currentPoints.text = viewModel.currentPoints
         currentWins.text = viewModel.currentWins
         constructorDriver.text = viewModel.drivers
+        viewIsHidden(isHidden: true)
+    }
+
+    private func viewIsHidden(isHidden: Bool) {
+        constructorImage.isHidden = isHidden
+        constructorName.isHidden = isHidden
+        constructorNationality.isHidden = isHidden
+        currentPosition.isHidden = isHidden
+        currentPoints.isHidden = isHidden
+        currentWins.isHidden = isHidden
+        constructorDriver.isHidden = isHidden
+        tableView.isHidden = isHidden
+        statsHeading.isHidden = isHidden
+        posHeading.isHidden = isHidden
+        pointsHeading.isHidden = isHidden
+        winsHeading.isHidden = isHidden
+        tableHeading.isHidden = isHidden
     }
 }
 
@@ -59,6 +81,7 @@ extension ConstructorViewController: ViewModelDelegate {
         tableView.reloadData()
         constructorDriver.text = viewModel.drivers
         hideLoadingIndicator()
+        viewIsHidden(isHidden: false)
     }
 
     func show(error: String) {

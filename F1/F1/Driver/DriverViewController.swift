@@ -11,7 +11,7 @@ class DriverViewController: LoadingIndicatorViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak private var tableView: UITableView!
-    @IBOutlet weak private var driverImg: UIImageView!
+    @IBOutlet weak private var driverImage: UIImageView!
     @IBOutlet weak private var driverName: UILabel!
     @IBOutlet weak private var driverNationality: UILabel!
     @IBOutlet weak private var driverConstructor: UILabel!
@@ -19,6 +19,11 @@ class DriverViewController: LoadingIndicatorViewController {
     @IBOutlet weak private var currentWins: UILabel!
     @IBOutlet weak private var currentPoints: UILabel!
     @IBOutlet weak private var currentPosition: UILabel!
+    @IBOutlet weak private var tableHeading: UILabel!
+    @IBOutlet weak private var winsHeading: UILabel!
+    @IBOutlet weak private var pointsHeading: UILabel!
+    @IBOutlet weak private var posHeading: UILabel!
+    @IBOutlet weak private var statsHeading: UILabel!
 
     // MARK: Variables
     var driver: DriverStanding?
@@ -43,7 +48,7 @@ class DriverViewController: LoadingIndicatorViewController {
 
     private func setupView() {
         viewModel.setDriver(driver: driver)
-        driverImg.image = UIImage(named: viewModel.driverImageName)
+        driverImage.image = UIImage(named: viewModel.driverImageName)
         driverName.text = viewModel.driverGivenName
         driverSurname.text = viewModel.driverFamilyName
         driverConstructor.text = viewModel.driverConstructorInfo
@@ -51,6 +56,24 @@ class DriverViewController: LoadingIndicatorViewController {
         currentPosition.text = viewModel.currentPosition
         currentPoints.text = viewModel.currentPoints
         currentWins.text = viewModel.currentWins
+        viewIsHidden(isHidden: true)
+    }
+
+    private func viewIsHidden(isHidden: Bool) {
+        driverImage.isHidden = isHidden
+        driverName.isHidden = isHidden
+        driverSurname.isHidden = isHidden
+        driverConstructor.isHidden = isHidden
+        driverNationality.isHidden = isHidden
+        currentPosition.isHidden = isHidden
+        currentPoints.isHidden = isHidden
+        currentWins.isHidden = isHidden
+        tableView.isHidden = isHidden
+        statsHeading.isHidden = isHidden
+        posHeading.isHidden = isHidden
+        pointsHeading.isHidden = isHidden
+        winsHeading.isHidden = isHidden
+        tableHeading.isHidden = isHidden
     }
 }
 
@@ -96,6 +119,7 @@ extension  DriverViewController: ViewModelDelegate {
     func reloadView() {
         tableView.reloadData()
         hideLoadingIndicator()
+        viewIsHidden(isHidden: false)
     }
 
     func show(error: String) {
