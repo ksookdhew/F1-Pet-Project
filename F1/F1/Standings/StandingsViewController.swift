@@ -7,11 +7,11 @@
 
 import UIKit
 
-class StandingsViewController: LoadingIndicatorViewController  {
+class StandingsViewController: LoadingIndicatorViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak private var tableView: UITableView!
-    @IBOutlet weak private var segControl: UISegmentedControl!
+    @IBOutlet weak private var segmentedControl: UISegmentedControl!
 
     // MARK: Variables
     var selectedSegmentIndex = 1
@@ -130,11 +130,8 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension  StandingsViewController: ViewModelDelegate {
     func reloadView() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.driverViewModel.setConstructors()
-            self.hideLoadingIndicator()
-        }
+        self.tableView.reloadData()
+        self.driverViewModel.setConstructors()
     }
 
     func show(error: String) {
