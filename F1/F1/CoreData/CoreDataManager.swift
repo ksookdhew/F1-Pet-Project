@@ -24,9 +24,33 @@ class CoreDataManager {
         context = appDelegate.persistentContainer.viewContext
     }
 
-    // MARK: Functions
+    // MARK: Common Functions
+    private func saveData() {
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save data: \(error)")
+        }
+    }
+
+    private func deleteData<T: NSManagedObject>(ofType type: T.Type) {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = T.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print("Failed to delete old data: \(error)")
+        }
+    }
+}
+
+// MARK: - Racing Data Management
+extension CoreDataManager {
+
     func saveRaceInfo(_ racing: Racing) {
-        deleteOldData()
+        deleteData(ofType: CoreDataRaceInfo.self)
 
         let raceDescriptor = racing.race
         let raceTable = raceDescriptor.raceTable
@@ -35,11 +59,10 @@ class CoreDataManager {
             saveRace(raceInfo)
         }
         saveData()
-
     }
 
     func saveRacingResults(_ racingResults: RacingResults) {
-        deleteOldResultsData()
+        deleteData(ofType: CoreDataRaceResult.self)
 
         let resultsDescriptor = racingResults.results
         let raceTable = resultsDescriptor.raceTable
@@ -49,38 +72,6 @@ class CoreDataManager {
         }
         saveData()
     }
-
-    func saveDriverStandings(_ driverStandingsModel: DriverStandingsModel) {
-        deleteOldDriverStandingsData()
-
-        let standingsResponse = driverStandingsModel.driverStandings
-        let standingsTable = standingsResponse.standingsTable
-
-        let standingsTableEntity = CoreDataDriverStandingsTable(context: context)
-        standingsTableEntity.season = standingsTable.season
-
-        for standingsList in standingsTable.standingsLists {
-            saveDriverStandingsList(standingsList)
-        }
-
-        saveData()
-    }
-
-    func saveConstructorStandings(_ constructorStandingsModel: ConstructorStandingsModel) {
-            deleteOldConstructorStandingsData()
-
-            let standingsResponse = constructorStandingsModel.constructorStandings
-            let standingsTable = standingsResponse.standingsTable
-
-            let standingsTableEntity = CoreDataConstructorStandingsTable(context: context)
-            standingsTableEntity.season = standingsTable.season
-
-            for standingsList in standingsTable.standingsLists {
-                saveConstructorStandingsList(standingsList)
-            }
-
-            saveData()
-        }
 
     func fetchRaces() -> [RaceInfo]? {
         let fetchRequest: NSFetchRequest<CoreDataRaceInfo> = CoreDataRaceInfo.fetchRequest()
@@ -106,57 +97,7 @@ class CoreDataManager {
         }
     }
 
-    func fetchDriverStandings() -> DriverStandingsModel? {
-        let fetchRequest: NSFetchRequest<CoreDataDriverStandingsTable> = CoreDataDriverStandingsTable.fetchRequest()
-
-        do {
-            let coreDataStandingsTables = try context.fetch(fetchRequest)
-            guard let coreDataStandingsTable = coreDataStandingsTables.first else {
-                return nil
-            }
-            return DriverStandingsModel(from: coreDataStandingsTable)
-        } catch {
-            print("Failed to fetch driver standings: \(error)")
-            return nil
-        }
-    }
-
-    func fetchConstructorStandings() -> ConstructorStandingsModel? {
-        let fetchRequest: NSFetchRequest<CoreDataConstructorStandingsTable> = CoreDataConstructorStandingsTable.fetchRequest()
-
-        do {
-            let coreDataStandingsTables = try context.fetch(fetchRequest)
-            guard let coreDataStandingsTable = coreDataStandingsTables.first else {
-                return nil
-            }
-            return ConstructorStandingsModel(from: coreDataStandingsTable)
-        } catch {
-            print("Failed to fetch constructor standings: \(error)")
-            return nil
-        }
-    }
-
     // MARK: Helper Functions
-    private func deleteOldData() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreDataRaceInfo.fetchRequest()
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
-        do {
-            try context.execute(deleteRequest)
-            try context.save()
-        } catch {
-            print("Failed to delete old data: \(error)")
-        }
-    }
-
-    private func saveData() {
-        do {
-            try context.save()
-        } catch {
-            print("Failed to save data: \(error)")
-        }
-    }
-
     private func saveRace(_ raceInfo: RaceInfo) {
         let raceEntity = CoreDataRaceInfo(context: context)
         raceEntity.raceName = raceInfo.raceName
@@ -186,6 +127,23 @@ class CoreDataManager {
         if let sprint = raceInfo.sprint {
             let sprintSession = saveSession(sprint)
             raceEntity.sprint = sprintSession
+        }
+    }
+
+    private func saveRaceWithResults(_ race: Race) {
+        let raceEntity = CoreDataRace(context: context)
+        raceEntity.raceName = race.raceName
+        raceEntity.date = race.date
+        raceEntity.time = race.time
+        raceEntity.season = race.season
+        raceEntity.url = race.url
+        raceEntity.round = race.round
+
+        let circuitEntity = saveCircuit(race.circuit)
+        raceEntity.circuit = circuitEntity
+
+        for result in race.results {
+            raceEntity.addToResults(saveRaceResult(result, to: raceEntity))
         }
     }
 
@@ -219,34 +177,6 @@ class CoreDataManager {
         return sessionEntity
     }
 
-    private func saveRaceWithResults(_ race: Race) {
-        let raceEntity = CoreDataRace(context: context)
-        raceEntity.raceName = race.raceName
-        raceEntity.date = race.date
-        raceEntity.time = race.time
-        raceEntity.season = race.season
-        raceEntity.url = race.url
-        raceEntity.round = race.round
-
-        let circuitEntity = saveCircuit(race.circuit)
-        raceEntity.circuit = circuitEntity
-
-        for result in race.results {
-            raceEntity.addToResults(saveRaceResult(result, to: raceEntity))
-        }
-    }
-
-    private func deleteOldResultsData() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreDataRaceResult.fetchRequest()
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
-        do {
-            try context.execute(deleteRequest)
-            try context.save()
-        } catch {
-            print("Failed to delete old results data: \(error)")
-        }
-    }
     private func saveRaceResult(_ result: RaceResult, to raceEntity: CoreDataRace) -> CoreDataRaceResult {
         let resultEntity = CoreDataRaceResult(context: context)
         resultEntity.number = result.number
@@ -277,7 +207,19 @@ class CoreDataManager {
         resultEntity.constructor = saveConstructor(result.constructor)
 
         return resultEntity
+    }
 
+    private func saveFastestLapTime(_ fastestLapTime: FastestLapTime) -> CoreDataFastestLapTime {
+        let fastestLapTimeEntity = CoreDataFastestLapTime(context: context)
+        fastestLapTimeEntity.time = fastestLapTime.time
+        return fastestLapTimeEntity
+    }
+
+    private func saveAverageSpeed(_ averageSpeed: AverageSpeed) -> CoreDataAverageSpeed {
+        let averageSpeedEntity = CoreDataAverageSpeed(context: context)
+        averageSpeedEntity.units = averageSpeed.units
+        averageSpeedEntity.speed = averageSpeed.speed
+        return averageSpeedEntity
     }
 
     private func saveDriver(_ driver: Driver) -> CoreDataDriver {
@@ -301,32 +243,74 @@ class CoreDataManager {
         constructorEntity.nationality = constructor.nationality
         return constructorEntity
     }
+}
 
-    private func saveFastestLapTime(_ fastestLapTime: FastestLapTime) -> CoreDataFastestLapTime {
-        let fastestLapTimeEntity = CoreDataFastestLapTime(context: context)
-        fastestLapTimeEntity.time = fastestLapTime.time
-        return fastestLapTimeEntity
+// MARK: - Standings Data Management
+extension CoreDataManager {
+
+    func saveDriverStandings(_ driverStandingsModel: DriverStandingsModel) {
+        deleteData(ofType: CoreDataDriverStandingsTable.self)
+
+        let standingsResponse = driverStandingsModel.driverStandings
+        let standingsTable = standingsResponse.standingsTable
+
+        let standingsTableEntity = CoreDataDriverStandingsTable(context: context)
+        standingsTableEntity.season = standingsTable.season
+
+        for standingsList in standingsTable.standingsLists {
+            saveDriverStandingsList(standingsList)
+        }
+
+        saveData()
     }
 
-    private func saveAverageSpeed(_ averageSpeed: AverageSpeed) -> CoreDataAverageSpeed {
-        let averageSpeedEntity = CoreDataAverageSpeed(context: context)
-        averageSpeedEntity.units = averageSpeed.units
-        averageSpeedEntity.speed = averageSpeed.speed
-        return averageSpeedEntity
+    func saveConstructorStandings(_ constructorStandingsModel: ConstructorStandingsModel) {
+        deleteData(ofType: CoreDataConstructorStandingsTable.self)
+
+        let standingsResponse = constructorStandingsModel.constructorStandings
+        let standingsTable = standingsResponse.standingsTable
+
+        let standingsTableEntity = CoreDataConstructorStandingsTable(context: context)
+        standingsTableEntity.season = standingsTable.season
+
+        for standingsList in standingsTable.standingsLists {
+            saveConstructorStandingsList(standingsList)
+        }
+
+        saveData()
     }
 
-    private func deleteOldDriverStandingsData() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreDataDriverStandingsTable.fetchRequest()
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+    func fetchDriverStandings() -> DriverStandingsModel? {
+        let fetchRequest: NSFetchRequest<CoreDataDriverStandingsTable> = CoreDataDriverStandingsTable.fetchRequest()
 
         do {
-            try context.execute(deleteRequest)
-            try context.save()
+            let coreDataStandingsTables = try context.fetch(fetchRequest)
+            guard let coreDataStandingsTable = coreDataStandingsTables.first else {
+                return nil
+            }
+            return DriverStandingsModel(from: coreDataStandingsTable)
         } catch {
-            print("Failed to delete old driver standings data: \(error)")
+            print("Failed to fetch driver standings: \(error)")
+            return nil
         }
     }
 
+    func fetchConstructorStandings() -> ConstructorStandingsModel? {
+        let fetchRequest: NSFetchRequest<CoreDataConstructorStandingsTable> = CoreDataConstructorStandingsTable.fetchRequest()
+
+        do {
+            let coreDataStandingsTables = try context.fetch(fetchRequest)
+            guard let coreDataStandingsTable = coreDataStandingsTables.first else {
+                return nil
+            }
+            return ConstructorStandingsModel(from: coreDataStandingsTable)
+        } catch {
+            print("Failed to fetch constructor standings: \(error)")
+            return nil
+        }
+    }
+
+    // MARK: Helper Functions
     private func saveDriverStandingsList(_ standingsList: DriverStandingsList) {
         let standingsListEntity = CoreDataDriverStandingsList(context: context)
         standingsListEntity.season = standingsList.season
@@ -352,18 +336,6 @@ class CoreDataManager {
         return driverStandingEntity
     }
 
-    private func deleteOldConstructorStandingsData() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CoreDataConstructorStandingsTable.fetchRequest()
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
-        do {
-            try context.execute(deleteRequest)
-            try context.save()
-        } catch {
-            print("Failed to delete old constructor standings data: \(error)")
-        }
-    }
-
     private func saveConstructorStandingsList(_ standingsList: ConstructorStandingsList) {
         let standingsListEntity = CoreDataConstructorStandingsList(context: context)
         standingsListEntity.season = standingsList.season
@@ -374,7 +346,7 @@ class CoreDataManager {
         }
     }
 
-    private func saveConstructorStanding(_ constructorStanding: ConstructorStanding) ->CoreDataConstructorStanding {
+    private func saveConstructorStanding(_ constructorStanding: ConstructorStanding) -> CoreDataConstructorStanding {
         let constructorStandingEntity = CoreDataConstructorStanding(context: context)
         constructorStandingEntity.position = constructorStanding.position
         constructorStandingEntity.positionText = constructorStanding.positionText
