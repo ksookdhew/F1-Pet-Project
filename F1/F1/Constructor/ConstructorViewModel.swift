@@ -8,28 +8,74 @@
 import Foundation
 
 class ConstructorViewModel {
-    
-    private var repository: ConstructorRepositoryType?
+
+    // MARK: Variables
     private weak var delegate: ViewModelDelegate?
-    private var constructor: Constructor?
-    
-    init(repository: ConstructorRepositoryType,
-         delegate: ViewModelDelegate) {
+    private var repository: ConstructorRepositoryType?
+    private var constructorResults: [Race]?
+    private var constructor: ConstructorStanding?
+
+    init(repository: ConstructorRepositoryType, delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
     }
-    
-    func fetchConstructor(constructorName: String) {
-        repository?.fetchConstructorResults(constructor:constructorName,completion: { [weak self] result in
+
+    // MARK: Computed Variables
+    var resultsCount: Int {
+        constructorResults?.count ?? 0
+    }
+
+    var drivers: String {
+        "\(constructorResults?.first?.results.first?.driver.code ?? "") | \(constructorResults?.first?.results.last?.driver.code ?? "")"
+    }
+
+    var constructorImageName: String {
+        imageName(constructorId: constructor?.constructor.constructorID)
+    }
+
+    var constructorName: String? {
+        constructor?.constructor.name
+    }
+
+    var constructorNationality: String? {
+        constructor?.constructor.nationality
+    }
+
+    var currentPosition: String? {
+        constructor?.position
+    }
+
+    var currentPoints: String? {
+        constructor?.points
+    }
+
+    var currentWins: String? {
+        constructor?.wins
+    }
+
+    // MARK: Functions
+    func setConstructor(constructor: ConstructorStanding?) {
+        self.constructor = constructor
+    }
+
+    func result(atIndex: Int) -> Race? {
+        constructorResults?.count ?? 0 > atIndex ? constructorResults?[atIndex] : nil
+    }
+
+    func imageName(constructorId: String?) -> String {
+        "\(constructorId ?? "").png"
+    }
+
+    func fetchConstructor(constructorName: String?) {
+        repository?.fetchConstructorResults(constructor: constructorName ?? "") { [weak self] result in
             switch result {
             case .success(let constructor):
-                self?.constructor = constructor.mrData.constructorTable.constructors[0]
-                print(self?.constructor?.name ?? "No result")
+                self?.constructorResults = constructor.results.raceTable.races.reversed()
                 self?.delegate?.reloadView()
             case .failure(let error):
                 print(error)
                 self?.delegate?.show(error: error.rawValue)
             }
-        })
+        }
     }
 }

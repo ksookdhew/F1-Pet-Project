@@ -8,49 +8,43 @@ import Foundation
 
 class ConstructorStandingsViewModel {
 
-    private var repository: ConstructorStandingsRepositoryType?
+    // MARK: Variables
     private weak var delegate: ViewModelDelegate?
+    private var repository: ConstructorStandingsRepositoryType?
     private var constructorStanding: [ConstructorStanding]?
-    private var driverDic: [String: [Driver?]] = [:]
+    var isLoaded = false
 
-    init(repository: ConstructorStandingsRepositoryType,
-         delegate: ViewModelDelegate) {
+    init(repository: ConstructorStandingsRepositoryType, delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
     }
 
+    // MARK: Computed Variables
     var constructorCount: Int {
-        return constructorStanding?.count ?? 0
+        constructorStanding?.count ?? 0
     }
 
+    // MARK: Functions
     func constructor(atIndex: Int) -> ConstructorStanding? {
-        return constructorStanding?[atIndex] ?? nil
+        constructorStanding?[atIndex] ?? nil
     }
 
-    func setDriver(constructor: String, driver: Driver) {
-
-        if var drivers = driverDic[constructor] {
-            drivers.append(driver)
-            driverDic[constructor] = drivers
-        } else {
-            driverDic[constructor] = [driver]
-        }
-    }
-
-    
-    func getDrivers(constructorID: String) -> [Driver?]? {
-        return driverDic[constructorID] ?? []
+    func drivers(driversList: [Driver?]) -> String {
+        let driverCodes = driversList.compactMap { $0?.code }
+        let firstTwoCodes = Array(driverCodes.prefix(2))
+        return firstTwoCodes.joined(separator: "/")
     }
 
     func fetchConstructorStandings() {
-        repository?.fetchConstructorStandingsResults(completion: { [weak self] result in
+        isLoaded = true
+        repository?.fetchConstructorStandingsResults { [weak self] result in
             switch result {
             case .success(let constructorStandings):
-                self?.constructorStanding = constructorStandings.mrData.standingsTable.standingsLists[0].constructorStandings
+                self?.constructorStanding = constructorStandings.constructorStandings.standingsTable.standingsLists.first?.constructorStandings
                 self?.delegate?.reloadView()
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)
             }
-        })
+        }
     }
 }

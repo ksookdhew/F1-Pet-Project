@@ -149,10 +149,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="errorMsg" destination="jCw-9Z-WtN" id="4Or-4R-wlt"/>
+                        <outlet property="errorMessage" destination="jCw-9Z-WtN" id="4Or-4R-wlt"/>
                         <outlet property="password" destination="9QR-Kr-sfT" id="QHw-N7-jos"/>
                         <outlet property="username" destination="h1U-xu-Z0C" id="UTq-id-wDO"/>
-                        <segue destination="yZM-XD-LsR" kind="show" identifier="showTabSegue" id="q6k-TA-zU8"/>
+                        <segue destination="yZM-XD-LsR" kind="show" identifier="ShowTabSegue" id="q6k-TA-zU8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

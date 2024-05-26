@@ -8,28 +8,107 @@
 import Foundation
 
 class RaceViewModel {
-    
-    private var repository: RaceRepositoryType?
+
+    // MARK: Variables
     private weak var delegate: ViewModelDelegate?
-    private var race: RaceShedule?
-    
-    init(repository: RaceRepositoryType,
-         delegate: ViewModelDelegate) {
+    private(set) var allRaces: [RaceInfo] = []
+    private(set) var sortedRaceSession: [RaceSessionDetail] = []
+    private var repository: RaceRepositoryType?
+    private var race: RaceInfo?
+
+    init(repository: RaceRepositoryType, delegate: ViewModelDelegate) {
         self.repository = repository
         self.delegate = delegate
     }
-    
-    func fetchRace(roundNo: String) {
-        repository?.fetchRaceResults(round:roundNo,completion: { [weak self] result in
-            switch result {
-            case .success(let race):
-                self?.race = race.mrData.raceTable.races[0]
-                print(self?.race ?? "No result")
-                self?.delegate?.reloadView()
-            case .failure(let error):
-                print(error)
-                self?.delegate?.show(error: error.rawValue)
+
+    // MARK: Computed
+    var racesCount: Int {
+        allRaces.count
+    }
+
+    var scheduleCount: Int {
+        sortedRaceSession.count
+    }
+
+    var raceTitle: String {
+        race?.raceName ?? ""
+    }
+
+    var circuitName: String {
+        race?.circuit.circuitName ?? ""
+    }
+
+    var raceLocation: String {
+        "\(race?.circuit.location.locality ?? "") | \(race?.circuit.location.country ?? "")"
+    }
+
+    // MARK: Functions
+    func processRaceSessions() {
+        addSession(date: race?.date, time: race?.time, type: .race)
+        addSession(date: race?.qualifying.date, time: race?.qualifying.time, type: .qualifying)
+        addSession(date: race?.thirdPractice?.date, time: race?.thirdPractice?.time, type: .practice3)
+
+        if let sprint = race?.sprint {
+            addSession(date: sprint.date, time: sprint.time, type: .sprint)
+            addSession(date: race?.secondPractice.date, time: race?.secondPractice.time, type: .sprintQualifying)
+        } else {
+            addSession(date: race?.secondPractice.date, time: race?.secondPractice.time, type: .practice2)
+        }
+
+        addSession(date: race?.firstPractice.date, time: race?.firstPractice.time, type: .practice1)
+    }
+
+    func race(atIndex: Int) -> RaceInfo {
+        allRaces[atIndex]
+    }
+
+    func imageName(circuitCode: String?) -> String {
+        "\(circuitCode ?? "").png"
+    }
+
+    func raceSession(atIndex: Int) -> RaceSessionDetail {
+        sortedRaceSession[atIndex]
+    }
+
+    func sessionDate(date: String) -> DateComponents {
+        DateFormatter().customDateFormatter(date: date)
+    }
+
+    func sessionTime(time: String) -> String {
+        let formattedTime = time.prefix(5)
+        return String(formattedTime)
+    }
+
+    func setRace(race: RaceInfo?) {
+        self.race = race
+    }
+
+    func fetchRace() {
+            repository?.fetchRaceResults { [weak self] result in
+                switch result {
+                case .success(let races):
+                    self?.allRaces = races.race.raceTable.races
+                    self?.sortRacesByRound()
+                    self?.delegate?.reloadView()
+                case .failure(let error):
+                    self?.delegate?.show(error: error.rawValue)
+                }
             }
-        })
+        }
+
+    // MARK: Helper Functions
+    private func addSession(date: String?, time: String?, type: SessionType) {
+        if let date = date, let time = time {
+            sortedRaceSession.append(RaceSessionDetail(date: date, time: time, type: type))
+        }
+    }
+
+    private func sortRacesByRound() {
+        allRaces.sort { race1, race2 in
+            guard let round1 = Int(race1.round), let round2 = Int(race2.round) else {
+                return false
+            }
+            return round1 < round2
+        }
     }
 }

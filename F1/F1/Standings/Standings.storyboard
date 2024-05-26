@@ -25,12 +25,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="slV-VB-v7r">
-                                <rect key="frame" x="20" y="200" width="353" height="618"/>
+                                <rect key="frame" x="20" y="180" width="353" height="638"/>
                                 <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="separatorColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DriverStTableViewCell" id="5ts-9b-0bj" customClass="DriverStTableViewCell" customModule="F1" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DriverStTableViewCell" id="5ts-9b-0bj" customClass="DriverStandingTableViewCell" customModule="F1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="353" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5ts-9b-0bj" id="RYu-iH-tZK">
@@ -43,7 +43,7 @@
                                 </prototypes>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tz8-m2-YJJ">
-                                <rect key="frame" x="20" y="149" width="353" height="32"/>
+                                <rect key="frame" x="20" y="129" width="353" height="32"/>
                                 <color key="backgroundColor" red="0.19607841970000001" green="0.19215688110000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <segments>
                                     <segment title="Drivers"/>
@@ -64,17 +64,17 @@
                             <constraint firstItem="slV-VB-v7r" firstAttribute="top" secondItem="Tz8-m2-YJJ" secondAttribute="bottom" constant="20" id="4P7-zP-xbj"/>
                             <constraint firstItem="slV-VB-v7r" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="4ZK-K9-IMC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="slV-VB-v7r" secondAttribute="bottom" id="7I7-lM-9ej"/>
-                            <constraint firstItem="Tz8-m2-YJJ" firstAttribute="top" secondItem="Id0-0l-VCv" secondAttribute="bottom" constant="30" id="GzJ-0d-65j"/>
+                            <constraint firstItem="Tz8-m2-YJJ" firstAttribute="top" secondItem="Id0-0l-VCv" secondAttribute="bottom" constant="10" id="GzJ-0d-65j"/>
                             <constraint firstItem="Id0-0l-VCv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Sia-fv-Bmd"/>
                             <constraint firstItem="Id0-0l-VCv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="WeK-UF-saC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="slV-VB-v7r" secondAttribute="trailing" constant="20" id="lgq-wW-zX8"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="segControl" destination="Tz8-m2-YJJ" id="dhI-qb-Pgc"/>
+                        <outlet property="segmentedControl" destination="Tz8-m2-YJJ" id="dhI-qb-Pgc"/>
                         <outlet property="tableView" destination="slV-VB-v7r" id="n7x-gQ-sv2"/>
-                        <segue destination="s6f-Zk-cDu" kind="show" identifier="showDriverSegue" id="Nyp-oZ-Gx9"/>
-                        <segue destination="yBu-Oy-E42" kind="show" identifier="showConstructorSegue" id="zDd-WW-NCx"/>
+                        <segue destination="s6f-Zk-cDu" kind="show" identifier="ShowDriverSegue" id="Nyp-oZ-Gx9"/>
+                        <segue destination="yBu-Oy-E42" kind="show" identifier="ShowConstructorSegue" id="zDd-WW-NCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

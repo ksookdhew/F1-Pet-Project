@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CoreDataAverageSpeed" representedClassName=".CoreDataAverageSpeed" syncable="YES" codeGenerationType="class">
+        <attribute name="speed" optional="YES" attributeType="String"/>
+        <attribute name="units" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CoreDataCircuit" representedClassName=".CoreDataCircuit" syncable="YES" codeGenerationType="class">
+        <attribute name="circuitID" optional="YES" attributeType="String"/>
+        <attribute name="circuitName" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataLocation"/>
+    </entity>
+    <entity name="CoreDataConstructor" representedClassName="CoreDataConstructor" syncable="YES" codeGenerationType="class">
+        <attribute name="constructorID" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="nationality" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CoreDataConstructorResult" representedClassName=".CoreDataConstructorResult" syncable="YES" codeGenerationType="class">
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="race" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataRace"/>
+    </entity>
+    <entity name="CoreDataConstructorStanding" representedClassName="CoreDataConstructorStanding" syncable="YES" codeGenerationType="class">
+        <attribute name="points" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+        <attribute name="positionText" optional="YES" attributeType="String"/>
+        <attribute name="wins" optional="YES" attributeType="String"/>
+        <relationship name="constructor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataConstructor"/>
+    </entity>
+    <entity name="CoreDataConstructorStandingsList" representedClassName="CoreDataConstructorStandingsList" syncable="YES" codeGenerationType="class">
+        <attribute name="round" optional="YES" attributeType="String"/>
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="constructorStandings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataConstructorStanding"/>
+    </entity>
+    <entity name="CoreDataConstructorStandingsResponse" representedClassName="CoreDataConstructorStandingsResponse" syncable="YES" codeGenerationType="class">
+        <attribute name="limit" optional="YES" attributeType="String"/>
+        <attribute name="offset" optional="YES" attributeType="String"/>
+        <attribute name="series" optional="YES" attributeType="String"/>
+        <attribute name="total" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="standingsTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataConstructorStandingsTable"/>
+    </entity>
+    <entity name="CoreDataConstructorStandingsTable" representedClassName="CoreDataConstructorStandingsTable" syncable="YES" codeGenerationType="class">
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="standingsLists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataConstructorStandingsList"/>
+    </entity>
+    <entity name="CoreDataDriver" representedClassName="CoreDataDriver" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="dateOfBirth" optional="YES" attributeType="String"/>
+        <attribute name="driverID" optional="YES" attributeType="String"/>
+        <attribute name="familyName" optional="YES" attributeType="String"/>
+        <attribute name="givenName" optional="YES" attributeType="String"/>
+        <attribute name="nationality" optional="YES" attributeType="String"/>
+        <attribute name="permanentNumber" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CoreDataDriverStanding" representedClassName=".CoreDataDriverStanding" syncable="YES" codeGenerationType="class">
+        <attribute name="points" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+        <attribute name="positionText" optional="YES" attributeType="String"/>
+        <attribute name="wins" optional="YES" attributeType="String"/>
+        <relationship name="constructor" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataConstructor"/>
+        <relationship name="driver" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataDriver"/>
+    </entity>
+    <entity name="CoreDataDriverStandingsList" representedClassName="CoreDataDriverStandingsList" syncable="YES" codeGenerationType="class">
+        <attribute name="round" optional="YES" attributeType="String"/>
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="driverStandings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataDriverStanding"/>
+    </entity>
+    <entity name="CoreDataDriverStandingsResponse" representedClassName="CoreDataDriverStandingsResponse" syncable="YES" codeGenerationType="class">
+        <attribute name="limit" optional="YES" attributeType="String"/>
+        <attribute name="offset" optional="YES" attributeType="String"/>
+        <attribute name="series" optional="YES" attributeType="String"/>
+        <attribute name="total" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="standingsTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataDriverStandingsTable"/>
+    </entity>
+    <entity name="CoreDataDriverStandingsTable" representedClassName=".CoreDataDriverStandingsTable" syncable="YES" codeGenerationType="class">
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="standingsList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataDriverStandingsList"/>
+    </entity>
+    <entity name="CoreDataFastestLap" representedClassName="CoreDataFastestLap" syncable="YES" codeGenerationType="class">
+        <attribute name="lap" optional="YES" attributeType="String"/>
+        <attribute name="rank" optional="YES" attributeType="String"/>
+        <relationship name="averageSpeed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataAverageSpeed"/>
+        <relationship name="time" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataFastestLapTime"/>
+    </entity>
+    <entity name="CoreDataFastestLapTime" representedClassName="CoreDataFastestLapTime" syncable="YES" codeGenerationType="class">
+        <attribute name="time" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CoreDataLocation" representedClassName=".CoreDataLocation" syncable="YES" codeGenerationType="class">
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="String"/>
+        <attribute name="locality" optional="YES" attributeType="String"/>
+        <attribute name="longitude" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CoreDataRace" representedClassName="CoreDataRace" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="raceName" optional="YES" attributeType="String"/>
+        <attribute name="round" optional="YES" attributeType="String"/>
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="circuit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataCircuit"/>
+        <relationship name="results" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataRaceResult"/>
+    </entity>
+    <entity name="CoreDataRaceDescriptor" representedClassName=".CoreDataRaceDescriptor" syncable="YES" codeGenerationType="class">
+        <attribute name="limit" optional="YES" attributeType="String"/>
+        <attribute name="offset" optional="YES" attributeType="String"/>
+        <attribute name="series" optional="YES" attributeType="String"/>
+        <attribute name="total" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="raceTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceTable"/>
+    </entity>
+    <entity name="CoreDataRaceInfo" representedClassName=".CoreDataRaceInfo" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="raceName" optional="YES" attributeType="String"/>
+        <attribute name="round" optional="YES" attributeType="String"/>
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="circuit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataCircuit"/>
+        <relationship name="firstPractice" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceSession"/>
+        <relationship name="qualifying" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceSession"/>
+        <relationship name="secondPractice" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceSession"/>
+        <relationship name="sprint" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceSession"/>
+        <relationship name="thirdPractice" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceSession"/>
+    </entity>
+    <entity name="CoreDataRaceResult" representedClassName=".CoreDataRaceResult" syncable="YES" codeGenerationType="class">
+        <attribute name="grid" optional="YES" attributeType="String"/>
+        <attribute name="laps" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="String"/>
+        <attribute name="points" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+        <attribute name="positionText" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <relationship name="constructor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataConstructor"/>
+        <relationship name="driver" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataDriver"/>
+        <relationship name="fastestLap" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataFastestLap"/>
+        <relationship name="time" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataResultTime"/>
+    </entity>
+    <entity name="CoreDataRaceSession" representedClassName=".CoreDataRaceSession" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CoreDataRaceSessionDetail" representedClassName=".CoreDataRaceSessionDetail" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CoreDataRaceTable" representedClassName=".CoreDataRaceTable" syncable="YES" codeGenerationType="class">
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="races" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataRaceInfo"/>
+    </entity>
+    <entity name="CoreDataRacing" representedClassName=".CoreDataRacing" syncable="YES" codeGenerationType="class">
+        <relationship name="race" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRaceDescriptor"/>
+    </entity>
+    <entity name="CoreDataResultsResponse" representedClassName="CoreDataResultsResponse" syncable="YES" codeGenerationType="class">
+        <attribute name="limit" optional="YES" attributeType="String"/>
+        <attribute name="offset" optional="YES" attributeType="String"/>
+        <attribute name="series" optional="YES" attributeType="String"/>
+        <attribute name="total" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="raceTable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataResultsTable"/>
+    </entity>
+    <entity name="CoreDataResultsTable" representedClassName="CoreDataResultsTable" syncable="YES" codeGenerationType="class">
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="races" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CoreDataRace"/>
+    </entity>
+    <entity name="CoreDataResultTime" representedClassName="CoreDataResultTime" syncable="YES" codeGenerationType="class">
+        <attribute name="millis" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
+    </entity>
+</model>

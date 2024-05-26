@@ -7,14 +7,20 @@
 
 import UIKit
 
-class StandingsViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var segControl: UISegmentedControl!
-    var selectedSegmentIndex = 1
+class StandingsViewController: LoadingIndicatorViewController {
 
+    // MARK: IBOutlets
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var segmentedControl: UISegmentedControl!
+
+    // MARK: Variables
+    var selectedSegmentIndex = 1
     private lazy var driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository(), delegate: self)
     private lazy var constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository(), delegate: self)
+    private lazy var standingsViewModel = StandingsViewModel(driverViewModel: driverViewModel, constructorViewModel: constructorViewModel, navigationDelegate: self)
+    private let dispatchGroup = DispatchGroup()
 
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -23,100 +29,95 @@ class StandingsViewController: UIViewController {
     }
 
     private func setupTableView() {
+        segmentedControl.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(DriverStTableViewCell.nib(),
-        forCellReuseIdentifier: DriverStTableViewCell.identifier)
+        tableView.register(DriverStandingTableViewCell.nib(),
+                           forCellReuseIdentifier: Identifiers.driverStandingTableViewCell)
 
     }
 
+    // MARK: IBAction
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             self.selectedSegmentIndex = 1
-            tableView.register(DriverStTableViewCell.nib(),
-            forCellReuseIdentifier: DriverStTableViewCell.identifier)
+            tableView.register(DriverStandingTableViewCell.nib(),
+                               forCellReuseIdentifier: Identifiers.driverStandingTableViewCell)
         default:
             self.selectedSegmentIndex = 2
-            tableView.register(ConstructorStTableViewCell.nib(),
-            forCellReuseIdentifier: ConstructorStTableViewCell.identifier)
+            tableView.register(ConstructorStandingTableViewCell.nib(),
+                               forCellReuseIdentifier: Identifiers.constructorStandingTableViewCell)
         }
         reloadView()
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
 
     }
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "showDriverSegue" {
-                if let destinationVC = segue.destination as? DriverViewController {
-                    if let driver: Driver = sender as? Driver {
-                        destinationVC.driver = driver
-                    }
+        if segue.identifier == Identifiers.showDriverSegue {
+            if let destinationVC = segue.destination as? DriverViewController {
+                if let driver: DriverStanding = sender as? DriverStanding {
+                    destinationVC.driver = driver
                 }
-            } else if segue.identifier == "showConstructorSegue" {
-                if let destinationVC = segue.destination as? ConstructorViewController {
-                    if let constructor: Constructor = sender as? Constructor {
-                        destinationVC.constructor = constructor
-                    }
+            }
+        } else if segue.identifier == Identifiers.showConstructorSegue {
+            if let destinationVC = segue.destination as? ConstructorViewController {
+                if let constructor: ConstructorStanding = sender as? ConstructorStanding {
+                    destinationVC.constructor = constructor
                 }
             }
         }
-
+    }
 }
 
 // MARK: - TableView Delegate
-
- extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
-     func numberOfSections(in tableView: UITableView) -> Int {
-         switch selectedSegmentIndex {
-         case 1:
-             return driverViewModel.driversCount
-         default:
-             return constructorViewModel.constructorCount
-         }
-     }
+extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        selectedSegmentIndex == 1 ? driverViewModel.driversCount : constructorViewModel.constructorCount
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        1
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-         return 4
+        4
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 148.0
-     }
+        148.0
+    }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-         let headerView = UIView()
-         headerView.backgroundColor = UIColor.clear
-         return headerView
-     }
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch selectedSegmentIndex {
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: DriverStTableViewCell.identifier)
-                    as? DriverStTableViewCell
-            else { return UITableViewCell() }
+            guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: Identifiers.driverStandingTableViewCell) as? DriverStandingTableViewCell else {
+                return UITableViewCell()
+            }
             guard let result = driverViewModel.driver(atIndex: indexPath.section) else { return UITableViewCell() }
-            cell.populateWith(driverSt: result)
+            cell.populateWith(driverStanding: result)
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
             cell.selectedBackgroundView = bgColorView
-            constructorViewModel.setDriver(constructor: result.constructors[0].constructorID, driver: result.driver)
             return cell
 
         default:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ConstructorStTableViewCell.identifier)
-                    as? ConstructorStTableViewCell
-            else { return UITableViewCell() }
-            guard let result = constructorViewModel.constructor(atIndex: indexPath.section)
-            else { return UITableViewCell() }
-            guard let drivers = constructorViewModel.getDrivers(constructorID: result.constructor.constructorID)
-            else {
+            guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: Identifiers.constructorStandingTableViewCell) as? ConstructorStandingTableViewCell else {
                 return UITableViewCell()
             }
-            cell.populateWith(constructorSt: result, driverArr: drivers)
+            guard let result = constructorViewModel.constructor(atIndex: indexPath.section)
+            else { return UITableViewCell() }
+            guard let drivers = driverViewModel.getConstructorDrivers(constructorID: result.constructor.constructorID) else {
+                return UITableViewCell()
+            }
+            let driverText = constructorViewModel.drivers(driversList: drivers)
+            cell.populateWith(constructorStanding: result, driverText: driverText)
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
             cell.selectedBackgroundView = bgColorView
@@ -124,26 +125,39 @@ class StandingsViewController: UIViewController {
         }
     }
 
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         switch selectedSegmentIndex {
-         case 1:
-             guard let result = driverViewModel.driver(atIndex: indexPath.section) else { return }
-             performSegue(withIdentifier: "showDriverSegue", sender: result)
-         default:
-             guard let result = constructorViewModel.constructor(atIndex: indexPath.section) else { return }
-             performSegue(withIdentifier: "showConstructorSegue", sender: result)
-         }
-
-     }
- }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
+    }
+}
 
 extension  StandingsViewController: ViewModelDelegate {
-
     func reloadView() {
-        tableView.reloadData()
+        self.tableView.reloadData()
+        self.driverViewModel.setConstructors()
+        if standingsViewModel.isLoaded() {
+            hideLoadingIndicator()
+            segmentedControl.isHidden = false
+        }
     }
 
     func show(error: String) {
-        // displayAlert(title: "Error", message: error, buttonTitle: "Ok")
+        showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
+    }
+}
+
+// MARK: Navigation Delegate
+protocol StandingsNavigationDelegate: AnyObject {
+    func navigateToDriver(_ driver: DriverStanding)
+    func navigateToConstructor(_ constructor: ConstructorStanding)
+}
+
+extension StandingsViewController: StandingsNavigationDelegate {
+
+    func navigateToDriver(_ driver: DriverStanding) {
+        navigate(identifier: Identifiers.showDriverSegue, sender: driver)
+    }
+
+    func navigateToConstructor(_ constructor: ConstructorStanding) {
+        navigate(identifier: Identifiers.showConstructorSegue, sender: constructor)
     }
 }
