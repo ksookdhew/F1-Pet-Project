@@ -358,35 +358,3 @@ extension CoreDataManager {
         return constructorStandingEntity
     }
 }
-
-// MARK: - Constructor Data Management
-//extension CoreDataManager {
-//
-//    func saveConstructorResults(_ racingResults: RacingResults) {
-//        deleteData(ofType: CoreDataConstructorResult.self)
-//
-//        let resultsDescriptor = racingResults.results
-//        let raceTable = resultsDescriptor.raceTable
-//
-//        let constructor = CoreDataConstructorResult(context: context)
-//        for race in raceTable.races {
-//            constructor.addToRace(saveRaceWithResults(race))
-//        }
-//        saveData()
-//    }
-//
-//    func fetchContructor() -> [Race]? {
-//        let fetchRequest: NSFetchRequest<CoreDataConstructorResult> = CoreDataConstructorResult.fetchRequest()
-//
-//        do {
-//            let coreDataResults = try context.fetch(fetchRequest)
-//            guard let coreDataConstructor = coreDataResults.first else {
-//                return nil
-//            }
-//            let res = RaceTable(from: coreDataConstructor)
-//        } catch {
-//            print("Failed to fetch driver standings: \(error)")
-//            return nil
-//        }
-//    }
-//}
