@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultsViewController: UIViewController {
+class ResultsViewController: LoadingIndicatorViewController {
 
     private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(), delegate: self)
 
@@ -88,6 +88,7 @@ extension  ResultsViewController: ViewModelDelegate {
 
     func reloadView() {
         allResultsTableView.reloadData()
+        hideLoadingIndicator()
     }
 
     func show(error: String) {

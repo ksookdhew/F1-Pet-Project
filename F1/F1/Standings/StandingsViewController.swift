@@ -7,11 +7,11 @@
 
 import UIKit
 
-class StandingsViewController: UIViewController {
+class StandingsViewController: LoadingIndicatorViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak private var tableView: UITableView!
-    @IBOutlet weak private var segControl: UISegmentedControl!
+    @IBOutlet weak private var segmentedControl: UISegmentedControl!
 
     // MARK: Variables
     var selectedSegmentIndex = 1
@@ -28,6 +28,7 @@ class StandingsViewController: UIViewController {
     }
 
     private func setupTableView() {
+        segmentedControl.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(DriverStandingTableViewCell.nib(),
@@ -130,8 +131,12 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension  StandingsViewController: ViewModelDelegate {
     func reloadView() {
-        tableView.reloadData()
-        driverViewModel.setConstructors()
+        self.tableView.reloadData()
+        self.driverViewModel.setConstructors()
+        if standingsViewModel.isLoaded() {
+            hideLoadingIndicator()
+            segmentedControl.isHidden = false
+        }
     }
 
     func show(error: String) {

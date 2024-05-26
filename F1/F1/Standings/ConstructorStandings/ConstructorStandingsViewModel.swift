@@ -12,6 +12,7 @@ class ConstructorStandingsViewModel {
     private weak var delegate: ViewModelDelegate?
     private var repository: ConstructorStandingsRepositoryType?
     private var constructorStanding: [ConstructorStanding]?
+    var isLoaded = false
 
     init(repository: ConstructorStandingsRepositoryType, delegate: ViewModelDelegate) {
         self.repository = repository
@@ -35,6 +36,7 @@ class ConstructorStandingsViewModel {
     }
 
     func fetchConstructorStandings() {
+        isLoaded = true
         repository?.fetchConstructorStandingsResults { [weak self] result in
             switch result {
             case .success(let constructorStandings):

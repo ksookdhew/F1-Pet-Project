@@ -13,6 +13,7 @@ class DriverStandingsViewModel {
     private weak var delegate: ViewModelDelegate?
     private var repository: DriverStandingsRepositoryType?
     private var driverStanding: [DriverStanding]?
+    var isLoaded = false
     var driversForConstructor: [String: [Driver?]] = [:]
 
     init(repository: DriverStandingsRepositoryType, delegate: ViewModelDelegate) {
@@ -47,6 +48,7 @@ class DriverStandingsViewModel {
     }
 
     func fetchDriverStandings() {
+        isLoaded = true
         repository?.fetchDriverStandingsResults { [weak self] result in
             switch result {
             case .success(let driverStandings):

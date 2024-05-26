@@ -186,11 +186,16 @@
                         <outlet property="currentPosition" destination="ACZ-1m-zbJ" id="dCq-1k-1Yi"/>
                         <outlet property="currentWins" destination="dgb-aF-OyM" id="t8X-IW-61H"/>
                         <outlet property="driverConstructor" destination="j6H-SY-FW8" id="VDL-QZ-cU6"/>
-                        <outlet property="driverImg" destination="c37-4h-ibh" id="O6P-gQ-Rtz"/>
+                        <outlet property="driverImage" destination="c37-4h-ibh" id="O6P-gQ-Rtz"/>
                         <outlet property="driverName" destination="IT1-27-hpK" id="MV8-X6-t48"/>
                         <outlet property="driverNationality" destination="5VC-eP-W4d" id="7FC-5i-jmC"/>
                         <outlet property="driverSurname" destination="Vr2-k6-o53" id="Vkx-5y-V7f"/>
+                        <outlet property="pointsHeading" destination="GkO-BD-KU3" id="1oI-bj-EO3"/>
+                        <outlet property="posHeading" destination="e20-cq-vSP" id="zkw-Xf-X8h"/>
+                        <outlet property="statsHeading" destination="N0r-yr-opG" id="or5-Ok-6NX"/>
+                        <outlet property="tableHeading" destination="0mk-8J-OZA" id="BDw-ae-uOh"/>
                         <outlet property="tableView" destination="Reh-le-J2b" id="yb7-pX-1pk"/>
+                        <outlet property="winsHeading" destination="qSi-WZ-grl" id="DGF-lc-QnE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
