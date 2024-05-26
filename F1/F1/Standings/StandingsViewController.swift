@@ -17,7 +17,8 @@ class StandingsViewController: LoadingIndicatorViewController {
     var selectedSegmentIndex = 1
     private lazy var driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository(), delegate: self)
     private lazy var constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository(), delegate: self)
-    private lazy var standingsViewModel = StandingsViewModel(driverViewModel: driverViewModel, constructorViewModel: constructorViewModel, navigationDelegate: self)
+    private lazy var standingsViewModel = StandingsViewModel(driverViewModel: driverViewModel,
+                                                             constructorViewModel: constructorViewModel, navigationDelegate: self)
     private let dispatchGroup = DispatchGroup()
 
     // MARK: Functions
@@ -50,9 +51,15 @@ class StandingsViewController: LoadingIndicatorViewController {
                                forCellReuseIdentifier: Identifiers.constructorStandingTableViewCell)
         }
         reloadView()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-
+        let numberOfSections = tableView.numberOfSections
+        if numberOfSections > 0 {
+            let numberOfRows = tableView.numberOfRows(inSection: 0)
+            if numberOfRows > 0 {
+                tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+            }
+        }
     }
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Identifiers.showDriverSegue {

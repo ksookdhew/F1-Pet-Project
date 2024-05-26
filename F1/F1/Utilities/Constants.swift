@@ -14,6 +14,7 @@ struct Identifiers {
     static let driverInfoTableViewCell = "DriverInfoTableViewCell"
     static let driverStandingTableViewCell = "DriverStandingTableViewCell"
     static let constructorTableViewCell = "ConstructorTableViewCell"
+    static let constructorInfoTableViewCell = "ConstructorInfoTableViewCell"
     static let constructorResultsIdentifier = "ConstructorResultHeader"
     static let constructorStandingTableViewCell = "ConstructorStandingTableViewCell"
     static let raceScheduleIndentifier = "RaceScheduleTableViewCell"
