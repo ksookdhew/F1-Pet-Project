@@ -19,8 +19,6 @@
 		2629DFAB2BBC22D600EC6139 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2629DFA92BBC22D600EC6139 /* Main.storyboard */; };
 		2629DFAD2BBC22D900EC6139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2629DFAC2BBC22D900EC6139 /* Assets.xcassets */; };
 		2629DFBB2BBC22D900EC6139 /* F1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629DFBA2BBC22D900EC6139 /* F1Tests.swift */; };
-		2629DFC52BBC22D900EC6139 /* F1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629DFC42BBC22D900EC6139 /* F1UITests.swift */; };
-		2629DFC72BBC22D900EC6139 /* F1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629DFC62BBC22D900EC6139 /* F1UITestsLaunchTests.swift */; };
 		2629E02D2BBC354D00EC6139 /* ServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E02C2BBC354D00EC6139 /* ServiceErrors.swift */; };
 		2629E0322BBC35C200EC6139 /* DriverStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E02F2BBC35C100EC6139 /* DriverStandingsViewModel.swift */; };
 		2629E03B2BBC366800EC6139 /* ConstructorStandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2629E0382BBC366800EC6139 /* ConstructorStandingsViewModel.swift */; };
@@ -126,8 +124,6 @@
 		2629DFB62BBC22D900EC6139 /* F1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2629DFBA2BBC22D900EC6139 /* F1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1Tests.swift; sourceTree = "<group>"; };
 		2629DFC02BBC22D900EC6139 /* F1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = F1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2629DFC42BBC22D900EC6139 /* F1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1UITests.swift; sourceTree = "<group>"; };
-		2629DFC62BBC22D900EC6139 /* F1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2629E02C2BBC354D00EC6139 /* ServiceErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceErrors.swift; sourceTree = "<group>"; };
 		2629E02F2BBC35C100EC6139 /* DriverStandingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverStandingsViewModel.swift; sourceTree = "<group>"; };
 		2629E0382BBC366800EC6139 /* ConstructorStandingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsViewModel.swift; sourceTree = "<group>"; };
@@ -240,7 +236,6 @@
 			children = (
 				2629DFA22BBC22D600EC6139 /* F1 */,
 				2629DFB92BBC22D900EC6139 /* F1Tests */,
-				2629DFC32BBC22D900EC6139 /* F1UITests */,
 				2629DFA12BBC22D600EC6139 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -288,15 +283,6 @@
 				26326C162BE93E7C0042FA27 /* ConstructorViewModelTests.swift */,
 			);
 			path = F1Tests;
-			sourceTree = "<group>";
-		};
-		2629DFC32BBC22D900EC6139 /* F1UITests */ = {
-			isa = PBXGroup;
-			children = (
-				2629DFC42BBC22D900EC6139 /* F1UITests.swift */,
-				2629DFC62BBC22D900EC6139 /* F1UITestsLaunchTests.swift */,
-			);
-			path = F1UITests;
 			sourceTree = "<group>";
 		};
 		2629E0272BBC34E100EC6139 /* Config */ = {
@@ -787,8 +773,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2629DFC52BBC22D900EC6139 /* F1UITests.swift in Sources */,
-				2629DFC72BBC22D900EC6139 /* F1UITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
