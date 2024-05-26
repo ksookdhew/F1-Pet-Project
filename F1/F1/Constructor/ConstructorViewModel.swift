@@ -70,7 +70,7 @@ class ConstructorViewModel {
         repository?.fetchConstructorResults(constructor: constructorName ?? "") { [weak self] result in
             switch result {
             case .success(let constructor):
-                self?.constructorResults = constructor.results.raceTable.races
+                self?.constructorResults = constructor.results.raceTable.races.reversed()
                 self?.delegate?.reloadView()
             case .failure(let error):
                 print(error)

@@ -16,6 +16,10 @@
         <attribute name="nationality" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="CoreDataConstructorResult" representedClassName=".CoreDataConstructorResult" syncable="YES" codeGenerationType="class">
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="race" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataRace"/>
+    </entity>
     <entity name="CoreDataConstructorStanding" representedClassName="CoreDataConstructorStanding" syncable="YES" codeGenerationType="class">
         <attribute name="points" optional="YES" attributeType="String"/>
         <attribute name="position" optional="YES" attributeType="String"/>
