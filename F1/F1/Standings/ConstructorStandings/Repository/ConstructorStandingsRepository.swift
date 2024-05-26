@@ -19,8 +19,19 @@ protocol ConstructorStandingsRepositoryType: AnyObject {
 class ConstructorStandingsRepository: ConstructorStandingsRepositoryType {
 
     func fetchConstructorStandingsResults(completion: @escaping (ConstructorStandingsResults)) {
-        URLSession.shared.request(endpoint:
-                                    Endpoints.constructorStanding, method: .GET, completion: completion)
+        let url = Endpoints.constructorStanding
+        URLSession.shared.request(endpoint: url, method: .GET) { (result: Result<ConstructorStandingsModel, APIError>) in
+            switch result {
+            case .success(let constructorStandingsModel):
+                CoreDataManager.shared.saveConstructorStandings(constructorStandingsModel)
+                completion(.success(constructorStandingsModel))
+            case .failure(let error):
+                if let savedStandings = CoreDataManager.shared.fetchConstructorStandings() {
+                    completion(.success(savedStandings))
+                } else {
+                    completion(.failure(error))
+                }
+            }
+        }
     }
-
 }
