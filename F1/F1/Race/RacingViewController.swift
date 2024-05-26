@@ -11,10 +11,10 @@ class RacingViewController: LoadingIndicatorViewController {
 
     private lazy var viewModel = RaceViewModel(repository: RaceRepository(), delegate: self)
 
-    // MARK: IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak private var collectionView: UICollectionView!
 
-    // MARK: Functions
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.fetchRace()
@@ -55,7 +55,8 @@ extension RacingViewController: UICollectionViewDataSource, UICollectionViewDele
             return UICollectionViewCell()
         }
         let race = viewModel.race(atIndex: indexPath.item)
-        cell.populateWith(raceName: race.circuit.location.locality, track: viewModel.imageName(circuitCode: race.circuit.circuitID), raceDate: viewModel.sessionDate(date: race.date))
+        cell.populateWith(raceName: race.circuit.location.locality, track: viewModel.imageName(circuitCode: race.circuit.circuitID),
+        raceDate: viewModel.sessionDate(date: race.date))
         return cell
     }
 
