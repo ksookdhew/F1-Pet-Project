@@ -24,7 +24,7 @@ class DriverViewModel {
     var resultsCount: Int {
         driverResults?.count ?? 0
     }
-    
+
     var driverImageName: String {
         imageName(driverCode: driver?.driver.code)
     }
@@ -89,7 +89,7 @@ class DriverViewModel {
         repository?.fetchDriverResults(driver: driverName ?? "") { [weak self] result in
             switch result {
             case .success(let driver):
-                self?.driverResults = driver.results.raceTable.races
+                self?.driverResults = driver.results.raceTable.races.reversed()
                 self?.delegate?.reloadView()
             case .failure(let error):
                 self?.delegate?.show(error: error.rawValue)

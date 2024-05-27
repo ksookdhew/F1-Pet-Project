@@ -68,7 +68,7 @@ extension CoreDataManager {
         let raceTable = resultsDescriptor.raceTable
 
         for race in raceTable.races {
-            saveRaceWithResults(race)
+            let race = saveRaceWithResults(race)
         }
         saveData()
     }
@@ -130,7 +130,7 @@ extension CoreDataManager {
         }
     }
 
-    private func saveRaceWithResults(_ race: Race) {
+    private func saveRaceWithResults(_ race: Race) -> CoreDataRace {
         let raceEntity = CoreDataRace(context: context)
         raceEntity.raceName = race.raceName
         raceEntity.date = race.date
@@ -143,8 +143,9 @@ extension CoreDataManager {
         raceEntity.circuit = circuitEntity
 
         for result in race.results {
-            raceEntity.addToResults(saveRaceResult(result, to: raceEntity))
+            raceEntity.addToResults(saveRaceResult(result))
         }
+        return raceEntity
     }
 
     private func saveCircuit(_ circuit: Circuit) -> CoreDataCircuit {
@@ -177,7 +178,7 @@ extension CoreDataManager {
         return sessionEntity
     }
 
-    private func saveRaceResult(_ result: RaceResult, to raceEntity: CoreDataRace) -> CoreDataRaceResult {
+    private func saveRaceResult(_ result: RaceResult) -> CoreDataRaceResult {
         let resultEntity = CoreDataRaceResult(context: context)
         resultEntity.number = result.number
         resultEntity.position = result.position
