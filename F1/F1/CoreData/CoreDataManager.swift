@@ -38,12 +38,15 @@ class CoreDataManager {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
         do {
+            print("Attempting to delete data for entity: \(T.self)")
             try context.execute(deleteRequest)
-            try context.save()
+            saveData()
+            print("Successfully deleted data for entity: \(T.self)")
         } catch {
-            print("Failed to delete old data: \(error)")
+            print("Failed to delete data for entity: \(T.self): \(error)")
         }
     }
+
 }
 
 // MARK: - Racing Data Management
@@ -62,8 +65,8 @@ extension CoreDataManager {
     }
 
     func saveRacingResults(_ racingResults: RacingResults) {
-        deleteData(ofType: CoreDataRaceResult.self)
 
+        deleteData(ofType: CoreDataRace.self)
         let resultsDescriptor = racingResults.results
         let raceTable = resultsDescriptor.raceTable
 

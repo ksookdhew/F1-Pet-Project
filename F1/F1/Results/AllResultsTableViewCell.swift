@@ -26,7 +26,7 @@ class AllResultsTableViewCell: UITableViewCell {
         round.text="Round \(race.round)"
         day.text = "\(raceDate.day ?? 0)"
         month.text = "\(Constants.monthAbbreviations[(raceDate.month ?? 1)-1])"
-        if race.results.count > 0 {
+        if race.results.count > 2 {
             firstDriver.text = "\(race.results[0].driver.code)"
             secondDriver.text = "\(race.results[1].driver.code)"
             thirdDriver.text = "\(race.results[2].driver.code)"
