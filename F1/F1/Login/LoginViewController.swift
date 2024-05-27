@@ -17,12 +17,30 @@ class LoginViewController: UIViewController {
     // MARK: Variables
     private lazy var viewModel = LoginViewModel(navigationDelegate: self)
 
-    // MARK: Function
+    // MARK: Functions
     override func viewDidLoad() {
         errorMessage.isHidden = true
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+
     }
 
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= 150
+            }
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
     // MARK: IBAction
     @IBAction func loginAction(_ sender: Any) {
         if viewModel.validDetails(givenUsername: username.text, givenPassword: password.text) {
