@@ -9,11 +9,7 @@ import UIKit
 
 class MoreViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
+    //MARK: Logout Function
     @IBAction func logOut(_ sender: Any) {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let sceneDelegate = windowScene.delegate as? SceneDelegate {
@@ -24,5 +20,4 @@ class MoreViewController: UIViewController {
             sceneDelegate.window?.rootViewController = navigationController
         }
     }
-
 }
