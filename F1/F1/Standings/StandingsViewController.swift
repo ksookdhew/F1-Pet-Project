@@ -15,16 +15,13 @@ class StandingsViewController: LoadingIndicatorViewController {
 
     // MARK: Variables
     var selectedSegmentIndex = 1
-    private lazy var driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository(), delegate: self)
-    private lazy var constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository(), delegate: self)
-    private lazy var standingsViewModel = StandingsViewModel(driverViewModel: driverViewModel, constructorViewModel: constructorViewModel, navigationDelegate: self)
+    private lazy var standingsViewModel = StandingsViewModel(navigationDelegate: self, delegate: self)
 
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        driverViewModel.fetchDriverStandings()
-        constructorViewModel.fetchConstructorStandings()
+        standingsViewModel.fetchStandings()
     }
 
     private func setupTableView() {
@@ -73,7 +70,7 @@ class StandingsViewController: LoadingIndicatorViewController {
 // MARK: - TableView Delegate
 extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        selectedSegmentIndex == 1 ? driverViewModel.driversCount : constructorViewModel.constructorCount
+        selectedSegmentIndex == 1 ? standingsViewModel.driverViewModel.driversCount : standingsViewModel.constructorViewModel.constructorCount
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,7 +95,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 .dequeueReusableCell(withIdentifier: Identifiers.driverStandingTableViewCell) as? DriverStandingTableViewCell else {
                 return UITableViewCell()
             }
-            guard let result = driverViewModel.driver(atIndex: indexPath.section) else { return UITableViewCell() }
+            guard let result = standingsViewModel.driverViewModel.driver(atIndex: indexPath.section) else { return UITableViewCell() }
             cell.populateWith(driverStanding: result)
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
@@ -110,12 +107,12 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 .dequeueReusableCell(withIdentifier: Identifiers.constructorStandingTableViewCell) as? ConstructorStandingTableViewCell else {
                 return UITableViewCell()
             }
-            guard let result = constructorViewModel.constructor(atIndex: indexPath.section)
+            guard let result = standingsViewModel.constructorViewModel.constructor(atIndex: indexPath.section)
             else { return UITableViewCell() }
-            guard let drivers = driverViewModel.getConstructorDrivers(constructorID: result.constructor.constructorID) else {
+            guard let drivers = standingsViewModel.driverViewModel.getConstructorDrivers(constructorID: result.constructor.constructorID) else {
                 return UITableViewCell()
             }
-            let driverText = constructorViewModel.drivers(driversList: drivers)
+            let driverText = standingsViewModel.constructorViewModel.drivers(driversList: drivers)
             cell.populateWith(constructorStanding: result, driverText: driverText)
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
@@ -132,7 +129,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
 extension  StandingsViewController: ViewModelDelegate {
     func reloadView() {
         self.tableView.reloadData()
-        self.driverViewModel.setConstructors()
+        self.standingsViewModel.driverViewModel.setConstructors()
         if standingsViewModel.isLoaded() {
             hideLoadingIndicator()
             segmentedControl.isHidden = false
@@ -141,6 +138,7 @@ extension  StandingsViewController: ViewModelDelegate {
 
     func show(error: String) {
         showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
+        hideLoadingIndicator()
     }
 }
 

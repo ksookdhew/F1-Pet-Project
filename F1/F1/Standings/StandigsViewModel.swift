@@ -10,16 +10,17 @@ class StandingsViewModel {
 
     // MARK: Variables
     private weak var navigationDelegate: StandingsNavigationDelegate?
-    private let driverViewModel: DriverStandingsViewModel
-    private let constructorViewModel: ConstructorStandingsViewModel
+    private weak var delegate: ViewModelDelegate?
+    private var driverStanding: [DriverStanding]?
+    private var constructorStanding: [ConstructorStanding]?
+    let driverViewModel: DriverStandingsViewModel
+    let constructorViewModel: ConstructorStandingsViewModel
 
-    init(driverViewModel: DriverStandingsViewModel, constructorViewModel: ConstructorStandingsViewModel, navigationDelegate: StandingsNavigationDelegate?) {
-        self.driverViewModel = driverViewModel
-        self.constructorViewModel = constructorViewModel
+    init(navigationDelegate: StandingsNavigationDelegate?, delegate: ViewModelDelegate) {
+        self.driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository())
+        self.constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository())
         self.navigationDelegate = navigationDelegate
-    }
-    func isLoaded() -> Bool {
-        driverViewModel.isLoaded && constructorViewModel.isLoaded
+        self.delegate = delegate
     }
 
     // MARK: Functions
@@ -35,4 +36,41 @@ class StandingsViewModel {
             }
         }
     }
+
+    func isLoaded() -> Bool {
+        driverViewModel.isLoaded && constructorViewModel.isLoaded
+    }
+
+    func fetchStandings() {
+        let dispatchGroup = DispatchGroup()
+
+        dispatchGroup.enter()
+        driverViewModel.fetchDriverStandings { [weak self] driverStandings in
+            if driverStandings != nil {
+                self?.driverStanding = driverStandings
+            } else {
+                self?.delegate?.show(error: "Error")
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.enter()
+        constructorViewModel.fetchConstructorStandings { [weak self] constructorStandings in
+            if constructorStandings != nil {
+                self?.constructorStanding = constructorStandings
+            } else {
+                self?.delegate?.show(error: "Error")
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            if self?.driverStanding != nil && self?.constructorStanding != nil {
+                self?.delegate?.reloadView()
+            } else {
+                self?.delegate?.show(error: "Error")
+            }
+        }
+    }
+
 }

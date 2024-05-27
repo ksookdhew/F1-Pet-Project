@@ -9,14 +9,12 @@ import Foundation
 class ConstructorStandingsViewModel {
 
     // MARK: Variables
-    private weak var delegate: ViewModelDelegate?
     private var repository: ConstructorStandingsRepositoryType?
-    private var constructorStanding: [ConstructorStanding]?
+    var constructorStanding: [ConstructorStanding]?
     var isLoaded = false
 
-    init(repository: ConstructorStandingsRepositoryType, delegate: ViewModelDelegate) {
+    init(repository: ConstructorStandingsRepositoryType) {
         self.repository = repository
-        self.delegate = delegate
     }
 
     // MARK: Computed Variables
@@ -35,15 +33,16 @@ class ConstructorStandingsViewModel {
         return firstTwoCodes.joined(separator: "/")
     }
 
-    func fetchConstructorStandings() {
-        isLoaded = true
+    func fetchConstructorStandings(completion: @escaping ([ConstructorStanding]?) -> Void) {
         repository?.fetchConstructorStandingsResults { [weak self] result in
             switch result {
             case .success(let constructorStandings):
-                self?.constructorStanding = constructorStandings.constructorStandings.standingsTable.standingsLists.first?.constructorStandings
-                self?.delegate?.reloadView()
-            case .failure(let error):
-                self?.delegate?.show(error: error.rawValue)
+                self?.constructorStanding =
+                   constructorStandings.constructorStandings.standingsTable.standingsLists.first?.constructorStandings
+                self?.isLoaded = true
+                completion(self?.constructorStanding)
+            case .failure:
+                completion(nil)
             }
         }
     }
