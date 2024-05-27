@@ -26,6 +26,7 @@ struct Identifiers {
     static let showRaceSegue = "ShowRaceInfoSegue"
     static let showRaceResultsSegue = "ShowRaceResultsSegue"
     static let showTabSegue = "ShowTabSegue"
+    static let logOutSegue = "LogOutSegue"
 }
 
 struct Endpoints {

@@ -73,6 +73,7 @@
 		26592A2E2C0373120043E4A4 /* ConstructorInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26592A2C2C0373120043E4A4 /* ConstructorInfoTableViewCell.xib */; };
 		26592A312C04AA0C0043E4A4 /* MoreScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26592A302C04AA0C0043E4A4 /* MoreScreen.storyboard */; };
 		26592A332C04AAEC0043E4A4 /* ComingSoon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26592A322C04AAEC0043E4A4 /* ComingSoon.storyboard */; };
+		26592A352C04BE6F0043E4A4 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26592A342C04BE6F0043E4A4 /* MoreViewController.swift */; };
 		26B97EBE2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */; };
 		26B97EBF2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */; };
 		26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */; };
@@ -186,6 +187,7 @@
 		26592A2C2C0373120043E4A4 /* ConstructorInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConstructorInfoTableViewCell.xib; sourceTree = "<group>"; };
 		26592A302C04AA0C0043E4A4 /* MoreScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoreScreen.storyboard; sourceTree = "<group>"; };
 		26592A322C04AAEC0043E4A4 /* ComingSoon.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComingSoon.storyboard; sourceTree = "<group>"; };
+		26592A342C04BE6F0043E4A4 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				26592A302C04AA0C0043E4A4 /* MoreScreen.storyboard */,
+				26592A342C04BE6F0043E4A4 /* MoreViewController.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				26C993D02BC6B3BA0041F3B1 /* LoginViewModel.swift in Sources */,
 				2629E0572BBC43CC00EC6139 /* ConstructorViewModel.swift in Sources */,
 				26C993BB2BC3FB6A0041F3B1 /* RacingResultViewController.swift in Sources */,
+				26592A352C04BE6F0043E4A4 /* MoreViewController.swift in Sources */,
 				2629E04B2BBC390400EC6139 /* CircuitDetail.swift in Sources */,
 				2629E0792BBD945500EC6139 /* ResultsViewController.swift in Sources */,
 				2629E0772BBD944700EC6139 /* ResultsViewModel.swift in Sources */,

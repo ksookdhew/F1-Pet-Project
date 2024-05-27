@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         errorMessage.isHidden = true
+        self.navigationItem.setHidesBackButton(true, animated: true)
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
                                                name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -41,6 +42,7 @@ class LoginViewController: UIViewController {
             self.view.frame.origin.y = 0
         }
     }
+
     // MARK: IBAction
     @IBAction func loginAction(_ sender: Any) {
         if viewModel.validDetails(givenUsername: username.text, givenPassword: password.text) {

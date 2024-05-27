@@ -7,20 +7,72 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--More View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="MoreViewController" customModule="F1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boI-1e-9bd">
+                                <rect key="frame" x="25" y="59" width="124" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dq1-I7-avA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This app is designed for Formula 1 fans who wish to stay updated with the latest results, standings and race schedules " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="y25-mY-6vA">
+                                <rect key="frame" x="40" y="119" width="313" height="262"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="262" id="poB-fk-MlG"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urT-vb-FL5">
+                                <rect key="frame" x="20" y="401" width="85" height="35"/>
+                                <color key="tintColor" red="0.91764706370000004" green="0.23921570180000001" blue="0.14509806040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOut:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ogk-yF-BIy"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="boI-1e-9bd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="8Vk-HG-JYj"/>
+                            <constraint firstItem="urT-vb-FL5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="BhJ-wn-K83"/>
+                            <constraint firstItem="y25-mY-6vA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="TVP-LJ-6d8"/>
+                            <constraint firstItem="y25-mY-6vA" firstAttribute="top" secondItem="boI-1e-9bd" secondAttribute="bottom" constant="20" id="XaK-iG-xZy"/>
+                            <constraint firstItem="boI-1e-9bd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="iXT-bW-UDk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="y25-mY-6vA" secondAttribute="trailing" constant="40" id="oua-Id-iFT"/>
+                            <constraint firstItem="urT-vb-FL5" firstAttribute="top" secondItem="y25-mY-6vA" secondAttribute="bottom" constant="20" id="s2n-Oa-8Ct"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <segue destination="ZuS-Pj-sX6" kind="show" identifier="LogOutSegue" id="4Pq-iD-zRG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="4"/>
+            <point key="canvasLocation" x="-5.343511450381679" y="3.5211267605633805"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="1yZ-QJ-NjE">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Login" storyboardName="Login" id="ZuS-Pj-sX6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Mz6-t8-aKF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DBo-6r-FQy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="927" y="2"/>
         </scene>
     </scenes>
 </document>
