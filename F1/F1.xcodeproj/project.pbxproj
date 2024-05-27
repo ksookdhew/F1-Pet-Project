@@ -67,6 +67,8 @@
 		26326C192BECBD950042FA27 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C182BECBD950042FA27 /* ViewController+Extension.swift */; };
 		26326C1B2BECC5610042FA27 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C1A2BECC5610042FA27 /* DateFormatter.swift */; };
 		26326C1F2BEDE8770042FA27 /* ViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26326C1E2BEDE8770042FA27 /* ViewModelDelegate.swift */; };
+		26592A292C0354B90043E4A4 /* DriverInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26592A272C0354B90043E4A4 /* DriverInfoTableViewCell.swift */; };
+		26592A2A2C0354B90043E4A4 /* DriverInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26592A282C0354B90043E4A4 /* DriverInfoTableViewCell.xib */; };
 		26B97EBE2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */; };
 		26B97EBF2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */; };
 		26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */; };
@@ -174,6 +176,8 @@
 		26326C182BECBD950042FA27 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		26326C1A2BECC5610042FA27 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		26326C1E2BEDE8770042FA27 /* ViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelDelegate.swift; sourceTree = "<group>"; };
+		26592A272C0354B90043E4A4 /* DriverInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverInfoTableViewCell.swift; sourceTree = "<group>"; };
+		26592A282C0354B90043E4A4 /* DriverInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverInfoTableViewCell.xib; sourceTree = "<group>"; };
 		26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -538,6 +542,8 @@
 				260FFE2D2BCAEEB800B0102D /* DriverResultHeader.xib */,
 				26C993F72BCA73BD0041F3B1 /* DriverTableViewCell.xib */,
 				26C993F52BCA73830041F3B1 /* driverTableViewCell.swift */,
+				26592A272C0354B90043E4A4 /* DriverInfoTableViewCell.swift */,
+				26592A282C0354B90043E4A4 /* DriverInfoTableViewCell.xib */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -664,6 +670,7 @@
 				2629E04E2BBC3A7500EC6139 /* Driver.storyboard in Resources */,
 				26C993E92BC72A9D0041F3B1 /* DriverStandingTableViewCell.xib in Resources */,
 				260FFE2E2BCAEEB800B0102D /* DriverResultHeader.xib in Resources */,
+				26592A2A2C0354B90043E4A4 /* DriverInfoTableViewCell.xib in Resources */,
 				26C993BF2BC3FB7D0041F3B1 /* RaceResultTableViewCell.xib in Resources */,
 				26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */,
 				2629DFAB2BBC22D600EC6139 /* Main.storyboard in Resources */,
@@ -724,6 +731,7 @@
 				26FAA2FB2BD2B359002B12EA /* Constants.swift in Sources */,
 				2629E0322BBC35C200EC6139 /* DriverStandingsViewModel.swift in Sources */,
 				2629E0492BBC390400EC6139 /* Driver.swift in Sources */,
+				26592A292C0354B90043E4A4 /* DriverInfoTableViewCell.swift in Sources */,
 				2629E0752BBD943900EC6139 /* ResultsRepository.swift in Sources */,
 				26C993B82BC3E9920041F3B1 /* AllResultsTableViewCell.swift in Sources */,
 				26326BC52BDEAB9A0042FA27 /* RacingViewController.swift in Sources */,
