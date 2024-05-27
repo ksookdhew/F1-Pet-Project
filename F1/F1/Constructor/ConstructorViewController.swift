@@ -46,7 +46,6 @@ extension ConstructorViewController: ViewModelDelegate {
 
     func reloadView() {
         tableView.reloadData()
-//        constructorDriver.text = viewModel.drivers
         hideLoadingIndicator()
         tableView.isHidden = false
     }
