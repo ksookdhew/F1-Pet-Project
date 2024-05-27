@@ -71,6 +71,8 @@
 		26592A2A2C0354B90043E4A4 /* DriverInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26592A282C0354B90043E4A4 /* DriverInfoTableViewCell.xib */; };
 		26592A2D2C0373120043E4A4 /* ConstructorInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26592A2B2C0373120043E4A4 /* ConstructorInfoTableViewCell.swift */; };
 		26592A2E2C0373120043E4A4 /* ConstructorInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26592A2C2C0373120043E4A4 /* ConstructorInfoTableViewCell.xib */; };
+		26592A312C04AA0C0043E4A4 /* MoreScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26592A302C04AA0C0043E4A4 /* MoreScreen.storyboard */; };
+		26592A332C04AAEC0043E4A4 /* ComingSoon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26592A322C04AAEC0043E4A4 /* ComingSoon.storyboard */; };
 		26B97EBE2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */; };
 		26B97EBF2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */; };
 		26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */; };
@@ -182,6 +184,8 @@
 		26592A282C0354B90043E4A4 /* DriverInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverInfoTableViewCell.xib; sourceTree = "<group>"; };
 		26592A2B2C0373120043E4A4 /* ConstructorInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorInfoTableViewCell.swift; sourceTree = "<group>"; };
 		26592A2C2C0373120043E4A4 /* ConstructorInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConstructorInfoTableViewCell.xib; sourceTree = "<group>"; };
+		26592A302C04AA0C0043E4A4 /* MoreScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoreScreen.storyboard; sourceTree = "<group>"; };
+		26592A322C04AAEC0043E4A4 /* ComingSoon.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComingSoon.storyboard; sourceTree = "<group>"; };
 		26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 		2629DFA22BBC22D600EC6139 /* F1 */ = {
 			isa = PBXGroup;
 			children = (
+				26592A2F2C04A9F60043E4A4 /* More */,
 				262C3B922BF3DCEF006A8C14 /* CoreData */,
 				2629E0272BBC34E100EC6139 /* Config */,
 				26C993D52BC701FD0041F3B1 /* Standings */,
@@ -469,6 +474,7 @@
 			children = (
 				2629E0862BBE846400EC6139 /* Tab Bar.storyboard */,
 				262C3CCE2BF927C4006A8C14 /* LoadingIndicator.swift */,
+				26592A322C04AAEC0043E4A4 /* ComingSoon.storyboard */,
 			);
 			name = UserInterfaces;
 			sourceTree = "<group>";
@@ -480,6 +486,14 @@
 				262C3B932BF48BB2006A8C14 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		26592A2F2C04A9F60043E4A4 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				26592A302C04AA0C0043E4A4 /* MoreScreen.storyboard */,
+			);
+			path = More;
 			sourceTree = "<group>";
 		};
 		26B97EBB2BD3E54E00EA34A3 /* Custom Cell */ = {
@@ -660,6 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2629E0832BBDE02A00EC6139 /* Race.storyboard in Resources */,
+				26592A332C04AAEC0043E4A4 /* ComingSoon.storyboard in Resources */,
 				26C993D42BC6B3E20041F3B1 /* Login.storyboard in Resources */,
 				260FFE372BCBDA5B00B0102D /* ConstructorResultHeader.xib in Resources */,
 				2629E0722BBD941B00EC6139 /* Results.storyboard in Resources */,
@@ -682,6 +697,7 @@
 				26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */,
 				2629DFAB2BBC22D600EC6139 /* Main.storyboard in Resources */,
 				26C993C72BC535B10041F3B1 /* RaceResultHeader.xib in Resources */,
+				26592A312C04AA0C0043E4A4 /* MoreScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
