@@ -21,6 +21,7 @@ struct Identifiers {
     static let racingIdentifier = "RacingCollectionViewCell"
     static let raceResultTableViewCell = "RaceResultTableViewCell"
     static let raceResultHeader = "RaceResultHeader"
+    static let login = "Login"
     static let showDriverSegue = "ShowDriverSegue"
     static let showConstructorSegue = "ShowConstructorSegue"
     static let showRaceSegue = "ShowRaceInfoSegue"

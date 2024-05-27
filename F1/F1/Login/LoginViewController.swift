@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         errorMessage.isHidden = true
-        self.navigationItem.setHidesBackButton(true, animated: true)
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
                                                name: UIResponder.keyboardWillShowNotification, object: nil)

@@ -13,13 +13,16 @@ class MoreViewController: UIViewController {
         super.viewDidLoad()
 
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Identifiers.logOutSegue {
-            self.hidesBottomBarWhenPushed = true
-        }
-    }
+    
     @IBAction func logOut(_ sender: Any) {
-        navigate(identifier: Identifiers.logOutSegue, sender: self)
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = windowScene.delegate as? SceneDelegate {
+            let storyboard = UIStoryboard(name: Identifiers.login, bundle: nil)
+            let loginViewController = storyboard.instantiateViewController(withIdentifier: Identifiers.login)
+            let navigationController = UINavigationController(rootViewController: loginViewController)
+            navigationController.navigationBar.isHidden = true
+            sceneDelegate.window?.rootViewController = navigationController
+        }
     }
 
 }
