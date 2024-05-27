@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     // MARK: Variables
     private lazy var viewModel = LoginViewModel(navigationDelegate: self)
 
-    // MARK: Function
+    // MARK: Functions
     override func viewDidLoad() {
         errorMessage.isHidden = true
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
 
     }
 
-    @objc func keyboardWillShow(notification: NSNotification) {
+    @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= 150
@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         }
     }
 
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc private func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
