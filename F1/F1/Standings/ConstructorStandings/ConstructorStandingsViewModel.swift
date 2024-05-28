@@ -39,11 +39,16 @@ class ConstructorStandingsViewModel {
             case .success(let constructorStandings):
                 self?.constructorStanding =
                    constructorStandings.constructorStandings.standingsTable.standingsLists.first?.constructorStandings
+                self?.sortConstructorStandings()
                 self?.isLoaded = true
                 completion(self?.constructorStanding)
             case .failure:
                 completion(nil)
             }
         }
+    }
+
+    private func sortConstructorStandings() {
+        constructorStanding =  constructorStanding?.sorted { Int($0.position) ?? 0 < Int($1.position) ?? 0 }
     }
 }
