@@ -20,7 +20,7 @@
         <!--Login View Controller-->
         <scene sceneID="WQZ-ta-4Sy">
             <objects>
-                <viewController id="Ogp-Em-XeI" customClass="LoginViewController" customModule="F1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="Ogp-Em-XeI" customClass="LoginViewController" customModule="F1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tWU-mm-n3O">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
