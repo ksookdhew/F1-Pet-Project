@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
     }
 
     // MARK: IBAction
-    @IBAction func loginAction(_ sender: Any) {
+    @IBAction private func loginAction(_ sender: Any) {
         if viewModel.validDetails(givenUsername: username.text, givenPassword: password.text) {
             errorMessage.isHidden = true
             viewModel.performSegue()

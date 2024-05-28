@@ -10,7 +10,7 @@ import UIKit
 class MoreViewController: UIViewController {
 
     // MARK: Logout Function
-    @IBAction func logOut(_ sender: Any) {
+    @IBAction private func logOut(_ sender: Any) {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let sceneDelegate = windowScene.delegate as? SceneDelegate {
             let storyboard = UIStoryboard(name: Identifiers.login, bundle: nil)
