@@ -23,6 +23,7 @@ class ResultsRepository: ResultsRepositoryType {
         URLSession.shared.request(endpoint: url, method: .GET) { (result: Result<RacingResults, APIError>) in
             switch result {
             case .success(let results):
+                Flags.offline = false
                 CoreDataManager.shared.saveRacingResults(results)
                 completion(.success(results))
             case .failure(let error):
@@ -31,6 +32,7 @@ class ResultsRepository: ResultsRepositoryType {
                     completion(.success(RacingResults(results: ResultsResponse(
                         series: "F1", url: "", limit: "", offset: "", total: "", raceTable: RaceTable(season: "", races: savedResults)))))
                 } else {
+                    Flags.offline = false
                     completion(.failure(error))
                 }
             }

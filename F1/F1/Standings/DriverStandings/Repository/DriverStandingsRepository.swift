@@ -23,12 +23,15 @@ class DriverStandingsRepository: DriverStandingsRepositoryType {
         URLSession.shared.request(endpoint: url, method: .GET) { (result: Result<DriverStandingsModel, APIError>) in
             switch result {
             case .success(let driverStandingsModel):
+                Flags.offline = false
                 CoreDataManager.shared.saveDriverStandings(driverStandingsModel)
                 completion(.success(driverStandingsModel))
             case .failure(let error):
                 if let savedStandings = CoreDataManager.shared.fetchDriverStandings() {
+                    Flags.offline = true
                     completion(.success(savedStandings))
                 } else {
+                    Flags.offline = true
                     completion(.failure(error))
                 }
             }

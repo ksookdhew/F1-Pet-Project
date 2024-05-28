@@ -30,7 +30,6 @@ class StandingsViewController: LoadingIndicatorViewController {
         tableView.dataSource = self
         tableView.register(DriverStandingTableViewCell.nib(),
                            forCellReuseIdentifier: Identifiers.driverStandingTableViewCell)
-
     }
 
     // MARK: IBAction
@@ -128,6 +127,9 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension  StandingsViewController: ViewModelDelegate {
     func reloadView() {
+        if Flags.offline {
+            showAlert(alertTitle: "App is Offline", alertMessage: "The info you see may be outdated")
+        }
         self.tableView.reloadData()
         self.standingsViewModel.driverViewModel.setConstructors()
         if standingsViewModel.isLoaded() {
