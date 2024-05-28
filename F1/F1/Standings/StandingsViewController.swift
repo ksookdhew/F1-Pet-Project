@@ -130,7 +130,7 @@ extension  StandingsViewController: ViewModelDelegate {
     func reloadView() {
         self.tableView.reloadData()
         self.standingsViewModel.driverViewModel.setConstructors()
-        if standingsViewModel.isLoaded() {
+        if standingsViewModel.isLoaded {
             hideLoadingIndicator()
             segmentedControl.isHidden = false
         }

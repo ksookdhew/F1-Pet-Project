@@ -22,6 +22,10 @@ class StandingsViewModel {
         self.navigationDelegate = navigationDelegate
         self.delegate = delegate
     }
+    // MARK: Computed Variables
+    var isLoaded: Bool {
+        driverViewModel.isLoaded && constructorViewModel.isLoaded
+    }
 
     // MARK: Functions
     func navigateTo(indexPath: IndexPath, selectedSegmentIndex: Int) {
@@ -35,10 +39,6 @@ class StandingsViewModel {
                 navigationDelegate?.navigateToConstructor(constructor)
             }
         }
-    }
-
-    func isLoaded() -> Bool {
-        driverViewModel.isLoaded && constructorViewModel.isLoaded
     }
 
     func fetchStandings() {
