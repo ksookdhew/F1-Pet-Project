@@ -87,6 +87,9 @@ extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
 extension  ResultsViewController: ViewModelDelegate {
 
     func reloadView() {
+        if Flags.offline {
+            showAlert(alertTitle: "App is Offline", alertMessage: "You may view outdated info")
+        }
         allResultsTableView.reloadData()
         hideLoadingIndicator()
     }

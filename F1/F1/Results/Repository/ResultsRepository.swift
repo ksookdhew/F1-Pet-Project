@@ -27,6 +27,7 @@ class ResultsRepository: ResultsRepositoryType {
                 completion(.success(results))
             case .failure(let error):
                 if let savedResults = CoreDataManager.shared.fetchResults(), !savedResults.isEmpty {
+                    Flags.offline = true
                     completion(.success(RacingResults(results: ResultsResponse(
                         series: "F1", url: "", limit: "", offset: "", total: "", raceTable: RaceTable(season: "", races: savedResults)))))
                 } else {

@@ -42,3 +42,8 @@ struct Constants {
     static let monthAbbreviations = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 }
+
+
+struct Flags {
+    static var offline = false
+}
