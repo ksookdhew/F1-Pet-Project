@@ -39,11 +39,11 @@ class CoreDataManager {
 
         do {
             try context.execute(deleteRequest)
-            try context.save()
+            saveData()
         } catch {
-            print("Failed to delete old data: \(error)")
         }
     }
+
 }
 
 // MARK: - Racing Data Management
@@ -62,8 +62,8 @@ extension CoreDataManager {
     }
 
     func saveRacingResults(_ racingResults: RacingResults) {
-        deleteData(ofType: CoreDataRaceResult.self)
 
+        deleteData(ofType: CoreDataRace.self)
         let resultsDescriptor = racingResults.results
         let raceTable = resultsDescriptor.raceTable
 
@@ -251,7 +251,6 @@ extension CoreDataManager {
 
     func saveDriverStandings(_ driverStandingsModel: DriverStandingsModel) {
         deleteData(ofType: CoreDataDriverStandingsTable.self)
-
         let standingsResponse = driverStandingsModel.driverStandings
         let standingsTable = standingsResponse.standingsTable
 
@@ -259,7 +258,7 @@ extension CoreDataManager {
         standingsTableEntity.season = standingsTable.season
 
         for standingsList in standingsTable.standingsLists {
-            saveDriverStandingsList(standingsList)
+            standingsTableEntity.addToStandingsList(saveDriverStandingsList(standingsList))
         }
 
         saveData()
@@ -275,7 +274,7 @@ extension CoreDataManager {
         standingsTableEntity.season = standingsTable.season
 
         for standingsList in standingsTable.standingsLists {
-            saveConstructorStandingsList(standingsList)
+            standingsTableEntity.addToStandingsLists( saveConstructorStandingsList(standingsList))
         }
 
         saveData()
@@ -312,7 +311,7 @@ extension CoreDataManager {
     }
 
     // MARK: Helper Functions
-    private func saveDriverStandingsList(_ standingsList: DriverStandingsList) {
+    private func saveDriverStandingsList(_ standingsList: DriverStandingsList) -> CoreDataDriverStandingsList {
         let standingsListEntity = CoreDataDriverStandingsList(context: context)
         standingsListEntity.season = standingsList.season
         standingsListEntity.round = standingsList.round
@@ -320,6 +319,8 @@ extension CoreDataManager {
         for driverStanding in standingsList.driverStandings {
             standingsListEntity.addToDriverStandings(saveDriverStanding(driverStanding))
         }
+
+        return standingsListEntity
     }
 
     private func saveDriverStanding(_ driverStanding: DriverStanding) -> CoreDataDriverStanding {
@@ -337,7 +338,7 @@ extension CoreDataManager {
         return driverStandingEntity
     }
 
-    private func saveConstructorStandingsList(_ standingsList: ConstructorStandingsList) {
+    private func saveConstructorStandingsList(_ standingsList: ConstructorStandingsList) -> CoreDataConstructorStandingsList {
         let standingsListEntity = CoreDataConstructorStandingsList(context: context)
         standingsListEntity.season = standingsList.season
         standingsListEntity.round = standingsList.round
@@ -345,6 +346,7 @@ extension CoreDataManager {
         for constructorStanding in standingsList.constructorStandings {
             standingsListEntity.addToConstructorStandings(saveConstructorStanding(constructorStanding))
         }
+        return standingsListEntity
     }
 
     private func saveConstructorStanding(_ constructorStanding: ConstructorStanding) -> CoreDataConstructorStanding {

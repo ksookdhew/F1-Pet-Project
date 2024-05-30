@@ -43,7 +43,7 @@ struct Race: Codable {
     let season, round, url, raceName: String
     let circuit: Circuit
     let date, time: String
-    let results: [RaceResult]
+    var results: [RaceResult]
 
     enum CodingKeys: String, CodingKey {
         case season, round, url, raceName

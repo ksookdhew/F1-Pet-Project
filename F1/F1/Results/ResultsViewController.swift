@@ -9,14 +9,28 @@ import UIKit
 
 class ResultsViewController: LoadingIndicatorViewController {
 
+    // MARK: Variables
     private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(), delegate: self)
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ResultsViewController.handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.red
+
+        return refreshControl
+    }()
 
     // MARK: IBOutlets
     @IBOutlet weak private var allResultsTableView: UITableView!
 
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        viewModel.fetchResults()
+        self.allResultsTableView.addSubview(self.refreshControl)
+    }
+
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         viewModel.fetchResults()
     }
 
@@ -89,6 +103,10 @@ extension  ResultsViewController: ViewModelDelegate {
     func reloadView() {
         allResultsTableView.reloadData()
         hideLoadingIndicator()
+        refreshControl.endRefreshing()
+        if Flags.offline {
+            showAlert(alertTitle: "App is Offline", alertMessage: "The info you see may be outdated")
+        }
     }
 
     func show(error: String) {

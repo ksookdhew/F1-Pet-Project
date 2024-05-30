@@ -16,12 +16,20 @@ class StandingsViewController: LoadingIndicatorViewController {
     // MARK: Variables
     var selectedSegmentIndex = 1
     private lazy var standingsViewModel = StandingsViewModel(navigationDelegate: self, delegate: self)
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(StandingsViewController.handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.red
+
+        return refreshControl
+    }()
 
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         standingsViewModel.fetchStandings()
+        self.tableView.addSubview(self.refreshControl)
     }
 
     private func setupTableView() {
@@ -30,7 +38,10 @@ class StandingsViewController: LoadingIndicatorViewController {
         tableView.dataSource = self
         tableView.register(DriverStandingTableViewCell.nib(),
                            forCellReuseIdentifier: Identifiers.driverStandingTableViewCell)
+    }
 
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        standingsViewModel.fetchStandings()
     }
 
     // MARK: IBAction
@@ -128,7 +139,12 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
+        if Flags.offline {
+            showAlert(alertTitle: "Unavailable Offline", alertMessage: "This feature is not available in offline mode")
+
+        } else {
+            standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
+        }
     }
 }
 
@@ -139,6 +155,10 @@ extension  StandingsViewController: ViewModelDelegate {
         if standingsViewModel.isLoaded {
             hideLoadingIndicator()
             segmentedControl.isHidden = false
+        }
+        refreshControl.endRefreshing()
+        if Flags.offline {
+            showAlert(alertTitle: "App is Offline", alertMessage: "The info you see may be outdated")
         }
     }
 

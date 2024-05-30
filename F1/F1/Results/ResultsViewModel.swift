@@ -35,7 +35,8 @@ class ResultsViewModel {
 
     // MARK: Functions
     func allResult(atIndex: Int) -> Race? {
-        allResults?[atIndex] ?? nil
+        sortRaceByPosition(atIndex: atIndex)
+        return allResults?[atIndex] ?? nil
     }
 
     func allResultDate(result: Race?) -> DateComponents {
@@ -45,6 +46,7 @@ class ResultsViewModel {
     func setRaceResult(raceResult: Race?) {
         race = raceResult
         self.raceResult = race?.results
+        self.raceResult = sortRacesByposition(unsortedRaceResults: self.raceResult)
     }
 
     func raceResult(atIndex: Int) -> RaceResult? {
@@ -88,5 +90,26 @@ class ResultsViewModel {
             }
             return round1 > round2
         }
+    }
+
+    private func sortRacesByposition(unsortedRaceResults: [RaceResult]?) -> [RaceResult]? {
+        raceResult?.sort { pos1, pos2 in
+            guard let position1 = Int(pos1.position), let position2 = Int(pos2.position) else {
+                return false
+            }
+            return position1 < position2
+        }
+        return raceResult
+    }
+
+    private func sortRaceByPosition(atIndex: Int) {
+        guard var raceResults = allResults?[atIndex].results else { return }
+        raceResults.sort { pos1, pos2 in
+            guard let position1 = Int(pos1.position), let position2 = Int(pos2.position) else {
+                return false
+            }
+            return position1 < position2
+        }
+        allResults?[atIndex].results = raceResults
     }
 }
