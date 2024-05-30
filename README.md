@@ -43,9 +43,9 @@ Stay informed about the Formula 1 calendar with a comprehensive race schedule an
 
 ## Architecture 
 ### Model-View-ViewModel (MVVM)
-Model: Responsible for holding and managing data.
-View: Handles the UI representation, focusing solely on presenting data to the user. 
-ViewModel: Manages business logic, acting as an intermediary between the Model and the View. It transforms raw data into a format that can be easily displayed in the View.
+- Model: Responsible for holding and managing data.
+- View: Handles the UI representation, focusing solely on presenting data to the user. 
+- ViewModel: Manages business logic, acting as an intermediary between the Model and the View. It transforms raw data into a format that can be easily displayed in the View.
  
 ### Repository Pattern
 Repositories encapsulate logic for accessing data sources, providing a centralized interface to interact with different data storage mechanisms and promoting a clean separation of concerns in the application architecture.
