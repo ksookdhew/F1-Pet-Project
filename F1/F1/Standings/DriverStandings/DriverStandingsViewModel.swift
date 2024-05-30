@@ -10,15 +10,13 @@ import Foundation
 class DriverStandingsViewModel {
 
     // MARK: Variables
-    private weak var delegate: ViewModelDelegate?
     private var repository: DriverStandingsRepositoryType?
-    private var driverStanding: [DriverStanding]?
+    var driverStanding: [DriverStanding]?
     var isLoaded = false
     var driversForConstructor: [String: [Driver?]] = [:]
 
-    init(repository: DriverStandingsRepositoryType, delegate: ViewModelDelegate) {
+    init(repository: DriverStandingsRepositoryType) {
         self.repository = repository
-        self.delegate = delegate
     }
 
     // MARK: Computed Variables
@@ -47,15 +45,15 @@ class DriverStandingsViewModel {
         driversForConstructor[constructorID] ?? []
     }
 
-    func fetchDriverStandings() {
-        isLoaded = true
+    func fetchDriverStandings(completion: @escaping ([DriverStanding]?) -> Void) {
         repository?.fetchDriverStandingsResults { [weak self] result in
             switch result {
             case .success(let driverStandings):
                 self?.driverStanding = driverStandings.driverStandings.standingsTable.standingsLists.first?.driverStandings
-                self?.delegate?.reloadView()
-            case .failure(let error):
-                self?.delegate?.show(error: error.rawValue)
+                self?.isLoaded = true
+                completion(self?.driverStanding)
+            case .failure:
+                completion(nil)
             }
         }
     }
