@@ -59,7 +59,8 @@ class DriverStandingsViewModel {
         }
     }
 
-    func sortDriverStandings() {
+    //MARK: Helper Function
+    private func sortDriverStandings() {
         driverStanding = driverStanding?.sorted { Int($0.position) ?? 0 < Int($1.position) ?? 0 }
     }
 }

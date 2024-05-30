@@ -45,7 +45,6 @@ struct Constants {
 
 }
 
-
 struct Flags {
     static var offline = false
 }
