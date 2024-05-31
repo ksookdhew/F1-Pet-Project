@@ -7,19 +7,11 @@
 
 import UIKit
 
-class DriverViewController: UIViewController {
+class DriverViewController: LoadingIndicatorViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak private var tableView: UITableView!
-    @IBOutlet weak private var driverImg: UIImageView!
-    @IBOutlet weak private var driverName: UILabel!
-    @IBOutlet weak private var driverNationality: UILabel!
-    @IBOutlet weak private var driverConstructor: UILabel!
-    @IBOutlet weak private var driverSurname: UILabel!
-    @IBOutlet weak private var currentWins: UILabel!
-    @IBOutlet weak private var currentPoints: UILabel!
-    @IBOutlet weak private var currentPosition: UILabel!
-
+    
     // MARK: Variables
     var driver: DriverStanding?
     private lazy var viewModel = DriverViewModel(repository: DriverRepository(), delegate: self)
@@ -37,45 +29,62 @@ class DriverViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(DriverTableViewCell.nib(),
                            forCellReuseIdentifier: Identifiers.driverTableViewCell)
+        tableView.register(DriverInfoTableViewCell.nib(),
+                           forCellReuseIdentifier: Identifiers.driverInfoTableViewCell)
         tableView.register(DriverResultHeader.nib(),
                            forHeaderFooterViewReuseIdentifier: Identifiers.driverResultsIdentifier)
     }
 
     private func setupView() {
         viewModel.setDriver(driver: driver)
-        driverImg.image = UIImage(named: viewModel.driverImageName)
-        driverName.text = viewModel.driverGivenName
-        driverSurname.text = viewModel.driverFamilyName
-        driverConstructor.text = viewModel.driverConstructorInfo
-        driverNationality.text = viewModel.driverNationality
-        currentPosition.text = viewModel.currentPosition
-        currentPoints.text = viewModel.currentPoints
-        currentWins.text = viewModel.currentWins
+        tableView.isHidden = true
     }
+
 }
 
 // MARK: - UITableViewDelegate and UITableViewDataSource
 extension DriverViewController: UITableViewDelegate, UITableViewDataSource {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.resultsCount
+        let numberOfRows = [1, viewModel.resultsCount]
+        return numberOfRows[section]
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        42.0
+        let heights = [375.0, 42.0]
+        return heights[indexPath.section]
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView
-            .dequeueReusableCell(withIdentifier: Identifiers.driverTableViewCell) as? DriverTableViewCell else {
-            return UITableViewCell()
+        switch indexPath.section {
+        case 0:
+            guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: Identifiers.driverInfoTableViewCell) as? DriverInfoTableViewCell else {
+                return UITableViewCell()
+            }
+            guard let result = driver else {
+                return UITableViewCell()
+            }
+            cell.populateWith(driver: result)
+            return cell
+
+        default:
+            guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: Identifiers.driverTableViewCell) as? DriverTableViewCell else {
+                return UITableViewCell()
+            }
+            guard let result = viewModel.result(atIndex: indexPath.item) else {
+                return UITableViewCell()
+            }
+            let laptime = viewModel.laptime(index: indexPath.item)
+            cell.populateWith(result: result, lapTime: laptime)
+            return cell
+
         }
-        guard let result = viewModel.result(atIndex: indexPath.item) else {
-            return UITableViewCell()
-        }
-        let laptime = viewModel.laptime(index: indexPath.item)
-        cell.populateWith(result: result, lapTime: laptime)
-        return cell
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -87,7 +96,8 @@ extension DriverViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        45
+        let headerHeights = [0.0, 45.0]
+        return headerHeights[section]
     }
 }
 
@@ -95,6 +105,8 @@ extension  DriverViewController: ViewModelDelegate {
 
     func reloadView() {
         tableView.reloadData()
+        hideLoadingIndicator()
+        tableView.isHidden = false
     }
 
     func show(error: String) {

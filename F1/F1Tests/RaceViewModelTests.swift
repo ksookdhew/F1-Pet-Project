@@ -63,9 +63,9 @@ final class RaceViewModelTests: XCTestCase {
     func testFetchRace_Success() {
         mockRepository.mockRaces = Racing(race: RaceDescriptor(series: "F1", url: "http://example.com", limit: "10", offset: "0", total: "1", raceTable: RaceSheduleTable(season: "2024", races: [
             RaceInfo(season: "2024", round: "1", url: "http://example.com/race1", raceName: "Grand Prix 2024",
-                     circuit: Circuit(circuitID: "001", url: "http://example.com/circuit",
-                     circuitName: "Silverstone", location: Location(latitude: "52.0786",
-                     longitude: "-1.01694", locality: "Silverstone", country: "UK")),
+                     circuit: Circuit(circuitID: "001", circuitName: "Silverstone",
+                                      url: "http://example.com/circuit", location: Location(latitude: "52.0786",
+                                                                                            longitude: "-1.01694", locality: "Silverstone", country: "UK")),
                      date: "2024-07-12", time: "14:00:00",
                      firstPractice: RaceSession(date: "2024-07-10", time: "12:00:00"),
                      secondPractice: RaceSession(date: "2024-07-11", time: "12:00:00"),
@@ -98,8 +98,8 @@ final class RaceViewModelTests: XCTestCase {
             raceName: "Monaco Grand Prix",
             circuit: Circuit(
                 circuitID: "monaco",
-                url: "http://example.com/circuit/monaco",
                 circuitName: "Circuit de Monaco",
+                url: "http://example.com/circuit/monaco",
                 location: Location(
                     latitude: "43.7347",
                     longitude: "7.42056",
@@ -140,8 +140,8 @@ final class RaceViewModelTests: XCTestCase {
             raceName: "Monaco Grand Prix",
             circuit: Circuit(
                 circuitID: "monaco",
-                url: "http://example.com/circuit/monaco",
                 circuitName: "Circuit de Monaco",
+                url: "http://example.com/circuit/monaco",
                 location: Location(
                     latitude: "43.7347",
                     longitude: "7.42056",
@@ -179,8 +179,8 @@ final class RaceViewModelTests: XCTestCase {
 
         let circuit = Circuit(
             circuitID: "silverstone",
-            url: "http://example.com/circuit/silverstone",
             circuitName: "Silverstone Circuit",
+            url: "http://example.com/circuit/silverstone",
             location: Location(
                 latitude: "52.0786",
                 longitude: "-1.01694",
@@ -223,8 +223,8 @@ final class RaceViewModelTests: XCTestCase {
     func testFunctions() {
         mockRepository.mockRaces = Racing(race: RaceDescriptor(series: "F1", url: "http://example.com", limit: "10", offset: "0", total: "1", raceTable: RaceSheduleTable(season: "2024", races: [
             RaceInfo(season: "2024", round: "1", url: "http://example.com/race1", raceName: "Grand Prix 2024",
-                     circuit: Circuit(circuitID: "001", url: "http://example.com/circuit",
-                     circuitName: "Silverstone", location: Location(latitude: "52.0786",
+                     circuit: Circuit(circuitID: "001", circuitName: "Silverstone",
+                    url: "http://example.com/circuit", location: Location(latitude: "52.0786",
                      longitude: "-1.01694", locality: "Silverstone", country: "UK")),
                      date: "2024-07-12", time: "14:00:00",
                      firstPractice: RaceSession(date: "2024-07-10", time: "12:00:00"),
@@ -232,7 +232,7 @@ final class RaceViewModelTests: XCTestCase {
                      thirdPractice: nil,
                      qualifying: RaceSession(date: "2024-07-11", time: "15:00:00"), sprint: nil),
             RaceInfo(season: "2024", round: "2", url: "", raceName: "Italian Grand Prix", circuit: 
-            Circuit(circuitID: "monza", url: "", circuitName: "", location:
+            Circuit(circuitID: "monza", circuitName: "", url: "", location:
             Location(latitude: "", longitude: "", locality: "Monza", country: "Italy")), date: "", time: "",
             firstPractice: RaceSession(date: "", time: ""),
             secondPractice: RaceSession(date: "", time: ""),
@@ -262,4 +262,28 @@ final class RaceViewModelTests: XCTestCase {
 
         XCTAssertEqual(viewModel.sessionTime(time: "14:00:00"), "14:00")
     }
+
+    func testSortRacesByRoundWithInvalidRounds() {
+        mockRepository.mockRaces = Racing(race: RaceDescriptor(series: "F1", url: "http://example.com", limit: "10", offset: "0", total: "1", raceTable: RaceSheduleTable(season: "2024", races: [
+            RaceInfo(season: "2024", round: "invalid", url: "http://example.com/race1", raceName: "Grand Prix 2024",
+                     circuit: Circuit(circuitID: "001", circuitName: "Silverstone",
+                    url: "http://example.com/circuit", location: Location(latitude: "52.0786",
+                     longitude: "-1.01694", locality: "Silverstone", country: "UK")),
+                     date: "2024-07-12", time: "14:00:00",
+                     firstPractice: RaceSession(date: "2024-07-10", time: "12:00:00"),
+                    secondPractice: RaceSession(date: "2024-07-11", time: "12:00:00"),
+                     thirdPractice: nil,
+                     qualifying: RaceSession(date: "2024-07-11", time: "15:00:00"), sprint: nil),
+            RaceInfo(season: "2024", round: "2", url: "", raceName: "Italian Grand Prix", circuit:
+            Circuit(circuitID: "monza", circuitName: "", url: "", location:
+            Location(latitude: "", longitude: "", locality: "Monza", country: "Italy")), date: "", time: "",
+            firstPractice: RaceSession(date: "", time: ""),
+            secondPractice: RaceSession(date: "", time: ""),
+            thirdPractice: nil, qualifying: RaceSession(date: "", time: ""), sprint: nil)])))
+
+        viewModel.fetchRace()
+
+            XCTAssertEqual(viewModel.allRaces.first?.round, "invalid")
+            XCTAssertEqual(viewModel.allRaces.last?.round, "2")
+        }
 }

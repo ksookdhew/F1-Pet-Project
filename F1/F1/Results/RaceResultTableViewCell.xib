@@ -57,7 +57,7 @@
                             <constraint firstAttribute="height" constant="20" id="lbI-6T-9aE"/>
                             <constraint firstAttribute="width" constant="25" id="mh8-6n-CCq"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>

@@ -7,32 +7,41 @@
 
 import UIKit
 
-class StandingsViewController: UIViewController {
+class StandingsViewController: LoadingIndicatorViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak private var tableView: UITableView!
-    @IBOutlet weak private var segControl: UISegmentedControl!
+    @IBOutlet weak private var segmentedControl: UISegmentedControl!
 
     // MARK: Variables
     var selectedSegmentIndex = 1
-    private lazy var driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository(), delegate: self)
-    private lazy var constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository(), delegate: self)
-    private lazy var standingsViewModel = StandingsViewModel(driverViewModel: driverViewModel, constructorViewModel: constructorViewModel, navigationDelegate: self)
+    private lazy var standingsViewModel = StandingsViewModel(navigationDelegate: self, delegate: self)
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(StandingsViewController.handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.red
+
+        return refreshControl
+    }()
 
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        driverViewModel.fetchDriverStandings()
-        constructorViewModel.fetchConstructorStandings()
+        standingsViewModel.fetchStandings()
+        self.tableView.addSubview(self.refreshControl)
     }
 
     private func setupTableView() {
+        segmentedControl.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(DriverStandingTableViewCell.nib(),
                            forCellReuseIdentifier: Identifiers.driverStandingTableViewCell)
+    }
 
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        standingsViewModel.fetchStandings()
     }
 
     // MARK: IBAction
@@ -48,9 +57,15 @@ class StandingsViewController: UIViewController {
                                forCellReuseIdentifier: Identifiers.constructorStandingTableViewCell)
         }
         reloadView()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-
+        let numberOfSections = tableView.numberOfSections
+        if numberOfSections > 0 {
+            let numberOfRows = tableView.numberOfRows(inSection: 0)
+            if numberOfRows > 0 {
+                tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+            }
+        }
     }
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Identifiers.showDriverSegue {
@@ -72,7 +87,7 @@ class StandingsViewController: UIViewController {
 // MARK: - TableView Delegate
 extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        selectedSegmentIndex == 1 ? driverViewModel.driversCount : constructorViewModel.constructorCount
+        selectedSegmentIndex == 1 ? standingsViewModel.driverViewModel.driversCount : standingsViewModel.constructorViewModel.constructorCount
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,7 +112,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 .dequeueReusableCell(withIdentifier: Identifiers.driverStandingTableViewCell) as? DriverStandingTableViewCell else {
                 return UITableViewCell()
             }
-            guard let result = driverViewModel.driver(atIndex: indexPath.section) else { return UITableViewCell() }
+            guard let result = standingsViewModel.driverViewModel.driver(atIndex: indexPath.section) else { return UITableViewCell() }
             cell.populateWith(driverStanding: result)
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
@@ -109,12 +124,12 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 .dequeueReusableCell(withIdentifier: Identifiers.constructorStandingTableViewCell) as? ConstructorStandingTableViewCell else {
                 return UITableViewCell()
             }
-            guard let result = constructorViewModel.constructor(atIndex: indexPath.section)
+            guard let result = standingsViewModel.constructorViewModel.constructor(atIndex: indexPath.section)
             else { return UITableViewCell() }
-            guard let drivers = driverViewModel.getConstructorDrivers(constructorID: result.constructor.constructorID) else {
+            guard let drivers = standingsViewModel.driverViewModel.getConstructorDrivers(constructorID: result.constructor.constructorID) else {
                 return UITableViewCell()
             }
-            let driverText = constructorViewModel.drivers(driversList: drivers)
+            let driverText = standingsViewModel.constructorViewModel.drivers(driversList: drivers)
             cell.populateWith(constructorStanding: result, driverText: driverText)
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.clear
@@ -124,18 +139,32 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
+        if Flags.offline {
+            showAlert(alertTitle: "Unavailable Offline", alertMessage: "This feature is not available in offline mode")
+
+        } else {
+            standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
+        }
     }
 }
 
 extension  StandingsViewController: ViewModelDelegate {
     func reloadView() {
-        tableView.reloadData()
-        driverViewModel.setConstructors()
+        self.tableView.reloadData()
+        self.standingsViewModel.driverViewModel.setConstructors()
+        if standingsViewModel.isLoaded {
+            hideLoadingIndicator()
+            segmentedControl.isHidden = false
+        }
+        refreshControl.endRefreshing()
+        if Flags.offline {
+            showAlert(alertTitle: "App is Offline", alertMessage: "The info you see may be outdated")
+        }
     }
 
     func show(error: String) {
         showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
+        hideLoadingIndicator()
     }
 }
 

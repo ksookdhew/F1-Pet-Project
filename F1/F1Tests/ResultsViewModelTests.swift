@@ -75,7 +75,7 @@ class ResultsViewModelTests: XCTestCase {
     }
 
     func testAllResultDate() {
-        var race = setupRace()
+        let race = setupRace()
         verifyDateComponents(for: race, year: 2024)
         verifyDateComponents(for: nil, year: 2024)
     }
@@ -136,7 +136,7 @@ class ResultsViewModelTests: XCTestCase {
     private func setupRace(status: String = "Finished", time: ResultTime? = ResultTime(millis: "5453922", time: "1:30:45")) -> Race {
         return Race(
             season: "2024", round: "1", url: "", raceName: "Grand Prix",
-            circuit: Circuit(circuitID: "", url: "", circuitName: "", location: Location(latitude: "", longitude: "", locality: "", country: "")),
+            circuit: Circuit(circuitID: "monza", circuitName: "Monza", url: "", location: Location(latitude: "", longitude: "", locality: "", country: "")),
             date: "2024-05-01", time: "14:00",
             results: [
                 RaceResult(number: "1", position: "1", positionText: "P1", points: "25",

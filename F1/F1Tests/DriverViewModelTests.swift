@@ -44,7 +44,7 @@ final class DriverViewModelTests: XCTestCase {
     func testFetchDriverResults_Success() {
         let races = [
             Race(season: "2024", round: "1", url: "", raceName: "Italian GP",
-                 circuit: Circuit(circuitID: "monza", url: "", circuitName: "Monza",
+                 circuit: Circuit(circuitID: "monza", circuitName: "Monza", url: "",
                  location: Location(latitude: "", longitude: "", locality: "", country: "Italy")),
                  date: "2024-09-02", time: "15:00", results: [])
         ]
@@ -60,7 +60,7 @@ final class DriverViewModelTests: XCTestCase {
     func testFetchDriverResults_nil() {
         let races = [
             Race(season: "2024", round: "1", url: "", raceName: "Italian GP",
-                 circuit: Circuit(circuitID: "monza", url: "", circuitName: "Monza",
+                 circuit: Circuit(circuitID: "monza", circuitName: "Monza", url: "",
                  location: Location(latitude: "", longitude: "", locality: "", country: "Italy")),
                  date: "2024-09-02", time: "15:00", results: [])
         ]
@@ -84,7 +84,7 @@ final class DriverViewModelTests: XCTestCase {
 
     func testResultAtIndex_ValidIndex() {
         let race = Race(season: "2024", round: "1", url: "", raceName: "Italian GP",
-                               circuit: Circuit(circuitID: "monza", url: "", circuitName: "Monza",
+                            circuit: Circuit(circuitID: "monza", circuitName: "Monza", url: "",
                                location: Location(latitude: "", longitude: "", locality: "", country: "Italy")),
                                date: "2024-09-02", time: "15:00", results: [])
         mockRepository.mockResults = RacingResults(results: ResultsResponse(series: "F1", url: "", limit: "10", offset: "0", total: "1", raceTable: RaceTable(season: "2024", races: [race])))
@@ -108,7 +108,7 @@ final class DriverViewModelTests: XCTestCase {
                                grid: "1", laps: "53", status: "Finished", time: resultTime, fastestLap: nil)
                 ]
        let race = Race(season: "2024", round: "1", url: "", raceName: "Italian GP",
-                                circuit: Circuit(circuitID: "monza", url: "", circuitName: "Monza",
+                                circuit: Circuit(circuitID: "monza", circuitName: "Monza", url: "",
                                 location: Location(latitude: "", longitude: "", locality: "", country: "Italy")),
                                 date: "2024-09-02", time: "15:00", results: raceResults)
         mockRepository.mockResults = RacingResults(results: ResultsResponse(series: "F1", url: "", limit: "10", offset: "0", total: "1", raceTable: RaceTable(season: "2024", races: [race])))
@@ -127,7 +127,7 @@ final class DriverViewModelTests: XCTestCase {
                                grid: "1", laps: "53", status: "Retired", time: nil, fastestLap: nil)
                 ]
                 let race = Race(season: "2024", round: "1", url: "", raceName: "Italian GP",
-                                circuit: Circuit(circuitID: "monza", url: "", circuitName: "Monza",
+                                circuit: Circuit(circuitID: "monza", circuitName: "Monza", url: "",
                                 location: Location(latitude: "", longitude: "", locality: "", country: "Italy")),
                                 date: "2024-09-02", time: "15:00", results: raceResults)
         mockRepository.mockResults = RacingResults(results: ResultsResponse(series: "F1", url: "", limit: "10", offset: "0", total: "1", raceTable: RaceTable(season: "2024", races: [race])))
@@ -146,7 +146,7 @@ final class DriverViewModelTests: XCTestCase {
                                grid: "1", laps: "53", status: "+1 Lap", time: nil, fastestLap: nil)
                 ]
                 let race = Race(season: "2024", round: "1", url: "", raceName: "Italian GP",
-                                circuit: Circuit(circuitID: "monza", url: "", circuitName: "Monza",
+                                circuit: Circuit(circuitID: "monza", circuitName: "Monza", url: "",
                                 location: Location(latitude: "", longitude: "", locality: "", country: "Italy")),
                                 date: "2024-09-02", time: "15:00", results: raceResults)
         mockRepository.mockResults = RacingResults(results: ResultsResponse(series: "F1", url: "", limit: "10", offset: "0", total: "1", raceTable: RaceTable(season: "2024", races: [race])))

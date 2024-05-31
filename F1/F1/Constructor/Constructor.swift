@@ -45,4 +45,18 @@ struct Constructor: Codable {
         case constructorID = "constructorId"
         case url, name, nationality
     }
+
+    init(from coreDataConstructor: CoreDataConstructor) {
+        self.constructorID = coreDataConstructor.constructorID ?? ""
+        self.url = coreDataConstructor.url ?? ""
+        self.name = coreDataConstructor.name ?? ""
+        self.nationality = coreDataConstructor.nationality ?? ""
+    }
+
+    init(constructorID: String, url: String, name: String, nationality: String) {
+        self.constructorID = constructorID
+        self.url = url
+        self.name = name
+        self.nationality = nationality
+    }
 }

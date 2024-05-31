@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Racing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8x-WY-m9k">
-                                <rect key="frame" x="40" y="79" width="125" height="40"/>
+                                <rect key="frame" x="25" y="59" width="125" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3ex-xE-vIP"/>
                                 </constraints>
@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ypF-fz-OH8">
-                                <rect key="frame" x="20" y="134" width="390" height="759"/>
+                                <rect key="frame" x="20" y="114" width="390" height="779"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="20" id="iug-r3-J14">
                                     <size key="itemSize" width="86" height="98"/>
@@ -49,11 +49,12 @@
                         <viewLayoutGuide key="safeArea" id="hFc-0N-etU"/>
                         <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="hFc-0N-etU" firstAttribute="trailing" secondItem="ypF-fz-OH8" secondAttribute="trailing" constant="20" id="Gw3-nC-GFN"/>
                             <constraint firstItem="ypF-fz-OH8" firstAttribute="centerX" secondItem="GtV-c2-z75" secondAttribute="centerX" id="IDC-lF-mVy"/>
-                            <constraint firstItem="l8x-WY-m9k" firstAttribute="top" secondItem="hFc-0N-etU" secondAttribute="top" constant="20" id="TR6-wC-A72"/>
-                            <constraint firstItem="l8x-WY-m9k" firstAttribute="leading" secondItem="hFc-0N-etU" secondAttribute="leading" constant="40" id="WP2-G0-RLd"/>
-                            <constraint firstItem="hFc-0N-etU" firstAttribute="trailing" secondItem="ypF-fz-OH8" secondAttribute="trailing" constant="20" id="bpf-VS-ByZ"/>
+                            <constraint firstItem="l8x-WY-m9k" firstAttribute="top" secondItem="hFc-0N-etU" secondAttribute="top" id="TR6-wC-A72"/>
+                            <constraint firstItem="l8x-WY-m9k" firstAttribute="leading" secondItem="hFc-0N-etU" secondAttribute="leading" constant="25" id="WP2-G0-RLd"/>
                             <constraint firstItem="ypF-fz-OH8" firstAttribute="top" secondItem="l8x-WY-m9k" secondAttribute="bottom" constant="15" id="oKG-By-xtd"/>
+                            <constraint firstItem="ypF-fz-OH8" firstAttribute="leading" secondItem="hFc-0N-etU" secondAttribute="leading" constant="20" id="rcy-el-Ibs"/>
                             <constraint firstItem="hFc-0N-etU" firstAttribute="bottom" secondItem="ypF-fz-OH8" secondAttribute="bottom" constant="5" id="sbT-1M-BgK"/>
                         </constraints>
                     </view>
@@ -102,7 +103,7 @@
                                 <color key="sectionIndexColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.19607841970000001" green="0.19215688110000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NN1-jH-cUh">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NN1-jH-cUh">
                                         <rect key="frame" x="0.0" y="50" width="370" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NN1-jH-cUh" id="3y7-ZC-Rq8">

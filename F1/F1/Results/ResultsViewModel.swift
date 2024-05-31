@@ -35,7 +35,8 @@ class ResultsViewModel {
 
     // MARK: Functions
     func allResult(atIndex: Int) -> Race? {
-        allResults?[atIndex] ?? nil
+        sortRaceByPosition(atIndex: atIndex)
+        return allResults?[atIndex] ?? nil
     }
 
     func allResultDate(result: Race?) -> DateComponents {
@@ -45,6 +46,7 @@ class ResultsViewModel {
     func setRaceResult(raceResult: Race?) {
         race = raceResult
         self.raceResult = race?.results
+        self.raceResult = sortRacesByposition(unsortedRaceResults: self.raceResult)
     }
 
     func raceResult(atIndex: Int) -> RaceResult? {
@@ -70,12 +72,44 @@ class ResultsViewModel {
         repository?.fetchRacingResults { [weak self] result in
             switch result {
             case .success(let result):
-                self?.allResults = result.results.raceTable.races.reversed()
+                self?.allResults = result.results.raceTable.races
+                self?.sortRacesByRound()
                 self?.delegate?.reloadView()
             case .failure(let error):
                 print(error)
                 self?.delegate?.show(error: error.rawValue)
             }
         }
+    }
+
+    // MARK: Helper Functions
+    private func sortRacesByRound() {
+        allResults?.sort { race1, race2 in
+            guard let round1 = Int(race1.round), let round2 = Int(race2.round) else {
+                return false
+            }
+            return round1 > round2
+        }
+    }
+
+    private func sortRacesByposition(unsortedRaceResults: [RaceResult]?) -> [RaceResult]? {
+        raceResult?.sort { pos1, pos2 in
+            guard let position1 = Int(pos1.position), let position2 = Int(pos2.position) else {
+                return false
+            }
+            return position1 < position2
+        }
+        return raceResult
+    }
+
+    private func sortRaceByPosition(atIndex: Int) {
+        guard var raceResults = allResults?[atIndex].results else { return }
+        raceResults.sort { pos1, pos2 in
+            guard let position1 = Int(pos1.position), let position2 = Int(pos2.position) else {
+                return false
+            }
+            return position1 < position2
+        }
+        allResults?[atIndex].results = raceResults
     }
 }

@@ -11,19 +11,23 @@ struct Identifiers {
     static let allResultsTableViewCell = "AllResultsTableViewCell"
     static let driverResultsIdentifier = "DriverResultHeader"
     static let driverTableViewCell = "DriverTableViewCell"
+    static let driverInfoTableViewCell = "DriverInfoTableViewCell"
     static let driverStandingTableViewCell = "DriverStandingTableViewCell"
     static let constructorTableViewCell = "ConstructorTableViewCell"
+    static let constructorInfoTableViewCell = "ConstructorInfoTableViewCell"
     static let constructorResultsIdentifier = "ConstructorResultHeader"
     static let constructorStandingTableViewCell = "ConstructorStandingTableViewCell"
     static let raceScheduleIndentifier = "RaceScheduleTableViewCell"
     static let racingIdentifier = "RacingCollectionViewCell"
     static let raceResultTableViewCell = "RaceResultTableViewCell"
     static let raceResultHeader = "RaceResultHeader"
+    static let login = "Login"
     static let showDriverSegue = "ShowDriverSegue"
     static let showConstructorSegue = "ShowConstructorSegue"
     static let showRaceSegue = "ShowRaceInfoSegue"
     static let showRaceResultsSegue = "ShowRaceResultsSegue"
     static let showTabSegue = "ShowTabSegue"
+    static let logOutSegue = "LogOutSegue"
 }
 
 struct Endpoints {
@@ -39,4 +43,8 @@ struct Endpoints {
 struct Constants {
     static let monthAbbreviations = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
+}
+
+struct Flags {
+    static var offline = false
 }

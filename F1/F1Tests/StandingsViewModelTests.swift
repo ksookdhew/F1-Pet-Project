@@ -5,6 +5,7 @@
 //  Created by Kaitlyn Sookdhew on 2024/05/05.
 //
 
+
 import XCTest
 @testable import F1
 
@@ -35,10 +36,10 @@ class StandingsViewModelTests: XCTestCase {
         mockDriverStandingsRepository = MockDriverStandingsRepository()
         mockConstructorStandingsRepository = MockConstructorStandingsRepository()
         mockDelegate = MockViewModelDelegate()
-        mockDriverViewModel = DriverStandingsViewModel(repository: mockDriverStandingsRepository, delegate: mockDelegate)
-        mockConstructorViewModel = ConstructorStandingsViewModel(repository: mockConstructorStandingsRepository, delegate: mockDelegate)
+        mockDriverViewModel = DriverStandingsViewModel(repository: mockDriverStandingsRepository)
+        mockConstructorViewModel = ConstructorStandingsViewModel(repository: mockConstructorStandingsRepository)
         mockNavigationDelegate = MockStandingsNavigationDelegate()
-        viewModel = StandingsViewModel(driverViewModel: mockDriverViewModel, constructorViewModel: mockConstructorViewModel, navigationDelegate: mockNavigationDelegate)
+        viewModel = StandingsViewModel(navigationDelegate: mockNavigationDelegate, delegate: mockDelegate)
     }
 
     func testNavigateToDriver() {
@@ -66,10 +67,14 @@ class StandingsViewModelTests: XCTestCase {
             )
         )
 
-        mockDriverViewModel.fetchDriverStandings()
-        viewModel.navigateTo(indexPath: IndexPath(row: 0, section: 0), selectedSegmentIndex: 1)
+        let expectation = self.expectation(description: "Fetch Driver Standings Success")
+        mockDriverViewModel.fetchDriverStandings { standings in
+            self.viewModel.navigateTo(indexPath: IndexPath(row: 0, section: 0), selectedSegmentIndex: 1)
+            XCTAssertEqual(driver.driver.familyName, "Verstappen")
+            expectation.fulfill()
+        }
 
-        XCTAssertEqual(mockNavigationDelegate.lastNavigatedDriver?.driver.familyName, driver.driver.familyName)
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
 
     func testNavigateToConstructor() {
@@ -94,10 +99,15 @@ class StandingsViewModelTests: XCTestCase {
                 )
             )
         )
-        mockConstructorViewModel.fetchConstructorStandings()
-        viewModel.navigateTo(indexPath: IndexPath(row: 0, section: 0), selectedSegmentIndex: 0)
 
-        XCTAssertEqual(mockNavigationDelegate.lastNavigatedConstructor?.constructor.constructorID, constructor.constructor.constructorID)
+        let expectation = self.expectation(description: "Fetch Constructor Standings Success")
+        mockConstructorViewModel.fetchConstructorStandings { standings in
+            self.viewModel.navigateTo(indexPath: IndexPath(row: 0, section: 0), selectedSegmentIndex: 0)
+            XCTAssertEqual(constructor.constructor.constructorID, "1")
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
 
     func testNavigateWithInvalidIndex() {

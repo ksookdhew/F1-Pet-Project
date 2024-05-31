@@ -20,6 +20,7 @@ class MockConstructorStandingsRepository: ConstructorStandingsRepositoryType {
         }
     }
 }
+
 class ConstructorStandingsViewModelTests: XCTestCase {
     var viewModel: ConstructorStandingsViewModel!
     var mockRepository: MockConstructorStandingsRepository!
@@ -29,7 +30,7 @@ class ConstructorStandingsViewModelTests: XCTestCase {
         super.setUp()
         mockRepository = MockConstructorStandingsRepository()
         mockDelegate = MockViewModelDelegate()
-        viewModel = ConstructorStandingsViewModel(repository: mockRepository, delegate: mockDelegate)
+        viewModel = ConstructorStandingsViewModel(repository: mockRepository)
     }
 
     func testFetchConstructorStandings_Success() {
@@ -56,19 +57,27 @@ class ConstructorStandingsViewModelTests: XCTestCase {
                 )
             )
         )
-        viewModel.fetchConstructorStandings()
 
-        XCTAssertTrue(mockDelegate.reloadViewCalled)
-        XCTAssertEqual(viewModel.constructorCount, 1)
-        XCTAssertNotNil(viewModel.constructor(atIndex: 0))
+        let expectation = self.expectation(description: "Fetch Constructor Standings Success")
+        viewModel.fetchConstructorStandings { standings in
+            XCTAssertEqual(self.viewModel.constructorCount, 1)
+            XCTAssertNotNil(self.viewModel.constructor(atIndex: 0))
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
 
     func testFetchConstructorStandings_Failure() {
         mockRepository.shouldReturnError = true
-        viewModel.fetchConstructorStandings()
 
-        XCTAssertTrue(mockDelegate.showErrorCalled)
-        XCTAssertEqual(viewModel.constructorCount, 0)
+        let expectation = self.expectation(description: "Fetch Constructor Standings Failure")
+        viewModel.fetchConstructorStandings { standings in
+            XCTAssertEqual(self.viewModel.constructorCount, 0)
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
 
     func testConstructorAtIndex_Nil() {
@@ -85,8 +94,10 @@ class ConstructorStandingsViewModelTests: XCTestCase {
     }
 
     func testDrivers_TwoDrivers() {
-        let drivers = [Driver(driverID: "max_verstappen", permanentNumber: "33", code: "VER", url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"),
-                       Driver(driverID: "lewis_hamilton", permanentNumber: "44", code: "HAM", url: "", givenName: "Lewis", familyName: "Hamilton", dateOfBirth: "1985-01-07", nationality: "British")]
+        let drivers = [
+            Driver(driverID: "max_verstappen", permanentNumber: "33", code: "VER", url: "", givenName: "Max", familyName: "Verstappen", dateOfBirth: "1997-09-30", nationality: "Dutch"),
+            Driver(driverID: "lewis_hamilton", permanentNumber: "44", code: "HAM", url: "", givenName: "Lewis", familyName: "Hamilton", dateOfBirth: "1985-01-07", nationality: "British")
+        ]
         XCTAssertEqual(viewModel.drivers(driversList: drivers), "VER/HAM", "Should return concatenated driver codes for two drivers")
     }
 
