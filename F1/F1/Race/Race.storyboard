@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zBK-AV-iFJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zBK-AV-iFJ">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,8 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Racing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8x-WY-m9k">
-                                <rect key="frame" x="25" y="59" width="125" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Races 2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8x-WY-m9k">
+                                <rect key="frame" x="25" y="59" width="220" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3ex-xE-vIP"/>
                                 </constraints>
@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ypF-fz-OH8">
-                                <rect key="frame" x="20" y="114" width="390" height="779"/>
+                                <rect key="frame" x="20" y="160" width="390" height="733"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="20" id="iug-r3-J14">
                                     <size key="itemSize" width="86" height="98"/>
@@ -45,27 +45,44 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IMn-ey-Xqb">
+                                <rect key="frame" x="20" y="109" width="390" height="32"/>
+                                <color key="backgroundColor" red="0.19607841970000001" green="0.19215688110000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <segments>
+                                    <segment title="Upcoming"/>
+                                    <segment title="Past"/>
+                                </segments>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="zBK-AV-iFJ" eventType="valueChanged" id="Qdy-Ne-Qd7"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hFc-0N-etU"/>
                         <color key="backgroundColor" red="0.066666662690000003" green="0.062745101750000004" blue="0.05882352591" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="IMn-ey-Xqb" firstAttribute="leading" secondItem="hFc-0N-etU" secondAttribute="leading" constant="20" id="3W9-RZ-xwR"/>
                             <constraint firstItem="hFc-0N-etU" firstAttribute="trailing" secondItem="ypF-fz-OH8" secondAttribute="trailing" constant="20" id="Gw3-nC-GFN"/>
                             <constraint firstItem="ypF-fz-OH8" firstAttribute="centerX" secondItem="GtV-c2-z75" secondAttribute="centerX" id="IDC-lF-mVy"/>
                             <constraint firstItem="l8x-WY-m9k" firstAttribute="top" secondItem="hFc-0N-etU" secondAttribute="top" id="TR6-wC-A72"/>
                             <constraint firstItem="l8x-WY-m9k" firstAttribute="leading" secondItem="hFc-0N-etU" secondAttribute="leading" constant="25" id="WP2-G0-RLd"/>
-                            <constraint firstItem="ypF-fz-OH8" firstAttribute="top" secondItem="l8x-WY-m9k" secondAttribute="bottom" constant="15" id="oKG-By-xtd"/>
+                            <constraint firstItem="IMn-ey-Xqb" firstAttribute="top" secondItem="l8x-WY-m9k" secondAttribute="bottom" constant="10" id="jVn-DF-SMh"/>
                             <constraint firstItem="ypF-fz-OH8" firstAttribute="leading" secondItem="hFc-0N-etU" secondAttribute="leading" constant="20" id="rcy-el-Ibs"/>
                             <constraint firstItem="hFc-0N-etU" firstAttribute="bottom" secondItem="ypF-fz-OH8" secondAttribute="bottom" constant="5" id="sbT-1M-BgK"/>
+                            <constraint firstItem="ypF-fz-OH8" firstAttribute="top" secondItem="IMn-ey-Xqb" secondAttribute="bottom" constant="20" id="wm0-d5-ej7"/>
+                            <constraint firstItem="hFc-0N-etU" firstAttribute="trailing" secondItem="IMn-ey-Xqb" secondAttribute="trailing" constant="20" id="y3M-VY-kel"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="ypF-fz-OH8" id="v96-2D-d6a"/>
+                        <outlet property="segmentedControl" destination="IMn-ey-Xqb" id="0cJ-ZR-eeO"/>
                         <segue destination="Y6W-OH-hqX" kind="show" identifier="ShowRaceInfoSegue" id="prZ-Q5-NFj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0O-Ib-Je3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1137" y="-4"/>
+            <point key="canvasLocation" x="-1137.2093023255813" y="-4.5064377682403434"/>
         </scene>
         <!--Race View Controller-->
         <scene sceneID="s0d-6b-0kx">
