@@ -221,6 +221,8 @@ final class RaceViewModelTests: XCTestCase {
     }
 
     func testFunctions() {
+        var mockUpcoming = true
+
         mockRepository.mockRaces = Racing(race: RaceDescriptor(series: "F1", url: "http://example.com", limit: "10", offset: "0", total: "1", raceTable: RaceSheduleTable(season: "2024", races: [
             RaceInfo(season: "2024", round: "1", url: "http://example.com/race1", raceName: "Grand Prix 2024",
                      circuit: Circuit(circuitID: "001", circuitName: "Silverstone",
@@ -239,7 +241,7 @@ final class RaceViewModelTests: XCTestCase {
             thirdPractice: nil, qualifying: RaceSession(date: "", time: ""), sprint: nil)])))
 
         viewModel.fetchRace()
-        let race = viewModel.race(atIndex: 1)
+        let race = viewModel.race(atIndex: 1, upcoming: mockUpcoming)
         XCTAssertEqual(race.raceName, "Italian Grand Prix")
 
         XCTAssertEqual(viewModel.imageName(circuitCode: "monza"), "monza.png")
