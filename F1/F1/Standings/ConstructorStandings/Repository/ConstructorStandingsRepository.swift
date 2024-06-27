@@ -13,25 +13,35 @@ typealias ConstructorStandingsResults = (Result< ConstructorStandingsModel, APIE
 // MARK: Protocol
 protocol ConstructorStandingsRepositoryType: AnyObject {
     func fetchConstructorStandingsResults(completion: @escaping(ConstructorStandingsResults))
+    func fetchConstructorStandingsResultsOffline(completion: @escaping(ConstructorStandingsResults))
 }
 
 // MARK: Repository
 class ConstructorStandingsRepository: ConstructorStandingsRepositoryType {
+    private let coreDataManager: CoreDataManager
+
+    init(coreDataManager: CoreDataManager) {
+        self.coreDataManager = coreDataManager
+    }
 
     func fetchConstructorStandingsResults(completion: @escaping (ConstructorStandingsResults)) {
         let url = Endpoints.constructorStanding
         URLSession.shared.request(endpoint: url, method: .GET) { (result: Result<ConstructorStandingsModel, APIError>) in
             switch result {
             case .success(let constructorStandingsModel):
-                CoreDataManager.shared.saveConstructorStandings(constructorStandingsModel)
+                self.coreDataManager.saveConstructorStandings(constructorStandingsModel)
                 completion(.success(constructorStandingsModel))
             case .failure(let error):
-                if let savedStandings = CoreDataManager.shared.fetchConstructorStandings() {
-                    completion(.success(savedStandings))
-                } else {
-                    completion(.failure(error))
-                }
+                completion(.failure(error))
             }
+        }
+    }
+
+    func fetchConstructorStandingsResultsOffline(completion: @escaping (ConstructorStandingsResults)) {
+        if let savedStandings = coreDataManager.fetchConstructorStandings() {
+            completion(.success(savedStandings))
+        } else {
+            completion(.failure(.offlineError))
         }
     }
 }

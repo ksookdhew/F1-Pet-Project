@@ -59,7 +59,21 @@ class DriverStandingsViewModel {
         }
     }
 
-    //MARK: Helper Function
+    func fetchDriverStandingsOffline(completion: @escaping ([DriverStanding]?) -> Void) {
+        repository?.fetchDriverStandingsResultsOffline { [weak self] result in
+            switch result {
+            case .success(let driverStandings):
+                self?.driverStanding = driverStandings.driverStandings.standingsTable.standingsLists.first?.driverStandings
+                self?.sortDriverStandings()
+                self?.isLoaded = true
+                completion(self?.driverStanding)
+            case .failure:
+                completion(nil)
+            }
+        }
+    }
+
+    // MARK: Helper Function
     private func sortDriverStandings() {
         driverStanding = driverStanding?.sorted { Int($0.position) ?? 0 < Int($1.position) ?? 0 }
     }

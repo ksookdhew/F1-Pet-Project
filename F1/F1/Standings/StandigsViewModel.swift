@@ -17,8 +17,8 @@ class StandingsViewModel {
     let constructorViewModel: ConstructorStandingsViewModel
 
     init(navigationDelegate: StandingsNavigationDelegate?, delegate: ViewModelDelegate) {
-        self.driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository())
-        self.constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository())
+        self.driverViewModel = DriverStandingsViewModel(repository: DriverStandingsRepository(coreDataManager: CoreDataManager()))
+        self.constructorViewModel = ConstructorStandingsViewModel(repository: ConstructorStandingsRepository(coreDataManager: CoreDataManager()))
         self.navigationDelegate = navigationDelegate
         self.delegate = delegate
     }
@@ -56,6 +56,38 @@ class StandingsViewModel {
 
         dispatchGroup.enter()
         constructorViewModel.fetchConstructorStandings { [weak self] constructorStandings in
+            if constructorStandings != nil {
+                self?.constructorStanding = constructorStandings
+            } else {
+                self?.delegate?.show(error: "Error")
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            if self?.driverStanding != nil && self?.constructorStanding != nil {
+                self?.delegate?.reloadView()
+            } else {
+                self?.delegate?.show(error: "Error")
+            }
+        }
+    }
+
+    func fetchStandingsOffline() {
+        let dispatchGroup = DispatchGroup()
+
+        dispatchGroup.enter()
+        driverViewModel.fetchDriverStandingsOffline { [weak self] driverStandings in
+            if driverStandings != nil {
+                self?.driverStanding = driverStandings
+            } else {
+                self?.delegate?.show(error: "Error")
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.enter()
+        constructorViewModel.fetchConstructorStandingsOffline { [weak self] constructorStandings in
             if constructorStandings != nil {
                 self?.constructorStanding = constructorStandings
             } else {

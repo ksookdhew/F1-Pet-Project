@@ -17,6 +17,15 @@ class MockDriverStandingsRepository: DriverStandingsRepositoryType {
                                                                                                                      standingsTable: DriverStandingsTable(season: "2024", standingsLists: [])))))
         }
     }
+
+    func fetchDriverStandingsResultsOffline(completion: @escaping (DriverStandingsResults)) {
+        if shouldReturnError {
+            completion(.failure(.serverError))
+        } else {
+            completion(.success(mockDriverStandings ?? DriverStandingsModel(driverStandings: DriverStandingsResponse(series: "F1", url: "", limit: "10", offset: "0", total: "1",
+                                                                                                                     standingsTable: DriverStandingsTable(season: "2024", standingsLists: [])))))
+        }
+    }
 }
 
 import XCTest

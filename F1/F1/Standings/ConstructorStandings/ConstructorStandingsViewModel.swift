@@ -48,6 +48,21 @@ class ConstructorStandingsViewModel {
         }
     }
 
+    func fetchConstructorStandingsOffline(completion: @escaping ([ConstructorStanding]?) -> Void) {
+        repository?.fetchConstructorStandingsResultsOffline { [weak self] result in
+            switch result {
+            case .success(let constructorStandings):
+                self?.constructorStanding =
+                   constructorStandings.constructorStandings.standingsTable.standingsLists.first?.constructorStandings
+                self?.sortConstructorStandings()
+                self?.isLoaded = true
+                completion(self?.constructorStanding)
+            case .failure:
+                completion(nil)
+            }
+        }
+    }
+
     private func sortConstructorStandings() {
         constructorStanding =  constructorStanding?.sorted { Int($0.position) ?? 0 < Int($1.position) ?? 0 }
     }
