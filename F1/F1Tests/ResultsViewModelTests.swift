@@ -5,10 +5,19 @@
 //  Created by Kaitlyn Sookdhew on 2024/05/04.
 //
 class MockResultsRepository: ResultsRepositoryType {
+
     var fetchResultsShouldFail: Bool = false
     var mockResultsModel: RacingResults?
 
     func fetchRoundResults(round: String, completion: @escaping (ResultsResults)) {
+        if fetchResultsShouldFail {
+            completion(.failure(.serverError))
+        } else {
+            completion(.success(mockResultsModel ?? RacingResults(results: ResultsResponse(series: "F1", url: "", limit: "10",
+                                                                                     offset: "0", total: "1", raceTable: RaceTable(season: "2024", races: [])))))
+        }
+    }
+    func fetchRacingResultsOffline(completion: @escaping (F1.ResultsResults)) {
         if fetchResultsShouldFail {
             completion(.failure(.serverError))
         } else {
