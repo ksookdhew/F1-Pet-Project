@@ -9,7 +9,7 @@ import UIKit
 
 class RacingViewController: LoadingIndicatorViewController {
 
-    private lazy var viewModel = RaceViewModel(repository: RaceRepository(), delegate: self)
+    private lazy var viewModel = RaceViewModel(repository: RaceRepository(coreDataManager: CoreDataManager()), delegate: self)
     private var upcoming = true
 
     // MARK: - IBOutlets
