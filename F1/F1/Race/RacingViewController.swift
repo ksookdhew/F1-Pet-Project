@@ -10,15 +10,21 @@ import UIKit
 class RacingViewController: LoadingIndicatorViewController {
 
     private lazy var viewModel = RaceViewModel(repository: RaceRepository(), delegate: self)
+    private var upcoming = true
 
     // MARK: - IBOutlets
     @IBOutlet weak private var collectionView: UICollectionView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
 
     // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.fetchRace()
         setUpCollectionView()
+    }
+    @IBAction func segmentedControlChanged(_ sender: Any) {
+        upcoming = !upcoming
+        reloadView()
     }
 
     private func setUpCollectionView() {
@@ -42,7 +48,7 @@ class RacingViewController: LoadingIndicatorViewController {
 extension RacingViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.racesCount
+        viewModel.countRaces(upcoming: upcoming)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -54,14 +60,14 @@ extension RacingViewController: UICollectionViewDataSource, UICollectionViewDele
             .dequeueReusableCell(withReuseIdentifier: Identifiers.racingIdentifier, for: indexPath as IndexPath) as? RacingCollectionViewCell else {
             return UICollectionViewCell()
         }
-        let race = viewModel.race(atIndex: indexPath.item)
+        let race = viewModel.race(atIndex: indexPath.item, upcoming: upcoming)
         cell.populateWith(raceName: race.circuit.location.locality, track: viewModel.imageName(circuitCode: race.circuit.circuitID),
         raceDate: viewModel.sessionDate(date: race.date))
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let result = viewModel.race(atIndex: indexPath.item)
+        let result = viewModel.race(atIndex: indexPath.item, upcoming: upcoming)
         navigate(identifier: Identifiers.showRaceSegue, sender: result)
     }
 }

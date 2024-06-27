@@ -12,6 +12,8 @@ class RaceViewModel {
     // MARK: Variables
     private weak var delegate: ViewModelDelegate?
     private(set) var allRaces: [RaceInfo] = []
+    private(set) var upcomingRaces: [RaceInfo]  = []
+    private(set) var pastRaces: [RaceInfo]  = []
     private(set) var sortedRaceSession: [RaceSessionDetail] = []
     private var repository: RaceRepositoryType?
     private var race: RaceInfo?
@@ -58,8 +60,20 @@ class RaceViewModel {
         addSession(date: race?.firstPractice.date, time: race?.firstPractice.time, type: .practice1)
     }
 
-    func race(atIndex: Int) -> RaceInfo {
-        allRaces[atIndex]
+    func countRaces(upcoming: Bool) -> Int {
+        if upcoming {
+            return upcomingRaces.count
+        } else {
+            return pastRaces.count
+        }
+    }
+
+    func race(atIndex: Int, upcoming: Bool) -> RaceInfo {
+        if upcoming {
+            return upcomingRaces[atIndex]
+        } else {
+            return pastRaces[atIndex]
+        }
     }
 
     func imageName(circuitCode: String?) -> String {
@@ -89,6 +103,7 @@ class RaceViewModel {
                 case .success(let races):
                     self?.allRaces = races.race.raceTable.races
                     self?.sortRacesByRound()
+                    self?.setRaces()
                     self?.delegate?.reloadView()
                 case .failure(let error):
                     self?.delegate?.show(error: error.rawValue)
@@ -110,5 +125,37 @@ class RaceViewModel {
             }
             return round1 < round2
         }
+    }
+
+    private func setRaces() {
+        let nextRound = findNextRound()
+        pastRaces = Array(allRaces[..<nextRound])
+        upcomingRaces = Array(allRaces[nextRound...])
+    }
+
+    private func findNextRound() -> Int {
+        let today = Date()
+        return roundBinarySearch(date: today)
+    }
+
+    private func roundBinarySearch(date: Date) -> Int {
+        var min = 0
+        var max = allRaces.count - 1
+
+        while min <= max {
+            let mid = (min + max) / 2
+            let raceDateComps = DateFormatter().customDateFormatter(date: allRaces[mid].date)
+            let calendar = Calendar.current
+            let raceDate = calendar.date(from: raceDateComps)
+
+            if raceDate == date {
+                return mid
+            } else if raceDate! < date {
+                min = mid + 1
+            } else {
+                max = mid - 1
+            }
+        }
+        return min
     }
 }
