@@ -9,12 +9,14 @@ import Foundation
 import Network
 
 final class NetworkMonitor {
+    
+    // MARK: Variables
     static let shared = NetworkMonitor()
-
     private let queue = DispatchQueue.global()
     private let monitor: NWPathMonitor
     public private(set) var isConnected = false
 
+    // MARK: Functions
     private init() {
         monitor = NWPathMonitor()
     }
@@ -29,5 +31,4 @@ final class NetworkMonitor {
     public func stopMonitoring() {
         monitor.cancel()
     }
-
 }
