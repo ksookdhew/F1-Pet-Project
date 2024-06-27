@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
             UITabBar.appearance().standardAppearance = tabBarAppearance
         }
+
+        NetworkMonitor.shared.startMonitoring()
          return true
     }
 
