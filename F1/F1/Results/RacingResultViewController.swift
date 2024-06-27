@@ -8,7 +8,7 @@ import UIKit
 
 class RacingResultViewController: UIViewController {
 
-    private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(), delegate: self)
+    private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(coreDataManager: CoreDataManager()), delegate: self)
 
     // MARK: IBOutlets
     @IBOutlet weak private var raceName: UILabel!

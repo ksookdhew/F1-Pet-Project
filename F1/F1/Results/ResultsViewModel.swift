@@ -82,6 +82,20 @@ class ResultsViewModel {
         }
     }
 
+    func fetchResultsOffline() {
+        repository?.fetchRacingResultsOffline { [weak self] result in
+            switch result {
+            case .success(let result):
+                self?.allResults = result.results.raceTable.races
+                self?.sortRacesByRound()
+                self?.delegate?.reloadView()
+            case .failure(let error):
+                print(error)
+                self?.delegate?.show(error: error.rawValue)
+            }
+        }
+    }
+
     // MARK: Helper Functions
     private func sortRacesByRound() {
         allResults?.sort { race1, race2 in

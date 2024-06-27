@@ -10,7 +10,7 @@ import UIKit
 class ResultsViewController: LoadingIndicatorViewController {
 
     // MARK: Variables
-    private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(), delegate: self)
+    private lazy var viewModel = ResultsViewModel(repository: ResultsRepository(coreDataManager: CoreDataManager()), delegate: self)
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(ResultsViewController.handleRefresh(_:)), for: UIControl.Event.valueChanged)
@@ -26,12 +26,13 @@ class ResultsViewController: LoadingIndicatorViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        viewModel.fetchResults()
+        fetchData()
         self.allResultsTableView.addSubview(self.refreshControl)
     }
 
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        viewModel.fetchResults()
+        fetchData()
+        refreshControl.endRefreshing()
     }
 
     private func setupTableView() {
@@ -39,6 +40,15 @@ class ResultsViewController: LoadingIndicatorViewController {
         allResultsTableView.dataSource = self
         allResultsTableView.register(AllResultsTableViewCell.nib(),
                                      forCellReuseIdentifier: Identifiers.allResultsTableViewCell)
+    }
+
+    private func fetchData() {
+        if NetworkMonitor.shared.isConnected {
+            viewModel.fetchResults()
+        } else {
+            showAlert(alertTitle: "App is Offline", alertMessage: "The info you see may be outdated")
+            viewModel.fetchResultsOffline()
+        }
     }
 
     // MARK: - Navigation
@@ -104,9 +114,6 @@ extension  ResultsViewController: ViewModelDelegate {
         allResultsTableView.reloadData()
         hideLoadingIndicator()
         refreshControl.endRefreshing()
-        if Flags.offline {
-            showAlert(alertTitle: "App is Offline", alertMessage: "The info you see may be outdated")
-        }
     }
 
     func show(error: String) {
