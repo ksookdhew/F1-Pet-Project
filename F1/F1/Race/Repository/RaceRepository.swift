@@ -17,9 +17,14 @@ protocol RaceRepositoryType: AnyObject {
 
 // MARK: Repository
 class RaceRepository: RaceRepositoryType {
+    private let coreDataManager: CoreDataManager
+
+    init(coreDataManager: CoreDataManager) {
+        self.coreDataManager = coreDataManager
+    }
 
     func fetchRaceResults(completion: @escaping RaceResults) {
-        if let savedRaces = CoreDataManager.shared.fetchRaces(), !savedRaces.isEmpty {
+        if let savedRaces = coreDataManager.fetchRaces(), !savedRaces.isEmpty {
             completion(.success(Racing(race: RaceDescriptor(
                 series: "F1", url: "", limit: "", offset: "", total: "", raceTable: RaceSheduleTable(season: "", races: savedRaces)))))
         } else {
@@ -27,7 +32,7 @@ class RaceRepository: RaceRepositoryType {
             URLSession.shared.request(endpoint: url, method: .GET) { [weak self] (result: Result<Racing, APIError>) in
                 switch result {
                 case .success(let races):
-                    CoreDataManager.shared.saveRaceInfo(races)
+                    self?.coreDataManager.saveRaceInfo(races)
                     completion(.success(races))
                 case .failure(let error):
                     completion(.failure(error))

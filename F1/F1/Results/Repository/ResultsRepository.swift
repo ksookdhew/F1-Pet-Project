@@ -38,7 +38,7 @@ class ResultsRepository: ResultsRepositoryType {
     }
 
     func fetchRacingResultsOffline(completion: @escaping (ResultsResults)) {
-        if let savedResults = CoreDataManager.shared.fetchResults(), !savedResults.isEmpty {
+        if let savedResults = coreDataManager.fetchResults(), !savedResults.isEmpty {
             completion(.success(RacingResults(results: ResultsResponse(
                 series: "F1", url: "", limit: "", offset: "", total: "", raceTable: RaceTable(season: "", races: savedResults)))))
         } else {

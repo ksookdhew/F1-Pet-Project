@@ -28,7 +28,7 @@ class StandingsViewController: LoadingIndicatorViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        standingsViewModel.fetchStandings()
+        fetchData()
         self.tableView.addSubview(self.refreshControl)
     }
 
@@ -41,7 +41,17 @@ class StandingsViewController: LoadingIndicatorViewController {
     }
 
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        standingsViewModel.fetchStandings()
+        fetchData()
+        refreshControl.endRefreshing()
+    }
+
+    private func fetchData() {
+        if NetworkMonitor.shared.isConnected {
+            standingsViewModel.fetchStandings()
+        } else {
+            showAlert(alertTitle: "App is Offline", alertMessage: "The info you see may be outdated")
+            standingsViewModel.fetchStandingsOffline()
+        }
     }
 
     // MARK: IBAction
@@ -139,7 +149,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if Flags.offline {
+        if !NetworkMonitor.shared.isConnected {
             showAlert(alertTitle: "Unavailable Offline", alertMessage: "This feature is not available in offline mode")
 
         } else {
@@ -157,9 +167,6 @@ extension  StandingsViewController: ViewModelDelegate {
             segmentedControl.isHidden = false
         }
         refreshControl.endRefreshing()
-        if Flags.offline {
-            showAlert(alertTitle: "App is Offline", alertMessage: "The info you see may be outdated")
-        }
     }
 
     func show(error: String) {

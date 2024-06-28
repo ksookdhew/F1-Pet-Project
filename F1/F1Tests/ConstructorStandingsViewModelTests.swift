@@ -19,6 +19,15 @@ class MockConstructorStandingsRepository: ConstructorStandingsRepositoryType {
                 series: "F1", url: "", limit: "10", offset: "0", total: "1", standingsTable: ConstructorStandingsTable(season: "2024", standingsLists: [])))))
         }
     }
+
+    func fetchConstructorStandingsResultsOffline(completion: @escaping (ConstructorStandingsResults)) {
+        if shouldReturnError {
+            completion(.failure(.serverError))
+        } else {
+            completion(.success(mockConstructorStandings ?? ConstructorStandingsModel(constructorStandings: ConstructorStandingsResponse(
+                series: "F1", url: "", limit: "10", offset: "0", total: "1", standingsTable: ConstructorStandingsTable(season: "2024", standingsLists: [])))))
+        }
+    }
 }
 
 class ConstructorStandingsViewModelTests: XCTestCase {

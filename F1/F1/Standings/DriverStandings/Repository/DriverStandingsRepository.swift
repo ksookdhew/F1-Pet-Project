@@ -13,28 +13,35 @@ typealias DriverStandingsResults = (Result< DriverStandingsModel, APIError>) -> 
 // MARK: Protocol
 protocol DriverStandingsRepositoryType: AnyObject {
     func fetchDriverStandingsResults(completion: @escaping(DriverStandingsResults))
+    func fetchDriverStandingsResultsOffline(completion: @escaping(DriverStandingsResults))
 }
 
 // MARK: Repository
 class DriverStandingsRepository: DriverStandingsRepositoryType {
+    private let coreDataManager: CoreDataManager
+
+    init(coreDataManager: CoreDataManager) {
+        self.coreDataManager = coreDataManager
+    }
 
     func fetchDriverStandingsResults(completion: @escaping(DriverStandingsResults)) {
         let url = Endpoints.driverStanding
         URLSession.shared.request(endpoint: url, method: .GET) { (result: Result<DriverStandingsModel, APIError>) in
             switch result {
             case .success(let driverStandingsModel):
-                Flags.offline = false
-                CoreDataManager.shared.saveDriverStandings(driverStandingsModel)
+                self.coreDataManager.saveDriverStandings(driverStandingsModel)
                 completion(.success(driverStandingsModel))
             case .failure(let error):
-                if let savedStandings = CoreDataManager.shared.fetchDriverStandings() {
-                    Flags.offline = true
-                    completion(.success(savedStandings))
-                } else {
-                    Flags.offline = true
-                    completion(.failure(error))
-                }
+                completion(.failure(error))
             }
+        }
+    }
+
+    func fetchDriverStandingsResultsOffline(completion: @escaping(DriverStandingsResults)) {
+        if let savedStandings = coreDataManager.fetchDriverStandings() {
+            completion(.success(savedStandings))
+        } else {
+            completion(.failure(.offlineError))
         }
     }
 }
