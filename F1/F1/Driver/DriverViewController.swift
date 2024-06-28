@@ -11,10 +11,10 @@ class DriverViewController: LoadingIndicatorViewController {
 
     // MARK: IBOutlets
     @IBOutlet weak private var tableView: UITableView!
-    
+
     // MARK: Variables
     var driver: DriverStanding?
-    private lazy var viewModel = DriverViewModel(repository: DriverRepository(coreDataManager: CoreDataManager()), delegate: self)
+    private lazy var viewModel = DriverViewModel(repository: DriverRepository(), delegate: self)
 
     // MARK: Functions
     override func viewDidLoad() {
@@ -39,7 +39,6 @@ class DriverViewController: LoadingIndicatorViewController {
         viewModel.setDriver(driver: driver)
         tableView.isHidden = true
     }
-
 }
 
 // MARK: - UITableViewDelegate and UITableViewDataSource
@@ -111,5 +110,6 @@ extension  DriverViewController: ViewModelDelegate {
 
     func show(error: String) {
         showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
+        hideLoadingIndicator()
     }
 }

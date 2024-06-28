@@ -149,15 +149,12 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if !NetworkMonitor.shared.isConnected {
-//            showAlert(alertTitle: "Unavailable Offline", alertMessage: "This feature is not available in offline mode")
-//
-//        } else {
-//            standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
-//        }
+        if !NetworkMonitor.shared.isConnected {
+            showAlert(alertTitle: "Unavailable Offline", alertMessage: "This feature is not available in offline mode")
 
-        standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
-
+        } else {
+            standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
+        }
     }
 }
 
@@ -171,7 +168,7 @@ extension  StandingsViewController: ViewModelDelegate {
         }
         refreshControl.endRefreshing()
     }
-
+    
     func show(error: String) {
         showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
         hideLoadingIndicator()
