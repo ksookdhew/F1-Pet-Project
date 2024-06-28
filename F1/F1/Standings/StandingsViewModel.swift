@@ -22,6 +22,7 @@ class StandingsViewModel {
         self.navigationDelegate = navigationDelegate
         self.delegate = delegate
     }
+
     // MARK: Computed Variables
     var isLoaded: Bool {
         driverViewModel.isLoaded && constructorViewModel.isLoaded
@@ -104,5 +105,4 @@ class StandingsViewModel {
             }
         }
     }
-
 }

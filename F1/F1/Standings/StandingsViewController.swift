@@ -149,12 +149,15 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if !NetworkMonitor.shared.isConnected {
-            showAlert(alertTitle: "Unavailable Offline", alertMessage: "This feature is not available in offline mode")
+//        if !NetworkMonitor.shared.isConnected {
+//            showAlert(alertTitle: "Unavailable Offline", alertMessage: "This feature is not available in offline mode")
+//
+//        } else {
+//            standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
+//        }
 
-        } else {
-            standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
-        }
+        standingsViewModel.navigateTo(indexPath: indexPath, selectedSegmentIndex: selectedSegmentIndex)
+
     }
 }
 
