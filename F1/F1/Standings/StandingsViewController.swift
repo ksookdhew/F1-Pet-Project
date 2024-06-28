@@ -168,7 +168,7 @@ extension  StandingsViewController: ViewModelDelegate {
         }
         refreshControl.endRefreshing()
     }
-    
+
     func show(error: String) {
         showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
         hideLoadingIndicator()
