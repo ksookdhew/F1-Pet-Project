@@ -11,7 +11,6 @@ import UIKit
 class CoreDataManager {
 
     // MARK: Variables
-    static let shared = CoreDataManager()
     let appDelegate: AppDelegate
     let context: NSManagedObjectContext
 

@@ -14,7 +14,7 @@ class DriverViewController: LoadingIndicatorViewController {
     
     // MARK: Variables
     var driver: DriverStanding?
-    private lazy var viewModel = DriverViewModel(repository: DriverRepository(), delegate: self)
+    private lazy var viewModel = DriverViewModel(repository: DriverRepository(coreDataManager: CoreDataManager()), delegate: self)
 
     // MARK: Functions
     override func viewDidLoad() {

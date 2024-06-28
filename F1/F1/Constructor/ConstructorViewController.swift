@@ -15,7 +15,7 @@ class ConstructorViewController: LoadingIndicatorViewController {
     // MARK: Variables
     var constructor: ConstructorStanding?
     var driver: [Driver]?
-    private lazy var viewModel = ConstructorViewModel(repository: ConstructorRepository(), delegate: self)
+    private lazy var viewModel = ConstructorViewModel(repository: ConstructorRepository(coreDataManager: CoreDataManager()), delegate: self)
 
     // MARK: Functions
     override func viewDidLoad() {
