@@ -52,6 +52,7 @@ extension ConstructorViewController: ViewModelDelegate {
 
     func show(error: String) {
         showAlert(alertTitle: "Error", alertMessage: "Oops, an error occurred")
+        hideLoadingIndicator()
     }
 }
 
