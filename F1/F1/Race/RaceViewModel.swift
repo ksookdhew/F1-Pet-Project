@@ -129,7 +129,7 @@ class RaceViewModel {
 
     private func setRaces() {
         let nextRound = findNextRound()
-        pastRaces = Array(allRaces[..<nextRound])
+        pastRaces = Array(allRaces[..<nextRound]).reversed()
         upcomingRaces = Array(allRaces[nextRound...])
     }
 
