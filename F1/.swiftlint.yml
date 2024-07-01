@@ -1,4 +1,7 @@
 
+disabled_rules:
+  - trailing_whitespace
+
 opt_in_rules:
   - attributes
   - closure_spacing
@@ -32,8 +35,6 @@ opt_in_rules:
   - last_where
   - legacy_multiple
   - line_length
-  - multiline_arguments
-  - multiline_parameters
   - operator_usage_whitespace
   - period_spacing
   - private_swiftui_state
@@ -56,5 +57,11 @@ opt_in_rules:
   - unused_capture_list
   - vertical_parameter_alignment_on_call
   - vertical_whitespace
-  - weak_delegate
   - yoda_condition
+
+line_length:
+ warning: 150
+ error: 1200
+
+empty_count:
+ severity: warning
