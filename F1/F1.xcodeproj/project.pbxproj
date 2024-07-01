@@ -75,6 +75,7 @@
 		26592A332C04AAEC0043E4A4 /* ComingSoon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26592A322C04AAEC0043E4A4 /* ComingSoon.storyboard */; };
 		26592A352C04BE6F0043E4A4 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26592A342C04BE6F0043E4A4 /* MoreViewController.swift */; };
 		267ECF532C2D41B500113ADE /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267ECF522C2D41B500113ADE /* NetworkMonitor.swift */; };
+		267ECF552C329F8D00113ADE /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 267ECF542C329F8D00113ADE /* Colours.xcassets */; };
 		26B97EBE2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */; };
 		26B97EBF2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */; };
 		26C993762BBFE5070041F3B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */; };
@@ -190,6 +191,7 @@
 		26592A322C04AAEC0043E4A4 /* ComingSoon.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComingSoon.storyboard; sourceTree = "<group>"; };
 		26592A342C04BE6F0043E4A4 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		267ECF522C2D41B500113ADE /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		267ECF542C329F8D00113ADE /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
 		26B97EBC2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		26B97EBD2BD3E58C00EA34A3 /* RaceScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaceScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				2629DFA52BBC22D600EC6139 /* SceneDelegate.swift */,
 				2629DFA92BBC22D600EC6139 /* Main.storyboard */,
 				2629DFAC2BBC22D900EC6139 /* Assets.xcassets */,
+				267ECF542C329F8D00113ADE /* Colours.xcassets */,
 				26C993752BBFE5070041F3B1 /* LaunchScreen.storyboard */,
 			);
 			path = Config;
@@ -680,6 +683,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2629E0832BBDE02A00EC6139 /* Race.storyboard in Resources */,
+				267ECF552C329F8D00113ADE /* Colours.xcassets in Resources */,
 				26592A332C04AAEC0043E4A4 /* ComingSoon.storyboard in Resources */,
 				26C993D42BC6B3E20041F3B1 /* Login.storyboard in Resources */,
 				260FFE372BCBDA5B00B0102D /* ConstructorResultHeader.xib in Resources */,
