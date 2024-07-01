@@ -13,8 +13,8 @@ extension DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
         let date = dateFormatter.date(from: date) ?? Date()
-        let dateComps = Calendar.current.dateComponents([.year, .month, .day], from: date)
-        return dateComps
+        return Calendar.current.dateComponents([.year, .month, .day], from: date)
+
     }
 
     func customLocalTimeFormatter(time: String) -> String {
@@ -28,8 +28,6 @@ extension DateFormatter {
         let localDateFormatter = DateFormatter()
         localDateFormatter.dateFormat = "HH:mm:ss"
         localDateFormatter.timeZone = TimeZone.current
-        let localTimeString = localDateFormatter.string(from: formattedTime)
-
-        return localTimeString
+        return localDateFormatter.string(from: formattedTime)
     }
 }
