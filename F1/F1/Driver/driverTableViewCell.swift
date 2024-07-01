@@ -26,6 +26,6 @@ class DriverTableViewCell: UITableViewCell {
     }
 
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.driverTableViewCell, bundle: nil)
+        UINib(nibName: Identifiers.driverTableViewCell, bundle: nil)
     }
 }

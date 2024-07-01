@@ -11,6 +11,6 @@ class ConstructorResultHeader: UITableViewHeaderFooterView {
 
     // MARK: Functions
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.constructorResultsIdentifier, bundle: nil)
+        UINib(nibName: Identifiers.constructorResultsIdentifier, bundle: nil)
     }
 }

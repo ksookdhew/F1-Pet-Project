@@ -24,6 +24,6 @@ class RaceResultTableViewCell: UITableViewCell {
     }
 
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.raceResultTableViewCell, bundle: nil)
+        UINib(nibName: Identifiers.raceResultTableViewCell, bundle: nil)
     }
 }
