@@ -26,6 +26,6 @@ class ConstructorStandingTableViewCell: UITableViewCell {
     }
 
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.constructorStandingTableViewCell, bundle: nil)
+        UINib(nibName: Identifiers.constructorStandingTableViewCell, bundle: nil)
     }
 }

@@ -18,12 +18,12 @@ class RaceScheduleTableViewCell: UITableViewCell {
     // MARK: Functions
     func populateWith(sessionName: String, sessionDate: DateComponents, sessionTime: String) {
         raceDay.text = "\(sessionDate.day ?? 0)"
-        raceMonth.text = "\(Constants.monthAbbreviations[(sessionDate.month ?? 1)-1])"
+        raceMonth.text = "\(Constants.monthAbbreviations[(sessionDate.month ?? 1) - 1])"
         session.text = sessionName
         time.text = sessionTime
     }
 
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.raceScheduleIndentifier, bundle: nil)
+        UINib(nibName: Identifiers.raceScheduleIndentifier, bundle: nil)
     }
 }

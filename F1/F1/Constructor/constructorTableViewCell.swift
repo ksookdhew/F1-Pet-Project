@@ -39,6 +39,6 @@ class ConstructorTableViewCell: UITableViewCell {
     }
 
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.constructorTableViewCell, bundle: nil)
+        UINib(nibName: Identifiers.constructorTableViewCell, bundle: nil)
     }
 }

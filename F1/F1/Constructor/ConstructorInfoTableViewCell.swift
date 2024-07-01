@@ -23,12 +23,12 @@ class ConstructorInfoTableViewCell: UITableViewCell {
         constructorImage.image = UIImage(named: constructor.constructor.constructorID)
         constructorName.text = constructor.constructor.name
         constructorDriver.text = drivers
-        constructorNationality.text =  constructor.constructor.nationality
+        constructorNationality.text = constructor.constructor.nationality
         currentPosition.text = constructor.position
         currentPoints.text = constructor.points
         currentWins.text = constructor.wins
     }
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.constructorInfoTableViewCell, bundle: nil)
+        UINib(nibName: Identifiers.constructorInfoTableViewCell, bundle: nil)
     }
 }
