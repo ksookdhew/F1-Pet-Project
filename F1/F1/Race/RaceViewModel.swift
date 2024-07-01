@@ -89,7 +89,7 @@ class RaceViewModel {
     }
 
     func sessionTime(time: String) -> String {
-        let formattedTime = time.prefix(5)
+        let formattedTime = DateFormatter().customLocalTimeFormatter(time: time).prefix(5)
         return String(formattedTime)
     }
 
@@ -129,7 +129,7 @@ class RaceViewModel {
 
     private func setRaces() {
         let nextRound = findNextRound()
-        pastRaces = Array(allRaces[..<nextRound])
+        pastRaces = Array(allRaces[..<nextRound]).reversed()
         upcomingRaces = Array(allRaces[nextRound...])
     }
 
