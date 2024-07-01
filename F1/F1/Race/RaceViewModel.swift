@@ -89,7 +89,7 @@ class RaceViewModel {
     }
 
     func sessionTime(time: String) -> String {
-        let formattedTime = time.prefix(5)
+        let formattedTime = DateFormatter().customLocalTimeFormatter(time: time).prefix(5)
         return String(formattedTime)
     }
 
