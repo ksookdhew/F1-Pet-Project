@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,22 +23,22 @@
                             <constraint firstAttribute="height" constant="20" id="s73-Au-wQU"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="18"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" name="Label"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Race Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEh-JV-ggy">
                         <rect key="frame" x="115" y="45" width="74" height="13"/>
                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
-                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" name="Label"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round xx" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qc8-0Y-xdK">
-                        <rect key="frame" x="20" y="20" width="62" height="13"/>
+                        <rect key="frame" x="20" y="20" width="65" height="13"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="62" id="Tvm-b2-cfL"/>
+                            <constraint firstAttribute="width" constant="65" id="Tvm-b2-cfL"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" name="Label"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yb-BG-Vlp">
@@ -46,18 +47,18 @@
                             <constraint firstAttribute="width" constant="25" id="BFg-lU-5jr"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="15"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" name="Label"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DRV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9H-Ri-BN7">
                         <rect key="frame" x="116" y="69" width="36" height="20"/>
-                        <color key="backgroundColor" red="0.19607841970000001" green="0.19215688110000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="TableHighlight"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="YCm-LT-fwK"/>
                             <constraint firstAttribute="height" constant="20" id="wIe-j1-Z2T"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="11"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" name="Label"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -68,13 +69,13 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DRV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crU-Hb-K0v">
                         <rect key="frame" x="184" y="69" width="36" height="20"/>
-                        <color key="backgroundColor" red="0.19607841970000001" green="0.19215688110000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="TableHighlight"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="1LW-kP-3dg"/>
                             <constraint firstAttribute="width" constant="36" id="aVm-yg-c6F"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="11"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" name="Label"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -85,13 +86,13 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DRV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5A-HL-3lQ">
                         <rect key="frame" x="252" y="69" width="36" height="20"/>
-                        <color key="backgroundColor" red="0.19607841970000001" green="0.19215688110000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="TableHighlight"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="Hii-Fp-wEe"/>
                             <constraint firstAttribute="height" constant="20" id="NDw-m0-98i"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="11"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" name="Label"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -102,13 +103,13 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JAN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nal-z3-g3d">
                         <rect key="frame" x="30" y="68" width="36" height="20"/>
-                        <color key="backgroundColor" red="0.19607841970000001" green="0.19215688110000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="TableHighlight"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="Ouf-K6-QrU"/>
                             <constraint firstAttribute="height" constant="20" id="PId-M4-Lqx"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HiraginoSans-W5" family="Hiragino Sans" pointSize="11"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" name="Label"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -118,7 +119,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.1058823466" green="0.1019607931" blue="0.098039209840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <color key="backgroundColor" name="TableBackground"/>
                 <constraints>
                     <constraint firstItem="0yb-BG-Vlp" firstAttribute="top" secondItem="qc8-0Y-xdK" secondAttribute="bottom" constant="10" id="3gd-D7-EJV"/>
                     <constraint firstItem="CEh-JV-ggy" firstAttribute="leading" secondItem="0yb-BG-Vlp" secondAttribute="trailing" constant="55" id="3l4-18-Vg8"/>
@@ -126,7 +127,7 @@
                     <constraint firstItem="crU-Hb-K0v" firstAttribute="top" secondItem="CEh-JV-ggy" secondAttribute="bottom" constant="11" id="5Gs-fJ-mgC"/>
                     <constraint firstItem="nal-z3-g3d" firstAttribute="top" secondItem="0yb-BG-Vlp" secondAttribute="bottom" constant="10" id="6Et-sd-gA2"/>
                     <constraint firstItem="e9H-Ri-BN7" firstAttribute="top" secondItem="CEh-JV-ggy" secondAttribute="bottom" constant="11" id="6t4-bm-bY5"/>
-                    <constraint firstItem="uLc-A5-dFd" firstAttribute="leading" secondItem="qc8-0Y-xdK" secondAttribute="trailing" constant="32" id="FX4-ju-XVt"/>
+                    <constraint firstItem="uLc-A5-dFd" firstAttribute="leading" secondItem="qc8-0Y-xdK" secondAttribute="trailing" constant="29" id="FX4-ju-XVt"/>
                     <constraint firstItem="e9H-Ri-BN7" firstAttribute="leading" secondItem="nal-z3-g3d" secondAttribute="trailing" constant="50" id="Hwz-BF-ixe"/>
                     <constraint firstItem="crU-Hb-K0v" firstAttribute="leading" secondItem="e9H-Ri-BN7" secondAttribute="trailing" constant="32" id="PIf-Of-cJE"/>
                     <constraint firstItem="uLc-A5-dFd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="RkX-jG-T76"/>
@@ -159,4 +160,15 @@
             <point key="canvasLocation" x="175.57251908396947" y="40.140845070422536"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="Label">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TableBackground">
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TableHighlight">
+            <color red="0.81999993324279785" green="0.81999993324279785" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
