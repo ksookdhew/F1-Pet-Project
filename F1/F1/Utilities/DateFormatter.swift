@@ -16,6 +16,7 @@ extension DateFormatter {
         let dateComps = Calendar.current.dateComponents([.year, .month, .day], from: date)
         return dateComps
     }
+
     func customLocalTimeFormatter(time: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss'Z'"
@@ -31,5 +32,4 @@ extension DateFormatter {
 
         return localTimeString
     }
-
 }
