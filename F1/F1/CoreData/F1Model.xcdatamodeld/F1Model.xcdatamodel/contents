@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="CoreDataAverageSpeed" representedClassName=".CoreDataAverageSpeed" syncable="YES" codeGenerationType="class">
         <attribute name="speed" optional="YES" attributeType="String"/>
         <attribute name="units" optional="YES" attributeType="String"/>
@@ -165,7 +165,7 @@
     </entity>
     <entity name="CoreDataResultsTable" representedClassName="CoreDataResultsTable" syncable="YES" codeGenerationType="class">
         <attribute name="season" optional="YES" attributeType="String"/>
-        <relationship name="races" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CoreDataRace"/>
+        <relationship name="races" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataRace"/>
     </entity>
     <entity name="CoreDataResultTime" representedClassName="CoreDataResultTime" syncable="YES" codeGenerationType="class">
         <attribute name="millis" optional="YES" attributeType="String"/>
