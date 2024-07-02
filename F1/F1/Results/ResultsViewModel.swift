@@ -36,7 +36,7 @@ class ResultsViewModel {
     // MARK: Functions
     func allResult(atIndex: Int) -> Race? {
         sortRaceByPosition(atIndex: atIndex)
-        return allResults?[atIndex] ?? nil
+        return allResults?[atIndex]
     }
 
     func allResultDate(result: Race?) -> DateComponents {
@@ -50,7 +50,7 @@ class ResultsViewModel {
     }
 
     func raceResult(atIndex: Int) -> RaceResult? {
-        raceResult?[atIndex] ?? nil
+        raceResult?[atIndex]
     }
 
     func laptime(index: Int) -> String {
@@ -58,12 +58,10 @@ class ResultsViewModel {
             if let status = raceResult?[index].status {
                 if !status.contains("Lap") {
                     return "DNF"
-                } else {
-                    return status
                 }
-            } else {
-                return "No Time"
+                return status
             }
+            return "No Time"
         }
         return resultTime.time
     }

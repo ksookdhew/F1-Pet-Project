@@ -12,8 +12,8 @@ class RaceViewModel {
     // MARK: Variables
     private weak var delegate: ViewModelDelegate?
     private(set) var allRaces: [RaceInfo] = []
-    private(set) var upcomingRaces: [RaceInfo]  = []
-    private(set) var pastRaces: [RaceInfo]  = []
+    private(set) var upcomingRaces: [RaceInfo] = []
+    private(set) var pastRaces: [RaceInfo] = []
     private(set) var sortedRaceSession: [RaceSessionDetail] = []
     private var repository: RaceRepositoryType?
     private var race: RaceInfo?
@@ -63,17 +63,15 @@ class RaceViewModel {
     func countRaces(upcoming: Bool) -> Int {
         if upcoming {
             return upcomingRaces.count
-        } else {
-            return pastRaces.count
         }
+        return pastRaces.count
     }
 
     func race(atIndex: Int, upcoming: Bool) -> RaceInfo {
         if upcoming {
             return upcomingRaces[atIndex]
-        } else {
-            return pastRaces[atIndex]
         }
+        return pastRaces[atIndex]
     }
 
     func imageName(circuitCode: String?) -> String {
@@ -98,18 +96,18 @@ class RaceViewModel {
     }
 
     func fetchRace() {
-            repository?.fetchRaceResults { [weak self] result in
-                switch result {
-                case .success(let races):
-                    self?.allRaces = races.race.raceTable.races
-                    self?.sortRacesByRound()
-                    self?.setRaces()
-                    self?.delegate?.reloadView()
-                case .failure(let error):
-                    self?.delegate?.show(error: error.rawValue)
-                }
+        repository?.fetchRaceResults { [weak self] result in
+            switch result {
+            case .success(let races):
+                self?.allRaces = races.race.raceTable.races
+                self?.sortRacesByRound()
+                self?.setRaces()
+                self?.delegate?.reloadView()
+            case .failure(let error):
+                self?.delegate?.show(error: error.rawValue)
             }
         }
+    }
 
     // MARK: Helper Functions
     private func addSession(date: String?, time: String?, type: SessionType) {
@@ -146,11 +144,12 @@ class RaceViewModel {
             let mid = (min + max) / 2
             let raceDateComps = DateFormatter().customDateFormatter(date: allRaces[mid].date)
             let calendar = Calendar.current
-            let raceDate = calendar.date(from: raceDateComps)
+            let raceDate = calendar.date(from: raceDateComps) ?? Date()
 
             if raceDate == date {
                 return mid
-            } else if raceDate! < date {
+            }
+            if raceDate < date {
                 min = mid + 1
             } else {
                 max = mid - 1

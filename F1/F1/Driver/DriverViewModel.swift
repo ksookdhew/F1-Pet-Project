@@ -63,7 +63,7 @@ class DriverViewModel {
     }
 
     func result(atIndex: Int) -> Race? {
-        driverResults?[atIndex] ?? nil
+        driverResults?[atIndex]
     }
 
     func laptime(index: Int) -> String {
@@ -71,12 +71,10 @@ class DriverViewModel {
             if let status = driverResults?[index].results.first?.status {
                 if !status.contains("Lap") {
                     return "DNF"
-                } else {
-                    return status
                 }
-            } else {
-                return "No Time"
+                return status
             }
+            return "No Time"
         }
         return resultTime.time
     }
