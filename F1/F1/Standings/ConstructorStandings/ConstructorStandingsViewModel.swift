@@ -24,7 +24,7 @@ class ConstructorStandingsViewModel {
 
     // MARK: Functions
     func constructor(atIndex: Int) -> ConstructorStanding? {
-        constructorStanding?[atIndex] ?? nil
+        constructorStanding?[atIndex]
     }
 
     func drivers(driversList: [Driver?]) -> String {
@@ -64,6 +64,6 @@ class ConstructorStandingsViewModel {
     }
 
     private func sortConstructorStandings() {
-        constructorStanding =  constructorStanding?.sorted { Int($0.position) ?? 0 < Int($1.position) ?? 0 }
+        constructorStanding = constructorStanding?.sorted { Int($0.position) ?? 0 < Int($1.position) ?? 0 }
     }
 }

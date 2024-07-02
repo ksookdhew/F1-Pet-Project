@@ -26,7 +26,7 @@ class DriverStandingsViewModel {
 
     // MARK: Functions
     func driver(atIndex: Int) -> DriverStanding? {
-        driverStanding?[atIndex] ?? nil
+        driverStanding?[atIndex]
     }
 
     func setConstructors() {

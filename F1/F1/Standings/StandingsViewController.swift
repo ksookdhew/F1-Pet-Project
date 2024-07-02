@@ -40,7 +40,8 @@ class StandingsViewController: LoadingIndicatorViewController {
                            forCellReuseIdentifier: Identifiers.driverStandingTableViewCell)
     }
 
-    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+    @objc
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
         fetchData()
         refreshControl.endRefreshing()
     }

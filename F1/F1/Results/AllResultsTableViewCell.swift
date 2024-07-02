@@ -23,9 +23,9 @@ class AllResultsTableViewCell: UITableViewCell {
     func populateWith(race: Race, raceDate: DateComponents) {
         raceCountry.text = race.circuit.location.country
         raceName.text = "\(race.raceName) 2024"
-        round.text="Round \(race.round)"
+        round.text = "Round \(race.round)"
         day.text = "\(raceDate.day ?? 0)"
-        month.text = "\(Constants.monthAbbreviations[(raceDate.month ?? 1)-1])"
+        month.text = "\(Constants.monthAbbreviations[(raceDate.month ?? 1) - 1])"
         if race.results.count > 2 {
             firstDriver.text = "\(race.results[0].driver.code)"
             secondDriver.text = "\(race.results[1].driver.code)"
@@ -34,6 +34,6 @@ class AllResultsTableViewCell: UITableViewCell {
     }
 
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.allResultsTableViewCell, bundle: nil)
+        UINib(nibName: Identifiers.allResultsTableViewCell, bundle: nil)
     }
 }

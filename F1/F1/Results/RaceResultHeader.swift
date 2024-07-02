@@ -10,6 +10,6 @@ import UIKit
 class RaceResultHeader: UITableViewHeaderFooterView {
 
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.raceResultHeader, bundle: nil)
+        UINib(nibName: Identifiers.raceResultHeader, bundle: nil)
     }
 }

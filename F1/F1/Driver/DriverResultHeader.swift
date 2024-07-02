@@ -10,6 +10,6 @@ import UIKit
 class DriverResultHeader: UITableViewHeaderFooterView {
 
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.driverResultsIdentifier, bundle: nil)
+        UINib(nibName: Identifiers.driverResultsIdentifier, bundle: nil)
     }
 }
