@@ -72,7 +72,6 @@ class RaceViewModel {
             return upcomingRaces[atIndex]
         }
         return pastRaces[atIndex]
-
     }
 
     func imageName(circuitCode: String?) -> String {
@@ -145,12 +144,12 @@ class RaceViewModel {
             let mid = (min + max) / 2
             let raceDateComps = DateFormatter().customDateFormatter(date: allRaces[mid].date)
             let calendar = Calendar.current
-            let raceDate = calendar.date(from: raceDateComps)
+            let raceDate = calendar.date(from: raceDateComps) ?? Date()
 
             if raceDate == date {
                 return mid
             }
-            if raceDate! < date {
+            if raceDate < date {
                 min = mid + 1
             } else {
                 max = mid - 1
