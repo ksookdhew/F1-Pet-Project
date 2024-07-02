@@ -17,11 +17,11 @@ class RacingCollectionViewCell: UICollectionViewCell {
     // MARK: Functions
     func populateWith(raceName: String, track: String, raceDate: DateComponents) {
         self.raceName.text = raceName
-        self.raceDate.text = "\(raceDate.day ?? 0) \(Constants.monthAbbreviations[(raceDate.month ?? 1)-1])"
+        self.raceDate.text = "\(raceDate.day ?? 0) \(Constants.monthAbbreviations[(raceDate.month ?? 1) - 1])"
         circuitImage.image = UIImage(named: track)
     }
 
     static func nib() -> UINib {
-        return UINib(nibName: Identifiers.racingIdentifier, bundle: nil)
+        UINib(nibName: Identifiers.racingIdentifier, bundle: nil)
     }
 }

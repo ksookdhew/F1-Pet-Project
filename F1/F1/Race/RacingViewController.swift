@@ -23,7 +23,7 @@ class RacingViewController: LoadingIndicatorViewController {
         setUpCollectionView()
     }
     @IBAction func segmentedControlChanged(_ sender: Any) {
-        upcoming = !upcoming
+        upcoming.toggle()
         reloadView()
     }
 
@@ -51,7 +51,9 @@ extension RacingViewController: UICollectionViewDataSource, UICollectionViewDele
         viewModel.countRaces(upcoming: upcoming)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, 
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 86, height: 98)
     }
 
@@ -61,8 +63,9 @@ extension RacingViewController: UICollectionViewDataSource, UICollectionViewDele
             return UICollectionViewCell()
         }
         let race = viewModel.race(atIndex: indexPath.item, upcoming: upcoming)
-        cell.populateWith(raceName: race.circuit.location.locality, track: viewModel.imageName(circuitCode: race.circuit.circuitID),
-        raceDate: viewModel.sessionDate(date: race.date))
+        cell.populateWith(raceName: race.circuit.location.locality, 
+                          track: viewModel.imageName(circuitCode: race.circuit.circuitID),
+                          raceDate: viewModel.sessionDate(date: race.date))
         return cell
     }
 

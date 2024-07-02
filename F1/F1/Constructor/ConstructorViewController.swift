@@ -37,7 +37,7 @@ class ConstructorViewController: LoadingIndicatorViewController {
     }
 
     private func setupView() {
-        viewModel.setConstructor(constructor: constructor ?? nil)
+        viewModel.setConstructor(constructor: constructor)
         tableView.isHidden = true
     }
 }
@@ -99,7 +99,8 @@ extension ConstructorViewController: UITableViewDelegate, UITableViewDataSource 
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView
-            .dequeueReusableHeaderFooterView(withIdentifier: Identifiers.constructorResultsIdentifier) as? ConstructorResultHeader else { return UITableViewHeaderFooterView()
+            .dequeueReusableHeaderFooterView(withIdentifier: Identifiers.constructorResultsIdentifier) as?
+                ConstructorResultHeader else { return UITableViewHeaderFooterView()
         }
         return headerView
     }

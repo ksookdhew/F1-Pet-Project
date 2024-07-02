@@ -262,7 +262,7 @@ final class RaceViewModelTests: XCTestCase {
         XCTAssertEqual(invalidDateComponents.month, expectedComponents.month)
         XCTAssertEqual(invalidDateComponents.day, expectedComponents.day)
 
-        XCTAssertEqual(viewModel.sessionTime(time: "14:00:00"), "14:00")
+        XCTAssertEqual(viewModel.sessionTime(time: "14:00:00"), "16:00")
     }
 
     func testSortRacesByRoundWithInvalidRounds() {

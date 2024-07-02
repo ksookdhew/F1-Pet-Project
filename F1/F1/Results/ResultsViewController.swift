@@ -30,7 +30,8 @@ class ResultsViewController: LoadingIndicatorViewController {
         self.allResultsTableView.addSubview(self.refreshControl)
     }
 
-    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+    @objc 
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
         fetchData()
         refreshControl.endRefreshing()
     }
