@@ -36,7 +36,7 @@ struct Endpoints {
     static let driver = "https://ergast.com/api/f1/current/drivers/"
     static let driverStanding = "https://ergast.com/api/f1/current/driverStandings.JSON"
     static let constructorStanding = "https:ergast.com/api/f1/current/constructorStandings.JSON"
-    static let racingResults = "https://ergast.com/api/f1/current/results.JSON?limit=200"
+    static let racingResults = "https://ergast.com/api/f1/current/results.JSON?limit=450"
     static let roundResult = "https://ergast.com/api/f1/current/"
 }
 

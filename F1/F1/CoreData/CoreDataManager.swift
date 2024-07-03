@@ -67,7 +67,7 @@ extension CoreDataManager {
         let raceTable = resultsDescriptor.raceTable
 
         for race in raceTable.races {
-            let race = saveRaceWithResults(race)
+            _ = saveRaceWithResults(race)
         }
         saveData()
     }
